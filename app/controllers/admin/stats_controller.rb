@@ -92,26 +92,26 @@ module Admin
     
     def google_stats
       # Stats that require webservice calls.. Slower and therefore meant to be ajaxed in..
-      start_date, end_date = Stats::get_date_range_from_strings(:start_date => params[:start_date], :end_date => params[:end_date])
+      #start_date, end_date = Stats::get_date_range_from_strings(:start_date => params[:start_date], :end_date => params[:end_date])
       
-      profile = Rugalytics.default_profile
-      pageviews = profile.pageviews :from => start_date.to_date.to_s, :to => end_date.to_date.to_s
-      visits = profile.visits :from => start_date.to_date.to_s, :to => end_date.to_date.to_s   
+      #profile = Rugalytics.default_profile
+      #pageviews = profile.pageviews :from => start_date.to_date.to_s, :to => end_date.to_date.to_s
+      #visits = profile.visits :from => start_date.to_date.to_s, :to => end_date.to_date.to_s   
       
       # Data for the product links. Requires google analytics info for views
-      report = profile.top_content_detail_report(:url => "/sale_spot", :from => start_date.to_date.to_s, :to => end_date.to_date.to_s)
-      sale_spot_views = report.pageviews_total
+      #report = profile.top_content_detail_report(:url => "/sale_spot", :from => start_date.to_date.to_s, :to => end_date.to_date.to_s)
+      #sale_spot_views = report.pageviews_total
       
-      si = StatInfo.new("product_links", 
-        "Product links",
-        :views => sale_spot_views.to_i,
-        :clicks => Click.click_count(:product_link, start_date, end_date),
-        :revenue => Sale.get_click_commissions(:product_link, start_date, end_date)
-      )
+      #si = StatInfo.new("product_links", 
+      #  "Product links",
+      #  :views => sale_spot_views.to_i,
+      #  :clicks => Click.click_count(:product_link, start_date, end_date),
+      #  :revenue => Sale.get_click_commissions(:product_link, start_date, end_date)
+      #)
                
-      render :json => {:pageviews => pageviews, :visits => visits, 
-        :ss_views => sale_spot_views, :ss_clicks => si.clicks, :ss_revenue => si.revenue_formatted, 
-        :ss_rate => si.rate_formatted, :ss_rpc => si.ecpc_formatted}        
+      #render :json => {:pageviews => pageviews, :visits => visits, 
+      #  :ss_views => sale_spot_views, :ss_clicks => si.clicks, :ss_revenue => si.revenue_formatted, 
+      #  :ss_rate => si.rate_formatted, :ss_rpc => si.ecpc_formatted}        
     end
         
     def monthly_users

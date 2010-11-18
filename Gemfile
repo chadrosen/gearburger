@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.3'
 gem "contacts", "1.2.3"
-gem "rugalytics", "0.2.0"
+#gem "rugalytics", "0.2.0"
 gem "gdata", "1.1.1"
 gem "gattica", "0.4.3"
 gem "json", "1.4.3"
