@@ -16,8 +16,6 @@ class UsersController < ApplicationController
   before_filter :tracking_params, :only => [:new, :signup]
                     
   def new    
-    @title = "#{@title}. Get started"
-    @meta_desc = "Get started on Gear Burger by creating your account. Select brands and categories you're interested in and we'll notify you when we find a match."
     @products = Product.get_products_by_params(:per_page => 3, :min_price => 37.0, :valid_sale => true)    
   end
   
@@ -53,9 +51,6 @@ class UsersController < ApplicationController
   end
   
   def signup    
-    @title = "#{@title}. Select categories"
-    @meta_desc = "Select the categories of gear that you're most interested in. We'll use these categories when notifying you of a match."
-                                
     # do this so the time select stuff works correctly
     @email = "Enter Your Email Address"
     @selected_d = []
@@ -227,12 +222,7 @@ class UsersController < ApplicationController
      User.find(current_user.id).toggle!("send_newsletter")
      render :json => {:result => "success"}
   end
-  
-  def lost_password
-    @title = "#{@title}. Lost password."
-    @meta_desc = "Did you lose your password? The page allows you to email yourself a new password."
-  end
-  
+    
   def lost_password_submit
     flash[:error] = "Email address is required" and redirect_to(lost_password_url) if params[:email].empty?
 

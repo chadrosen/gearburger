@@ -46,11 +46,8 @@ class ApplicationController < ActionController::Base
 
   def set_layout_data
     # Set a common set of data that may be used in every template
-    @title = "Gear Burger - Custom gear alerts to your inbox."
-    @meta_desc = "Gear Burger - Custom gear alerts to your inbox."
-    @meta_keywords = "gear, extreme sports"
     @errors = []
-        
+            
     # Count the total number of deals seen today
     @deals_today_count = 0
   end
