@@ -227,7 +227,7 @@ class User < ActiveRecord::Base
     
   def has_email_pref(edp)
     # TODO: This may not be the best way to do this...
-    r = self.email_day_preferences.select { |d| d.day_of_week == edp.downcase.to_sym }
+    r = self.email_day_preferences.select { |d| d.day_of_week == edp }
     return r.length > 0
   end
   
