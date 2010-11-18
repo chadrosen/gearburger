@@ -47,6 +47,5 @@ module Gearburger
     
     # Raise errors on mail delivery
     config.action_mailer.raise_delivery_errors = true
-
   end
 end

@@ -111,22 +111,18 @@ class Product < ActiveRecord::Base
     return self.small_image_url 
   end
   
-  def to_json
-    
-    require 'json/pure'
-    
-    return {
+  def as_json(options={})  
+    {
       "product_name" => self.product_name,
 		  "category_id" => self.category ? self.category.id : 0,
-		  "sale_price" => self.sale_price,
-		  "retail_price" => self.retail_price,
+		  "sale_price" => self.sale_price.to_f,
+		  "retail_price" => self.retail_price.to_f,
 		  "buy_url" => self.buy_url,
 		  "small_image_url" => self.get_small_image_url(),
 		  "price_changed_at" =>  self.price_changed_at.to_i,
-		  "discount" => self.discount,
+		  "discount" => ("%0.2f" % self.discount).to_f, # Ghetto?
 		  "department_id" => self.department ? self.department.id : 0
-	  }.to_json
-    
+	  }
   end
 
   

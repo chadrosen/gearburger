@@ -308,12 +308,11 @@ class UsersController < ApplicationController
   end
               
   def gear_bin
-    require 'json/pure'
     @page = params[:page] ? params[:page].to_i : 1
     
     params[:valid_sale] = true
     
-    @products = Product.get_products_by_params(params).to_json
+    @products = ActiveSupport::JSON.encode(Product.get_products_by_params(params).as_json)
     @uc = current_user.categories.collect { |c| c.id }    
     @categories = Category.find_all_by_active(true, :order => "name ASC")
     @depts = Department.find_all_by_active(true, :order => "name ASC")
@@ -407,11 +406,6 @@ class UsersController < ApplicationController
     return redirect(root_url) unless User::BreakOptions.include?(params[:break_end])
     current_user.take_a_break!(Time.zone.now, params[:break_end]) 
     redirect_to(root_url)
-  end
-
-  # Some deprecated urls  
-  def sale_spot
-    redirect_to(gear_bin_url)
   end
         
 protected

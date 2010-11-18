@@ -80,6 +80,6 @@
 <% content_for(:body_scripts) do %>
 	<script type="text/javascript">
 		var page = <%= @page %>;
-		var products = <%= @products %>;
+		var products = <%= raw(@products) %>;
 	</script>
 <% end %>
