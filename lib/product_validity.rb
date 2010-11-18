@@ -5,7 +5,7 @@ module ProductValidity
     attr_accessor :stats
     
     def initialize(options = {})
-      @log = Log4r::Logger['product_verification']
+      @log = Rails.logger
       @stats = reset_stats
     end
     

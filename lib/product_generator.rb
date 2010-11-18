@@ -46,13 +46,9 @@ module AlertGenerator
     
     def initialize(feed, options = {})
       
-      @log = Log4r::Logger['product_generator']
+      @log = Rails.logger
       @log.info("Start product generator")
-      
-      # Turn off stdout and sterr. Makes it helllla fast
-      Log4r::Outputter['stderr'].level = Log4r::OFF  
-      Log4r::Outputter['standardlog'].level = Log4r::OFF
-      
+            
       # Limit the amount of products to process. For debugging
       @limit = options[:limit]      
       
@@ -228,7 +224,7 @@ module AlertGenerator
             
     def initialize(options = {})
               
-      @log = Log4r::Logger['product_generator']
+      @log = Rails.logger
       @log.info("Start product generator")
               
       # Cache departments              

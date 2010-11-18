@@ -2,14 +2,12 @@ source 'http://rubygems.org'
 
 # gem "rugalytics", "0.2.0"
 
-
 gem "twitter", "0.9.7"
 gem 'rails', '3.0.3'
 gem "contacts", "1.2.3"
 gem "gdata", "1.1.1"
 gem "gattica", "0.4.3"
 gem "json", "1.4.3"
-gem "log4r", "1.1.9"
 gem "fastercsv", "1.5.3"
 gem 'gchart', "1.0.0"
 gem 'aasm', "2.2.0"
