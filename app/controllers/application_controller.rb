@@ -50,10 +50,7 @@ class ApplicationController < ActionController::Base
     @meta_desc = "Gear Burger - Custom gear alerts to your inbox."
     @meta_keywords = "gear, extreme sports"
     @errors = []
-    
-    # Are there active contets
-    @active_contest_count = Contest.count(:conditions => {:active => true})    
-    
+        
     # Count the total number of deals seen today
     @deals_today_count = 0
   end

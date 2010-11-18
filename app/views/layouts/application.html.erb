@@ -26,7 +26,6 @@
 		<%= stylesheet_link_tag "global" %>
 		<%= stylesheet_link_tag "application" %>
 		<%= stylesheet_link_tag "users" %>
-		<%= stylesheet_link_tag "contests" %>
 						
 		<%= yield(:head) %>
 		
@@ -65,7 +64,6 @@
 					</div>
 					<div id="right_nav">
 						<div id="nav" class="nav_section nav_button">
-							<% if @active_contest_count > 0 %><%= link_to "Contest", contests_url %><% end %>
 							<% if logged_in? %>
 								<%= link_to "Sign out", logout_url, :id => "logout_button" %>
 							<% else %>

@@ -1,5 +1,4 @@
 require 'email_veracity'
-require 'user_identity'
 require 'product_feed_matcher'
 
 class UsersController < ApplicationController
