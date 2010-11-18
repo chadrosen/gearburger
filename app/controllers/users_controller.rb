@@ -224,7 +224,11 @@ class UsersController < ApplicationController
   end
     
   def lost_password_submit
-    flash[:error] = "Email address is required" and redirect_to(lost_password_url) if params[:email].empty?
+    
+    if params[:email].empty?
+      flash[:error] = "Email address is required"
+      return redirect_to(lost_password_url) 
+    end
 
     user = User.find_by_email(params[:email])
     UserMailer.lost_password(user, user.reset_password!).deliver if user 
