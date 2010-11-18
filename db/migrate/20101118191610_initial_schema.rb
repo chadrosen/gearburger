@@ -286,7 +286,7 @@ class InitialSchema < ActiveRecord::Migration
       t.datetime "deleted_at"
       t.boolean  "send_newsletter",                                                                                            :default => true
       t.string   "time_zone",                                                                                                  :default => "Pacific Time (US & Canada)"
-      t.text     "deactivation_reason",                                                                                                                                  :null => false
+      t.text     "deactivation_reason",                                                                                                                                  :null => true
       t.integer  "referral_id"
       t.string   "ip_address"
       t.string   "user_agent"
