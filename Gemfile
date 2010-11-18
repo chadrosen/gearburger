@@ -1,15 +1,15 @@
 source 'http://rubygems.org'
 
+# gem "rugalytics", "0.2.0"
+# gem "twitter", "0.9.7"
+
 gem 'rails', '3.0.3'
 gem "contacts", "1.2.3"
-#gem "rugalytics", "0.2.0"
 gem "gdata", "1.1.1"
 gem "gattica", "0.4.3"
 gem "json", "1.4.3"
 gem "log4r", "1.1.9"
-gem "twitter", "0.9.7"
 gem "fastercsv", "1.5.3"
-gem "mysql", "2.8.1"
 gem 'gchart', "1.0.0"
 gem 'aasm', "2.2.0"
 gem 'text', "0.2.0"
@@ -18,11 +18,11 @@ gem "email_veracity", "0.6.0"
 # See http://rubydoc.info/gems/abingo_port/0.1.0/frames
 gem 'abingo', :git => "git://github.com/wildfalcon/abingo.git", :branch => "rails3"
 
-# Deploy with Capistrano
-gem 'capistrano', "2.5.19"
-
 # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
-gem 'ruby-debug', "0.10.4"
+group :development do 
+	gem 'ruby-debug', "0.10.4"
+	gem "mysql", "2.8.1"
+end
 # gem 'ruby-debug19'
 
 # Bundle edge Rails instead:
