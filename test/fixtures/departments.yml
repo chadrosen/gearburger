@@ -1,27 +1,27 @@
 mens:
     name: Men's Gear
     value: men
-    active: 1
+    active: true
     created_at: 2009-05-26 04:19:14
     updated_at: 2009-05-26 04:19:14
 
 womens:
     name: Women's Gear
     value: women
-    active: 1
+    active: true
     created_at: 2009-05-26 04:19:14
     updated_at: 2009-05-26 04:19:14
     
 kids:
     name: Kids's Gear
     value: kid
-    active: 1
+    active: true
     created_at: 2009-05-26 04:19:14
     updated_at: 2009-05-26 04:19:14
     
 inactive:
     name: Birds's Gear
     value: Birds
-    active: 0
+    active: false
     created_at: 2009-05-26 04:19:14
     updated_at: 2009-05-26 04:19:14
