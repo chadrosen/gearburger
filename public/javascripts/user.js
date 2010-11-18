@@ -57,14 +57,6 @@ var onload_contests_index = function() {
 			
 			// Set the vote container html and show the user their favorite
 			item.getParent('div.vote_container').getElement("div.user_voted").removeClass("hidden");
-
-			// Attempt to get the flash cookie
-			try {
-				if(!swfobject) return;
-				var fc = swfobject.getObjectById("fc").getCookieValue("fc");
-			} catch(e) { 
-				var fc = null; 
-			}
 						
 			var r = new Request.JSON({url: action, onFailure : vote_failure})
 			r.post({"authenticity_token" : auth_token, "fc" : fc});

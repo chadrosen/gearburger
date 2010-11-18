@@ -4,12 +4,12 @@
 	<head>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />	
 		<%# meta tags for SEO stuff%>
-		<% if @meta_desc %>
-			<meta name="description" content="<%= @meta_desc %>"/>
-		<% end %>
-		<% if @meta_keywords %>
-			<meta name="keywords" content="<%= @meta_keywords %>"/>
-		<% end %>
+		<%- if @meta_desc -%>
+		<meta name="description" content="<%= @meta_desc %>"/>
+		<%- end -%>
+		<%- if @meta_keywords -%>
+		<meta name="keywords" content="<%= @meta_keywords %>"/>
+		<%- end -%>
 		
 		<title><%= @title %></title>
 
@@ -17,11 +17,10 @@
 		<%= javascript_include_tag "mootools-1.2.4.4-more" %>
 		<%= javascript_include_tag "overlay" %>
 		<%= javascript_include_tag "modal" %>
-		<%= javascript_include_tag "swfobject" %>
 		<%= javascript_include_tag "global" %>
 		<%= javascript_include_tag "application" %>
 		<%= javascript_include_tag "user" %>	
-		
+
 		<%= stylesheet_link_tag "reset-min" %>
 		<%= stylesheet_link_tag "global" %>
 		<%= stylesheet_link_tag "application" %>
@@ -30,14 +29,11 @@
 		<%= yield(:head) %>
 		
 		<script type="text/javascript" charset="utf-8">
-
-			var logged_in = false;
-			<% if current_user %>logged_in = true;<% end %>
-		
-			try {
-				// Attempt to create swfobject
-				if(swfobject) swfobject.registerObject("fc", "9.0.0");
-			} catch(e) {}
+			<%= if current_user %>
+				var logged_in = true;
+			<% else %>
+			 	var logged_in = false;
+			<% end %>
 		</script>
 						
 		<link rel="icon" type="image/gif" href="/images/favicon.ico" />
@@ -99,16 +95,7 @@
 			<div id="content"><%= yield %></div>
 			<div id="push">&nbsp;</div>
 			
-			
-			<object id="fc" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" 
-				class="dynamic_flash_content">
-			  <param name="movie" value="/swfs/Cookie.swf" />
-			  <!--[if !IE]>-->
-			  <object type="application/x-shockwave-flash" data="/swfs/Cookie.swf" 
-				class="dynamic_flash_content"></object>
-			  <!--<![endif]-->
-			</object>		
-			
+						
 		</div>
 					
 		<div id="footer">

@@ -1,16 +1,5 @@
 /* These functions are called on every page */
 var common_functions = function() {
-
-	// Attempt to set flash cookie
-	try {
-		if(!swfobject) return;
-		var bfc = Cookie.read("abingo");
-		var swo = swfobject.getObjectById("fc");
-		var fc = swo.getCookieValue("fc");
-		
-		// If there is a cab cookie and no existing flash cookie.. set the flash cookie
-		if(bfc && !fc) swo.setCookieValue("fc", bfc);
-	} catch(e) {}	
 	
 	// Login button overlay...
 	if($('login_button')) {
