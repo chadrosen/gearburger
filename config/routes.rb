@@ -61,7 +61,6 @@ Gearburger::Application.routes.draw do
   controller "misc" do
     match :about
     match :faq
-    match :sitemap
     match :invite_terms
     match :privacy
   end

@@ -1,9 +1,4 @@
 class MiscController < ApplicationController
-                                
-  def sitemap
-    @title = "#{@title}. Gear Burger sitemap"
-    @meta_desc = "The Gear Burger site map. Use this page to help find your way around the Gear Burger website."
-  end
                  
   def faq
     @title = "#{@title}. Gear Burger FAQ"
