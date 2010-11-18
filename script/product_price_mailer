@@ -1,0 +1,70 @@
+#!/usr/bin/env ruby
+require 'optparse'
+require 'yaml'
+require 'erb'
+
+def parse_command_line
+  # parse the command line args into a hash of options
+  script_name = File.basename($0)
+  options = {}
+      
+  ARGV.options do |o|
+    o.banner = "Usage: #{script_name} [options]"
+    o.define_head "Controls product generator process." 
+           
+    # Default
+    options[:send_update] = false
+        
+    # TODO: add a -i for info on which workers are running  
+    o.on("-l", "--limit limit", Integer, "Max amount of records to load") { |v| options[:limit] = v }
+    o.on("-e", "--env RAILS_ENV", String, "Rails environment") {|v| options[:env] = v }
+    o.on("-d", "--dry_run dry_run", String, "Dry Run") { |v| options[:dry_run] = v }
+    o.on("-t", "--type type", String, "Run Type (create or deliver)") { |v| options[:type] = v }
+    o.on("-u", "--send_update", "Send update email") { |v| options[:send_update] = true }
+    o.on("-s", "--batch_size batch_size", Integer, "Put emails in batches of this size") { |v| options[:batch_size] = v }
+    o.on("-w", "--batch_wait batch_wait", Integer, "Wait this long after a batches is sent") { |v| options[:batch_wait] = v }    
+    o.on_tail("-h", "--help", "Show this help message.") { puts o; exit }
+    o.parse!
+  end
+  
+  return options  
+end
+
+def main
+  # process command line args
+  options = parse_command_line
+  
+  # load the rails environment
+  env = options[:env]
+  ENV['RAILS_ENV'] = env if env
+    
+  options[:dry_run] = options[:dry_run] ? true : false
+    
+  require File.dirname(__FILE__) + '/../config/environment'
+
+  require 'product_feed_matcher'
+  pm = AlertGenerator::ProductFeedMatcher.new(options)  
+  
+  created = 0
+  sent = 0
+  errors = []
+  
+  if options[:type] == "create"
+    # Create emails on disk
+    created = pm.create_emails
+  elsif options[:type] == "deliver"
+    # Deliver any emails on disk
+    results = pm.deliver_in_batches  
+    sent = results[:sent]
+    errors = results[:errors]
+  else
+    # Create and deliver emails straight up
+    sent = pm.generate_emails
+  end
+    
+  ProductNotificationMailer.deliver_product_email_results(sent, created, errors) if options[:send_update]
+end
+
+if $0 == __FILE__
+  main
+end

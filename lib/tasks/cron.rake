@@ -5,6 +5,7 @@ task :cron => :environment do
 
   if Time.now.hour == 0 # run at midnight
     Rails.logger.info "Run midnight crons"
+    
   end
 
 

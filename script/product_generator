@@ -1,0 +1,112 @@
+#!/usr/bin/env ruby
+require 'optparse'
+require 'yaml'
+require 'erb'
+
+def parse_command_line
+  # parse the command line args into a hash of options
+  script_name = File.basename($0)
+  options = {}
+      
+  ARGV.options do |o|
+    o.banner = "Usage: #{script_name} [options]"
+    o.define_head "Controls product generator process." 
+           
+    options[:run_type] = :all
+    options[:all] = false
+        
+    # TODO: add a -i for info on which workers are running  
+    o.on("-f", "--feed_file feed_file", String, "Feed file location to process") { |v| options[:feed_filename] = v }
+    o.on("-a", "--all", "Pull the entire feed (warning could be very slow)") { |v| options[:all] = v }
+    o.on("-s", "--start_date start_date", String, "Pull feed data starting from (yyyy-mm-dd HH:ii:ss)") { |v| options[:start_date] = v }
+    o.on("-t", "--run_type [TYPE]", [:download, :parse], "run the script (download, parse)") { |v| options[:run_type] = v}
+    o.on("-l", "--limit limit", Integer, "Max amount of records to load") { |v| options[:limit] = v }
+    o.on("-e", "--env RAILS_ENV", String, "Rails environment") {|v| options[:env] = v }
+    o.on("-o", "--level level", Integer, "Manually set Log level (1 == debug)") { |v| options[:level] = v }
+    o.on("-n", "--feed_name feed_name", String, "Specify a single feed") { |v| options[:feed_name] = v }
+    o.on_tail("-h", "--help", "Show this help message.") { puts o; exit }
+    o.parse!
+  end
+  
+  return options  
+end
+
+def main
+  # process command line args
+  options = parse_command_line
+  
+  # load the rails environment
+  env = options[:env]
+  ENV['RAILS_ENV'] = env if env
+    
+  require File.dirname(__FILE__) + '/../config/environment'
+  require 'product_generator'
+        
+  # The directory to store feeds  
+  Dir.mkdir(OPTIONS[:full_feed_location], 0777) unless File.exists?(OPTIONS[:full_feed_location])  
+  throw Exception.new("#{feed_location}: is not a valid directory") unless File.directory?(OPTIONS[:full_feed_location])
+  
+  # If we specify a feed file always use parse
+  run_type = options[:feed_filename] ? :parse : options[:run_type]
+  
+  # If a specific feed is specified use it, otherwise use every active feed
+  feeds = []
+  if options[:feed_name]
+    name = options[:feed_name].strip.downcase
+    f = Feed.find_by_name(name)
+    throw Exception.new("Invalid feed name") unless f
+    feeds << f
+  else
+    feeds = Feed.find_all_by_active(true)
+  end
+    
+  if run_type == :all
+    # Download and parse every feed in the list
+    
+    stats = []
+    
+    feeds.each do |f|
+            
+      begin      
+          # Download the gzip feed file from avantlink
+          pg = AlertGenerator::AvantlinkFeedParser.new(f, options)
+          r = pg.download_feed(OPTIONS[:full_feed_location], options)
+          pg.process_product_feed(r) # Process the feed
+          stats << pg.stats
+      rescue Exception => e
+          # If there is an exception log it and email us
+          ProductNotificationMailer.deliver_product_generator_error(f, e)
+      end
+    end
+    
+    # Update gearburger peeps with the results...
+    ProductNotificationMailer.deliver_product_generator_results(stats)
+      
+  elsif run_type == :download
+    # Only download the feed files
+    
+    feeds.each do |f|
+      pg = AlertGenerator::AvantlinkFeedParser.new(f, options)
+      pg.download_feed(OPTIONS[:full_feed_location], options)
+    end
+  
+  elsif run_type == :parse
+    # Only parse a specified feed file
+    
+    throw Exception.new("You must specify a filename using -f if run type is parse") unless options[:feed_filename]
+
+    # Get the feed source id from the file
+    feed_file = options[:feed_filename]
+    short_name = feed_file.split("/")[-1]
+    feed_id = short_name ? short_name.split("-")[0] : "error generating name"
+    f = Feed.find(feed_id)  
+
+    pg = AlertGenerator::AvantlinkFeedParser.new(f, options)
+    pg.process_product_feed(options[:feed_filename])
+  end
+                                
+end
+
+if $0 == __FILE__
+  main
+end
