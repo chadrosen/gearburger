@@ -1,8 +1,9 @@
 source 'http://rubygems.org'
 
 # gem "rugalytics", "0.2.0"
-# gem "twitter", "0.9.7"
 
+
+gem "twitter", "0.9.7"
 gem 'rails', '3.0.3'
 gem "contacts", "1.2.3"
 gem "gdata", "1.1.1"

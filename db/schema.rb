@@ -10,7 +10,35 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101116061418) do
+ActiveRecord::Schema.define(:version => 20101118182644) do
+
+  create_table "alerts", :force => true do |t|
+    t.integer  "product_id",                                                 :null => false
+    t.integer  "feed_id",                                                    :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.decimal  "sale_price", :precision => 10, :scale => 2, :default => 0.0, :null => false
+  end
+
+  add_index "alerts", ["created_at"], :name => "index_alerts_on_created_at"
+  add_index "alerts", ["product_id"], :name => "index_feeds_products_on_product_id"
+
+  create_table "alerts_users", :force => true do |t|
+    t.integer  "alert_id",                      :null => false
+    t.integer  "user_id",                       :null => false
+    t.integer  "product_id",                    :null => false
+    t.integer  "feed_id",                       :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "clicked",    :default => false, :null => false
+    t.datetime "clicked_at"
+    t.boolean  "sent",       :default => false, :null => false
+    t.datetime "sent_at"
+  end
+
+  add_index "alerts_users", ["clicked"], :name => "index_alerts_users_on_clicked"
+  add_index "alerts_users", ["sent"], :name => "index_alerts_users_on_sent"
+  add_index "alerts_users", ["user_id", "product_id"], :name => "index_alerts_users_on_user_id_and_product_id"
 
   create_table "alternatives", :force => true do |t|
     t.integer "experiment_id"
@@ -56,20 +84,6 @@ ActiveRecord::Schema.define(:version => 20101116061418) do
 
   add_index "campaigns", ["public_id"], :name => "index_campaigns_on_public_id", :unique => true
 
-  create_table "captions", :force => true do |t|
-    t.integer  "contest_id",                           :null => false
-    t.text     "description",                          :null => false
-    t.integer  "user_id",                              :null => false
-    t.integer  "vote_count",         :default => 0,    :null => false
-    t.boolean  "active",             :default => true, :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "invalid_vote_count", :default => 0,    :null => false
-  end
-
-  add_index "captions", ["contest_id", "user_id"], :name => "index_captions_on_contest_id_and_user_id", :unique => true
-  add_index "captions", ["contest_id"], :name => "index_captions_on_contest_id"
-
   create_table "categories", :force => true do |t|
     t.string   "name",                         :null => false
     t.datetime "created_at"
@@ -99,19 +113,6 @@ ActiveRecord::Schema.define(:version => 20101116061418) do
   end
 
   add_index "clicks", ["created_at", "click_type"], :name => "index_clicks_on_created_at_and_click_type"
-
-  create_table "contests", :force => true do |t|
-    t.string   "image_url",                                                        :null => false
-    t.datetime "start_time",                                                       :null => false
-    t.datetime "end_time",                                                         :null => false
-    t.boolean  "active",                                        :default => false, :null => false
-    t.string   "prize_url"
-    t.string   "prize_name",                                                       :null => false
-    t.decimal  "prize_price",    :precision => 10, :scale => 2, :default => 0.0,   :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "captions_count",                                :default => 0,     :null => false
-  end
 
   create_table "departments", :force => true do |t|
     t.string   "name",                         :null => false
