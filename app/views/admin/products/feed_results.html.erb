@@ -1,0 +1,35 @@
+<div>
+	<%= link_to "Back to product", admin_product_url(params[:id]) %>
+	| <%= link_to "Back to products", admin_products_url %>
+</div>
+
+<div id="form" style="margin-bottom: 20px; margin-top: 10px;">
+	<form action="">
+		Start: <input type="text" name="start_date" value="<%= @start_date.to_date %>"/>
+		End: <input type="text" name="end_date" value="<%= @end_date.to_date %>"/>
+		 <input type="submit" value="filter"/>
+	</form>
+</div>
+
+<div class="item_container">
+	<div class="item_title">Recent feed results for this product</div>
+	<table class="data" width="100%">
+		<% if @results.length > 0%>
+			<tr>
+				<th width="50%">Feed</th>
+				<th>Sale Price</th>
+				<th>Created</th>
+				<th>&nbsp;</th>
+			</tr>
+			<% for r in @results %>
+			<tr>
+				<td><%= r.feed.name %></td>
+				<td><%= number_to_currency r.sale_price %></td>				
+				<td><%= format_date r.created_at %></td>
+			</tr>
+			<% end %>
+		<% else %>
+			<tr><td align="center">No results found</td></tr>
+		<% end %>
+	</table>
+</div>

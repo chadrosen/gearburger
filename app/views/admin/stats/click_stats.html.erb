@@ -1,0 +1,56 @@
+<h1>Click Stats</h1>
+
+<%= render :partial => "/admin/common/simple_filter" %>
+
+<table class="data" width="100%" style="margin-top: 15px;">
+	<tr>
+		<th style="width: 150px;">Total Clicks</th>
+		<td><%= @clicks %></td>
+	</tr>
+	<tr>
+		<th>Uniq Products</th>
+		<td><%= @products.length %></td>
+	</tr>
+	<tr>
+		<th>Avg Retail</th>
+		<td><%= number_to_currency(@avg_retail) %></td>
+	</tr>
+	<tr>
+		<th>Avg Sale</th>
+		<td><%= number_to_currency(@avg_sale) %></td>
+	</tr>
+	<tr>
+		<th>Avg Discount</th>
+		<td><%= number_to_percentage(@avg_discount * 100, :precision => 2) %></td>
+	</tr>
+	<tr>
+		<th>Categories</th>
+		<td><%= @cats.join(", ") %></td>
+	</tr>
+	<tr>
+		<th>Brands</th>
+		<td><%= @brs.join(", ") %></td>
+	</tr>
+</table>
+
+<h2>Products Clicked</h2>
+<table class="data" width="100%" style="margin-top: 15px;">
+	<% if @products.length > 0 %>
+		<tr>
+			<th>Name</th>
+			<th>Retail</th>
+			<th>Sale</th>
+			<th>Discount</th>
+		</tr>
+		<% for p in @products %>
+		<tr>
+			<td><%= link_to(p.product_name, admin_product_url(p)) %></td>
+			<td><%= number_to_currency(p.retail_price) %></td>
+			<td><%= number_to_currency(p.sale_price) %></td>
+			<td><%= number_to_percentage(p.discount * 100.0, :precision => 2) %></td>
+		</tr>
+		<% end %>
+	<% else %>
+		<tr><td>No products found</td></tr>
+	<% end %>
+</table>

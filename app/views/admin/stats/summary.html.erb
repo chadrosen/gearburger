@@ -1,0 +1,114 @@
+<h1>
+	Summary stats 
+	<span id="indicator_loader"><%= image_tag("ajax-loader.gif", :height => "10px")%> 
+		Loading data from google please wait...</span>
+</h1>
+
+<%= render :partial => "/admin/common/simple_filter" %>
+
+<h3>Users</h3>
+<table class="data">
+	<tr>
+		<th>Total Active</th>
+		<td><%= @total %></td>
+	</tr>
+	<tr>
+		<th>New Active</th>
+		<td><%= @active %></td>
+	</tr>
+	<tr>
+		<th>New Pending</th>
+		<td><%= @pending %></td>
+	</tr>
+	<tr>
+		<th>Inactive</th>
+		<td><%= @deleted %></td>
+	</tr>
+</table>
+
+<h3>Key Indicators</h3>
+<table id="key_indicators" class="data" width="100%">
+	<tr>
+		<th>Type</th>
+		<th class="center">Sent (if email)</th>
+		<th class="center">Users Emailed</th>
+		<th class="center">Viewed</th>
+		<th class="center">View Rate</th>		
+		<th class="center">Clicked</th>
+		<th class="center">Click Rate</th>
+		<th class="center">Revenue</th>
+		<th class="center">eRPC</th>
+	</tr>
+	<% for i in @indicators%>
+	<tr>
+		<td class="name"><%= i.name %></td>
+		<td id="<%= "#{i.stat_id}_sent" %>" class="center"><%= i.sent %></td>
+		<td id="<%= "#{i.stat_id}_users_sent" %>" class="center"><%= i.users_sent %></td>		
+		<td id="<%= "#{i.stat_id}_views" %>" class="center"><%= i.views %></td>
+		<td id="<%= "#{i.stat_id}_views_rate" %>" class="center"><%= number_to_percentage i.view_rate, :precision => 2 %></td>
+		<td id="<%= "#{i.stat_id}_clicks" %>" class="center"><%= i.clicks %></td>
+		<td id="<%= "#{i.stat_id}_click_rate" %>" class="center"><%= number_to_percentage i.rate, :precision => 2 %></td>
+		<td id="<%= "#{i.stat_id}_revenue" %>" class="center"><%= number_to_currency i.revenue %></td>
+		<td id="<%= "#{i.stat_id}_rpc" %>" class="center"><%= number_to_currency i.ecpc %></td>
+	</tr>
+	<% end %>
+</table>
+
+<h3>Site Performance</h3>
+<table class="data" id="site_perf">
+	<tr>
+		<th>Metric</th>
+		<th style="text-align: center;">Us</th>
+		<th style="text-align: center;">Avantlink / Google</th>
+	</tr>
+	<tr>
+		<th>Clicks</th>
+		<td><%= @clicks %></td>
+		<td><span id="clicks">loading...</span></td>
+	</tr>
+	<tr>
+		<th>Sales</th>
+		<td><%= @sales %></td>
+		<td><span id="sales">loading...</span></td>
+	</tr>
+	<tr>
+		<th>Returns</th>
+		<td><%= @returns %></td>
+		<td>n/a</td>
+	</tr>	
+	<tr>
+		<th>Revenue</th>
+		<td><%= number_to_currency @revenue %></td>
+		<td><span id="revenue">loading...</span></td>
+	</tr>
+	<tr>
+		<th>Pageviews</th>
+		<td>&nbsp;</td>
+		<td><span id="pageviews">loading...</span></td>
+	</tr>
+	<tr>
+		<th>Visits</th>
+		<td>&nbsp;</td>
+		<td><span id="visits">loading...</span></td>
+	</tr>
+</table>
+
+<h3>Updated Users</h3>
+<table class="data">
+	<% if @users.length > 0 %>
+		<tr>
+			<th>Email</th>
+			<th>State</th>
+			<th>Updated</th>
+		</tr>
+		<% for u in @users %>
+		<tr>
+			<td><%= u.email %></td>
+			<td><%= u.state %></td>
+			<td><%= u.updated_at %></td>
+		</tr>
+		<% end %>
+	<% else %>
+		<tr><td class="center">no users</td></tr>
+	<% end %>
+</table>

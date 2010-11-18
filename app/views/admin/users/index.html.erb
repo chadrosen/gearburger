@@ -1,0 +1,33 @@
+<h1>Users</h1>
+
+<%= form_tag(admin_users_url, :method => "get") do %>
+	Email: <%= text_field_tag "search", @search %>
+	<%= select_tag("state", options_for_select(["all", "active", "pending", "inactive", "break"], @state))%>
+	<%= check_box_tag("send_newsletter", "1", @news) %> Send Newsletter
+	Limit: <%= text_field_tag "limit", @limit, :style=> "width: 30px;" %>
+	<%= submit_tag "submit" %> <%= submit_tag "csv", :value => "CSV" %>
+<% end %>
+
+<div style="margin-top: 10px; margin-bottom: 10px;">Total: <%= @total %></div>
+
+<table class="data" style="width: 100%;">	
+	<% if @users.length > 0 %>
+		<tr>
+			<th>Email</th>
+			<th>State</th>
+			<th>Created At</th>
+			<th>Admin Login</th>
+		</tr>
+		<% for user in @users %>
+		<tr>
+			<td><%= link_to user.email, admin_user_url(user) %></td>
+			<td><%= user.state %></td>
+			<td><%= format_date user.created_at %></td>
+			<td><%= link_to "login", login_admin_user_url(user) %></td>
+				
+		</tr>
+		<% end %>
+	<% else %>
+		<tr><td class="center">No users found</td></tr>
+	<% end %>
+</table>

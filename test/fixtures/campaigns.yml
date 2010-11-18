@@ -1,0 +1,14 @@
+fb1:
+    public_id: fb1
+    name: facebook 1
+    description: foo foo
+    
+fb2:
+    public_id: fb2
+    name: facebook 2
+    description: foo2 foo2
+    
+fb3:
+    public_id: fb3
+    name: facebook3
+    description: foo3 foo3

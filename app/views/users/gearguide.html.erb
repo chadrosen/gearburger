@@ -1,0 +1,32 @@
+<h1>The Gear Burger Gear Guide</h1>
+
+<h2>
+	Here are our favorite sites about gear. If you would like your site to be considered for inclusion in the 
+	Gear Guide, send a link and a brief description to 
+	<%= mail_to "gearguide@gearburger.com", "gearguide@gearburger.com", :encode => "javascript" %>
+</h2>
+
+<%- for f_row in @friends -%>
+<div class="friend_row">
+	<%- for f in f_row -%>
+	<div class="friend_container">
+		<div class="left friend_image_container">
+			<%= link_to image_tag(f.image_url, :alt => f.name, :title => f.name), f.gb_article_url, 
+				:target => "_blank" %>
+		</div>
+		<div class="left friend_info">
+			<p class="name">
+				<%= f.name %>
+				<% if f.gb_article_url and !f.gb_article_url.empty? %>
+					<%= link_to image_tag("small_gb_icon.png"), f.gb_article_url, :target => "_blank" %>
+				<% end %>
+			</p>
+			<p class="description"><%= f.description %></p>
+			<p class="url"><%= link_to f.blog_url, f.blog_url, :target => "_blank" %></p>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<%- end -%>
+	<div class="clear"></div>
+</div>
+<%- end -%>

@@ -1,0 +1,28 @@
+one:
+    user: chad
+    category: clothing
+    
+two:
+    user: chad
+    category: shoes
+    
+three:
+    user: vince
+    category: clothing
+    
+four:
+    user: rob
+    category: clothing
+
+five:
+    user: quentin
+    category: clothing
+
+six:
+    user: mesch
+    category: clothing
+    
+seven:
+    user: mesch
+    category: shoes
+

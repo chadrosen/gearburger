@@ -1,0 +1,116 @@
+H1 {
+	font-size: 20px;
+	margin: 10px 0;
+}
+
+H2 {
+	font-size: 16px;
+	margin: 10px 0;
+}
+
+#nav {
+	margin-right: 10px;
+	float: right;
+	text-align: right;
+}
+
+#nav DIV.nav_link {
+	float: left;
+	margin-left: 15px;
+	font-size: 16px;
+}
+
+#nav a {
+	text-decoration:none;
+}
+
+#container {
+	margin: 0px auto;
+	text-align: center;
+}
+
+#body {
+	text-align: left;
+	width: 1000px;
+	margin: 0px auto;
+	background-color: white;	
+	
+	/* Min-height including hack for IE
+		http://www.dustindiaz.com/min-height-fast-hack/
+	*/
+	min-height:500px;
+  	height:auto !important;
+  	height:500px;
+}
+
+#header {
+	height: 25px;
+}
+
+/* Stats summary page */
+#stats_summary H3 {
+	margin: 15px 0;
+	font-size: 14px;
+}	
+
+#stats_summary #site_perf {
+	width: 300px;
+}
+
+#stats_summary #site_perf TD {
+	text-align: center;
+}
+/* end */
+
+
+#back_link {
+	margin-bottom: 10px;
+}
+
+.item_container {
+	margin-bottom: 10px;
+}
+
+.item_container .item_title {
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+#processing {
+	font-size: 14px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#users_show #filter_form {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+/* Abingo dashboard */
+
+#abingo_index H1 {
+	margin-bottom: 25px;
+}
+
+#abingo_index H3 {
+	font-size: 12px;
+	font-weight: bold;
+	margin-bottom: 0px;
+	color: #996600;
+}
+
+#abingo_index TABLE.experiment {
+	margin: 3px 0 15px 0;
+	border: 1px solid black; 
+	width: 100%;
+}
+
+/* Sortable tables */
+table.sortable thead {
+    background-color:#eee;
+    color:#666666;
+    font-weight: bold;
+    cursor: default;
+}

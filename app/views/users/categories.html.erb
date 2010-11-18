@@ -1,0 +1,17 @@
+<h1 id="page_title">
+	Edit Categories
+	<span class="checkbox_select">
+		<a href="#" class="check_all">check all</a> | <a href="#" class="uncheck_all">uncheck all</a>
+	</span>
+</h1>
+
+<%= form_for :categories, :url => categories_submit_url do |f| %>
+
+	<div id="categories">
+	<%= render :partial => "users/categories", :locals => { :categories => @cat_list, 
+		:selected => @selected } %>
+	</div>
+
+	<%= render :partial => "users/submit" %>
+	
+<% end %>

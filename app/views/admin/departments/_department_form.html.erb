@@ -1,0 +1,22 @@
+<%= render :partial => "application/errors" %>
+
+<%= form_for([:admin, @department]) do |f| %>
+	<table class="data">
+		<tr>
+			<th>Department</th>
+			<td><%= f.text_field :name %></td>
+		</tr>
+		<tr>
+			<th>Active</th>
+			<td><%= f.check_box :active %></td>
+		</tr>	
+		<tr>
+			<th>Value</th>
+			<td><%= f.text_field :value %></td>
+		</tr>	
+	</table>
+	<div style="margin-top: 10px;">
+		<%= f.submit %>
+	</div>
+	<%= f.hidden_field :id %>
+<% end %>

@@ -1,0 +1,16 @@
+<% for row in product_rows %>
+	<% for p in row %>
+		<div class="product left">
+			<div class="image">
+				<%= link_to image_tag(p.small_image_url), product_redirector_url(p), :target => "_blank", :alt => p.product_name %>
+			</div>
+			<div class="name">
+				<%= link_to p.product_name, product_redirector_url(p), :target => "_blank", 
+				:alt => p.product_name %>
+			</div>
+			<div class="retail">Reg: <%= number_to_currency(p.retail_price) %></div>
+			<div class="sale">Now: <%= number_to_currency(p.sale_price) %></div>
+		</div>
+	<% end %>
+	<div class="clear"></div>
+<% end %>

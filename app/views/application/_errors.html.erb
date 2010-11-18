@@ -1,0 +1,20 @@
+<div id="messages">
+	<% if flash[:error] %>
+		<div id="error"><%= flash[:error] %></div>
+	<% end %>
+	<% if flash[:notice] %>
+		<div id="notice"><%= flash[:notice] %></div>
+	<% end %>
+	<% if !errors.nil? && errors.length > 0 %>
+		<ul>
+		<% for error in errors %>
+			<li><%= error %></li>
+		<% end %>
+		</ul>
+	<% end %>
+	<div class="hidden" id="js_error"></div>
+	<div class="hidden" id="js_msg">
+		<%= image_tag("ajax-loader.gif", :class => "hidden")%>
+		 <span id="m"></span>
+	</div>
+</div>

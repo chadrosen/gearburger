@@ -1,0 +1,620 @@
+/* Styles specific to the app. Not the admin.. */
+HTML, BODY {
+	height: 100%;
+	padding: 0px;
+	margin: 0px;
+	width: 100%;
+	font-family: Arial,'Trebuchet MS',Verdana;
+	background-color: #f6f6f6;
+	font-size: 14px;
+	background-repeat: repeat-x;
+	background-image: url('/images/bg_repeat_common2.jpg');
+}
+
+H1, H2, H3, H4, TABLE, DIV, TD, TR, P, INPUT {
+	font-family: Arial,'Trebuchet MS',Verdana;
+	font-size: 14px;
+	color: #666666;
+}
+
+A, A:visited, A:active, A:link, A:hover {
+	color: #3ea1bf;
+}
+
+#fb_multi_friend_selector, #fb_multi_friend_selector_wrapper {
+	background-color: red;
+}
+
+H1 {
+	font-size: 26px;
+	padding-left: 5px;
+	padding-bottom: 5px;
+}
+
+H2 {
+	font-size: 18px;
+	padding-left: 5px;
+	padding-bottom: 5px;
+}
+
+H3 {
+	font-size: 16px;
+	padding-left: 20px;
+	padding-top: 10px;
+}
+
+STRONG {
+	color: #EB5024;
+	font-weight: bold;
+}
+
+INPUT {
+	background-color: #FFFFFF;
+	color: #666666;
+	border: 1 solid #808080 ;
+	font-size: 22pt;
+	font-weight: normal;
+	font-color: black;
+}
+
+INPUT.submit {
+	background-color: #0093c3;
+	color: #FFFFFF;
+	padding: 0px;
+	border: 2px solid #aae0f0;
+	width: 65px;
+	height: 30px;
+	font-size: 14px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+/* Common elements across the site */
+
+.hidden {
+	visibility: hidden;
+}
+
+/* Box at the top of some of the product pages */
+.page_description_header {
+	background-color: #caedf8;
+	border-top: 1px solid #7cd2ed;
+	color: #0079a3;
+	padding: 10px;
+	font-weight: bold;
+}
+
+#products_huge_deals #drill_down {
+	float: left;
+	width: 150px;
+}
+
+#drill_down P {
+	background-color: #ff8200;
+	padding: 5px;
+	float: left;
+	margin: 2px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	font-size: 12px;
+}
+
+#drill_down P.selected {
+	background-color: #fe4400;
+}
+
+#drill_down P:hover {
+	background-color: #fe4400;
+	cursor: pointer;
+}
+
+#drill_down H3 {
+	font-size: 10px;
+	font-weight: bold;
+	text-align: left;
+	color: black;
+	margin: 0px;
+	padding: 0px 0px 5px 2px;
+}
+
+#drill_down A {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+#products_divider {
+	border-top: 1px solid #999999; 
+	margin-top: 20px;
+}
+
+#view_more {
+	text-align: center; 
+	width: 60px;
+	float: right;
+	margin-top: 15px;
+	font-weight: bold;
+	padding: 3px 3px 3px 3px; 
+	background-color: #b4b4b4; 
+	color: white; 
+	-moz-border-radius: 3px; 
+	font-size: 12px;
+	-webkit-border-radius: 3px; 
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+#view_more:hover {
+	background-color: #CCCCCC;
+	cursor: pointer;
+}
+
+#view_more:active {
+	background-color: #000000;
+}
+
+DIV.title {
+	color:#666666;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+.input_field {
+	font-size: 28px;
+	color: #666666;
+}
+
+TABLE.gear_list {
+	margin-left: 0px;
+	padding-left: 10px;
+	width: 100%;
+	border-top: 1px solid #cecdcd;
+}
+
+TABLE.gear_list TD {
+	width: 33%;
+	color: #4f4f4f;
+	font-size: 12px;
+	padding: 8px;
+}
+
+TABLE.gear_list INPUT {
+	margin-right: 5px;
+}
+
+TABLE.gear_list TR.even {
+	background-color: #EEEEEE;
+}
+
+SPAN.checkbox_select {
+	font-size: 10px;
+}
+
+/* The style for the signup status section on the signup flow */
+
+#signup_status H3 {
+	font-size: 12px;
+	color: #272727;
+	font-weight: bold;
+	text-align: left;
+	padding: 0px;
+	margin: 0px;
+}
+
+#signup_status DIV.items {
+	margin: 5px 0px 25px 0px;
+}
+
+#signup_status DIV.items {
+	font-size: 12px;
+}
+
+#signup_status DIV.items SPAN {
+	font-weight: bold;
+	background-color: #73e6be;
+	font-size: 10px;
+	color: #0c5238;
+	padding: 3px;
+	float: left;
+	margin: 3px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+
+/* end */
+
+/* See http://ryanfait.com/resources/footer-stick-to-bottom-of-page/ for more footer info */
+#container {
+	height: auto !important;
+	min-height: 100%;
+	margin: 0px auto -140px;
+	width: 985px;
+}
+
+#push, #footer {
+	height: 160px;
+}
+
+#footer {
+	background-color: #1e1e1e;
+	width: 100%;
+}
+
+#footer_content { 
+	position: relative; 
+	top: 1px; 
+	height: 1px; 
+	background-color: #515151;
+}
+
+#footer #menu {
+	width: 785px;
+	margin: 10px auto;
+}
+
+#footer DIV.nav_item {
+	float: left;
+	width: 240px;
+	height: 120px;
+	padding: 0px 10px 0px 10px;
+}
+
+#footer DIV.nav_border {
+	border-right: 1px solid #999999;
+}
+
+#footer TABLE {
+	width: 100%;
+}
+
+#footer TD {
+	padding: 4px;
+	color: white;
+	font-size: 10px;
+}
+
+#footer DIV {
+	color: white;
+	font-size: 10px;
+}
+
+#footer A {
+	text-decoration: none;
+	color: white;
+}
+
+#footer DIV.nav_item DIV.title {
+	font-size: 15px;
+	color: #d5f6ff;
+	font-weight: bold;
+}
+
+#footer DIV.social_network_container {
+	margin-top: 5px;
+}
+
+#footer DIV.social_network_container A {
+	color: #d7f4ff;
+}
+
+#header {
+	/*background-color: #1e1e1e;*/
+	height: 73px;
+}
+
+#header_content {
+	/* small bar under the header */
+	height: 71px; 
+	border-bottom: 1px solid #515151;
+	margin-top: 22px;
+}
+
+#right_nav {
+	float: right;
+}
+
+#fb_profile_pic {
+	border: 1px solid #666666;
+}
+
+#right_nav .nav_section {
+	float: left;
+	margin: 0 10px 0 0;
+}
+
+#right_nav .nav_button {
+	padding: 28px 0 0;
+}
+
+#nav {
+	vertical-align: bottom;
+}
+
+#nav A {
+	text-decoration: none;
+	background-color: #2c2c2c;
+	padding: 5px 12px;
+	margin-left: 15px;
+	font-size: 12px;
+	float: left;
+	color: #feffef;
+	border: 0px;
+	font-weight: bold;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+#nav A:hover { 
+	background-color: #505050; 
+	cursor: pointer;
+}
+
+#fb_like {
+	height: 80px;
+	border: none; 
+	overflow: hidden; 
+	height: 35px;
+	color: #FFFFFF;
+	width: 100px;
+}
+
+#content {
+	min-height: 400px;
+	_height: 400px;
+	background-color: #f6f6f6;
+}
+
+#tabs {
+	height: 24px;
+	margin-bottom: 10px;
+	padding-top: 14px;
+	width: 985px;
+	font-size: 12px;
+	background-color: #E7E7E7;
+	color: #999999;
+}
+
+#tabs DIV.tab {
+	background-color: #d7d7d7; 
+	width: 100px; 
+	float: left;
+	margin-right: 10px;
+	font-size: 12px; 
+	padding: 5px;
+	text-align: center;
+	-moz-border-radius-topright: 5px;
+	-moz-border-radius-topleft: 5px;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;	
+}
+
+#tabs DIV.tab A {
+	color: #0083ac;
+}
+
+#tabs DIV.tab:hover {
+	background-color: #caedf8;
+	cursor: pointer;
+}
+
+#tabs DIV.selected {
+	background-color: #c4c3c3;
+}
+
+#tabs DIV.selected A {
+	font-weight: bold;
+	color: black;
+}
+
+#tabs A {
+	color: #999999;
+	text-decoration: none;
+}
+
+#tabs #current_page {
+	font-weight: bold;
+}
+
+#logo {
+	margin: 0px 0px 0px 5px;
+	float: left;
+}
+
+.logo_image {
+	outline: none;
+}
+
+/* Style the submit button / cancel partial */
+#submit_section {
+	margin-top: 15px;
+}
+
+#submit_section #submit_cancel {
+	font-size: 16px;
+	font-weight: bold;
+}
+/* end */
+
+/* Style the recents product partial */
+#recent_products {
+	border: 1px solid #DDDDDD;
+	padding: 5px 5px 5px 5px;
+	width: 350px;
+}
+
+#recent_product {
+	border: 1px solid #DDDDDD;
+	font-size: 200px;
+}
+
+.product_image_container {
+	float: left;
+	width: 40px;
+	margin-right: 5px;
+}
+.product_image_container img {
+	width: 40px;
+	height: 40px;
+}
+
+DIV.product_container {
+	color: #999999;
+	margin-bottom: 25px;
+	width: 295px;
+	float: left;
+}
+
+DIV.product_container .product_name {
+	font-weight: bold; 
+	font-size: 12px;
+	margin-bottom: 5px;
+}
+
+#deals_seen_container {
+	float: right;
+}
+
+#deals_seen_container #deals_seen_text {
+	color: #666666;
+	font-size: 12px;
+	padding-bottom: 4px;	
+}
+
+#deals_seen_container #deals_seen_number_container {
+	text-align: right;
+	margin-top: 3px;
+}
+
+#deals_seen_number_container #deals_seen_number {
+	color : #FFFFFF; 
+	font-size : 25px;
+	background: #000000;
+	padding: 4px;
+}
+
+#product_spinner {
+	width: 100%;
+	text-align: center;
+	margin-top: 25px;
+}
+
+#no_deals_found {
+	text-align: center;
+	font-weight: bold;
+}
+
+.dynamic_flash_content {
+	/* Hide the flash cookie embed off screen */
+	position: absolute; 
+	margin-left: -5000px; 
+	height: 1px; 
+	width: 1px;
+}
+
+#footer #common_deals {
+	text-align: center; 
+	margin-top: 5px;
+}
+
+#footer #common_deals A {
+	text-decoration: underline;
+}
+
+#footer #common_deals A.even {
+	color: #008BC5;
+}
+
+/* Modal window stuff */
+.modal-window
+{
+    background-color: #fff;
+	border: 2px solid #999999;
+    
+    -moz-box-shadow: 0px 2px 4px rgba(0, 0, 0, .5); /* FF3.5+ */
+    -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, .5); /* Saf3.0+, Chrome */    
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, .5); /* Opera 10.5, IE 9.0 */
+    filter:  progid:DXImageTransform.Microsoft.dropshadow(OffX=0px, OffY=2px, Color='#666666'); /* IE6,IE7 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.dropshadow(OffX=0px, OffY=2px, Color='#666666')"; /* IE8 */
+}
+.modal-window .modal-content
+{
+    left: 10px;
+    top: 10px;
+    position: absolute;
+	padding: 5px;
+}
+.modal-window .button
+{
+    position: absolute;
+    bottom: 10px;
+    text-indent: -1000000px;
+    outline: none;
+}
+.modal-window .button.ok
+{
+    background-image: url(/images/ok.gif);
+    width: 40px;
+    height: 12px;
+    right: 10px;
+}
+.modal-window .button.cancel
+{
+    background-image: url(/images/cancel.gif);
+    width: 62px;
+    height: 13px;
+    right: 60px;
+}
+
+/* Login modal that appears on every page while not logged in */
+
+#login_modal {
+	width: 600px;
+    height: 235px;
+}
+
+#login_modal LABEL {
+	display: block;
+	font-size: 10px;
+	font-weight: bold;
+	margin-bottom: 3px;
+}
+
+#login_modal .submit {
+	margin: 5px 0;
+}
+
+#login_modal .form_field INPUT {
+	width: 200px;
+	padding: 3px;
+	font-size: 14px;
+}
+
+#login_modal .button.ok {
+	visibility: hidden;
+}
+
+#login_modal .button.cancel {
+	right: 10px;
+}
+
+#login_modal #get_started {
+	margin-left: 50px;
+	text-align: center;
+}
+
+#login_modal #get_started .submit {
+	width: 100px;
+	margin: 10px 0 0;
+}
+
+#login_modal_form H3 {
+	font-size: 14px;
+	color: black;
+	font-weight: bold;
+	padding: 0px;
+	margin: 0 0 10px 0;
+}
+
+/* The facebook connect button in the header */
+#fb_connect .fb_button {
+	padding: 0;
+}

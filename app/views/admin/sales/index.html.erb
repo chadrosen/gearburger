@@ -1,0 +1,35 @@
+<h1>Sales</h1>
+
+<%= render :partial => "/admin/common/simple_filter" %>
+
+<%= page_entries_info @results %>
+<%= will_paginate @results %>
+
+<table class="data" width="100%" style="margin-top: 15px;">
+<% if @results.length > 0 %>
+	<tr>
+		<th style="width: 200px;">Product Name</th>
+		<th style="width: 175px;">Merchant</th>
+		<th class="center">Tx Total</th>
+		<th class="center">Commission</th>
+		<th class="center">Click</th>
+		<th>User</th>
+		<th>TX at</th>
+	</tr>
+	<% for r in @results %>
+	<tr>
+		<td><%= r.product_name %></td>
+		<td><%= r.merchant_name %></td>
+		<td class="center"><%= number_to_currency r.transaction_amount %></td>
+		<td class="center"><%= number_to_currency r.total_commission %></td>
+		<td class="center"><% if r.click %><%= link_to r.click_id, admin_click_url(r.click) %><% else %>nil<% end %></td>
+		<td><% if r.user %><%= link_to r.user.email, admin_user_url(r.user) %><% else %>nil<% end %></td>
+		<td><%= r.transaction_time %></td>		
+	</tr>
+	<% end %>
+<% else %>
+	<tr><td class="center">No data found</td></tr>
+<% end %>
+</table>
+	
+<%= will_paginate @results %>

@@ -1,0 +1,24 @@
+<%= render :partial => "application/errors" %>
+
+<div><%= link_to "back", admin_categories_url %></div>
+
+<%= form_for([:admin, @category]) do |f| %>
+	<table class="data">
+		<tr>
+			<th>Category</th>
+			<td><%= f.text_field :name %></td>
+		</tr>
+		<tr>
+			<th>Active</th>
+			<td><%= f.check_box :active %></td>
+		</tr>
+		<tr>
+			<th>Value</th>
+			<td><%= f.text_field :value %></td>
+		</tr>	
+	</table>
+	<div style="margin-top: 10px;">
+		<%= f.submit %>
+	</div>
+<% end %>
+	

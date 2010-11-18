@@ -1,0 +1,43 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+robco:
+    name: Rob Co.
+    description: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+    blog_url: http://blog.gearburger.com
+    gb_article_url: http://blog.gearburger.com
+    image_url: http://goatse.fr/hello.jpg
+    
+chadco:
+    name: Chad Co.
+    description: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+    blog_url: http://blog.gearburger.com
+    gb_article_url: http://blog.gearburger.com
+    image_url: http://www.tubgirl.ca/tubgirl.jpg
+    
+vinceco:
+    name: Vince Co.
+    description: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+    blog_url: http://blog.gearburger.com
+    gb_article_url: http://blog.gearburger.com
+    image_url: http://www.hizone.info/data/2003/07/09/images/cat_in_a_bottle.jpg
+    
+meschco:
+    name: Mesch Co.
+    description: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+    blog_url: http://blog.gearburger.com
+    gb_article_url: http://blog.gearburger.com
+    image_url: http://icanhascheezburger.files.wordpress.com/2010/07/funny-pictures-cat-has-moustache.jpg
+
+kimberleyco:
+    name: Kimberley Co.
+    description: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+    blog_url: http://blog.gearburger.com
+    gb_article_url: http://blog.gearburger.com
+    image_url: http://icanhascheezburger.files.wordpress.com/2010/07/funny-pictures-cat-stops-tiny-car.jpg
+
+tonyco:
+    name: Tony Co.
+    description: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+    blog_url: http://blog.gearburger.com
+    gb_article_url: http://blog.gearburger.com
+    image_url: http://icanhascheezburger.files.wordpress.com/2010/06/funny-pictures-cat-is-ninja.jpg

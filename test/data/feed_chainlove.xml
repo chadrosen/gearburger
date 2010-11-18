@@ -1,0 +1,43 @@
+ 
+<Product> 
+  <SKU>FTS0020</SKU> 
+  <Manufacturer_Id></Manufacturer_Id> 
+  <Brand>Santa Cruz Bicycles</Brand> 
+  <Product_Name>Santa Cruz Bicycles Baggy Trunk MTB Short - Men's</Product_Name> 
+  <Short_Description><![CDATA[Hop on your mountain bike while donning Santa Cruz's Baggy Trunk MTB Short, and pin-it past the Freds. ]]></Short_Description> 
+  <Long_Description><![CDATA[Hop on your mountain bike while donning Santa Cruz's Baggy Trunk MTB Short, and pin-it past the Freds. An elastic waist and cinching belt keep these shorts from flashing them a full-moon, while a tough exterior stretches for comfort and protects against attacking vegetation. A removable chamois pads your bum for big days in the saddle-most important, though, a side pocket holds a roll of crisp bills for barstool-chillin' post-ride.]]></Long_Description> 
+  <Small_Image_URL>http://images.chainlove.com/images/items/small/SNZ/SNZ0131/GRE.jpg</Small_Image_URL> 
+  <Medium_Image_URL>http://images.chainlove.com/images/items/medium/SNZ/SNZ0131/GRE.jpg</Medium_Image_URL> 
+  <Large_Image_URL>http://images.chainlove.com/images/items/large/SNZ/SNZ0131/GRE.jpg</Large_Image_URL> 
+  <Retail_Price>149.99</Retail_Price> 
+  <Sale_Price>59.99</Sale_Price> 
+  <Keywords>Santa Cruz Bicycles, Baggy Trunk MTB Short - Men's, Short, riding cloths, tech short</Keywords> 
+  <Variants> 
+    <Variant> 
+      <Variant_SKU>FTS0020</Variant_SKU> 
+      <Variant_Description>Grey, L</Variant_Description> 
+      <Variant_QOH>6</Variant_QOH> 
+      <Variant_Small_Image_URL>http://images.chainlove.com/images/items/small/SNZ/SNZ0131/GRE.jpg</Variant_Small_Image_URL> 
+      <Variant_Medium_Image_URL>http://images.chainlove.com/images/items/medium/SNZ/SNZ0131/GRE.jpg</Variant_Medium_Image_URL> 
+      <Variant_Large_Image_URL>http://images.chainlove.com/images/items/large/SNZ/SNZ0131/GRE.jpg</Variant_Large_Image_URL> 
+    </Variant> 
+    <Variant> 
+      <Variant_SKU>FTS0020</Variant_SKU> 
+      <Variant_Description>Grey, XL</Variant_Description> 
+      <Variant_QOH>5</Variant_QOH> 
+      <Variant_Small_Image_URL>http://images.chainlove.com/images/items/small/SNZ/SNZ0131/GRE.jpg</Variant_Small_Image_URL> 
+      <Variant_Medium_Image_URL>http://images.chainlove.com/images/items/medium/SNZ/SNZ0131/GRE.jpg</Variant_Medium_Image_URL> 
+      <Variant_Large_Image_URL>http://images.chainlove.com/images/items/large/SNZ/SNZ0131/GRE.jpg</Variant_Large_Image_URL> 
+    </Variant> 
+    <Variant> 
+      <Variant_SKU>FTS0020</Variant_SKU> 
+      <Variant_Description>Grey, S</Variant_Description> 
+      <Variant_QOH>2</Variant_QOH> 
+      <Variant_Small_Image_URL>http://images.chainlove.com/images/items/small/SNZ/SNZ0131/GRE.jpg</Variant_Small_Image_URL> 
+      <Variant_Medium_Image_URL>http://images.chainlove.com/images/items/medium/SNZ/SNZ0131/GRE.jpg</Variant_Medium_Image_URL> 
+      <Variant_Large_Image_URL>http://images.chainlove.com/images/items/large/SNZ/SNZ0131/GRE.jpg</Variant_Large_Image_URL> 
+    </Variant> 
+  </Variants> 
+  <Buy_URL>http://www.chainlove.com/chainlove/index.html?cmp_sku=SNZ0131</Buy_URL> 
+  <Quantity_On_Hand>13</Quantity_On_Hand> 
+</Product>

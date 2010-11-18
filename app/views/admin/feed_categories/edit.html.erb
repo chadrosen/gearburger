@@ -1,0 +1,39 @@
+<div id="page_header">Edit Feed Category</div>
+
+<%= render :partial => "application/errors" %>
+
+<div style="margin-bottom: 5px;"><%= link_to "back", admin_feed_categories_url %></div>
+
+<%= form_for([:admin, @f]) do |f| %>
+	<table class="data">
+		<tr>
+			<th>Feed Category</th>
+			<td><%= @f.feed_category %></td>
+		</tr>
+		<tr>
+			<th>Feed Sub-Category</th>
+			<td><%= @f.feed_subcategory %></td>
+		</tr>
+		<tr>
+			<th>Feed Product Group</th>
+			<td><%= @f.feed_product_group %></td>
+		</tr>
+		<tr>
+			<th>Feed</th>
+			<td><%= @f.feed.name %></td>
+		</tr>
+		<tr>
+			<th>Category</th>
+			<td>
+				<%= f.select :category_id, @c %>
+			</td>
+		</tr>		
+		<tr>
+			<th>Active</th>
+			<td><%= f.check_box :active %>
+		</tr>
+	</table>
+	<div style="margin-top: 10px;">
+		<%= f.submit %>
+	</div>
+<% end %>

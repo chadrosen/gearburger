@@ -1,0 +1,115 @@
+<div id="page_header">User Details</div>
+
+<div style="margin-bottom: 5px;">
+	<%= link_to "Back to users", admin_users_url %>
+	 | <%= link_to "Emails sent to #{@user.email}", admin_user_product_emails_url(:email => @user.email) %>
+	 | <%= link_to "Invited Users", invited_users_admin_user_url(@user) %>
+	 | <%= link_to "Clicks", admin_clicks_url(:user_id => @user.id)%>
+	 | <%= link_to "Sales", admin_sales_url(:user_id => @user.id) %>
+</div>
+
+<%= render :partial => "/application/errors" %>
+
+<table class="data">
+	<tr>
+		<th>Email</th>
+		<td>
+			<%= @user.email %> 
+			 <%= link_to "login", login_admin_user_url(@user) %>
+		</td>
+	</tr>
+	<tr>
+		<th>State</th>
+		<td>
+			<%= @user.state %>
+			<% if @user.state == :active %>
+				<%= link_to "deactivate", deactivate_admin_user_url(@user) %>
+			<% elsif @user.state == :inactive || @user.state == :pending %>
+				<%= link_to "activate", activate_admin_user_url(@user) %>
+			<% end %>
+		</td>
+	</tr>
+	<tr>
+		<th>Created at</th>
+		<td><%= format_date @user.created_at %></td>
+	</tr>
+	<tr>
+		<th>Activated At</th>
+		<td><%= format_date @user.activated_at %></td>
+	</tr>
+	<tr>
+		<th>Departments</th>
+		<td><%= @depts %></td>
+	</tr>
+	<tr>
+		<th>Brands</th>
+		<td><%= @brands %></td>
+	</tr>
+	<tr>
+		<th>Categories</th>
+		<td><%= @cats %></td>
+	</tr>
+	<tr>
+		<th>User time zone</th>
+		<td><%= @user.time_zone %></td>
+	</tr>
+	<tr>
+		<th>User Agent</th>
+		<td><%= @user.user_agent %></td>
+	</tr>
+	<tr>
+		<th>IP</th>
+		<td><%= @user.ip_address %></td>
+	</tr>
+	<tr>
+		<th>Referral Url</th>
+		<td><%= @user.referral_url %></td>
+	</tr>
+	<tr>
+		<th>Email Delivery Preferences</th>
+		<td><%= @email_prefs %></td>
+	</tr>
+	<tr>
+		<th>First Name</th>
+		<td><%= @user.first_name %></td>
+	</tr>
+	<tr>
+		<th>Last Name</th>
+		<td><%= @user.last_name %></td>
+	</tr>
+	<% if @user.fb_user_id %>
+	<tr>
+		<th>FB User Id</th>
+		<td><%= @user.fb_user_id %></td>
+	</tr>
+	<% end %>
+	<% if @user.campaign %>
+	<tr>
+		<th>Created in campaign</th>
+		<td>
+			<%= link_to @user.campaign.public_id, edit_admin_campaign_url(@user.campaign) %>
+		</td>
+	</tr>
+	<% end %>
+	<% if @user.state == :break %>
+	<tr>
+		<th>Break Started</th>
+		<td><%= @user.break_started_at %></td>
+	</tr>
+	<tr>
+		<th>Break Ends</th>
+		<td><%= @user.break_ends_at %></td>
+	</tr>
+	<% end %>
+	<% if @user.deleted_at %>
+	<tr>
+		<th>Deleted At</th>
+		<td><%= format_date @user.deleted_at %></td>
+	</tr>
+	<% end %>	
+</table>
+
+<% if @user.state == :inactive %>
+<div style="margin: 10px 0px 10px 0px;">Deactivated Reason</div>
+<pre style="border: 1px solid black; padding: 10px;"><%= @user.deactivation_reason %></pre>
+<% end %>

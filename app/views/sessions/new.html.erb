@@ -1,0 +1,38 @@
+<%= render :partial => "application/errors" %>
+
+<div class="left login_container">
+	<h1>Log into your Gear Burger account</h1>
+	
+	<%= form_tag login_url, { :id => "login_form"} do -%>
+
+		<div class="form_field">
+			<%= label_tag 'email' %>
+			<%= text_field_tag "email", @email, {:id => "email_address", :maxLength => 100} %>
+		</div>
+		
+		<div class="form_field">
+			<%= label_tag 'Password' %>
+			<%= password_field_tag 'password', nil, {:id => "password", :maxLength => 40} %>
+		</div>
+
+		<div class="form_field">
+			<%= check_box_tag 'remember_me', '1', @remember_me %> Remember me
+		</div>
+
+		<%= hidden_field_tag "u", @next_url %>
+				
+		<div id="submit_btns"><%= submit_tag "Submit", {:class => "submit"} %></div>		
+	<% end -%>
+	
+	<%= link_to "Lost password", lost_password_url %>
+</div>
+
+<div class="left login_container" style="margin-left: 50px;">
+	<h1>Create a new Gear Burger account</h1>
+	<div id="create_account_btn_container">
+		<p>Heck yes I want great gear!</p>
+		<input type="button" class="submit" value="Get Started!" onclick="document.location='<%= signup_url %>'">
+	</div>
+</div>
+
+<div class="clear"></div>

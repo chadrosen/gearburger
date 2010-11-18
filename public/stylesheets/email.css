@@ -1,0 +1,16 @@
+body {
+	font-size: 14px;
+}
+
+#title {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#body {
+	padding: 10px;
+}
+
+#closing {
+	font-size: 16px;
+}

@@ -1,0 +1,55 @@
+<h1>Product Emails</h1>
+
+<%= link_to "Back", admin_user_product_emails_url %>
+
+<table class="data" style="width: 100%; margin: 5px 0 0 0;">
+	<tr>
+		<th>User</th>
+		<th>Sent</th>
+		<th>Viewed</th>
+		<th>Clicked</th>
+	</tr>
+	<tr>
+		<td><%= link_to @upe.user.email, admin_user_url(@upe.user) %></td>
+		<td><%= @upe.sent_at %></td>
+		<td><%= @upe.viewed_at %></td>
+		<td><%= @upe.clicked_at %></td>
+	</tr>
+</table>
+
+<h2>Products sent</h2>
+
+<%= render :partial => "/application/errors" %>
+
+<%= form_tag(email_user_admin_user_product_email_url(@upe), :method => "get") do %>
+	<%= text_field_tag "email", @upe.user.email, :style => "width: 150px;" %>
+	<%= hidden_field_tag "upe_id", @upe.id %>
+	<%= submit_tag "Email Products To User" %>
+<% end %>
+
+<table class="data" width="100%" style="margin-top: 10px;">
+	<% if @pus.length > 0 %>
+	<tr>
+		<th>Product</th>
+		<th>Product Retail</th>
+		<th>Product Sale</th>
+		<th>Discount</th>
+		<th>Brand</th>
+		<th>Category</th>
+		<th>Department</th>
+	</tr>
+	<% for pu in @pus %>
+	<tr>
+		<td><%= link_to pu.product.product_name, admin_product_url(pu.product) %></td>
+		<td><%= number_to_currency pu.product.retail_price %></td>
+		<td><%= number_to_currency pu.product.sale_price %></td>
+		<td><%= number_to_currency(pu.product.retail_price - pu.product.sale_price) %></td>
+		<td><%= pu.product.brand.name %></td>
+		<td><%= pu.product.category.name %></td>
+		<td><%= pu.product.department ? pu.product.department.name : "NULL" %></td>
+	</tr>	
+	<% end %>
+	<% else %>
+		<tr><td align="center">No products</td></tr>
+	<% end %>
+</table>

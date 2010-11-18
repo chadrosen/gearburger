@@ -1,0 +1,31 @@
+<h1>User Product Emails</h1>
+
+<% content_for :custom_filters do %>
+	Filter By Email: <input type="text" value="<%= @email %>" name="email"/>
+<% end %>
+
+
+<%= render :partial => "/admin/common/simple_filter" %>
+
+<table class="data" width="100%" style="margin-top: 25px;">
+	<% if @results.length > 0 %>
+	<tr>
+		<th class="center">Products Sent</th>
+		<th>User</th>
+		<th>Sent At</th>
+		<th>Viewed At</th>
+		<th>Clicked At</th>
+	</tr>
+	<% for r in @results %>
+	<tr>
+		<td class="center"><%= link_to r.products_users_count, admin_user_product_email_url(r.id) %></td>
+		<td><%= link_to r.user.email, admin_user_url(r.user) %></td>
+		<td><%= r.sent_at %></td>
+		<td><%= r.viewed_at %></td>
+		<td><%= r.clicked_at %></td>
+	</tr>
+	<% end %>
+	<% else %>
+		<tr><td class="center">No results found</td></tr>
+	<% end %>
+</table>

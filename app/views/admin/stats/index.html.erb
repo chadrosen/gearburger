@@ -1,0 +1,52 @@
+<style>
+UL LI {
+	padding: 4px;
+	font-size: 12px;
+}
+</style>
+
+<div id="admin_index">
+	<ul>
+		<li>Reports</li>
+		<ul>
+			<li><%= link_to "Daily summary", admin_summary_url %></li>
+			<li><%= link_to "Monthly created users", admin_monthly_users_url %></li>
+			<li><%= link_to "Product Generation", admin_product_generation_url %></li>
+			<li><%= link_to "Stats over time", admin_stats_over_time_url %></li>
+			<li><%= link_to "Campaigns", admin_campaigns_url %></li>
+				<ul><li><%= link_to "Campaign stats", admin_campaign_stats_url %></li></ul>
+			<li><%= link_to "User Behavior", admin_user_behavior_url %></li>
+			<li><%= link_to "Click Stats", admin_click_stats_url %></li>			
+		</ul>
+		<li>Sales Funnel</li>
+		<ul>
+			<li><%= link_to "Clicks", admin_clicks_url %></li>
+			<li><%= link_to "Sales", admin_sales_url %></li>
+		</ul>
+	</ul>
+	<div style="margin-top: 10px;">
+	<ul>
+		<li><%#= link_to "A/B Testing", admin_abingo_test_url %></li>
+		<li><%= link_to "Feeds", admin_feeds_url %></li>
+			<ul>
+				<li><%= link_to "Feed Categories", admin_feed_categories_url %></li>					
+				<li><%= link_to "Gear Burger Categories", admin_categories_url %></li>
+			</ul>
+		<li><%= link_to "Users", admin_users_url %></li>
+			<ul>
+				<li><%= link_to "Deactivation Info", reasons_admin_users_url %></li>
+				<li><%= link_to "Giftcard Eligibility", giftcards_admin_users_url %></li>
+			</ul>
+		<li><%= link_to "Products", admin_products_url %></li>
+		<ul>
+			<li><%= link_to "Products Price Changes", product_changes_admin_products_url %></li>
+			<li><%= link_to "Product Price Emails", admin_user_product_emails_url %></li>
+			<li><%= link_to "Products Validation Failures", validation_results_admin_products_url %></li>
+		</ul>
+		<li><%= link_to "Brands", admin_brands_url %></li>
+			<ul><li><%= link_to "Popular Brands", popular_admin_brands_url %></li></ul>
+		<li><%= link_to "Departments", admin_departments_url %></li>			
+		<li><%= link_to "Contests", admin_contests_url %></li>
+		<li><%= link_to "Friend's blogs", admin_friends_url %></li>
+	</ul>
+</div>

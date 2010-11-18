@@ -1,0 +1,23 @@
+<table style="width: 100%; border: none; border-collapse: collapse;">
+<%- for p_row in rows -%>
+<tr class="row">
+	<%- for p in p_row -%>
+	<td style="width: 200px; text-align: center; font-size: 10px; padding: 5px 0;">
+		<div>
+			<a href="<%= url_for :controller => "products", :action => "product_price_email_redirector", 
+				:product_id => p.id, :only_path => false, :user_product_email_id => @upe_id %>">
+				<img src="<%= p.small_image_url %>" style="height: 50px; width: 50px;"/>
+			</a>
+		</div>
+		<div>
+			<a href="<%= url_for :controller => "products", :action => "product_price_email_redirector", 
+				:product_id => p.id, :only_path => false, :user_product_email_id => @upe_id %>">
+				<%= p.product_name %>
+			</a>
+		</div>
+		<div style="color: #666666;"><%= price_info[p.id] %></p></div>
+	</td>
+	<%- end -%>
+</tr>
+<%- end -%>
+</table>

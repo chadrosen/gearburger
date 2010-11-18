@@ -1,0 +1,44 @@
+<h1>User Behavior</h1>
+
+<% content_for(:custom_filters) do %>
+	<%= select_tag("stat", options_for_select(@options, @stat)) %>
+	Count Limit: <%= text_field_tag("count_limit", @count_limit, :style => "width: 50px;") %> 
+	Limit: <%= text_field_tag("limit", @limit, :style => "width: 50px;") %>
+<% end %>
+
+<%= render :partial => "/admin/common/simple_filter" %>
+
+<table class="data" id="sort_table" style="margin-top: 10px; width: 100%;">
+	<% if @r.length > 0 %>
+		<thead>
+		<tr>
+			<th class="center">Count</th>
+			<th>User</th>
+			<th class="center">Views</th>
+			<th class="center">Clicks</th>
+			<th class="center">Sales</th>
+			<th class="center">Revenue</th>
+			<th>State</th>
+			<th>Created</th>
+		</tr>
+		</thead>
+		<tbody>
+		<%- @r.each_pair do |user, count| -%>
+		<tr>
+			<td class="center">
+				<%= @stat == "revenue" ? number_to_currency(count) : count %>
+			</td>
+			<td><%= link_to user.email, admin_user_url(user) %></td>
+			<td class="center"><%= @stats[user.id][:views] %></td>
+			<td class="center"><%= @stats[user.id][:clicks] %></td>
+			<td class="center"><%= @stats[user.id][:sales] %></td>
+			<td class="center"><%= number_to_currency(@stats[user.id][:revenue]) %></td>
+			<td><%= user.state %></td>
+			<td><%= user.created_at %></td>
+		</tr>		
+		<%- end -%>
+		</tbody>
+	<% else %>
+		<tr><td class="center">no data found</td></tr>
+	<%- end -%>
+</table>

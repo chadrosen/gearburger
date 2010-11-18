@@ -1,0 +1,26 @@
+<h1>Users Created/Deleted By Month</h1>
+
+<table class="data">
+	<% if @results.length > 0 %>
+		<tr>
+			<th>Date</th>
+			<th>Users created</th>
+			<th>Users inactivated</th>
+			<th>Net Adds</th>
+		</tr>
+		<% for r in @results %>
+		<tr>
+			<td>
+				<%= r[:date] %>
+			</td>
+			<td class="center">
+				<%= r[:created] %>
+			</td>
+			<td class="center"><%= r[:deleted] %></td>
+			<td class="center"><%= r[:net] %></td>
+		</tr>
+		<% end %>
+	<% else %>
+		<tr><td style="text-align: center">No data found</td></tr>
+	<% end %>
+</table>

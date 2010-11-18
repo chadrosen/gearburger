@@ -1,0 +1,66 @@
+<div id="page_header">Contests</div>
+
+<%= render :partial => "application/errors" %>
+
+<table class="data" style="margin-bottom: 10px;">
+	<tr>
+		<th>Currently logged in</th>
+		<td><%= @logged_in %></td>
+	</tr>
+	<tr>
+		<th>Your current cookie</th>
+		<td><%= @ucc %></td>
+	</tr>
+	<tr>
+		<th>Hash of currently user</th>
+		<td>
+			<span id="logged_in_cookie"><%= @hash %></span>
+			 <a href="#" id="set_flash_cookie">set flash cookie to this value</a>
+		</td>
+	</tr>
+	<tr>
+		<th>Flash cookie</th>
+		<td>
+			<span id="flash_cookie"></span>
+			 <a href="#" id="get_flash_cookie">get flash cookie</a>
+		</td>
+	</tr>
+</table>
+
+<div><%= link_to "Create", new_admin_contest_url %></div>
+
+<table class="data" style="margin-top: 10px; margin-bottom: 10px; width: 100%;">
+	<% if @contests.length > 0 %>
+	<tr>
+		<th>Image Url</th>
+		<th>Prize Name</th>
+		<th>Prize Price</th>
+		<th>Start</th>
+		<th>End</th>
+		<th>Active</th>
+		<th>&nbsp;</th>
+	</tr>
+	<% for c in @contests %>
+	<tr>
+		<td><%= link_to c.image_url, edit_admin_contest_url(c) %></td>
+		<td><%= c.prize_name %></td>
+		<td><%= c.prize_price %></td>
+		<td><%= c.start_time.strftime("%b %d %I:%M %p") %></td>
+		<td><%= c.end_time.strftime("%b %d %I:%M %p") %></td>
+		<td><%= c.active %></td>
+		<td><%= link_to "captions", admin_contest_captions_url(c) %></td>
+	</tr>		
+	<% end %>	
+	<% else %>
+		<tr><td>No contests yet</td></tr>
+	<% end %>
+</table>
+
+<object id="flashCookie" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" 
+	class="dynamic_flash_content">
+  <param name="movie" value="/swfs/Cookie.swf" />
+  <!--[if !IE]>-->
+  <object type="application/x-shockwave-flash" data="/swfs/Cookie.swf" 
+	class="dynamic_flash_content"></object>
+  <!--<![endif]-->
+</object>

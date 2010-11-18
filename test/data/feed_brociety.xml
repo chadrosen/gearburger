@@ -1,0 +1,67 @@
+ 
+<Product> 
+  <SKU>FTS0019</SKU> 
+  <Manufacturer_Id></Manufacturer_Id> 
+  <Brand>Nitro</Brand> 
+  <Product_Name>Nitro Haze Snowboard</Product_Name> 
+  <Short_Description><![CDATA[Nitro crafted the urban rail-killing, park-destroying Haze Snowboard with minimal camber and overall soft-as-butter flex, leaving plenty of recovery room for a foggy head and shaky muscles. ]]></Short_Description> 
+  <Long_Description><![CDATA[Nitro crafted the urban rail-killing, park-destroying Haze Snowboard with minimal camber and overall soft-as-butter flex, leaving plenty of recovery room for a foggy head and shaky muscles. Best thing is, when you do start to recover from the previous night's party that raged like a pre-apocalyptic last-change-to-get-some-sweet-lovin' blow-out, this thing is ready when it's time to step up and show gapers that energy drinks really do have the same effect as crack.]]></Long_Description> 
+  <Small_Image_URL>http://www.brociety.com/images/items/small/NTR/NTR0188/S149CM.jpg</Small_Image_URL> 
+  <Medium_Image_URL>http://www.brociety.com/images/items/medium/NTR/NTR0188/S149CM.jpg</Medium_Image_URL> 
+  <Large_Image_URL>http://www.brociety.com/images/items/large/NTR/NTR0188/S149CM.jpg</Large_Image_URL> 
+  <Retail_Price>319.95</Retail_Price> 
+  <Sale_Price>159.98</Sale_Price> 
+  <Keywords>Nitro, Haze Snowboard, soft flex, buttery board, urban jib board, freestyle snowboard</Keywords> 
+  <Variants> 
+    <Variant> 
+      <Variant_SKU>FTS0019</Variant_SKU> 
+      <Variant_Description>Black, 149cm</Variant_Description> 
+      <Variant_QOH>11</Variant_QOH> 
+      <Variant_Small_Image_URL>http://www.brociety.com/images/items/small/NTR/NTR0188/BK.jpg</Variant_Small_Image_URL> 
+      <Variant_Medium_Image_URL>http://www.brociety.com/images/items/medium/NTR/NTR0188/BK.jpg</Variant_Medium_Image_URL> 
+      <Variant_Large_Image_URL>http://www.brociety.com/images/items/large/NTR/NTR0188/BK.jpg</Variant_Large_Image_URL> 
+    </Variant> 
+    <Variant> 
+      <Variant_SKU>FTS0019</Variant_SKU> 
+      <Variant_Description>Color, 153cm</Variant_Description> 
+      <Variant_QOH>12</Variant_QOH> 
+      <Variant_Small_Image_URL>http://www.brociety.com/images/items/small/NTR/NTR0188/COL.jpg</Variant_Small_Image_URL> 
+      <Variant_Medium_Image_URL>http://www.brociety.com/images/items/medium/NTR/NTR0188/COL.jpg</Variant_Medium_Image_URL> 
+      <Variant_Large_Image_URL>http://www.brociety.com/images/items/large/NTR/NTR0188/COL.jpg</Variant_Large_Image_URL> 
+    </Variant> 
+    <Variant> 
+      <Variant_SKU>FTS0019</Variant_SKU> 
+      <Variant_Description>Black, 156cm</Variant_Description> 
+      <Variant_QOH>12</Variant_QOH> 
+      <Variant_Small_Image_URL>http://www.brociety.com/images/items/small/NTR/NTR0188/BK.jpg</Variant_Small_Image_URL> 
+      <Variant_Medium_Image_URL>http://www.brociety.com/images/items/medium/NTR/NTR0188/BK.jpg</Variant_Medium_Image_URL> 
+      <Variant_Large_Image_URL>http://www.brociety.com/images/items/large/NTR/NTR0188/BK.jpg</Variant_Large_Image_URL> 
+    </Variant> 
+    <Variant> 
+      <Variant_SKU>FTS0019</Variant_SKU> 
+      <Variant_Description>Color, 149cm</Variant_Description> 
+      <Variant_QOH>11</Variant_QOH> 
+      <Variant_Small_Image_URL>http://www.brociety.com/images/items/small/NTR/NTR0188/COL.jpg</Variant_Small_Image_URL> 
+      <Variant_Medium_Image_URL>http://www.brociety.com/images/items/medium/NTR/NTR0188/COL.jpg</Variant_Medium_Image_URL> 
+      <Variant_Large_Image_URL>http://www.brociety.com/images/items/large/NTR/NTR0188/COL.jpg</Variant_Large_Image_URL> 
+    </Variant> 
+    <Variant> 
+      <Variant_SKU>FTS0019</Variant_SKU> 
+      <Variant_Description>Black, 153cm</Variant_Description> 
+      <Variant_QOH>12</Variant_QOH> 
+      <Variant_Small_Image_URL>http://www.brociety.com/images/items/small/NTR/NTR0188/BK.jpg</Variant_Small_Image_URL> 
+      <Variant_Medium_Image_URL>http://www.brociety.com/images/items/medium/NTR/NTR0188/BK.jpg</Variant_Medium_Image_URL> 
+      <Variant_Large_Image_URL>http://www.brociety.com/images/items/large/NTR/NTR0188/BK.jpg</Variant_Large_Image_URL> 
+    </Variant> 
+    <Variant> 
+      <Variant_SKU>FTS0019</Variant_SKU> 
+      <Variant_Description>Color, 156cm</Variant_Description> 
+      <Variant_QOH>12</Variant_QOH> 
+      <Variant_Small_Image_URL>http://www.brociety.com/images/items/small/NTR/NTR0188/COL.jpg</Variant_Small_Image_URL> 
+      <Variant_Medium_Image_URL>http://www.brociety.com/images/items/medium/NTR/NTR0188/COL.jpg</Variant_Medium_Image_URL> 
+      <Variant_Large_Image_URL>http://www.brociety.com/images/items/large/NTR/NTR0188/COL.jpg</Variant_Large_Image_URL> 
+    </Variant> 
+  </Variants> 
+  <Buy_URL>http://www.brociety.com/brociety/index.html?cmp_sku=NTR0188</Buy_URL> 
+  <Quantity_On_Hand>70</Quantity_On_Hand> 
+</Product>

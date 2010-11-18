@@ -1,0 +1,11 @@
+sale_one:
+    click: click_with_user
+    total_commission: 100.00
+    transaction_time: <%= 1.hours.ago.to_s :db %>
+    user: chad
+    
+sale_ajaxed:
+    click: click_ajaxed_link
+    total_commission: 50.0
+    transaction_time: <%= 1.hours.ago.to_s :db %>
+    user: rob    

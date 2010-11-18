@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html style="height: 100%; padding: 0px; margin: 0px; width: 100%; font-family: Arial,'Trebuchet MS',Verdana; font-size: 14px;" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	</head>
+	<body style="text-align: center; height: 100%; width: 600px; padding: 0px; margin: 0px; background-color: #FFFFFF; font-family: Arial,'Trebuchet MS',Verdana; font-size: 14px; color: #666666;">		
+				
+		<div style="border-bottom: 1px solid #f6f6f6; background-color: #1d1d1d; height: 45px; margin-bottom: 10px; padding: 10px;">
+			<img src="http://www.gearburger.com/images/gearburger_horz_white.png"/>
+		</div>
+						
+		<a href="<%= redirector_url(@upe, :controller => "friends", :action => "invite_friends", 
+			:source => "invite_friends") %>" 
+			style="display: block; font-size: 10px; color: #3ea1bf; margin-bottom: 20px; font-weight: bold;">
+			Hey! Invite your friends to Gear Burger & win Backcountry.com gift cards!
+		</a>
+									
+		<h1 style="font-size: 18px; color: #33986e; border-bottom: 1px solid #3ea1bf; padding: 0 0 3px 0;">
+			New Deals for <%= @today.strftime("%A, %B %d") %>
+		</h1>
+		<% for c_row in @category_rows %>
+			<% category = c_row[0] %>
+			<% product_rows = c_row[1] %>
+			<div style="margin: 5px 0; font-size: 18px; color: #33986e;"><%= category.name %></div>
+			<table cellspacing="7" cellpadding="7" style="font-size: 12px; border-collapse: separate;">
+			<% for p_row in product_rows %>
+			<tr class="row">
+				<% for product_user in p_row %>
+				<% p = product_user.product %>
+				<td style="width: 175px; background-color: #FFFFFF; text-align: center; border: 1px solid #cdcdcd;">
+					
+					<a href="<%= redirector_url(@upe, :pu => product_user.id, :p => p.id) %>"
+						style="display: block;">
+						<img src="<%= p.get_small_image_url %>" style="height: 125px; width: 125px;"/>
+					</a>
+					<div style="margin: 3px 0; font-size: 12px; font-weight: bold;"><%= p.product_name %></div>
+					<div style="font-weight: bold; font-size: 14px;">
+						
+						<span style="font-size: 10px;">Reg: <%= number_to_currency(p.retail_price) %></span>
+					 	<span style="color: #7eae74; font-size: 12px; font-weight: bold; ">
+							Now: <%= number_to_currency(p.sale_price) %>
+						</span>						
+					</div>
+				</td>
+				<% end %>
+			</tr>
+			<% end %>
+			</table>
+		<% end %>
+
+		<br/>
+			
+		<a href="<%= redirector_url(@upe, :controller => "users", :action => "sale_spot", 
+			:source => "sale_spot") %>" 
+			style="display: block; font-size: 10px; color: #3ea1bf; font-weight: bold;">
+			See more great deals only available today!
+		</a>
+	
+		<br/><br/>
+	
+		<div style="font-size: 10px; color: #999999; border-top: 1px solid #3ea1bf; padding: 5px 0 0;">
+			2010 Gear Burger. 41 Arguello Blvd. San Francisco CA 94118
+		</div>
+	</div>
+		
+	<br/>	
+	
+	<div style="padding: 5px; border-top: 1px solid #f6f6f6; background-color: #EEEEEE;"> 
+		<table width="100%" style="font-size: 10px; color: #3ea1bf;">
+			<tr>
+				<td width="75%" style="color: #3ea1bf; text-align: left; padding: 0 0 0 20px;">
+					Sent to <%= @user.email %>
+				</td>
+				<td width="15%" style="text-align: right; padding: 0 20px 0 0">
+					<a href="<%= redirector_url(@upe, :controller => "users", :action => "deactivate_account", 
+						:source => "unsubscribe") %>">
+						Unsubscribe
+					</a>
+				</td>
+			</tr>
+		</table>
+			
+	<img src="<%= url_for :controller => "products", :action => "product_price_email_pixel", 
+		:user_product_email_id => @upe.id, :only_path => false %>", width="1" height="1"/>
+	</body>
+</html>

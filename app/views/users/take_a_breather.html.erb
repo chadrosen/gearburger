@@ -1,0 +1,22 @@
+<% if flash[:notice] %>
+<div class="welcome_back">
+	<%= flash[:notice] %>
+</div>
+<% end %>
+
+<h1>Take a Breather</h1>
+
+<% if current_user.state == :break %>
+	<h2>You are currently taking a breather until <%= current_user.break_ends_at.strftime("%B %d, %Y") %></h2>
+	<h3>You can <%= link_to "get back in the game", clear_breather_url %> or select a new date.</h3>
+<% else %>
+	<h2>I need a breather. Please stop sending Gear Burger emails until:</h2>
+<% end %>
+
+<%= form_tag(take_a_breather_url) do |f| %>
+	<%= select_tag("break_end", options_for_select(get_break_options))%>
+	<div id="submit_button">
+		<%= submit_tag("submit", :value => "Take a break")%>
+		 or <%= link_to "cancel", root_url %>
+	</div>
+<% end %>

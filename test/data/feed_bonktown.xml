@@ -1,0 +1,67 @@
+ 
+<Product> 
+  <SKU>FTS0012</SKU> 
+  <Manufacturer_Id></Manufacturer_Id> 
+  <Brand>Giordana</Brand> 
+  <Product_Name>Giordana Alpine Winter Cycling Glove - Men's</Product_Name> 
+  <Short_Description><![CDATA[Cold digits increase reaction times, so keep your paws warm with the Giordana Men's Cycling Gloves and stay on top of your levers. ]]></Short_Description> 
+  <Long_Description><![CDATA[Cold digits increase reaction times, so keep your paws warm with the Giordana Men's Cycling Gloves and stay on top of your levers. Designed for use in temperatures down to the low 40's, the Alpine Glove features windproof, water-resistant, breathable WindTex material for happy hands in unhappy weather. ]]></Long_Description> 
+  <Small_Image_URL>http://www.bonktown.com/images/items/small/GIO/GIO0063/BK.jpg</Small_Image_URL> 
+  <Medium_Image_URL>http://www.bonktown.com/images/items/medium/GIO/GIO0063/BK.jpg</Medium_Image_URL> 
+  <Large_Image_URL>http://www.bonktown.com/images/items/large/GIO/GIO0063/BK.jpg</Large_Image_URL> 
+  <Retail_Price>34.95</Retail_Price> 
+  <Sale_Price>12.99</Sale_Price> 
+  <Keywords>Giordana, Alpine Winter Cycling Glove - Men's, gloves, cycling gloves, mtb gloves</Keywords> 
+  <Variants> 
+    <Variant> 
+      <Variant_SKU>FTS0012</Variant_SKU> 
+      <Variant_Description>Blue, L</Variant_Description> 
+      <Variant_QOH>8</Variant_QOH> 
+      <Variant_Small_Image_URL>http://www.bonktown.com/images/items/small/GIO/GIO0063/BL.jpg</Variant_Small_Image_URL> 
+      <Variant_Medium_Image_URL>http://www.bonktown.com/images/items/medium/GIO/GIO0063/BL.jpg</Variant_Medium_Image_URL> 
+      <Variant_Large_Image_URL>http://www.bonktown.com/images/items/large/GIO/GIO0063/BL.jpg</Variant_Large_Image_URL> 
+    </Variant> 
+    <Variant> 
+      <Variant_SKU>FTS0012</Variant_SKU> 
+      <Variant_Description>Navy, M</Variant_Description> 
+      <Variant_QOH>8</Variant_QOH> 
+      <Variant_Small_Image_URL>http://www.bonktown.com/images/items/small/GIO/GIO0063/NV.jpg</Variant_Small_Image_URL> 
+      <Variant_Medium_Image_URL>http://www.bonktown.com/images/items/medium/GIO/GIO0063/NV.jpg</Variant_Medium_Image_URL> 
+      <Variant_Large_Image_URL>http://www.bonktown.com/images/items/large/GIO/GIO0063/NV.jpg</Variant_Large_Image_URL> 
+    </Variant> 
+    <Variant> 
+      <Variant_SKU>FTS0012</Variant_SKU> 
+      <Variant_Description>Blue, M</Variant_Description> 
+      <Variant_QOH>7</Variant_QOH> 
+      <Variant_Small_Image_URL>http://www.bonktown.com/images/items/small/GIO/GIO0063/BL.jpg</Variant_Small_Image_URL> 
+      <Variant_Medium_Image_URL>http://www.bonktown.com/images/items/medium/GIO/GIO0063/BL.jpg</Variant_Medium_Image_URL> 
+      <Variant_Large_Image_URL>http://www.bonktown.com/images/items/large/GIO/GIO0063/BL.jpg</Variant_Large_Image_URL> 
+    </Variant> 
+    <Variant> 
+      <Variant_SKU>FTS0012</Variant_SKU> 
+      <Variant_Description>Navy, S</Variant_Description> 
+      <Variant_QOH>3</Variant_QOH> 
+      <Variant_Small_Image_URL>http://www.bonktown.com/images/items/small/GIO/GIO0063/NV.jpg</Variant_Small_Image_URL> 
+      <Variant_Medium_Image_URL>http://www.bonktown.com/images/items/medium/GIO/GIO0063/NV.jpg</Variant_Medium_Image_URL> 
+      <Variant_Large_Image_URL>http://www.bonktown.com/images/items/large/GIO/GIO0063/NV.jpg</Variant_Large_Image_URL> 
+    </Variant> 
+    <Variant> 
+      <Variant_SKU>FTS0012</Variant_SKU> 
+      <Variant_Description>Blue, XL</Variant_Description> 
+      <Variant_QOH>6</Variant_QOH> 
+      <Variant_Small_Image_URL>http://www.bonktown.com/images/items/small/GIO/GIO0063/BL.jpg</Variant_Small_Image_URL> 
+      <Variant_Medium_Image_URL>http://www.bonktown.com/images/items/medium/GIO/GIO0063/BL.jpg</Variant_Medium_Image_URL> 
+      <Variant_Large_Image_URL>http://www.bonktown.com/images/items/large/GIO/GIO0063/BL.jpg</Variant_Large_Image_URL> 
+    </Variant> 
+    <Variant> 
+      <Variant_SKU>FTS0012</Variant_SKU> 
+      <Variant_Description>Blue, S</Variant_Description> 
+      <Variant_QOH>2</Variant_QOH> 
+      <Variant_Small_Image_URL>http://www.bonktown.com/images/items/small/GIO/GIO0063/BL.jpg</Variant_Small_Image_URL> 
+      <Variant_Medium_Image_URL>http://www.bonktown.com/images/items/medium/GIO/GIO0063/BL.jpg</Variant_Medium_Image_URL> 
+      <Variant_Large_Image_URL>http://www.bonktown.com/images/items/large/GIO/GIO0063/BL.jpg</Variant_Large_Image_URL> 
+    </Variant> 
+  </Variants> 
+  <Buy_URL>http://www.bonktown.com/bonktown/index.html?cmp_sku=GIO0063</Buy_URL> 
+  <Quantity_On_Hand>34</Quantity_On_Hand> 
+</Product>

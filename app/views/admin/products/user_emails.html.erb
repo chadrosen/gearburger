@@ -1,0 +1,17 @@
+<h1>User Emails</h1>
+
+<div style="margin-bottom: 15px;">Total: <%= @user_emails.length %> Date: <%= Time.zone.today %></div>
+
+<table class="data" width="100%">
+	<% if @user_emails.length > 0 %>
+		<tr>
+			<th>Email</th>
+		</tr>
+		<% for u in @user_emails %>
+		<tr>
+			<td><%= link_to u.email, admin_user_url(u) %></td>
+		</tr>
+		<% end %>
+	<% else %>
+	<tr><td class="center">No emails sent</td></tr>
+<% end %>

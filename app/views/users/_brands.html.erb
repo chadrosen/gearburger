@@ -1,0 +1,13 @@
+<div id="brands">	
+	<% for letter in @letters %>
+		<% if brands[letter].length > 0 %>
+		<div class="brand_letter"><%= letter %></div>
+		<div class="item_container brand_container">
+			
+			<%= render :partial => "users/grouped_items", 
+				:locals => { :items => get_grouped_data(brands[letter]), :selected => selected, 
+					:item_type => "brands" } %>			
+		</div>
+		<% end %>
+	<% end %>
+</div>

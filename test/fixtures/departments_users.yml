@@ -1,0 +1,15 @@
+one:
+    user: chad
+    department: mens
+    
+two:
+    user: chad
+    department: womens
+
+three:
+    user: rob
+    department: kids
+
+four:
+    user: mesch
+    department: mens  

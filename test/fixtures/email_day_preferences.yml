@@ -1,0 +1,7 @@
+<% [:quentin, :aaron, :old_password_holder, :chad, :vince, :rob, :mesch].each do |u| %>
+<% ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"].each do |d| %>
+<%= "#{d}_#{u}:" %>
+    <%= "user: #{u}" %>
+    <%= "day_of_week: #{d}" %>
+<% end %>
+<% end %>

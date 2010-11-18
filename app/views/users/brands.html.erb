@@ -1,0 +1,11 @@
+<h1 id="page_title">
+	Edit Brands	
+	<span class="checkbox_select">
+		<a href="#" class="check_all">check all</a> | <a href="#" class="uncheck_all">uncheck all</a>
+	</span>
+</id>
+
+<%= form_for :brands, :url => brands_submit_url do |f| %>
+	<%= render :partial => "users/brands", :locals => { :brands => @brands, :selected => @selected } %>	
+	<%= render :partial => "users/submit" %>
+<% end %>

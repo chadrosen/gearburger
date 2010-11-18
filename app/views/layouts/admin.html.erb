@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<title>Gear Burger</title>
+
+			<%= javascript_include_tag "mootools-1.2.4-core-yc" %>
+			<%= javascript_include_tag "mootools-1.2.4.4-more" %>
+			<%= javascript_include_tag "swfobject" %>
+			<%= javascript_include_tag "sorting_table" %>
+			<%= javascript_include_tag "global" %>
+			<%= javascript_include_tag "admin" %>
+			
+			<%= stylesheet_link_tag "reset-min" %>
+			<%= stylesheet_link_tag "global" %>
+			<%= stylesheet_link_tag "admin" %>
+			
+		<%= yield(:head) %>
+		<link rel="icon" type="image/gif" href="/images/favicon.ico" />
+	</head>
+	<body id="<%= controller.controller_name %>_<%= controller.action_name %>">
+		<div id="container">
+			<div id="body">
+				<div id="header">
+					<div id="nav">
+						<div class="nav_link"><%= link_to "Admin", admin_home_url %></div>
+						<div class="nav_link"><%= link_to "GB", new_user_url %></div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div id="content"><%= yield %></div>
+			</div>
+		</div>	
+		
+	</body>
+</html>

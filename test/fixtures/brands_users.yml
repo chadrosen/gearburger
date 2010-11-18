@@ -1,0 +1,36 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+one:
+    user: chad
+    brand: six_eight_six
+
+two:
+    user: chad
+    brand: MPG
+
+three:
+    user: chad
+    brand: Asolo
+    
+four: 
+    user: chad
+    brand: Jetboil
+    
+five:
+    user: vince
+    brand: six_eight_six
+    
+six:
+    user: quentin
+    brand: six_eight_six
+    
+seven:
+    user: rob
+    brand: six_eight_six
+    
+eight:
+    user: chad
+    brand: Ugly
+
+nine:
+    user: mesch
+    brand: six_eight_six

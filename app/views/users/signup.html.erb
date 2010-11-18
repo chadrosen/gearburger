@@ -1,0 +1,53 @@
+<%- form_tag(signup_url, :id => "signup_submit_form") do -%>
+
+	<%= render :partial => "application/errors" %>		
+
+	<div style="float : left; width: 450px;">
+
+		<div class="step">
+			<h3>What kind of deals would you like to see?</h3>
+		</div>
+
+		<div class="items" id="departments">
+			<h3>Departments</h3>
+			<%= render :partial => "users/grouped_items", 
+				:locals => { :items => @department_list, :selected => @selected_d, 
+				:item_type => "departments" } %>
+		</div>
+
+		<div class="items" id="categories">
+			<h3>Categories <span class="checkbox_select">
+				<a href="#" class="check_all">check all</a> | <a href="#" class="uncheck_all">uncheck all</a></span>
+			</h3>
+			<%= render :partial => "users/categories", 
+				:locals => { :categories => @cat_list, :selected => @selected_c } %>
+		</div>
+	</div>
+
+	<div style="float : left; width: 450px; margin-left: 20px;">
+
+		<div class="step">
+			<h3>Where do we send your amazing deals?</h3>
+		</div>
+
+		<div style="margin-bottom: 15px; border-bottom: 1px solid #999999; padding: 0 0 15px 0">
+			<%= image_submit_tag "facebook_login.png", :id => "fb_submit" %>
+		</div>
+		
+		<div>		
+			<%= text_field_tag "email", @email, {:class => "input_field", 
+				:id => "email_address", :maxLength => 100} %>
+		</div>
+
+		<div id="recaptcha_container">
+			<%= raw recaptcha_tags :public_key => OPTIONS[:recaptcha_public_key], 
+				:display => { :theme => "clean" } %>
+		</div>
+
+		<%= submit_tag "Finish!", { :class => "submit", :id => "manual_submit" } %>
+
+	</div>
+	
+	<div class="clear"></div>
+	
+<%- end -%>

@@ -1,0 +1,85 @@
+<div class="left" id="filter">
+	
+	<div class="filter_section">
+		<h3>Categories 
+			 <a href="#" class="toggle select_all">all</a> | <a href="#" class="toggle select_all">none</a>
+		</h3>
+		<ul class="overflow">
+			<% for c in @categories %>
+			<li>
+				<%= check_box_tag(c.name, 1, @uc.include?(c.id), :class => "category", :id => c.id) %>
+				<%= label_tag c.id, c.name %>
+			</li>
+			<% end %>
+		</ul>
+	</div>
+	
+	<div class="filter_section">
+		<h3>Department</h3>
+		<div style="padding-left: 10px;" class="filter_body">
+			<ul>
+			<% for d in @depts %>
+				<li>
+					<%= check_box_tag "departments[#{d.id}]", 1, @ud.include?(d.id), :id => d.id, 
+						:class => "department" %>
+					 <%= label_tag d.id, d.name %>
+				</li>
+			<% end %>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="filter_section">
+		<h3>Discount</h3>
+		<div style="padding-left: 10px;" class="filter_body">
+			<%= select_tag("min_discount", options_for_select(get_discount_preferences, current_user.min_discount)) %>
+		</div>
+	</div>
+		
+	<div class="filter_section">
+		<h3>Price</h3>
+		<div style="padding-left: 10px;" class="filter_body">
+			<input type="text" id="min_price" value="0.00" 
+				style="font-size: 12px; padding: 2px; width: 50px;"/> to
+			 <input type="text" id="max_price" value="5000.00" style="font-size: 12px; padding: 2px; width: 50px;"/>
+		</div>
+	</div>
+	
+	<div class="filter_section">
+		<h3>Deal Freshness</h3>
+		<ul class="filter_body">
+			<li>
+				<input type="radio" name="freshness" value="<%= 1.days.ago.to_i %>"/>
+				Last 24 hours
+			</li>
+			<li>
+				<input type="radio" name="freshness" value="<%= 7.days.ago.to_i %>"/>
+				Last week
+			</li>
+			<li>
+				<input type="radio" name="freshness" checked="checked" value="<%= 30.day.ago.to_i %>"/>
+				Last Month
+			</li>
+		</ul>
+	</div>
+	
+</div>
+
+<div class="left" id="data">
+	<h2>
+		<span id="spinner" class="hidden"><%= image_tag "ajax-loader.gif", :style => "height: 10px;" %></span>
+		 Your Matches <span id="matches_count">0</span> <a href="#" id="see_more">see more</a> 
+	</h2>	
+	<div id="products_container">
+		<div class="hidden" id="no_matches">No products found. Please change your settings and try again.</div>
+	</div>
+</div>
+
+<div class="clear"></div>
+
+<% content_for(:body_scripts) do %>
+	<script type="text/javascript">
+		var page = <%= @page %>;
+		var products = <%= @products %>;
+	</script>
+<% end %>

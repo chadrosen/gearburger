@@ -1,0 +1,55 @@
+<h1>Frequently Asked Questions</h1>
+
+<div class="faq_q">What is Gear Burger?</div>
+<div class="faq_a">
+	Gear Burger is a free service committed to delivering you the gear deals you're looking for.
+</div>
+
+<div class="faq_q">How do I get started and create some alerts?</div>
+<div class="faq_a">
+	From <a href="http://gearburger.com">Home</a>, click "Start Now".  First, tell us what types of 
+	gear and brands you'd like to hear about.  When you click submit we'll send you an email that will 
+	contain a link that you'll need to click to activate your account and alerts.  
+	You should change your password once you can access your account to something you can remember.
+</div>
+
+<div class="faq_q">How do I log in?</div>
+<div class="faq_a">
+	Click <%= link_to "Login", login_url %> in the upper navigation bar and then enter the email address and password on your account.
+</div>
+
+<div class="faq_q">How do I resend my password?</div>
+<div class="faq_a">
+	If you can't remember your password, click <%= link_to "I forgot my password", lost_password_url %> 
+	and follow the prompts to reset your password.  If know your password but would like to change it, 
+	login to your account and click the "Change Password" link within your home page and follow the prompts 
+	you reset your password.
+</div>
+
+<div class="faq_q">Why am I not getting my Gear Burger emails?</div>
+<div class="faq_a">
+	 Check your spam filter!  Be sure to add 
+	<%= mail_to "alerts@gearburger.com", "alerts@gearburger.com", :encode => "javascript" %> to your 
+	address book or white list.  Also, if your alert parameters are very specific, it may be a long 
+	time before we see a deal that is a match. Try adding more brands and/or more categories.
+</div>
+
+<div class="faq_q">What sites do you monitor?</div>
+<div class="faq_a">
+	We currently monitor <%= @feeds.join(", ")%> with more on the way!
+</div>
+
+<div class="faq_q">  How can I get Gear Burger to monitor deals on a site that I like?</div>
+<div class="faq_a">
+	We love feedback and suggestions!  Submit a message in 
+	our <a href="http://getsatisfaction.com/gear_burger" target="_blank">support forum</a> 
+	and we'll be sure to check it out!
+</div>
+
+<div class="faq_q"> What if my question wasn't answered here?</div>
+<div class="faq_a">
+	 We try to keep this FAQ page as helpful and current as possible, 
+	but if you have a question that needs answering or if you'd simply like to give us a shout out, visit our 
+	<a href="http://getsatisfaction.com/gear_burger" target="_blank">support forum</a>. 
+	If you've had a problem, chances are someone else has or will too.
+</div>

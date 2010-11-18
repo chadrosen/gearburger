@@ -1,0 +1,44 @@
+<h1>Product Validation Results</h1>
+
+<% content_for(:custom_filters) do %>
+	Limit: <%= text_field_tag("limit", @limit, :style => "width: 50px;") %>
+	<%= check_box_tag("valid_sale_price", 1, @vsp == 1) %> Valid Price 
+	<%= check_box_tag("valid_small_image", 1, @vsi == 1) %> Valid Image
+<% end %>
+
+<%= render :partial => "/application/errors" %>
+
+<%= render :partial => "/admin/common/simple_filter" %>
+
+<%= page_entries_info @products %>
+<%= will_paginate @products %>
+
+<table class="data" width="100%" style="width: 100%; margin: 10px 0 0;">
+	<% if @products.length > 0 %>
+	<tr>
+		<th>Name</th>
+		<th>Sale Price</th>
+		<th class="center">Image</th>		
+		<th class="center">Valid Sale</th>
+		<th class="center">Valid Image</th>
+		<th>Price Updated</th>
+	</tr>
+	<% for p in @products %>
+	<tr>
+		<td><%= link_to truncate(p.product_name, :length => 40), admin_product_url(p) %></td>
+		<td><%= link_to number_to_currency(p.sale_price), p.buy_url, :target => "_blank" %></td>
+		<td class="center">
+			<%= link_to(image_tag(p.get_small_image_url, :style => "height: 25px; width: 25px;"), 
+				p.small_image_url, :target => "_blank") %>
+		</td>
+		<td class="center"><%= p.valid_sale_price %></td>
+		<td class="center"><%= p.valid_small_image %></td>
+		<td><%= p.price_changed_at %></td>
+	</tr>
+	<% end %>
+	<% else %>
+	<tr><td class="center">no products found</td></tr>
+	<% end %>
+</table>
+
+<%= will_paginate @products %>

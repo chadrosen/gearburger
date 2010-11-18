@@ -1,0 +1,28 @@
+<div id="page_header">Categories</div>
+
+<%= render :partial => "application/errors" %>
+
+<form action="" method="GET" style="margin: 0 0 10px 0">
+	Show inactive categories: <input type="checkbox" name="show_inactive"
+		<% if @show_inactive %>checked="checked"<% end %>
+	/>
+	<input type="submit" value="Filter"/>
+</form>
+
+<div><%= link_to "Create", new_admin_category_url %></div>
+
+<table class="data" style="margin-top: 10px; margin-bottom: 10px; width: 100%;">
+	<tr>
+		<th>Name</th>
+		<th>Active</th>
+	</tr>
+	<% for b in @categories %>
+	<tr>
+		<td><%= link_to b.name, edit_admin_category_url(b) %></td>
+		<td><%= b.active %></td>
+	</tr>		
+	<% end %>
+	
+</table>
+
+<%= will_paginate @categories %>

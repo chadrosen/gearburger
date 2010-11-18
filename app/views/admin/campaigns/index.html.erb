@@ -1,0 +1,26 @@
+<h1>Captions</h1>
+
+<%= render :partial => "application/errors" %>
+
+<%= link_to "Create campaign", new_admin_campaign_url %>
+
+<table class="data" style="margin-top: 10px; margin-bottom: 10px; width: 100%;">
+	<% if @campaigns.length > 0 %>
+	<tr>
+		<th>Campaign Id</th>
+		<th>Name</th>
+		<th>Created</th>
+		<th>Active</th>
+	</tr>
+	<% for c in @campaigns %>
+	<tr>
+		<td><%= link_to c.public_id, edit_admin_campaign_url(c) %></td>
+		<td><%= c.name %></td>
+		<td><%= c.created_at.strftime("%b %d %I:%M %p") %></td>
+		<td><%= c.active %></td>
+	</tr>		
+	<% end %>	
+	<% else %>
+		<tr><td>No campaigns yet</td></tr>
+	<% end %>
+</table>

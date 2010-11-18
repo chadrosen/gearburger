@@ -1,0 +1,12 @@
+<div class="item_group">
+	<div class="item_title"><%= link_to item_title, item_edit_url(item_type) %></div>
+	<div class="data">
+		<% if items.length > 0 %>
+			<% for s in items %>
+				<span class="items"><%= s.name %></span>
+			<% end %>
+		<% else %>
+			<span class="no_alerts">You have not made any selections.  Pick some stuff!</span>
+		<% end %>
+	</div>
+</div>

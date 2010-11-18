@@ -1,0 +1,33 @@
+<div id="page_header">Votes</div>
+
+<div style="margin-bottom: 5px;">
+	<%= link_to "Back to captions", admin_contest_captions_url(@caption.contest_id) %>
+</div>
+
+<table class="data" style="margin-top: 10px; margin-bottom: 10px; width: 100%;">
+	<% if @votes.length > 0 %>
+	<tr>
+		<th>Cookie</th>
+		<th>Flash Cookie</th>
+		<th>Reason</th>
+		<th>Created</th>
+		<th>Valid</th>
+		<th>&nbsp;</th>
+	</tr>
+	<% for v in @votes %>
+	<tr>
+		<td><%= link_to v.cookie, edit_admin_vote_url(v) %></td>
+		<td><%= v.flash_cookie %></td>
+		<td><%= v.reason %></td>
+		<td><%= v.created_at.strftime("%b %d %I:%M %p") %></td>
+		<td><%= v.is_valid %></td>
+		<td>
+			<%= link_to "delete", {:action => "destroy", :id => v.id}, 
+				:method => :delete, :confirm => "Are you sure?", :post => true %>
+		</td>
+	</tr>		
+	<% end %>
+	<% else %>
+		<tr><td>No votes for this caption yet</td></tr>
+	<% end %>
+</table>

@@ -1,0 +1,30 @@
+<div id="page_header">Brands</div>
+
+<%= render :partial => "application/errors" %>
+
+<%= link_to "Create", new_admin_brand_url %>
+
+<%= form_tag(admin_brands_url, :method => "get") do |f| %>
+	Name: <%= text_field_tag "name" %>
+	 Inactive: <%= check_box_tag "inactive", "1", @inactive %>	 
+	 Unpopular: <%= check_box_tag "unpopular", "1", @unpopular %>	 
+	<%= submit_tag "Filter" %>
+<% end %>
+
+<table class="data" style="margin-top: 10px; margin-bottom: 10px; width: 100%;">
+	<tr>
+		<th>Name</th>
+		<th>Active</th>
+		<th>Popular</th>
+	</tr>
+	<% for b in @brands %>
+	<tr>
+		<td><%= link_to b.name, edit_admin_brand_url(b) %></td>
+		<td><%= b.active %></td>
+		<td><%= b.popular %></td>
+	</tr>		
+	<% end %>
+	
+</table>
+
+<%= will_paginate @brands %>

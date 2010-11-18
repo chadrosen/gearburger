@@ -1,0 +1,42 @@
+ <Product> 
+  <SKU>FTS0028</SKU> 
+  <Manufacturer_Id></Manufacturer_Id> 
+  <Brand>Dickies</Brand> 
+  <Product_Name>Dickies Storm Fleece Full-Zip Hooded Sweatshirt - Men's</Product_Name> 
+  <Short_Description><![CDATA[A light drizzle began to fall from the sky as Jerry zipped up his water-resistant Men's Storm Fleece Full-Zip Hooded Sweatshirt  and stepped into a fury of traffic. ]]></Short_Description> 
+  <Long_Description><![CDATA[A light drizzle began to fall from the sky as Jerry zipped up his water-resistant Men's Storm Fleece Full-Zip Hooded Sweatshirt  and stepped into a fury of traffic. He reveled in the warm, lined hood before grabbing the shovel from the back of his DOT double-axle and beginning to chisel what looked like a wild jackalope off the blacktop. Although he had drawn roadkill duty on LA's most heinous six-lane highway, Jerry was happy he remembered his burly Storm hooded jacket-besides, the fumes from the fresh pavement were pleasantly intoxicating. ]]></Long_Description> 
+  <Small_Image_URL>http://images.steepandcheap.com/images/items/small/DCK/DCK0006/MAP.jpg</Small_Image_URL> 
+  <Medium_Image_URL>http://images.steepandcheap.com/images/items/medium/DCK/DCK0006/MAP.jpg</Medium_Image_URL> 
+  <Large_Image_URL>http://images.steepandcheap.com/images/items/large/DCK/DCK0006/MAP.jpg</Large_Image_URL> 
+  <Retail_Price>53.99</Retail_Price> 
+  <Sale_Price>17.99</Sale_Price> 
+  <Keywords>Dickies, Storm Fleece Full-Zip Hooded Sweatshirt - Men's, cotton blend, cotton hoody, warm hoody, work</Keywords> 
+  <Variants> 
+    <Variant> 
+      <Variant_SKU>DCK0006-MAP-M</Variant_SKU> 
+      <Variant_Description>Maple, M</Variant_Description> 
+      <Variant_QOH>7</Variant_QOH> 
+      <Variant_Small_Image_URL>http://images.steepandcheap.com/images/items/small/DCK/DCK0006/MAP.jpg</Variant_Small_Image_URL> 
+      <Variant_Medium_Image_URL>http://images.steepandcheap.com/images/items/medium/DCK/DCK0006/MAP.jpg</Variant_Medium_Image_URL> 
+      <Variant_Large_Image_URL>http://images.steepandcheap.com/images/items/large/DCK/DCK0006/MAP.jpg</Variant_Large_Image_URL> 
+    </Variant> 
+    <Variant> 
+      <Variant_SKU>DCK0006-RU-L</Variant_SKU> 
+      <Variant_Description>Rust, L</Variant_Description> 
+      <Variant_QOH>5</Variant_QOH> 
+      <Variant_Small_Image_URL>http://images.steepandcheap.com/images/items/small/DCK/DCK0006/RU.jpg</Variant_Small_Image_URL> 
+      <Variant_Medium_Image_URL>http://images.steepandcheap.com/images/items/medium/DCK/DCK0006/RU.jpg</Variant_Medium_Image_URL> 
+      <Variant_Large_Image_URL>http://images.steepandcheap.com/images/items/large/DCK/DCK0006/RU.jpg</Variant_Large_Image_URL> 
+    </Variant> 
+    <Variant> 
+      <Variant_SKU>DCK0006-RU-M</Variant_SKU> 
+      <Variant_Description>Rust, M</Variant_Description> 
+      <Variant_QOH>6</Variant_QOH> 
+      <Variant_Small_Image_URL>http://images.steepandcheap.com/images/items/small/DCK/DCK0006/RU.jpg</Variant_Small_Image_URL> 
+      <Variant_Medium_Image_URL>http://images.steepandcheap.com/images/items/medium/DCK/DCK0006/RU.jpg</Variant_Medium_Image_URL> 
+      <Variant_Large_Image_URL>http://images.steepandcheap.com/images/items/large/DCK/DCK0006/RU.jpg</Variant_Large_Image_URL> 
+    </Variant> 
+  </Variants> 
+  <Buy_URL>http://www.steepandcheap.com/steepcheap/index.html?cmp_sku=DCK0006</Buy_URL> 
+  <Quantity_On_Hand>18</Quantity_On_Hand> 
+</Product>

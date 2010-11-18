@@ -1,0 +1,61 @@
+<h1>Good work! You've created your account.  Here's what's next...</h1> 
+	
+	<div id="test"></div>
+	
+	<h2>Check your email.</h2>
+    <h3>
+		Click the link in the email we just sent you to activate your account.  
+		Check your spam filter if you don't see it.
+	</h3>
+	
+	<h2>Setup your account.</h2>
+	<h3>
+		<%= link_to "Set your password", change_password_url %> or <%= link_to "jump right in", new_user_url %>	
+	</h3>
+	
+	<% if Rails.env.to_s == "production" %>
+		<% content_for(:body_scripts) do %>
+		<!-- Google Code for Gear Burger Signup Conversion Page -->
+		 <script type="text/javascript">
+		 /* <![CDATA[ */
+		 var google_conversion_id = 1066903625;
+		 var google_conversion_language = "en";
+		 var google_conversion_format = "3";
+		 var google_conversion_color = "ffffff";
+		 var google_conversion_label = "jSkUCK_t7gEQydDe_AM";
+		 var google_conversion_value = 0;
+		 if (5.00) {
+		  google_conversion_value = 5.00;
+		 }
+		 /* ]]> */
+		 </script>
+		 <script type="text/javascript"
+		 src="http://www.googleadservices.com/pagead/conversion.js">
+		 </script>
+		 <noscript>
+		 <div style="display:inline;">
+		 <img height="1" width="1" style="border-style:none;" alt=""
+		 src="http://www.googleadservices.com/pagead/conversion/1066903625/?value=5.00&amp;label=jSkUCK_t7gEQydDe_AM&amp;guid=ON&amp;script=0"/>
+		 </div>
+		 </noscript>
+		
+		<!-- Google Code for Gear Burger Converted Remarketing List -->
+		<script type="text/javascript">
+		/* <![CDATA[ */
+		var google_conversion_id = 1066903625;
+		var google_conversion_language = "en";
+		var google_conversion_format = "3";
+		var google_conversion_color = "666666";
+		var google_conversion_label = "JfXhCLfs7gEQydDe_AM";
+		var google_conversion_value = 0;
+		/* ]]> */
+		</script>
+		<script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
+		</script>
+		<noscript>
+		<div style="display:inline;">
+		<img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/1066903625/?label=JfXhCLfs7gEQydDe_AM&amp;guid=ON&amp;script=0"/>
+		</div>
+		</noscript>	
+		<% end %>
+	<% end %>

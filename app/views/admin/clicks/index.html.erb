@@ -1,0 +1,52 @@
+<h1>Clicks</h1>
+
+<% content_for :custom_filters do %>
+	Source: <%= text_field_tag "source", @source %>
+	Email: <%= text_field_tag "email", @email %>
+	<%= select_tag("click_type", options_for_select(['all', 'product_email_link','product_link'], @click_type)) %>
+<% end %>
+
+<%= render :partial => "/admin/common/simple_filter" %>
+
+<%= page_entries_info @results %>
+<%= will_paginate @results %>
+
+<table class="data" width="100%" style="margin-top: 15px;">
+<% if @results.length > 0 %>
+	<tr>
+		<th>Type</th>
+		<th>User</th>
+		<th>Email</th>
+		<th>Product</th>
+		<th>Source</th>
+		<th>Created</th>
+	</tr>
+	<% for r in @results %>
+	<tr>
+		<td><%= link_to r.click_type, admin_click_url(r) %></td>
+		<td>
+			<% if r.user %>
+				<%= link_to truncate(r.user.email, :limit => 20), admin_user_url(r.user) %>
+			<% else %>
+				nil
+			<% end %>
+		</td>
+		<td>
+			<% if r.user_product_email %>
+				<%= link_to "email", admin_user_product_email_url(r.user_product_email) %>
+			<% end %>
+		</td>
+		<td>
+			<% if r.product %>
+				<%= link_to r.product.product_name, admin_product_url(r.product) %>
+			<% end %>
+		</td>		
+		<td><%= r.source %></td>
+		<td><%= r.created_at %></td>		
+	</tr>
+	<% end %>
+<% else %>
+	<tr><td class="center">No data found</td></tr>
+<% end %>
+</table>
+<%= will_paginate @results %>

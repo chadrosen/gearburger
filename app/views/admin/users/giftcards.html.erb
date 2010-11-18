@@ -1,0 +1,32 @@
+<h1>User Gift Card Eligibility</h1>
+
+<%= form_tag("", :method => "get", :style => "margin-bottom: 10px;") do |f| %>
+	Invited Users: <%= text_field_tag "invites", @invites, :style => "width: 35px;" %>
+	<%= submit_tag "Filter" %>
+<% end %>
+
+<table class="data" style="width: 100%;">	
+	<% if @count.length > 0 %>
+		<tr>
+			<th>Email</th>
+			<th>State</th>
+			<th>Created</th>
+			<th>Cookie</th>
+			<th>Identity Hash</th>
+			<th class="center">Invited active users</th>
+		</tr>
+		<% for user_id, count in @count %>
+		<% user = @user_hash[user_id]%>
+		<tr>
+			<td><%= link_to user.email, admin_user_url(user) %></td>
+			<td><%= user.state %></td>
+			<td><%= user.created_at %></td>
+			<td><%= user.abingo_identity %></td>
+			<td><%= user.identity_hash %></td>
+			<td class="center"><%= count %></td>
+		</tr>
+		<% end %>
+	<% else %>
+		<tr><td>No users found</td></tr>
+	<% end %>
+</table>

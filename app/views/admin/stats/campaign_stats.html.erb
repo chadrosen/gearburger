@@ -1,0 +1,66 @@
+<h1>Campaign stats Over Time</h1>
+
+<%= render :partial => "/admin/common/simple_filter" %>
+
+<table class="data" width="100%" style="margin-top: 15px;">
+	<tr>
+		<th>&nbsp;</th>
+		<th class="center">Eamils Sent</th>
+		<th class="center">Email Views</th>
+		<th class="center">View Rate</th>
+		<th class="center">Clicks</th>
+		<th class="center">Click Rate</th>
+		<th class="center">Sales</th>
+		<th class="center">Returns</th>
+		<th class="center">Revenue</th>
+		<th class="center">RPC</th>
+		<th class="center">New Users</th>
+		<th class="center">Inactive Users</th>
+	</tr>
+	<% for d in @group_by %>
+	<%  
+		k = d.nil? ? "null" : d.to_s
+		r = @results[k] || {}
+	%>
+	<tr>
+		<td>
+			<% unless d.nil? %>
+			<%= link_to @campaign_dict[d].name, edit_admin_campaign_url(d) %>
+			<% end %>
+		</td>
+		<td class="center">
+			<%= r[:emails_sent] %>
+		</td>
+		<td class="center">
+			<%= r[:email_views] %>
+		</td>
+		<td class="center">
+			<%= number_to_percentage(r[:view_rate], :precision => 2) %>
+		</td>
+		<td class="center">
+			<%= r[:clicks] %>
+		</td>
+		<td class="center">
+			<%= number_to_percentage(r[:click_rate], :precision => 2) %>
+		</td>
+		<td class="center">
+			<%= r[:sales] %>
+		</td>
+		<td class="center">
+			<%= r[:returns] %>
+		</td>
+		<td class="center">
+			<%= number_to_currency(r[:revenue]) %>
+		</td>
+		<td class="center">
+			<%= number_to_currency(r[:rpc]) %>
+		</td>
+		<td class="center">
+			<%= r[:created_users] %>
+		</td>
+		<td class="center">
+			<%= r[:inactive_users] %>
+		</td>
+	</tr>
+	<% end %>
+</table>

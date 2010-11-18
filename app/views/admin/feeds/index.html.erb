@@ -1,0 +1,63 @@
+<h1>Feeds</h1>
+
+<%= render :partial => "/application/errors" %>
+
+<%= form_tag("", :method => "get", :style => "margin-bottom: 10px;") do %>
+	State: <%= select_tag "active", options_for_select(["Active", "Inactive"], @active) %>
+	<%= submit_tag "Filter" %>
+<% end %>
+
+<div style="margin-bottom: 10px;"><%= link_to "Create new feed", new_admin_feed_url %></div>
+
+<div id="form_result" style="font-size: 16px; margin: 10px 0; color: green;" class="hidden"></div>
+
+<%= form_tag(pull_admin_feeds_url, :method => "get", :id => "feeds_form") do %>
+
+	<div style="margin-bottom: 10px;">
+		<div style="margin-bottom: 5px; color: red">WARNING!! PULLING FEEDS CAN TAKE A LONG TIME</div>
+		Get Data From (YYYY-MM-DD hh:mm:ss) 
+		<%= text_field_tag "from", @today_time, :style => "padding: 3px; width: 150px;" %>
+		<%= check_box_tag "all", @all %> Pull all rows (could be huge)
+		<%= submit_tag "Pull Feeds", :id => "pull_feeds_submit"%>
+	</div>
+
+	<table class="data sortable" id="sort_table" width="100%">	
+		<% if @feeds %>
+			<thead>
+			<tr>
+				<th style="width: 25px;">&nbsp;</th>
+				<th>Feed</th>
+				<th>Last Ran</th>
+				<th class="center sorttable_numeric">New Prod</th>
+				<th class="center sorttable_numeric">Edit Prod</th>
+				<th class="center sorttable_numeric">New Brand</th>
+				<th class="center sorttable_numeric">Errors</th>	
+				<th class="center">Active</th>		
+			</tr>
+			</thead>
+			<tbody>
+			<% for f in @feeds %>
+				<tr>
+					<td class="center">
+						<%= check_box_tag "feed_id[]", f.id %>
+					</td>
+					<td><%= link_to f.name, edit_admin_feed_url(f) %></td>
+					<% if f.most_recent_run %>
+					<td><%= f.most_recent_run.created_at %></td>
+						<td class="center"><%= f.most_recent_run.new_products %></td>
+						<td class="center"><%= f.most_recent_run.product_updates %></td>
+						<td class="center"><%= f.most_recent_run.new_brands %></td>	
+						<td class="center"><%= f.most_recent_run.product_errors %></td>							
+					<% else %>
+					<td colspan="5">&nbsp;</td>
+					<% end %>
+					<td class="center">
+						<%= f.active %>
+					</td>				
+				</tr>
+			<% end %>
+			</tbody>
+
+		<% end %>
+	</table>
+<% end %>

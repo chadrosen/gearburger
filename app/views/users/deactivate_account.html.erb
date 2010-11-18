@@ -1,0 +1,53 @@
+<h1>Thank you so much for using Gear Burger!<h1>
+	
+<h3>Did you know you could...</h3>
+
+<div class="dont_go_container">
+	<h3>Take a Breather</h3>
+	<%= form_tag(take_a_breather_url) do |f| %>
+		<%= select_tag("break_end", options_for_select(get_break_options))%>
+		<%= submit_tag("submit", :value => "Take a break")%>
+	<% end %>
+</div>
+
+<%= form_tag(account_preferences_url) do |f| %>
+
+	<div class="dont_go_container">
+		<h3>Receive emails less often</h3>	
+		<ul id="email_day_preferences">
+		<% for day in EmailDayPreference::DaysOfWeek %>
+			<li>
+				<%= check_box_tag day, 1, current_user.has_email_pref(day) %> <%= label_tag day %>
+			</li>
+		<% end %>
+		<li class="clear"></li>
+		</ul>
+	
+		<%= submit_tag("submit", :value => "Change Email Preference") %>
+	</div>
+
+	<div class="dont_go_container">
+		<h3>Change your email address</h3>
+		<%= text_field_tag "user[email]", current_user.email, :id => "email" %>
+		<%= submit_tag("submit", :value => "Change Email")%>
+	</div>
+
+<% end %>
+
+<%= form_for :user, deactivate_account_url do |f| %>
+
+	<h3>If you still wish to unsubscribe...</h3>
+	
+	<div style="font-size: 12px; margin-top: 15px; margin-bottom: 2px;">
+		Why you're leaving
+	</div>
+	
+	<div id="reason_container">
+		<textarea style="width: 400px; height: 100px;" id="reason" name="reason"></textarea>
+	</div>
+	
+	<div style="margin-top: 15px;">
+		<input type="submit" value="Unsubscribe" class="button" style="padding: 5px; font-size: 14px;"/>
+		 or <%= link_to "What was I thinking.. I love Gear Burger!", user_url(current_user) %>
+	</div>
+<% end %>

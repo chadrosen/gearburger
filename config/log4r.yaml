@@ -1,0 +1,80 @@
+# *** YAML2LOG4R ***
+log4r_config:
+  # define all loggers ...
+  
+  # Standard outputter for rails
+  loggers:
+    - name      : default
+      level     : DEBUG
+      additive  : 'false'
+      trace     : 'true'      
+      outputters:
+        - stderr
+        - datefilelog
+            
+    - name      : product_generator
+      level     : DEBUG
+      additive  : 'false'
+      trace     : 'true'
+      outputters:
+        - product_generator_file_log
+        
+    - name      : product_verification
+      level     : DEBUG
+      additive  : 'false'
+      trace     : 'true'
+      outputters:
+        - product_verification_file_log
+
+  # define all outputters (incl. formatters)      
+  outputters:
+    - type     : StderrOutputter
+      name     : stderr 
+      level    : DEBUG
+      formatter:
+        date_pattern: '%y%m%d %H:%M:%S'
+        pattern     : "[%l] %d :: %m"
+        type        : PatternFormatter
+
+    - type        : DateFileOutputter
+      name        : datefilelog
+      level       : DEBUG
+      date_pattern: '%Y%m%d'
+      trunc       : 'false'
+      dirname     : "#{RAILS_ROOT}/log"
+      formatter   :
+        date_pattern: '%y%m%d %H:%M:%S'
+        pattern     : "[%l] %d :: %m"
+        type        : PatternFormatter
+  
+    - type        : FileOutputter
+      name        : standardlog
+      level       : DEBUG
+      trunc       : 'false'
+      filename    : "#{RAILS_ROOT}/log/#{RAILS_ENV}.log"
+      formatter   :
+        date_pattern: '%y%m%d %H:%M:%S'
+        pattern     : "[%l] %d :: %m"
+        type        : PatternFormatter      
+                
+    - type        : DateFileOutputter
+      name        : product_generator_file_log
+      level       : DEBUG
+      date_pattern: '%Y%m%d'
+      trunc       : 'false'
+      dirname    : '#{RAILS_ROOT}/log/'
+      formatter   :
+        date_pattern: '%y%m%d %H:%M:%S'
+        pattern     : "[%l] %d :: %m"
+        type        : PatternFormatter
+        
+    - type        : DateFileOutputter
+      name        : product_verification_file_log
+      level       : DEBUG
+      date_pattern: '%Y%m%d'
+      trunc       : 'false'
+      dirname    : '#{RAILS_ROOT}/log/'
+      formatter   :
+        date_pattern: '%y%m%d %H:%M:%S'
+        pattern     : "[%l] %d :: %m"
+        type        : PatternFormatter

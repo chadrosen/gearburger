@@ -1,0 +1,20 @@
+<table class="data" style="width: 100%;">	
+	<% if @users.length > 0 %>
+		<tr>
+			<th>Email</th>
+			<th>Reason</th>
+			<th>State</th>
+			<th>Deactivated at</th>
+		</tr>
+		<% for user in @users %>
+		<tr>
+			<td><%= link_to user.email, admin_user_url(user) %></td>
+			<td><%= user.deactivation_reason %></td>
+			<td><%= user.state %></td>
+			<td><%= user.deleted_at %></td>
+		</tr>
+		<% end %>
+	<% else %>
+		<tr><td>No users found</td></tr>
+	<% end %>
+</table>

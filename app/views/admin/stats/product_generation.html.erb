@@ -1,0 +1,40 @@
+<h1>Product Generation Summary</h1>
+
+<style>
+	TH {
+		font-size: 10px;
+	}
+</style>
+
+<%= render :partial => "/admin/common/simple_filter" %>
+
+<div id="data" style="margin: 15px 0 0 0;">
+	<table class="data" width="100%">
+		<% if @results.length > 0 %>
+			<tr>
+				<th>Feed</th>
+				<th class="center">New</th>
+				<th class="center">Updates</th>
+				<th class="center">Price Changes</th>
+				<th class="center">New Cats</th>
+				<th class="center">New Brands</th>
+				<th class="center">Errors</th>
+				<th>Created</th>			
+			</tr>
+			<% for r in @results %>
+			<tr>
+				<td><%= r.feed.name %></td>
+				<td class="center"><%= r.new_products %></td>
+				<td class="center"><%= r.product_updates %></td>
+				<td class="center"><%= r.price_changes %></td>
+				<td class="center"><%= r.new_cats %></td>
+				<td class="center"><%= r.new_brands %></td>
+				<td class="center"><%= r.product_errors %></td>
+				<td><%= r.created_at %></td>
+			</tr>
+			<% end %>
+		<% else %>
+			<tr><td class="center">no data found</td></tr>
+		<% end %>
+	</table>
+</div>

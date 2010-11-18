@@ -1,0 +1,69 @@
+---
+six_eight_six: 
+    name: 686
+    updated_at: <%= 3.hours.ago.to_s :db %>
+    created_at: <%= 3.hours.ago.to_s :db %>
+    active: true
+    popular: true
+
+MPG: 
+    name: MPG
+    updated_at: <%= 3.hours.ago.to_s :db %>
+    created_at: <%= 3.hours.ago.to_s :db %>
+    active: false
+    popular: true
+    
+Asolo: 
+    name: Asolo
+    updated_at: <%= 3.hours.ago.to_s :db %>
+    created_at: <%= 3.hours.ago.to_s :db %>
+    active: true
+    
+Asiago:
+    name: Asiago
+    updated_at: <%= 3.hours.ago.to_s :db %>
+    created_at: <%= 3.hours.ago.to_s :db %>
+    active: true
+    popular: true
+    
+Ancestor:
+    name: Ancestor
+    updated_at: <%= 3.hours.ago.to_s :db %>
+    created_at: <%= 3.hours.ago.to_s :db %>
+    active: true
+    
+ActiveBros:
+    name: Active Bros
+    updated_at: <%= 3.hours.ago.to_s :db %>
+    created_at: <%= 3.hours.ago.to_s :db %>
+    active: true
+
+Acupain:
+    name: Acupain
+    updated_at: <%= 3.hours.ago.to_s :db %>
+    created_at: <%= 3.hours.ago.to_s :db %>
+    active: true
+
+Jetboil: 
+    name: Jetboil
+    updated_at: <%= 3.hours.ago.to_s :db %>
+    created_at: <%= 3.hours.ago.to_s :db %>
+    active: false
+
+Ugly:
+    name: Ugly
+    updated_at: <%= 3.hours.ago.to_s :db %>
+    created_at: <%= 3.hours.ago.to_s :db %>
+    active: true
+    
+NoMatches:
+    name: NoMatch
+    updated_at: <%= 3.hours.ago.to_s :db %>
+    created_at: <%= 3.hours.ago.to_s :db %>
+    active: true
+    
+Naughty:
+    name: Naughty
+    updated_at: <%= 3.hours.ago.to_s :db %>
+    created_at: <%= 3.hours.ago.to_s :db %>
+    active: true

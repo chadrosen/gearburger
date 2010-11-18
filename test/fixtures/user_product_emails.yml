@@ -1,0 +1,20 @@
+chad_sent_not_viewed_or_clicked:
+    user: chad
+    sent: true
+    sent_at: <%= 2.hours.ago.to_s(:db) %>
+    
+chad_sent_and_viewed:
+    user: chad
+    sent: true
+    sent_at: <%= 5.hours.ago.to_s(:db) %>
+    viewed: true
+    viewed_at: <%= 3.hours.ago.to_s(:db) %>
+    
+chad_sent_and_clicked:
+    user: chad
+    sent: true
+    sent_at: <%= 5.hours.ago.to_s(:db) %>
+    viewed: true
+    viewed_at: <%= 3.hours.ago.to_s(:db) %>
+    clicked: true
+    clicked_at: <%= 1.hours.ago.to_s(:db) %>

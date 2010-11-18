@@ -1,0 +1,109 @@
+<%= render :partial => "application/errors" %>
+
+<% if current_user.state == "pending" %>
+	<div id="account_status_pending" class="account_status">
+		To complete activation, please click the activation link in your email or
+		 <%= link_to "Resend the activation email", resend_activation_email_user_url(current_user) %>
+	</div>
+<% elsif current_user.state == "inactive" %>
+	<div id="account_status_inactive" class="account_status">
+		Your account is deactivated and will not receive alerts. 
+		<%= link_to "Re-activate your account", reactivate_account_user_url(current_user) %>
+	</div>
+<% elsif current_user.state == "break" %>
+	<div id="account_status_break" class="account_status">
+		You're on a break until
+		 <%= current_user.break_ends_at.strftime("%B %d, %Y") %>
+		 and will not receive alerts. <%= link_to "Get back in the game", clear_breather_url %>.
+	</div>
+<% end %>
+
+<div class="section_container">
+	<h3>We Recommend</h3>
+	<div class="left half">
+		<div class="title">Gear Bin</div>
+		<p><%= link_to "See all sale items", gear_bin_url %> that match your preferences.</p>
+	</div>
+	<% if current_user.state == "active" %>
+	<div class="left half">
+		<div class="title">Invite your friends, Win $10!</div>
+		<div id="gift_card_container">	
+			<p>
+				<%= link_to "Win a $10 BackCountry.com gift certificate", invite_friends_url %> when <span class="orange">10</span> 
+				of your invited friends activate an account.
+			</p>
+			<%- if @registered_friends == 1 -%>
+				<p><span class="orange"><%= @registered_friends %></span> friend has activated their account</p>
+			<% elsif @registered_friends > 1 %>
+				<p><span class="orange"><%= @registered_friends %></span> friends have activated their accounts</p>
+			<%- end -%>
+			<%- if @eligible_gift_cards == 1 %>
+				<p>You are eligible for <span class="orange"><%= @eligible_gift_cards %></span> gift card</p>
+			<% elsif @eligible_gift_cards > 1 %>
+				<p>You are eligible for <span class="orange"><%= @eligible_gift_cards %></span> gift cards</p>
+			<%- end -%>
+		</div>
+	</div>
+	<% end %>
+	<div class="clear"></div>
+</div>
+
+<div class="section_container">
+	<h3>Edit Your Preferences</h3>
+	<div class="left half">
+		<%= render :partial => "users/item_display", :locals => {:items => @departments, 
+			:item_title => "Departments", :item_type => "departments" } %>
+
+		<%= render :partial => "users/item_display", :locals => {:items => @categories, 
+				:item_title => "Categories", :item_type => "categories" } %>
+
+		<div class="item_group">
+			<div class="item_title">
+				<%= link_to "Brands", item_edit_url("brands") %>
+				<div class="data">
+					<span class="items"><%= @brands %> brands monitored</span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="left half">
+		<ul>
+			<li><%= link_to "Account Preferences", account_preferences_url %></li>
+			<li><%= link_to "Change password", change_password_url %></li>			
+			<%- if current_user.state != "inactive" -%>
+			<li><%= link_to "Take a Breather", take_a_breather_url %></li>
+			<li><%= link_to "Unsubscribe", deactivate_account_url %></li>
+			<%- end -%>
+			<li>
+				<%= check_box "current_user", "send_newsletter", {:id => "send_newsletter_checkbox"} %>
+			 	Get alerts when <span class="orange">The Menu</span> (the voice of the Gear Burger) is updated
+			</li>
+	</div>
+
+	<div class="clear"></div>
+
+</div>
+
+<% if Rails.env.to_s == "production" %>
+	<% content_for(:body_scripts) do %>	
+	<!-- Google Code for Gear Burger Converted Remarketing List -->
+	<script type="text/javascript">
+	/* <![CDATA[ */
+	var google_conversion_id = 1066903625;
+	var google_conversion_language = "en";
+	var google_conversion_format = "3";
+	var google_conversion_color = "666666";
+	var google_conversion_label = "JfXhCLfs7gEQydDe_AM";
+	var google_conversion_value = 0;
+	/* ]]> */
+	</script>
+	<script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
+	</script>
+	<noscript>
+	<div style="display:inline;">
+	<img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/1066903625/?label=JfXhCLfs7gEQydDe_AM&amp;guid=ON&amp;script=0"/>
+	</div>
+	</noscript>	
+	<% end %>
+<% end %>

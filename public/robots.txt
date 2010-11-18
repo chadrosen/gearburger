@@ -1,0 +1,27 @@
+# See http://www.robotstxt.org/wc/norobots.html for documentation on how to use the robots.txt file
+#
+# To ban all spiders from the entire site uncomment the next two lines:
+# User-Agent: *
+# Disallow: /
+# Sitemap: http://www.gearburger.com/sitemap.xml.gz
+Sitemap: http://www.example.com/sitemap.xml
+
+# No reason to follow alerts since they change
+User-Agent: *
+Disallow: /alerts/
+Disallow: /admin/
+Disallow: /users/
+Disallow: /sessions/
+Disallow: /missed_product/
+Disallow: /affil/
+Disallow: /alert/
+Disallow: /r/
+Disallow: /pper/
+Disallow: /pr/
+Disallow: /c/
+Disallow: /products/
+Disallow: /huge_deals_more_data/
+Disallow: /brand_products_more_data/
+Disallow: /similar_products_more_data/
+Disallow: /product_alerts/
+Disallow: /login/

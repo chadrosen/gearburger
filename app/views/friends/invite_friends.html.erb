@@ -1,0 +1,96 @@
+<h1>Invite your friends to Gear Burger and win Backcountry.com gift cards!</h1>
+
+<h2>
+	Win a $10 BackCountry.com gift certificate when 10 of your invited friends activate an account. 
+	 <%= link_to "Terms and conditions", invite_terms_url, :class => "terms", :target => "_blank" %>	
+</h2>
+
+<%= render :partial => "/application/errors" %>
+
+
+<div class="left" style="width: 450px;">
+
+	<div id="services">
+		<strong>Select your email, enter your username password, and select your friends</strong>
+		<br/><br/>
+		<a href="#" class="selected" id="gmail">Gmail</a>
+		| <a href="#" id="yahoo">Yahoo</a>
+		| <a href="#" id="hotmail">Hotmail</a>
+		<div class="clear"></div>
+	</div>
+
+	<%= form_tag("", :method => :get, :id => "get_contacts_form") do %>
+	<table>
+	<tr>
+		<td>
+			<label>Email:</label>
+			<input type="text" id="username"/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<label>Password:</label>
+			<input type="password" id="password"/>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<input type="submit" value="Get Contacts" id="submit"/>
+		</td>
+	</tr>
+	</table>
+	<% end %>
+</div>
+
+<div class="left" id="manual_invite">
+	<p><strong>Or, enter their email addresses below. Separate emails with commas or new lines.</strong></p>
+	<%= form_tag("/invite_friends", :id => "manual_invite_form") do %>
+		<%= text_area_tag 'friend', "", :id => "manual_invite_text", :class => "invite_textarea" %>
+		<a id="manual_message_show" class="show_message" href="#">Add a personalized message to your friends</a>
+		<div id="manual_personal_container" style="display: none;">
+			<%= text_area_tag 'personal_message', @personal_message, :id => "manual_message_textarea", :class => "invite_textarea" %>
+		</div>
+		<%= submit_tag "Invite Friends", :id => "manual_invite_submit" %>
+	<% end %>
+</div>
+
+<div class="clear"></div>
+
+<div id="friends_container" class="">
+	<%= form_tag("/invite_friends", :id => "friends_form") do %>
+		<div id="multi_select">
+			<a href="#" id="select_all">Select All</a> | <a href="#" id="unselect_all">Un-select All</a>
+		</div>
+		<div id="friends_data"></div>
+		<a id="auto_message_show" class="show_message" href="#">Add a personalized message to your friends</a>
+		<div id="auto_personal_container" style="display: none;">
+			<%= text_area_tag 'personal_message', @personal_message, :id => "auto_message_textarea", :class => "invite_textarea" %>
+		</div>
+	<% end %>
+</div>
+
+<% if @invited_friends.length > 0 %>
+<div id="invited_friends">
+	<h3>Your Invited Friends</h3>
+	<table class="data" width="100%">
+		<tr>
+			<th style="width: 33%;">Email</th>
+			<th style="width: 33%;">Status</th>
+			<th>Invited</th>
+		</tr>
+		<% for f in @invited_friends %>
+		<tr class="<%= cycle("even", "odd") %>">
+			<td><%= f.email_address %></td>
+			<td>
+				<% if f.registered_user and f.registered_user.state == :active %>
+				Active
+				<% else %>
+				Pending
+				<% end %>
+			</td>
+			<td><%= time_ago_in_words f.created_at %> ago</td>
+		</tr>
+		<% end %>
+	</table>
+</div>
+<% end %>

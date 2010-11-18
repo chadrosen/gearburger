@@ -1,0 +1,28 @@
+product_not_clicked:
+    user_product_email: chad_sent_not_viewed_or_clicked
+    product: product_one
+    user: chad
+    
+product_two:
+    user_product_email: chad_sent_not_viewed_or_clicked
+    product: product_two
+    user: chad
+    
+product_three:
+    user_product_email: chad_sent_and_viewed
+    product: product_one
+    user: chad
+        
+product_clicked:
+    user_product_email: chad_sent_and_clicked
+    product: product_one
+    user: chad
+    clicked: true
+    clicked_at: <%= 4.hours.ago.to_s(:db)
+    
+product_four:
+    user_product_email: chad_sent_and_clicked
+    product: product_three
+    user: chad
+    clicked: true
+    clicked_at: <%= 4.hours.ago.to_s(:db)

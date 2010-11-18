@@ -1,0 +1,33 @@
+<%= render :partial => "application/errors" %>
+
+<div style="margin-bottom: 5px;"><%= link_to "Back to feeds", admin_feeds_url %></div>
+
+<style>
+	.url {
+		width: 800px;
+	}
+</style>
+
+<%= form_for([:admin, @feed]) do |f| %>
+<table class="data" width="100%">
+	<tr>
+		<th style="width: 150px;">Name</th>
+		<td><%= f.text_field :name %></td>
+	</tr>
+	<tr>
+		<th>Url</th>
+		<td>
+			<%= f.text_field :url, :class => "url" %>
+		</td>
+	</tr>
+	<tr>
+		<th>Active</th>
+		<td><%= f.check_box :active %></td>
+	</tr>	
+</table>
+
+<div style="margin-top: 10px;">
+	<%= f.submit %>
+</div>
+
+<% end %>

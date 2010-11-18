@@ -1,0 +1,28 @@
+<div id="bg_img">	
+	<div id="site_intro">
+		<h1>Say hello to your new friend.</h1>
+		<div id="brand_name">The North Face</div>
+		<input type="button" value="Get Started" id="start_now" onClick="window.location = '/signup';"/>
+	</div>
+</div>
+
+<div id="about">
+		
+	<div id="about_gb">About Gear Burger</div>
+	<div>Gear Burger tracks the products you want from the brands you like and sends
+		you an e-mail when they go on sale.
+	</div>
+	<ul id="products">
+		<% for p in @products %>
+		<li class="product">
+			<%= image_tag(p.get_small_image_url(), :class => "image") %>
+			<div class="name"><%= p.product_name %></div>
+			<div class="price">
+				<%= number_to_currency(p.sale_price) %>
+				 <%= number_to_percentage(p.discount * 100.0, :precision => 0) %> OFF
+			</div>
+		</li>
+		<% end %>
+		<li class="clear"></li>
+	</ul>
+</div>

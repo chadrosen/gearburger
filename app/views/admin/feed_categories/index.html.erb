@@ -1,0 +1,76 @@
+<h1>Feed Categories</h1>
+
+<%= render :partial => "application/errors" %>
+
+<%= form_tag("", :method => "GET", :style => "margin-bottom: 20px; border: 1px solid #999999; padding: 10px;")  do |f| %>
+	Category: <%= select_tag "category_id", options_for_select(@c_filter, @c_filter_select) %>
+	Rows: <%= text_field_tag "limit", @limit, :style => "width: 30px;" %>
+	Cat: <%= text_field_tag "feed_category", @feed_category, :style => "width: 85px" %>
+	Sub Cat: <%= text_field_tag "feed_subcategory", @feed_subcategory, :style => "width: 85px" %>
+	Prod Group: <%= text_field_tag "feed_product_group", @feed_product_group, :style => "width: 85px" %>
+	<%= check_box_tag("show_inactive", "1", @show_inactive) %>
+	 Show Inactive
+	<%= submit_tag "Filter" %>
+	<input type="button" id="clear" value="Reset"/>
+<% end %>
+
+<% if @fcs.length > 0 %>
+
+	<%= form_tag(multi_update_admin_feed_categories_url) %>
+
+	<div style="margin-bottom: 10px;">
+		<%= submit_tag "Change Category" %>
+	</div>
+	<div style="margin-bottom: 10px;">
+		<% @c.each do |name, id| %>
+			<span style="margin-right: 10px;">
+				<%= radio_button_tag "category_id", id %> <%= name %>
+			</span>
+		<% end %>
+	</div>
+	<div style="margin: 5px 0">
+		<a href="#" id="select_all">Select All</a>
+		 | <a id="unselect_all" href="#">Un-select All</a>
+		 Classifying sucks... <%= @count %> more to go
+	</div>
+	
+	<table class="data" style="margin-bottom: 10px; width: 100%;">
+		<tr>
+			<th style="width: 30px;">Update</th>
+			<th>Feed Product Group</th>
+			<th>Feed Sub-category</th>
+			<th>Feed Category</th>
+			<th>Feed</th>
+			<th>GB Category</th>
+			<th>Active</th>
+		</tr>
+		<% for c in @fcs %>
+		<tr>
+			<td style="text-align: center;">
+				<%= check_box_tag "feed_category_id[]", c.id, false, :class => "check" %>
+			</td>
+			<td><%= c.feed_product_group %></td>
+			<td><%= c.feed_subcategory %></td>
+			<td><%= link_to c.feed_category, edit_admin_feed_category_url(c) %></td>
+			<td><%= link_to c.feed.name, admin_feed_url(c.feed) %></td>
+			<td>
+				<% if c.category %>
+				<%= link_to c.category.name, edit_admin_category_url(c.category) %>
+				<% else %>
+					null
+				<% end %>
+			</td>			
+			<td><%= c.active %></td>
+		</tr>		
+		<% end %>
+	</table>
+
+	<%= submit_tag "Change Category" %>
+
+<% else %>
+
+	<table width="100%">
+		<tr><td align="center">No rows found</td></tr>
+	</table>
+
+<% end %>

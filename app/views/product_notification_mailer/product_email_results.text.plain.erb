@@ -1,0 +1,8 @@
+ENV: <%= Rails.env.to_s %>
+Date: <%= Time.zone.today %> 
+Emails Sent: <%= @sent %> 
+Emails Created: <%= @created %>
+Errors:
+<%- for email in @errors %>
+<%= email %>
+<%- end %>

@@ -1,0 +1,17 @@
+<div id="page_header">Edit Brand</div>
+
+<div class="left">
+	<%= render :partial => "admin/brands/brand_form" %>
+</div>
+
+<div class="left" style="margin-left: 20px;">
+	<h3 style="margin: 15px 0; font-size: 16px; font-weight: bold;">Brands mapped to me</h3>
+
+	<% if @brand.mapped_to_me.length > 0 %>
+		<% for b in @brand.mapped_to_me %>
+			<p><%= link_to b.name, edit_admin_brand_url(b) %>
+		<% end %>
+	<% else %>
+		This brand is not mapped to any brands
+	<% end %>
+</div>

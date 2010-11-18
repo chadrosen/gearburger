@@ -1,0 +1,53 @@
+pants:
+    feed: backcountry
+    feed_category: pants
+    feed_subcategory: hot pants
+    feed_product_group: really hot pants
+    category: clothing
+    created_at: 2009-06-24 05:41:32
+    updated_at: 2009-06-24 05:41:32
+    value: nil
+    active: true
+
+pants2:
+    feed: dogfunk
+    feed_category: pants
+    feed_subcategory: hot pants
+    feed_product_group: sorta hot pants
+    category: clothing
+    created_at: 2009-06-24 05:41:32
+    updated_at: 2009-06-24 05:41:32
+    value: nil
+    active: true    
+
+shirts:
+    feed: backcountry
+    feed_category: shirts
+    feed_subcategory: tees
+    feed_product_group: cool tees
+    category: clothing
+    created_at: 2009-06-24 05:41:32
+    updated_at: 2009-06-24 05:41:32
+    value: nil
+    active: true
+
+shoes:
+    feed: realcyclist
+    feed_category: shoes
+    feed_subcategory: cycling shoes
+    feed_product_group: racing shoes
+    category: shoes
+    created_at: 2009-06-24 05:41:32
+    updated_at: 2009-06-24 05:41:32
+    value: nil
+    active: true
+
+hiking:
+    feed: hucknroll
+    feed_category: hiking
+    feed_subcategory: camping
+    feed_subcategory: tents
+    created_at: 2009-06-24 05:41:32
+    updated_at: 2009-06-24 05:41:32
+    value: nil
+    active: true

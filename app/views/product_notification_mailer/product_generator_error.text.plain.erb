@@ -1,0 +1,13 @@
+Product Generator Error:
+
+Time: <%= Time.zone.now %>
+Environment: <%= @env %>
+
+Feed: <%= @feed.name %>
+id: <%= @feed.id %>
+url: <%= @feed.url %>
+
+Exception:
+
+<%= @exception.message %>
+<%= @exception.backtrace.join("\n") %>

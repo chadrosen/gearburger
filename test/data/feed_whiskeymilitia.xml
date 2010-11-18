@@ -1,0 +1,35 @@
+ 
+<Product> 
+  <SKU>FTS0030</SKU> 
+  <Manufacturer_Id></Manufacturer_Id> 
+  <Brand>Rip Curl </Brand> 
+  <Product_Name>Rip Curl  Solomon Watch - Men's</Product_Name> 
+  <Short_Description><![CDATA[Classy and laid back, just the way you feel around a beachside bonfire or a chill dinner for two, the Rip Curl Men's Solomon Watch makes you feel like a real dapper dude.]]></Short_Description> 
+  <Long_Description><![CDATA[Classy and laid back, just the way you feel around a beachside bonfire or a chill dinner for two, the understated Rip Curl Men's Solomon Watch makes you feel like a real dapper dude. With technical features to match the style, the Rip Curl Solomon Watch is made for a life on the water.]]></Long_Description> 
+  <Small_Image_URL>http://images.whiskeymilitia.com/images/items/small/RIP/RIP0709/BK.jpg</Small_Image_URL> 
+  <Medium_Image_URL>http://images.whiskeymilitia.com/images/items/medium/RIP/RIP0709/BK.jpg</Medium_Image_URL> 
+  <Large_Image_URL>http://images.whiskeymilitia.com/images/items/large/RIP/RIP0709/BK.jpg</Large_Image_URL> 
+  <Retail_Price>174.95</Retail_Price> 
+  <Sale_Price>56.99</Sale_Price> 
+  <Keywords>Rip Curl , Solomon Watch - Men's, rip curl stainless steel water watch</Keywords> 
+  <Variants> 
+    <Variant> 
+      <Variant_SKU>RIP0709-WH-ONESIZ</Variant_SKU> 
+      <Variant_Description>White, One Size</Variant_Description> 
+      <Variant_QOH>14</Variant_QOH> 
+      <Variant_Small_Image_URL>http://images.whiskeymilitia.com/images/items/small/RIP/RIP0709/WH.jpg</Variant_Small_Image_URL> 
+      <Variant_Medium_Image_URL>http://images.whiskeymilitia.com/images/items/medium/RIP/RIP0709/WH.jpg</Variant_Medium_Image_URL> 
+      <Variant_Large_Image_URL>http://images.whiskeymilitia.com/images/items/large/RIP/RIP0709/WH.jpg</Variant_Large_Image_URL> 
+    </Variant> 
+    <Variant> 
+      <Variant_SKU>RIP0709-BK-ONESIZ</Variant_SKU> 
+      <Variant_Description>Black, One Size</Variant_Description> 
+      <Variant_QOH>7</Variant_QOH> 
+      <Variant_Small_Image_URL>http://images.whiskeymilitia.com/images/items/small/RIP/RIP0709/BK.jpg</Variant_Small_Image_URL> 
+      <Variant_Medium_Image_URL>http://images.whiskeymilitia.com/images/items/medium/RIP/RIP0709/BK.jpg</Variant_Medium_Image_URL> 
+      <Variant_Large_Image_URL>http://images.whiskeymilitia.com/images/items/large/RIP/RIP0709/BK.jpg</Variant_Large_Image_URL> 
+    </Variant> 
+  </Variants> 
+  <Buy_URL>http://www.whiskeymilitia.com/wm/index.html?cmp_sku=RIP0709</Buy_URL> 
+  <Quantity_On_Hand>21</Quantity_On_Hand> 
+</Product>

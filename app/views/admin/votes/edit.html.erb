@@ -1,0 +1,42 @@
+<%= render :partial => "application/errors" %>
+
+<div style="margin-bottom: 5px;">
+	<%= link_to "back", admin_contest_captions_url(@vote.contest_id) %>
+</div>
+
+<%= form_for([:admin, @vote]) do |f| %>
+	<table class="data">
+		<tr>
+			<th>Cookie</th>
+			<td><%= @vote.cookie %>
+		</tr>
+		<tr>
+			<th>Flash Cookie</th>
+			<td><%= @vote.flash_cookie %></td>
+		</tr>	
+		<tr>
+			<th>User Agent</th>
+			<td><%= @vote.user_agent %></td>
+		</tr>	
+		<tr>
+			<th>IP</th>
+			<td><%= @vote.ip_address %></td>
+		</tr>	
+		<tr>
+			<th>Reason</th>
+			<td><%= f.text_area :reason %></td>
+		</tr>	
+		<tr>
+			<th>Created</th>
+			<td><%= @vote.created_at %></td>
+		</tr>
+		<tr>
+			<th>Valid</th>
+			<td><%= f.check_box :is_valid %></td>
+		</tr>	
+	</table>
+	<%= f.hidden_field :id %>
+	<div style="margin-top: 10px;">
+		<%= f.submit %>
+	</div>
+<% end %>

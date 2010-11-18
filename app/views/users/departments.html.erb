@@ -1,0 +1,17 @@
+<h1 id="page_title">
+	Edit Departments
+	<span class="checkbox_select">
+		<a href="#" class="check_all">check all</a> | <a href="#" class="uncheck_all">uncheck all</a>
+	</span>
+</h1>
+
+<%= form_for :department, :url => departments_submit_url do |f| %>
+
+	<div class="item_container" id="departments">
+	<%= render :partial => "users/grouped_items", :locals => { :items => @department_list, 
+		:selected => @selected, :item_type => "departments" } %>
+	</div>
+	
+	<%= render :partial => "users/submit" %>
+	
+<% end %>

@@ -1,0 +1,16 @@
+click_with_user:
+    click_type: product_email_link
+    user: chad
+    
+click_no_user:
+    click_type: alert_email_link
+    
+click_ajaxed_link:
+    click_type: product_link
+    user: rob
+    
+click_no_sale:
+    click_type: product_email_link
+
+click_no_sale2:
+    click_type: product_email_link

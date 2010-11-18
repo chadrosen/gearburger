@@ -1,0 +1,147 @@
+/* block elements need to be reset */
+html,body,p,div,img,h1,h2,h3,h4,dl,dd,dt,form,table,td,tr,form {
+	font-weight: normal;
+	font: 12px verdana, arial, sans-serif;
+	color: #666666;
+}
+
+/* Set defaults back for lists */
+ul, ol {
+	list-style-position: outside;
+	margin-left: 0; 
+	padding-left: 2.5em;
+}
+
+/* li,ul,ol */
+
+a:link {
+	color: #EB5024;
+}
+
+a:visited {
+	color: #EB5024;
+}
+
+a:hover {
+	color: #EB5024;
+}
+
+a:active {
+	color: #EB5024;
+}
+
+IMG {  
+	border-style: none;
+}
+
+/* Global data table */
+TABLE.data {
+	border-collapse: collapse;
+	border: solid 1px #DDD;
+	font-size: 14px;
+}
+
+TABLE.data TH {
+	padding: 5px;
+	margin: 0px;
+	font-weight: bold;
+	background-color: #EEEEEE;
+}
+
+TABLE.data TD {
+	padding: 5px;
+	margin: 0px;
+}
+
+TABLE.data TR.odd {
+	background-color: #FFFFFF;
+}
+
+.hidden {
+	display: none;
+}
+
+.clear {
+	clear: both;
+	font-size: 1px;
+	overflow:hidden;
+}
+
+.center {
+	text-align: center;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+/* end */
+
+/* Generic notice messages */
+#messages {
+	margin: 10px 0;
+	color: red; 
+}
+
+#messages #notice {
+	color: green;
+	font-size: 16px;
+}
+
+#messages #error {
+	color: red;
+	font-size: 16px;
+}
+
+#messages #js_error {
+	color: red;
+}
+
+#messages #js_msg {
+	color: green;
+	font-size: 14px;
+}
+
+#messages #js_msg IMG {
+	height: 12px;
+}
+
+/* end */
+
+/* Form errors are displayed in UL/LIs */
+#form_errors LI {
+	/* TODO */
+}
+
+#grande_header {
+	font-size: 20px;
+}
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+ 
+.clearfix {
+	display: inline-block;
+}
+ 
+html[xmlns] .clearfix {
+	display: block;
+}
+ 
+* html .clearfix {
+	height: 1%;
+}

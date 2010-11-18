@@ -1,0 +1,149 @@
+steepandcheep:
+    <Product>
+      <SKU>FTS0012</SKU>
+      <Manufacturer_Id></Manufacturer_Id>
+      <Brand>ALPS Mountaineering</Brand>
+      <Product_Name>ALPS Mountaineering Zephyr 1.0 1-Person 3-Season Tent</Product_Name>
+      <Short_Description><![CDATA[There are some serious benefits to tenting alone. For one, a single-person tent weighs much less than a two-person tent. At  under four pounds, the Alps Mountaineering Zephyr 1.0 Tent barely affects the scales, but offers heavy-duty protection against bugs and wet weather.]]></Short_Description>
+      <Long_Description><![CDATA[There are some serious benefits to tenting alone. For one, a single-person tent weighs a lot less than a two-person tent. You also don't have to worry about getting steam-rolled at four AM or warding off your homesick tentmate's wandering hands. At under four pounds, the Alps Mountaineering Zephyr 1.0 Tent barely affects the scales, but offers heavy-duty protection against bugs and wet weather. All-mesh walls guarantee ventilation during muggy summer nights, while the urethane-coated, seam-sealed fly blocks precipitation. Two aircraft-grade aluminum poles set up with simple clips and provide strong, lightweight stability.]]></Long_Description>
+
+      <Small_Image_URL>http://images.steepandcheap.com/images/items/small/ALM/ALM0046/GRE.jpg</Small_Image_URL>
+      <Medium_Image_URL>http://images.steepandcheap.com/images/items/medium/ALM/ALM0046/GRE.jpg</Medium_Image_URL>
+      <Large_Image_URL>http://images.steepandcheap.com/images/items/large/ALM/ALM0046/GRE.jpg</Large_Image_URL>
+      <Retail_Price>149.95</Retail_Price>
+      <Sale_Price>71.98</Sale_Price>
+      <Keywords>pro, ALPS Mountaineering, Seth Morrison Pro Model Glove, Zephyr 1.0 1-Person 3-Season Tent, mesh tent, lightweight, backpacking, large one person</Keywords>
+
+      <Variants>
+        <Variant>
+          <Variant_SKU>ALM0046-GRE-ONESIZ</Variant_SKU>
+          <Variant_Description>Grey/Coal/Sage, One Size</Variant_Description>
+          <Variant_QOH>31</Variant_QOH>
+          <Variant_Small_Image_URL>http://images.steepandcheap.com/images/items/small/ALM/ALM0046/GRE.jpg</Variant_Small_Image_URL>
+          <Variant_Medium_Image_URL>http://images.steepandcheap.com/images/items/medium/ALM/ALM0046/GRE.jpg</Variant_Medium_Image_URL>
+
+          <Variant_Large_Image_URL>http://images.steepandcheap.com/images/items/large/ALM/ALM0046/GRE.jpg</Variant_Large_Image_URL>
+        </Variant>
+      </Variants>
+      <Buy_URL>http://www.steepandcheap.com/steepcheap/index.html?cmp_sku=ALM0046</Buy_URL>
+      <Quantity_On_Hand>31</Quantity_On_Hand>
+    </Product>
+    
+empty_product:
+    <?xml version="1.0" encoding="UTF-8"?>
+
+    <Product>
+      <SKU>FTS0019</SKU>
+      <Manufacturer_Id></Manufacturer_Id>
+      <Brand>Salomon</Brand>
+      <Product_Name>Salomon Elite TT Top - Men's</Product_Name>
+      <Short_Description><![CDATA[Ditch the shirt and tie, pull the Salomon Men's Elite TT Top over your head, and set out on a foothill trail to exercise the work demons.]]></Short_Description>
+      <Long_Description><![CDATA[Ditch the shirt and tie, pull the Salomon Men's Elite TT Top over your head, and set out on a foothill trail to exercise the work demons. This high-wicking polypro shirt keeps things cool when you heat up and flat-locked seams layer well with others.]]></Long_Description>
+
+      <Small_Image_URL>http://images.tramdock.com/images/items/small/SAL/SAL1839/POPGN.jpg</Small_Image_URL>
+      <Medium_Image_URL>http://images.tramdock.com/images/items/medium/SAL/SAL1839/POPGN.jpg</Medium_Image_URL>
+      <Large_Image_URL>http://images.tramdock.com/images/items/large/SAL/SAL1839/POPGN.jpg</Large_Image_URL>
+      <Retail_Price>59.95</Retail_Price>
+      <Sale_Price>23.50</Sale_Price>
+      <Keywords>Salomon, Elite TT Top - Men's, polypro, base layer, tech t</Keywords>
+
+      <Variants>
+        <Variant>
+          <Variant_SKU>SAL1839-POPGN-XXL</Variant_SKU>
+          <Variant_Description>Pop Green, XXL</Variant_Description>
+          <Variant_QOH>3</Variant_QOH>
+          <Variant_Small_Image_URL>http://images.tramdock.com/images/items/small/SAL/SAL1839/POPGN.jpg</Variant_Small_Image_URL>
+          <Variant_Medium_Image_URL>http://images.tramdock.com/images/items/medium/SAL/SAL1839/POPGN.jpg</Variant_Medium_Image_URL>
+
+          <Variant_Large_Image_URL>http://images.tramdock.com/images/items/large/SAL/SAL1839/POPGN.jpg</Variant_Large_Image_URL>
+        </Variant>
+        <Variant>
+          <Variant_SKU>SAL1839-POPGN-M</Variant_SKU>
+          <Variant_Description>Pop Green, M</Variant_Description>
+          <Variant_QOH>7</Variant_QOH>
+          <Variant_Small_Image_URL>http://images.tramdock.com/images/items/small/SAL/SAL1839/POPGN.jpg</Variant_Small_Image_URL>
+
+          <Variant_Medium_Image_URL>http://images.tramdock.com/images/items/medium/SAL/SAL1839/POPGN.jpg</Variant_Medium_Image_URL>
+          <Variant_Large_Image_URL>http://images.tramdock.com/images/items/large/SAL/SAL1839/POPGN.jpg</Variant_Large_Image_URL>
+        </Variant>
+        <Variant>
+          <Variant_SKU>SAL1839-VER-XL</Variant_SKU>
+          <Variant_Description>Vermillon, XL</Variant_Description>
+          <Variant_QOH>4</Variant_QOH>
+
+          <Variant_Small_Image_URL>http://images.tramdock.com/images/items/small/SAL/SAL1839/VER.jpg</Variant_Small_Image_URL>
+          <Variant_Medium_Image_URL>http://images.tramdock.com/images/items/medium/SAL/SAL1839/VER.jpg</Variant_Medium_Image_URL>
+          <Variant_Large_Image_URL>http://images.tramdock.com/images/items/large/SAL/SAL1839/VER.jpg</Variant_Large_Image_URL>
+        </Variant>
+        <Variant>
+          <Variant_SKU>SAL1839-POPGN-L</Variant_SKU>
+          <Variant_Description>Pop Green, L</Variant_Description>
+
+          <Variant_QOH>7</Variant_QOH>
+          <Variant_Small_Image_URL>http://images.tramdock.com/images/items/small/SAL/SAL1839/POPGN.jpg</Variant_Small_Image_URL>
+          <Variant_Medium_Image_URL>http://images.tramdock.com/images/items/medium/SAL/SAL1839/POPGN.jpg</Variant_Medium_Image_URL>
+          <Variant_Large_Image_URL>http://images.tramdock.com/images/items/large/SAL/SAL1839/POPGN.jpg</Variant_Large_Image_URL>
+        </Variant>
+        <Variant>
+          <Variant_SKU>SAL1839-POPGN-S</Variant_SKU>
+
+          <Variant_Description>Pop Green, S</Variant_Description>
+          <Variant_QOH>2</Variant_QOH>
+          <Variant_Small_Image_URL>http://images.tramdock.com/images/items/small/SAL/SAL1839/POPGN.jpg</Variant_Small_Image_URL>
+          <Variant_Medium_Image_URL>http://images.tramdock.com/images/items/medium/SAL/SAL1839/POPGN.jpg</Variant_Medium_Image_URL>
+          <Variant_Large_Image_URL>http://images.tramdock.com/images/items/large/SAL/SAL1839/POPGN.jpg</Variant_Large_Image_URL>
+        </Variant>
+
+        <Variant>
+          <Variant_SKU>SAL1839-POPGN-XL</Variant_SKU>
+          <Variant_Description>Pop Green, XL</Variant_Description>
+          <Variant_QOH>7</Variant_QOH>
+          <Variant_Small_Image_URL>http://images.tramdock.com/images/items/small/SAL/SAL1839/POPGN.jpg</Variant_Small_Image_URL>
+          <Variant_Medium_Image_URL>http://images.tramdock.com/images/items/medium/SAL/SAL1839/POPGN.jpg</Variant_Medium_Image_URL>
+
+          <Variant_Large_Image_URL>http://images.tramdock.com/images/items/large/SAL/SAL1839/POPGN.jpg</Variant_Large_Image_URL>
+        </Variant>
+        <Variant>
+          <Variant_SKU>SAL1839-VER-M</Variant_SKU>
+          <Variant_Description>Vermillon, M</Variant_Description>
+          <Variant_QOH>2</Variant_QOH>
+          <Variant_Small_Image_URL>http://images.tramdock.com/images/items/small/SAL/SAL1839/VER.jpg</Variant_Small_Image_URL>
+
+          <Variant_Medium_Image_URL>http://images.tramdock.com/images/items/medium/SAL/SAL1839/VER.jpg</Variant_Medium_Image_URL>
+          <Variant_Large_Image_URL>http://images.tramdock.com/images/items/large/SAL/SAL1839/VER.jpg</Variant_Large_Image_URL>
+        </Variant>
+      </Variants>
+      <Buy_URL>http://www.tramdock.com/tramdock/index.html?cmp_sku=SAL1839</Buy_URL>
+      <Quantity_On_Hand>32</Quantity_On_Hand>
+    </Product>
+    
+invalid_sku:
+    <Product>
+      <SKU>11111</SKU>
+      <Manufacturer_Id></Manufacturer_Id>
+      <Brand>ALPS Mountaineering</Brand>
+      <Product_Name>ALPS Mountaineering Zephyr 1.0 1-Person 3-Season Tent</Product_Name>
+      <Short_Description><![CDATA[There are some serious benefits to tenting alone. For one, a single-person tent weighs much less than a two-person tent. At  under four pounds, the Alps Mountaineering Zephyr 1.0 Tent barely affects the scales, but offers heavy-duty protection against bugs and wet weather.]]></Short_Description>
+      <Long_Description><![CDATA[There are some serious benefits to tenting alone. For one, a single-person tent weighs a lot less than a two-person tent. You also don't have to worry about getting steam-rolled at four AM or warding off your homesick tentmate's wandering hands. At under four pounds, the Alps Mountaineering Zephyr 1.0 Tent barely affects the scales, but offers heavy-duty protection against bugs and wet weather. All-mesh walls guarantee ventilation during muggy summer nights, while the urethane-coated, seam-sealed fly blocks precipitation. Two aircraft-grade aluminum poles set up with simple clips and provide strong, lightweight stability.]]></Long_Description>
+
+      <Small_Image_URL>http://images.steepandcheap.com/images/items/small/ALM/ALM0046/GRE.jpg</Small_Image_URL>
+      <Medium_Image_URL>http://images.steepandcheap.com/images/items/medium/ALM/ALM0046/GRE.jpg</Medium_Image_URL>
+      <Large_Image_URL>http://images.steepandcheap.com/images/items/large/ALM/ALM0046/GRE.jpg</Large_Image_URL>
+      <Retail_Price>149.95</Retail_Price>
+      <Sale_Price>71.98</Sale_Price>
+      <Keywords>pro, ALPS Mountaineering, Seth Morrison Pro Model Glove, Zephyr 1.0 1-Person 3-Season Tent, mesh tent, lightweight, backpacking, large one person</Keywords>
+
+      <Variants>
+        <Variant>
+          <Variant_SKU>ALM0046-GRE-ONESIZ</Variant_SKU>
+          <Variant_Description>Grey/Coal/Sage, One Size</Variant_Description>
+          <Variant_QOH>31</Variant_QOH>
+          <Variant_Small_Image_URL>http://images.steepandcheap.com/images/items/small/ALM/ALM0046/GRE.jpg</Variant_Small_Image_URL>
+          <Variant_Medium_Image_URL>http://images.steepandcheap.com/images/items/medium/ALM/ALM0046/GRE.jpg</Variant_Medium_Image_URL>
+
+          <Variant_Large_Image_URL>http://images.steepandcheap.com/images/items/large/ALM/ALM0046/GRE.jpg</Variant_Large_Image_URL>
+        </Variant>
+      </Variants>
+      <Buy_URL>http://www.steepandcheap.com/steepcheap/index.html?cmp_sku=ALM0046</Buy_URL>
+      <Quantity_On_Hand>31</Quantity_On_Hand>
+    </Product>

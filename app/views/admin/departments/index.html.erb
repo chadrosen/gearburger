@@ -1,0 +1,19 @@
+<div id="page_header">Departments</div>
+
+<%= render :partial => "application/errors" %>
+
+<table class="data" style="margin-top: 10px; margin-bottom: 10px; width: 100%;">
+	<tr>
+		<th>Name</th>
+		<th>Active</th>
+	</tr>
+	<% for b in @departments %>
+	<tr>
+		<td><%= link_to b.name, edit_admin_department_url(b) %></td>
+		<td>1</td>
+	</tr>		
+	<% end %>
+	
+</table>
+
+<%= will_paginate @departments %>

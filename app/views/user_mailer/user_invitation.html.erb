@@ -1,0 +1,13 @@
+<%- if @personal_message.nil? -%>
+Hey <%= @invitee %>,
+
+Your friend <%= @invitor %> thinks you should check out Gear Burger. It will change the way you shop for outdoor gear.
+
+http://www.gearburger.com
+
+Regards,
+The Gear Burger
+<%= OPTIONS[:info_email] %>
+<%- else -%>
+<%= h(@personal_message) %>
+<%- end -%>

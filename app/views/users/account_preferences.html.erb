@@ -1,0 +1,69 @@
+<h1>Account Preferences</h1>
+
+<%= render :partial => "application/errors" %>
+
+<p>Changing your email address will require you to verify the new address</p>
+
+<%= form_for :user, current_user, :url => account_preferences_url, :html => { :id => "change_email" } do |f| -%>
+	<table>
+		<tr>
+			<th>Email Address</th>
+			<td><%= f.text_field :email, :class => "text_field", :id => "email", :maxlength => 200 %></td>
+		</tr>
+		<tr>
+			<th>Time Zone</th>
+			<td>
+			<%= time_zone_select("user", "time_zone", ActiveSupport::TimeZone.us_zones,
+		 		:default => "Pacific Time (US & Canada)") %>
+			</td>
+		</tr>
+		<tr>
+			<th>When would you like to receive emails?</th>
+			<td>
+				<ul id="email_day_preferences">
+				<% for day in EmailDayPreference::DaysOfWeek %>
+					<li>
+						<%= check_box_tag day, 1, @user.has_email_pref(day) %> <%= label_tag day %>
+					</li>
+				<% end %>
+				<li class="clear"></li>
+				</ul>				
+			</td>
+		</tr>
+		<tr>
+			<th>First Name</th>
+			<td><%= f.text_field :first_name, :class => "text_field", :maxlength => 100 %></td>
+		</tr>
+		<tr>
+			<th>Last Name</th>
+			<td><%= f.text_field :last_name, :class => "text_field", :maxlength => 100 %></td>
+		</tr>
+		<tr>
+			<th>Min Price</th>
+			<td>
+				<%= f.text_field :min_price, :class => "price_field", :maxlength => 7 %>
+				(Items must be higher than this price)
+			</td>
+		</tr>
+		<tr>
+			<th>Max Price</th>
+			<td>
+				<%= f.text_field :max_price, :class => "price_field", :maxlength => 7 %>
+				(Items must be lower than this price)
+			</td>
+		</tr>
+		<tr>
+			<th>Minimum Discount</th>
+			<td>
+				<%= select_tag("min_discount", options_for_select(get_discount_preferences)) %>			
+			</td>
+		</tr>
+		<tr>
+			<th>Max Products Per Email (9 - 99)</th>
+			<td>
+				<%= f.text_field :max_products_per_email, :class => "price_field", :maxlength => 2 %>			
+			</td>
+		</tr>
+	</table>
+	<%= render :partial => "users/submit" %>
+<% end %>

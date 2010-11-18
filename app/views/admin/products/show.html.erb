@@ -1,0 +1,84 @@
+<div id="page_header">Products</div>
+
+<div style="margin-bottom: 10px; font-size: 14px;">
+	<%= link_to "Back to products", admin_products_url %>
+	| <%= link_to "Prices", product_prices_admin_product_url(@product) %>
+	| <%= link_to "Feed Results", feed_results_admin_product_url(@product) %>
+</div>
+
+<%= render :partial => "/application/errors" %>
+
+<table class="data" width="100%">
+	<tr>
+		<th style="width: 250px;">Name</th>
+		<td><%= @product.product_name %></td>
+	</tr>
+	<tr>
+		<th>SKU</th>
+		<td><%= @product.sku %></td>
+	</tr>
+	<tr>
+		<th>Brand</th>
+		<td><%= link_to @product.brand.name, edit_admin_brand_url(@product.brand) %></td>
+	</tr>
+	<tr>
+		<th>Feed Category</th>
+		<td>
+			<%= link_to @product.feed_category.name, 
+				edit_admin_feed_category_url(@product.feed_category) %>
+		</td>
+	</tr>
+	<tr>
+		<th>GB Category</th>
+		<td>
+			<% if @product.category %>
+				<%= link_to @product.category.name, edit_admin_category_url(@product.category) %>
+			<% else %>
+				null
+			<% end %>
+		</td>
+	</tr>
+	
+	<% if @product.department %>
+	<tr>
+		<th>Department</th>
+		<td><%= link_to @product.department.name, admin_department_url(@product.department) %></td>
+	</tr>
+	<% end %>
+	<tr>
+		<th>Retail Price</th>
+		<td><%= number_to_currency @product.retail_price %></td>
+	</tr>
+	<tr>
+		<th>Sale Price</th>
+		<td><%= number_to_currency @product.sale_price %></td>
+	</tr>
+	<tr>
+		<th>Previous Sale Price</th>
+		<td><%= number_to_currency @product.previous_sale_price %></td>
+	</tr>
+	<tr>
+		<th>Product Price Changed At</th>
+		<td><%= @product.price_changed_at %></td>
+	</tr>
+	<tr>
+		<th>Buy URL</th>
+		<td><%= link_to @product.buy_url, @product.buy_url, :target => "_blank" %></td>
+	</tr>
+	<tr>
+		<th>Small Image</th>
+		<td>
+			<% if @product.small_image_url %>
+			<%= image_tag @product.small_image_url %>
+			<% end %>
+		</td>
+	</tr>
+	<tr>
+		<th>Large Image</th>
+		<td>
+			<% if @product.large_image_url %>
+			<%= image_tag @product.large_image_url %>
+			<% end %>
+		</td>
+	</tr>
+</table>

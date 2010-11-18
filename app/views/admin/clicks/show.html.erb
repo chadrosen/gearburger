@@ -1,0 +1,39 @@
+<h1>Click</h1>
+
+<%= link_to "Back", admin_clicks_url %>
+
+<table class="data" style='margin-top: 5px;'>
+	<tr>
+		<th>Click Type</th>
+		<td><%= @click.click_type %></td>
+	</tr>
+	<tr>
+		<th>User</th>
+		<td><% if @click.user %><%= link_to @click.user.email, admin_user_url(@click.user) %><% else %>nil<% end %></td>
+	</tr>
+	<tr>
+		<th>Source</th>
+		<td><%= @click.source %></td>
+	</tr>
+	<tr>
+		<th>Email</th>
+		<td>
+			<% if @click.user_product_email %>
+				<%= link_to @click.user_product_email.created_at, 
+					admin_user_product_email_url(@click.user_product_email) %>
+			<% end %>
+		</td>
+	</tr>
+	<tr>
+		<th>Product</th>
+		<td>
+			<% if @click.product %>
+				<%= link_to @click.product.product_name, admin_product_url(@click.product) %>
+			<% end %>
+		</td>
+	</tr>
+	<tr>
+		<th>Created</th>
+		<td><%= @click.created_at %></td>
+	</tr>
+</table>

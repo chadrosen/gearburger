@@ -1,0 +1,92 @@
+<%= render :partial => "application/errors" %>
+
+<% if !@contest %>
+	<div id="no_contests">Sorry.. We aren't currently running any contests. Check back later</div>
+<% else %>
+	
+	<div class="message_box hidden" id="javascript_message">&nbsp;</div>
+	
+	<% if flash[:message] %>
+		<div class="message_box"><%= flash[:message] %></div>
+	<% end %>
+	
+	<div class="left" id="image_container">
+		<%= image_tag @contest.image_url, :id => "caption_image" %>		
+		<div id="prize_info">
+			<p id="prize_name">Best caption wins <%= @contest.prize_name %></p>
+			<p id="prize_price">Retail <%= number_to_currency @contest.prize_price %></p>
+		</div>
+		<%= image_tag @contest.prize_url, :id => "prize_image", :class => "left" %>
+		<table id="prize_table" class="left">
+			<tr>
+				<th>Contest Starts</th>
+				<td><%= @contest.start_time.strftime("%b %d %I:%M %p %Z") %></td>
+			</tr>
+			<tr>
+				<th>Contest Ends</th>
+				<td><%= @contest.end_time.strftime("%b %d %I:%M %p %Z") %></td>
+			</tr>
+		</table>
+		<div class="clear"></div>
+	</div>
+		
+	<div id="caption_container" class="left">
+				
+		<div style="margin-bottom: 5px;">
+			<% if @caption.user_id.nil? %>
+				<%= form_for([@contest, @caption]) do |f| %>
+				<%= f.text_field :description, :id => "enter_caption", :maxLength => 120 %>
+				<%= f.submit "submit", :id => "caption_submit", :class => "submit" %>
+				<% end %>
+			<% else %>
+			<div id="user_caption" class="page_description_header">
+				<p style="margin-bottom: 5px;">"<%= h @caption.description %>"</p>
+				<p>
+					<a name="fb_share" type="icon_link" 
+						share_url="http://www.gearburger.com/contests#<%= @caption.id %>" 
+						href="http://www.facebook.com/sharer.php?u=">Share</a>
+						<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Loader" 
+							type="text/javascript"></script>
+						<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" 
+							type="text/javascript"></script>
+												
+					<img src="/images/twitter.png" alt="Share on Twitter"/>
+					<a target="_blank" href="http://twitter.com/home?status=Vote for me on http://www.gearburger.com/contests%23<%= @caption.id %>" 
+						title="Click to share my caption on Twitter">Share</a>					
+				</p>
+			</div>
+			<% end %>
+		</div>
+		<% if @captions.length > 0 %>
+			<% count = 1%>
+			<% for c in @captions %>
+			<div class="caption">
+				<div class="vote_container left">
+					<div class="rank"><%= ordinalize(count * @page) %></div>
+					<div class="vote_count"><%= c.vote_count %> votes</div>
+					<% if @vote.cookie.nil? %>
+						<%= form_for([c, @vote]) do |f| %>
+						<%= f.submit "up vote", :class => "vote_submit submit" %>
+						<% end %>
+					<% end %>
+					<div class="user_voted hidden">My Pick</div>
+					<% if !@vote.cookie.nil? && @vote.caption_id == c.id %>
+						<div class="user_voted">My Pick</div>
+					<% end %>
+				</div>
+				<div class="left caption_text">
+					<a name="<%= c.id %>" class="caption_link">"<%= h c.description %>"</a>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<% count += 1 %>
+			<% end %>
+		<% else %>
+			No captions yet!!
+		<% end %>
+		
+		<%= will_paginate(@captions) %>
+	</div>		
+	<div class="clear"></div>
+
+<% end %>

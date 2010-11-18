@@ -1,0 +1,26 @@
+<h1>Friends</h1>
+
+<%= render :partial => "application/errors" %>
+
+<div><%= link_to "Create", new_admin_friend_url %></div>
+
+<table class="data" style="margin-top: 10px; margin-bottom: 10px; width: 100%;">
+	<% if @friends.length > 0 %>
+	<tr>
+		<th>Name</th>
+		<th>Blog URL</th>
+		<th>Created</th>
+		<th>Active</th>
+	</tr>
+	<% for c in @friends %>
+	<tr>
+		<td><%= link_to c.name, edit_admin_friend_url(c) %></td>
+		<td><%= c.blog_url %></td>
+		<td><%= c.created_at %></td>
+		<td><%= c.active %></td>
+	</tr>		
+	<% end %>	
+	<% else %>
+		<tr><td>No friends yet</td></tr>
+	<% end %>
+</table>

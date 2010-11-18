@@ -1,0 +1,19 @@
+<table class="gear_list">
+<% for sub_list in items %>
+	<tr class="<%= cycle("even", "odd") %>">
+	<% for i in sub_list %>
+		<% if i.nil? %>
+			<td>&nbsp;</td>
+		<% else %>
+		<td>
+			<%= check_box_tag "#{item_type}[#{i.id}]", i.id, selected.include?(i.id), 
+				:class => item_type, :id => i.id %>
+			<%= label_tag i.id, i.name %>
+		</td>
+		<% end %>
+	<% end %>
+	</tr>
+<% end %>
+<% reset_cycle %>		
+</table>
+

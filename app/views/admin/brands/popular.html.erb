@@ -1,0 +1,24 @@
+<div id="page_header">Popular Brands</div>
+
+<%= render :partial => "application/errors" %>
+
+<form action="" method="GET">
+	Limit <input type="text" value="<%= @limit %>" name="limit"/>
+	<input type="submit" value="submit"/>
+</form>
+
+<table class="data" style="margin-top: 10px; margin-bottom: 10px; width: 100%;">
+	<tr>
+		<th>Name</th>
+		<th>Active</th>
+		<th>Popular</th>
+	</tr>
+	<% for b in @brands %>
+	<tr>
+		<td><%= link_to b.name, edit_admin_brand_url(b) %></td>
+		<td><%= b.active %></td>
+		<td><%= b.popular %></td>
+	</tr>		
+	<% end %>
+	
+</table>

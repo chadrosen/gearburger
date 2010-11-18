@@ -1,0 +1,68 @@
+<style>
+
+	.filter {
+		height: 200px; width: 200px; overflow: auto; float: left; margin-right: 50px;	
+	}
+
+</style>
+
+<h1>Products</h1>
+
+<form action="<%= admin_products_url %>" method="get">
+	Product Name Search <input style="padding: 2px; font-size: 14px;" type="text" 
+		name="product_name" value="<%= @product_name %>"/>
+	<input style="margin-left: 5px;" type="submit" value="Filter"/>
+</form>
+
+<div style="margin-bottom: 10px; margin-top: 10px;">
+	<div class="filter">
+		<% for b in @brands -%>
+			<div>
+			<%= link_to b.name, 
+				admin_products_url(:brand_id => b.id, :department_id => params[:department_id]) %>
+		</div>
+		<% end -%>
+	</div>
+	<div class="filter">
+		<% for d in @departments -%>
+			<div>
+				<%= link_to d.name, 
+					admin_products_url(:department_id => d.id, :brand_id => params[:brand_id]) %>
+			</div>
+		<% end -%>
+	</div>
+	<div class="clear"></div>
+</div>
+
+<table class="data" width="100%">
+<% if @products.length > 0 %>
+	<tr>
+		<th>Name</th>
+		<th>Brand</th>
+		<th>Feed Category</th>
+		<th>GB Category</th>
+		<th>Dept</th>
+		<th class="center">Retail</th>
+		<th class="center">Sale</th>
+	</tr>
+	<% for p in @products %>
+	<tr>
+		<td><%= link_to truncate(p.product_name, :length => 50), admin_product_url(p) %></td>
+		<td><%= p.brand.name %></td>
+		<td><%= link_to p.feed_category.name, edit_admin_feed_category_url(p.feed_category) %></td>
+		<td>
+			<% if p.category %>
+				<%= link_to p.category.name, edit_admin_category_url(p.category) %>
+			<% else %>
+				null
+			<% end %>
+		</td>
+		<td><%= p.department ? p.department.name : "NULL" %></td>		
+		<td class="center"><%= number_to_currency p.retail_price %></td>
+		<td class="center"><%= number_to_currency p.sale_price %></td>
+	</tr>
+	<% end %>
+<% else %>
+	<tr><td class="center">No data found</td></tr>
+<% end %>
+</table>

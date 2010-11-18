@@ -1,0 +1,19 @@
+<%  show_end_date = true if local_assigns[:show_end_date].nil? %>
+
+<%= form_tag("", :method => "GET") do %>
+	Start: <%= text_field_tag "start_date", @start_date.to_date, :id => "start_date" %>
+
+	<% if show_end_date %>
+		End: <%= text_field_tag "end_date", @end_date.to_date, :id => "end_date" %>	
+	<% end %>
+
+	<%= select_tag("date", 
+		options_for_select([["Custom", "custom"], ["Last 7", "last7"], ["Last 30", "last30"]]), 
+		:id=> "date_selector") %>
+
+	<%= yield :custom_filters %>
+
+	<%= submit_tag "submit" %>
+<% end %>
+
+

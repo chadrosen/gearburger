@@ -1,0 +1,22 @@
+Hello, new Gear Burger-er!
+
+Gear Burger will change the way you shop for outdoor gear.
+
+Things to do:
+
+1. Activate your account <% if @user.password %> (your temporary password: <%=h @user.password %>): 
+	<% end %> <%=h @url %> <%= url_for :controller => "users", :action => "activate", 
+		:activation_code => @activation_code, :only_path => false %>
+		
+2. Whitelist alert@gearburger.com.  This is where your alerts will come from once your account is activated.
+
+We aim to please so let us know what we can do better!
+
+Regards,
+The Gear Burger
+<%= OPTIONS[:info_email] %>
+
+This email was sent to you at your request from Gearburger.com
+41 Arguello Blvd. | San Francisco | CA | 94118
+To unsubscribe, respond to this email with UNSUBSCRIBE in the subject line or visit this URL:
+<%= url_for :controller => "users", :action => "deactivate_account", :only_path => false, :id => @user.id %>

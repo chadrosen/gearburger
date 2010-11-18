@@ -1,0 +1,26 @@
+one:
+    contest: one
+    description: 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789
+    user: chad
+    vote_count: 0
+    created_at: <%= 1.hours.ago.to_s :db %>
+    updated_at: <%= 1.hours.ago.to_s :db %>
+    active: true
+    
+two:
+    contest: one
+    description: This site is great. I want to buy stuff from it
+    user: rob
+    vote_count: 0
+    created_at: <%= 2.hours.ago.to_s :db %>
+    updated_at: <%= 2.hours.ago.to_s :db %>
+    active: true
+    
+three:
+    contest: one
+    description: I hate everything...
+    user: vince
+    vote_count: 0
+    created_at: <%= 3.hours.ago.to_s :db %>
+    updated_at: <%= 3.hours.ago.to_s :db %>    
+    active: true

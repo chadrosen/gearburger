@@ -1,0 +1,36 @@
+<%= render :partial => "application/errors" %>
+
+<div><%= link_to "back", admin_friends_url %></div>
+
+
+<%= form_for([:admin, @friend]) do |f| %>
+	<table class="data">
+		<tr>
+			<th>Name</th>
+			<td><%= f.text_field :name %></td>
+		</tr>
+		<tr>
+			<th>Blog URL</th>
+			<td><%= f.text_field :blog_url %></td>
+		</tr>
+		<tr>
+			<th>GB Article URL</th>
+			<td><%= f.text_field :gb_article_url %></td>
+		</tr>
+		<tr>
+			<th>Image URL</th>
+			<td><%= f.text_field :image_url %></td>
+		</tr>		
+		<tr>
+			<th>Active</th>
+			<td><%= f.check_box :active %>
+		</tr>
+		<tr>
+			<th>Description</th>
+			<td><%= f.text_area :description %></td>
+		</tr>	
+	</table>
+	<div style="margin-top: 10px;">
+		<%= f.submit %>
+	</div>
+<% end %>

@@ -1,0 +1,22 @@
+<div style="margin-bottom: 10px;">
+	<%= link_to "Back to product", admin_product_url(params[:id]) %>
+	| <%= link_to "Back to products", admin_products_url %>
+</div>
+
+<div class="item_container">
+	<div class="item_title">Users that match this product</div>
+	<table class="data" width="100%">
+		<% if @users.length > 0%>
+			<tr>
+				<th width="50%">User</th>
+			</tr>
+			<% for u in @users %>
+			<tr>
+				<td><%= link_to u.email, admin_user_url(u) %></td>
+			</tr>
+			<% end %>
+		<% else %>
+			<tr><td align="center">No matches found</td></tr>
+		<% end %>
+	</table>
+</div>

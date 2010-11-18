@@ -1,0 +1,12 @@
+<%- for p in @pgs -%>
+Feed Id: <%= p.feed_id %>
+Feed Name <%= p.feed.name %>
+New Products: <%= p.new_products %>
+Product Updates: <%= p.product_updates %>
+Price Changes: <%= p.price_changes %>
+New Cats: <%= p.new_cats %>
+New Brands: <%= p.new_brands %>
+Errors: <%= p.product_errors %>
+-------------------------------
+	
+<%- end -%>
