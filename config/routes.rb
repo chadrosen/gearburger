@@ -123,14 +123,7 @@ Gearburger::Application.routes.draw do
         get "giftcards"
       end
     end
-    
-    # admin contest stuff
-    resources :contests, :shallow => true do
-      resources :captions, :shallow => true do
-        resources :votes
-      end
-    end
-    
+        
     resources :user_product_emails do
       member do
         get "email_user"
@@ -158,12 +151,5 @@ Gearburger::Application.routes.draw do
       match :click_stats
     end    
   end
-  
-  # contest stuff
-  resources :contests, :only => :index do
-    resources :captions, :only => [:create] do
-      resources :votes, :only => [:create]
-    end
-  end
-    
+      
 end
