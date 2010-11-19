@@ -18,9 +18,14 @@ OPTIONS[:internal_error_to] = "errors@gearburger.com"
 OPTIONS[:internal_email_from] = "internal@gearburger.com"
 
 # Email settings for prod and staging
-OPTIONS[:email_address] = "localhost"
+OPTIONS[:action_mailer_deliver_method] = :smtp
+OPTIONS[:email_address] = "smtp.sendgrid.net" 
+OPTIONS[:email_port] = "25"
+OPTIONS[:email_authentication] = :plain
+OPTIONS[:email_username] = "chad@gearburger.com"
+OPTIONS[:email_password] = "chadpw00"
 OPTIONS[:email_domain] = "gearburger.com"
-OPTIONS[:email_port] = 25
+OPTIONS[:enable_starttls_auto] = false
 
 # TODO: not sure if we use this anymore...
 OPTIONS[:info_email] = "info@gearburger.com"
@@ -30,9 +35,6 @@ OPTIONS[:full_feed_location] = File.join(Rails.root.to_s, "tmp", "full_feeds")
 
 OPTIONS[:recaptcha_public_key] = "6Le7eAcAAAAAAOCcjjhB4585JIJTbJteMcQtPbq0"
 OPTIONS[:recaptcha_private_key] = "6Le7eAcAAAAAAPdMo6rfwi15mDEwC4SUqU8s_OyC"
-
-# Default delivery method is smtp. In test mode it's test
-OPTIONS[:action_mailer_deliver_method] = :smtp
 
 # Test google account info used to interact with google APIs.. The prod version is in the prod config
 #OPTIONS[:google_username] = "chadrosen@hotmail.com"
@@ -50,10 +52,6 @@ OPTIONS[:facebook_page_id] = 127166921453
 
 # The location of producct emails on disk
 OPTIONS[:product_email_location] = File.join(Rails.root.to_s, "tmp", "product_emails")
-
-# Sendgrid Stuff
-OPTIONS[:sendgrid_username] = "chad@gearburger.com"
-OPTIONS[:sendgrid_password] = "chadpw00"
 
 # Admin basic auth protection
 OPTIONS[:admin_username] = "gbadmin" 

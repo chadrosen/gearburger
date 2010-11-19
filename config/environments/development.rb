@@ -33,14 +33,16 @@ Gearburger::Application.configure do
   OPTIONS[:internal_email_to] = "chadrosen@gmail.com"
   OPTIONS[:internal_error_to] = "chadrosen@gmail.com"
 
-  OPTIONS[:use_tls] = true
-  OPTIONS[:authentication] = :login
-  OPTIONS[:email_user_name] = "alertburger@gearburger.com"
-  OPTIONS[:email_password] = "alertburgerpw00"
-  OPTIONS[:email_domain] = "gearburger.packethole.com"
-  OPTIONS[:email_address] = "smtp.gmail.com"
-  OPTIONS[:email_port] = 587
-
+  # Email params to chat with gmail
+  # TODO: I'm having issues with these params. Just use prod sendgrid for now.
+  #OPTIONS[:email_address] = "smtp.gmail.com"
+  #OPTIONS[:email_port] = 587
+  #OPTIONS[:email_authentication] = :plain
+  #OPTIONS[:email_user_name] = "alertburger@gearburger.com"
+  #OPTIONS[:email_password] = "alertburgerpw00"
+  #OPTIONS[:email_domain] = "gearburger.packethole.com"
+  #OPTIONS[:enable_starttls_auto] = true
+  
   # Facebook stuff
   OPTIONS[:facebook_one_time_token] = "EVJ2UZ"
   OPTIONS[:facebook_app_id] = 225955489319
