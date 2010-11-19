@@ -48,4 +48,8 @@ Gearburger::Application.configure do
   OPTIONS[:facebook_app_id] = 225955489319
   OPTIONS[:facebook_api_key] = "0a3d09575ec0586cc776c78a55489832"
   OPTIONS[:facebook_secret_key] = "c91150e9ccdb0d47054edde93cf582bb"
+  
+  # Config options for s3
+  OPTIONS[:s3_key] = "" 
+  OPTIONS[:s3_secret] = ""
 end

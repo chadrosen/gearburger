@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/rfc2822/recaptcha.git
+  revision: 59e78ce28588fdb3b7a7fdb4c49c2eb459459e8a
+  branch: rails3
+  specs:
+    recaptcha (0.2.3)
+
+GIT
   remote: git://github.com/wildfalcon/abingo.git
   revision: bc73f5875543ac8765259fa725d887ba24310c98
   branch: rails3
@@ -37,6 +44,10 @@ GEM
       activesupport (= 3.0.3)
     activesupport (3.0.3)
     arel (2.0.2)
+    aws-s3 (0.6.2)
+      builder
+      mime-types
+      xml-simple
     builder (2.1.2)
     columnize (0.3.2)
     contacts (1.2.3)
@@ -116,6 +127,7 @@ GEM
       yajl-ruby (~> 0.7.0)
     tzinfo (0.3.23)
     will_paginate (3.0.pre2)
+    xml-simple (1.0.12)
     yajl-ruby (0.7.8)
 
 PLATFORMS
@@ -124,6 +136,7 @@ PLATFORMS
 DEPENDENCIES
   aasm (= 2.2.0)
   abingo!
+  aws-s3
   contacts (= 1.2.3)
   email_veracity (= 0.6.0)
   fastercsv (= 1.5.3)
@@ -133,6 +146,7 @@ DEPENDENCIES
   json (= 1.4.3)
   mysql (= 2.8.1)
   rails (= 3.0.3)
+  recaptcha!
   ruby-debug (= 0.10.4)
   taps
   text (= 0.2.0)

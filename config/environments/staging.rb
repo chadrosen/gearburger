@@ -45,7 +45,12 @@ Gearburger::Application.configure do
   # The location of producct emails on disk
   OPTIONS[:product_email_location] = File.join("/var/www/gearburger_staging/shared/product_emails")
 
+  # facebook stuff
   OPTIONS[:facebook_app_id] = 227423218563
   OPTIONS[:facebook_api_key] = "d37a85a9d91fc5e286a2a4062da1c047"
   OPTIONS[:facebook_secret_key] = "e2e59c1d2d1f126059fcdbc52fefd4dd"
+  
+  # Config options for s3
+  OPTIONS[:s3_key] = "" 
+  OPTIONS[:s3_secret] = ""
 end

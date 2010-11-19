@@ -15,6 +15,8 @@ gem 'text', "0.2.0"
 gem "email_veracity", "0.6.0"
 gem "taps"
 gem "will_paginate", "~> 3.0.pre2"
+gem 'aws-s3', :require => 'aws/s3'
+gem 'recaptcha', :require => 'recaptcha/rails', :git => 'git://github.com/rfc2822/recaptcha.git', :branch => 'rails3'
 
 # See http://rubydoc.info/gems/abingo_port/0.1.0/frames
 gem 'abingo', :git => "git://github.com/wildfalcon/abingo.git", :branch => "rails3"
@@ -38,7 +40,6 @@ end
 # gem 'bj'
 # gem 'nokogiri'
 # gem 'sqlite3-ruby', :require => 'sqlite3'
-# gem 'aws-s3', :require => 'aws/s3'
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
