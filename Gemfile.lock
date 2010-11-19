@@ -118,6 +118,8 @@ GEM
       sqlite3-ruby (~> 1.2)
     text (0.2.0)
     thor (0.14.4)
+    to-csv (1.0.3)
+      activesupport (>= 2.3.5)
     treetop (1.4.8)
       polyglot (>= 0.3.1)
     twitter (0.9.7)
@@ -136,7 +138,7 @@ PLATFORMS
 DEPENDENCIES
   aasm (= 2.2.0)
   abingo!
-  aws-s3
+  aws-s3 (= 0.6.2)
   contacts (= 1.2.3)
   email_veracity (= 0.6.0)
   fastercsv (= 1.5.3)
@@ -146,9 +148,10 @@ DEPENDENCIES
   json (= 1.4.3)
   mysql (= 2.8.1)
   rails (= 3.0.3)
-  recaptcha!
+  recaptcha (= 0.2.3)!
   ruby-debug (= 0.10.4)
-  taps
+  taps (= 0.3.14)
   text (= 0.2.0)
+  to-csv (= 1.0.3)
   twitter (= 0.9.7)
   will_paginate (~> 3.0.pre2)

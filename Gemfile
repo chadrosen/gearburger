@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-# gem "rugalytics", "0.2.0"
+#gem "rugalytics", "0.2.0"
 
 gem "twitter", "0.9.7"
 gem 'rails', '3.0.3'
@@ -13,10 +13,11 @@ gem 'gchart', "1.0.0"
 gem 'aasm', "2.2.0"
 gem 'text', "0.2.0"
 gem "email_veracity", "0.6.0"
-gem "taps"
+gem "taps", "0.3.14"
 gem "will_paginate", "~> 3.0.pre2"
-gem 'aws-s3', :require => 'aws/s3'
-gem 'recaptcha', :require => 'recaptcha/rails', :git => 'git://github.com/rfc2822/recaptcha.git', :branch => 'rails3'
+gem 'aws-s3', "0.6.2", :require => 'aws/s3'
+gem 'recaptcha', "0.2.3", :require => 'recaptcha/rails', :git => 'git://github.com/rfc2822/recaptcha.git', :branch => 'rails3'
+gem 'to-csv', "1.0.3"
 
 # See http://rubydoc.info/gems/abingo_port/0.1.0/frames
 gem 'abingo', :git => "git://github.com/wildfalcon/abingo.git", :branch => "rails3"
