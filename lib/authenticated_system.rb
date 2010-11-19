@@ -108,13 +108,6 @@ module AuthenticatedSystem
     def login_from_session
       self.current_user = User.find_by_id(session[:user_id]) if session[:user_id]
     end
-
-    # Called from #current_user.  Now, attempt to login by basic authentication information.
-    def login_from_basic_auth
-      authenticate_with_http_basic do |login, password|
-        self.current_user = User.authenticate(login, password)
-      end
-    end
     
     # Called from #current_user.  Finaly, attempt to login by an expiring token in the cookie.
     # for the paranoid: we _should_ be storing user_token = hash(cookie_token, request IP)

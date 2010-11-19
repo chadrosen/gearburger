@@ -20,4 +20,8 @@ class Category < ActiveRecord::Base
     self.average_discount = self.products.average('(retail_price - sale_price) / retail_price')
   end
   
+  def to_s
+    "Category: #{id} - #{name} (#{active})"
+  end
+  
 end

@@ -1,15 +1,13 @@
 module AlertGenerator
 
   class ProductFeedMatcher
-    
-    DaysOfWeek = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
-    
+        
     def initialize(options = {})
       @group_by = options[:group_by] || 3
       @limit = options[:limit] || 99
       @threshold = options[:threshold] || 0
       @email_save_path = options[:product_email_location] || OPTIONS[:product_email_location]
-      
+            
       # Create save path if it doesn't exist
       Dir.mkdir(@email_save_path, 777) unless File.exists? @email_save_path
       
@@ -50,6 +48,7 @@ module AlertGenerator
           
           # Get the products that match the user
           mps = get_matching_products(u)
+                    
           categories = make_category_array(mps, :group_by => @group_by)
                     
           next if mps.length == 0
@@ -131,11 +130,11 @@ module AlertGenerator
       dow = get_day_of_week(d)
       
       User.find(:all, :joins => [:email_day_preferences], 
-        :conditions => {"users.state" => :active, "email_day_preferences.day_of_week" => dow})        
+        :conditions => {"users.state" => "active", "email_day_preferences.day_of_week" => dow})        
     end
     
     def get_day_of_week(date)
-      return DaysOfWeek[date.strftime("%w").to_i]
+      return EmailDayPreference::DaysOfWeek[date.strftime("%w").to_i]
     end
     
     def get_matching_products(user, options = {})

@@ -170,6 +170,10 @@ class Product < ActiveRecord::Base
     end
 
   end
+  
+  def to_s
+    "Product: #{self.id} - #{self.product_name}"
+  end
 
 
 end

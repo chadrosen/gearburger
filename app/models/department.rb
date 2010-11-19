@@ -34,4 +34,8 @@ class Department < ActiveRecord::Base
 
   end
   
+  def to_s
+    "Department: #{id} #{name} (#{active})"
+  end
+  
 end

@@ -130,4 +130,8 @@ class Brand < ActiveRecord::Base
     brands.sort_by {|b| ids.index(b.id).to_i }    
   end
   
+  def to_s
+    "Brand: #{id} - #{name} (#{active})"
+  end
+  
 end

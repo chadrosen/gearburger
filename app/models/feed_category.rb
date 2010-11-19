@@ -26,5 +26,9 @@ class FeedCategory < ActiveRecord::Base
   def name
     return "#{self.feed_category} #{self.feed_subcategory} #{self.feed_product_group}"
   end
+  
+  def to_s
+    "Feed Category: #{id} - #{feed_category} - #{feed_subcategory} - #{feed_product_group} (#{active})"
+  end
 
 end

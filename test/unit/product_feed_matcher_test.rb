@@ -11,10 +11,11 @@ class ProductFeedMatcherTest < ActiveSupport::TestCase
     
     @t = Time.zone.now
     @u = users(:chad)
-    @b = @u.brands[0]
-    @c = @u.categories[0]
-    @fc = @c.feed_categories[0]
+    @b = brands(:six_eight_six)
+    @c = categories(:clothing)
+    @fc = feed_categories(:shirts)
     @pm = AlertGenerator::ProductFeedMatcher.new(:batch_wait => 0)
+
   end
 
   def teardown
@@ -27,6 +28,8 @@ class ProductFeedMatcherTest < ActiveSupport::TestCase
       p = File.join("#{OPTIONS[:product_email_location]}", f)
       File.delete(f)
     end
+    
+    Product.delete_all
   end
 
   def test_price_matching_no_matches
@@ -260,13 +263,14 @@ class ProductFeedMatcherTest < ActiveSupport::TestCase
   def test_delivering_created_mail
     
     # Create a product that I know the user has
-    @pg.create_product(@fc.feed_id, "sku", "product name", @b.name, @fc.feed_category, @fc.feed_subcategory, 
+    p = @pg.create_product(@fc.feed_id, "sku", "product name", @b.name, @fc.feed_category, @fc.feed_subcategory, 
       @fc.feed_product_group, 100.0, :sale_price => 90.0)
-    
+   
     @pm.create_emails
     
     path = File.join(OPTIONS[:product_email_location], "*_#{Time.zone.today}.email")
-    file_names = Dir.glob(path)    
+    file_names = Dir.glob(path)
+    
     @pm.deliver_email(file_names[0])
     
     assert_equal ActionMailer::Base.deliveries.length, 1    

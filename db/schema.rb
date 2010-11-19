@@ -286,7 +286,7 @@ ActiveRecord::Schema.define(:version => 20101118191610) do
     t.datetime "deleted_at"
     t.boolean  "send_newsletter",                                                         :default => true
     t.string   "time_zone",                                                               :default => "Pacific Time (US & Canada)"
-    t.text     "deactivation_reason",                                                                                               :null => true
+    t.text     "deactivation_reason"
     t.integer  "referral_id"
     t.string   "ip_address"
     t.string   "user_agent"
