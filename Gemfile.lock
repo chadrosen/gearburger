@@ -115,6 +115,7 @@ GEM
       oauth (>= 0.3.5)
       yajl-ruby (~> 0.7.0)
     tzinfo (0.3.23)
+    will_paginate (3.0.pre2)
     yajl-ruby (0.7.8)
 
 PLATFORMS
@@ -136,3 +137,4 @@ DEPENDENCIES
   taps
   text (= 0.2.0)
   twitter (= 0.9.7)
+  will_paginate (~> 3.0.pre2)

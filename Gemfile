@@ -14,6 +14,7 @@ gem 'aasm', "2.2.0"
 gem 'text', "0.2.0"
 gem "email_veracity", "0.6.0"
 gem "taps"
+gem "will_paginate", "~> 3.0.pre2"
 
 # See http://rubydoc.info/gems/abingo_port/0.1.0/frames
 gem 'abingo', :git => "git://github.com/wildfalcon/abingo.git", :branch => "rails3"
