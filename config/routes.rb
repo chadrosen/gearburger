@@ -40,6 +40,7 @@ Gearburger::Application.routes.draw do
     end
         
     scope :via => "post" do 
+      match :signup, :to => "users#signup"
       match :lost_password, :to => "users#lost_password_submit"
       match :change_password, :to => "users#change_password_submit"            
       match :departments_submit, :to => "users#departments_submit"

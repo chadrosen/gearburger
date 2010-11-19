@@ -33,21 +33,11 @@ var common_functions = function() {
 	};
 	
 	if($('logout_button')) {
-		
 		$('logout_button').addEvent('click', function(e) {
 			// If there is a facebook session log them out
-			FB.getLoginStatus(function(response) {
-				if (response.session) {
-		    		// logged in and connected user, someone you know
-					// Log the user out of facebook if there is a session
-					FB.logout(function(response) { window.location = "/logout"; });
-			  	} else {
-					window.location = "/logout";
-				}
-			});
-			
-			return false;
+			FB.logout(function(response) { window.location = "/logout"; });
 		});
+		return false;
 	};	
 };
 

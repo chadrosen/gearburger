@@ -54,3 +54,7 @@ OPTIONS[:product_email_location] = File.join(Rails.root.to_s, "tmp", "product_em
 # Sendgrid Stuff
 OPTIONS[:sendgrid_username] = "chad@gearburger.com"
 OPTIONS[:sendgrid_password] = "chadpw00"
+
+# Admin basic auth protection
+OPTIONS[:admin_username] = "gbadmin" 
+OPTIONS[:admin_password] = "gbpw00"

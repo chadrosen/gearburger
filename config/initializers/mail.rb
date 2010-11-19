@@ -1,5 +1,7 @@
+# :smtp in most modes, :test in test mode 
 ActionMailer::Base.delivery_method = OPTIONS[:action_mailer_deliver_method]
 
+# Common settings
 ActionMailer::Base.smtp_settings = {
     :address => OPTIONS[:email_address],
     :port => OPTIONS[:email_port],
