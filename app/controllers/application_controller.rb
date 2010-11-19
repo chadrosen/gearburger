@@ -46,10 +46,7 @@ class ApplicationController < ActionController::Base
 
   def set_layout_data
     # Set a common set of data that may be used in every template
-    @errors = []
-            
-    # Count the total number of deals seen today
-    @deals_today_count = 0
+    @errors = []            
   end
   
   def set_time_zone
@@ -73,15 +70,7 @@ class ApplicationController < ActionController::Base
     return protect_login unless logged_in?
     redirect_to(root_url) unless current_user.state == "active"
   end
-        
-  def deprecated_actions
-    if current_user
-      redirect_to(user_url(current_user), :status => 301)
-    else
-      redirect_to(root_url, :status => 301)
-    end
-  end
-  
+          
   def set_abingo_identity
     # Setup the Abingo identity that is used for A/B testing
   	   
