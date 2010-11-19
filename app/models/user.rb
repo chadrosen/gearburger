@@ -39,15 +39,15 @@ class User < ActiveRecord::Base
           
   # A user can have many brands
   has_many :brands_users
-  has_many :brands, :through => :brands_users, :order => "name ASC"
+  has_many :brands, :through => :brands_users
 
   # A user can have many categories
   has_many :categories_users
-  has_many :categories, :through => :categories_users, :order => "name ASC"
+  has_many :categories, :through => :categories_users
 
   # A user can choose to monitor different sex params
   has_many :departments_users
-  has_many :departments, :through => :departments_users, :order => "name ASC"
+  has_many :departments, :through => :departments_users
   
   has_many :user_product_emails # These are product emails sent to the user
   has_many :clicks

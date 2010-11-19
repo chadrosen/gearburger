@@ -23,7 +23,7 @@ module Admin
     end
     
     def show
-      @user = User.find(params[:id], :include => [:brands, :categories, :departments, :campaign])
+      @user = User.where(:id => params[:id]).includes([:brands, :categories, :departments, :campaign]).first
       @cats = @user.categories.collect { |c| c.name }.join(" ")
       @depts = @user.departments.collect { |d| d.name }.join(" ")
       @brands = @user.brands.length

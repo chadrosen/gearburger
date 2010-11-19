@@ -238,7 +238,7 @@ module Admin
       @clicks = Click.count(:conditions => ["clicks.created_at between ? and ? and product_id is not null", 
         @start_date, @end_date])
               
-      @products.where(["clicks.created_at between ? and ?", @start_date, @end_date]).joins(:clicks).all
+      @products = Product.where(["clicks.created_at between ? and ?", @start_date, @end_date]).joins(:clicks).all
       
       @products.uniq!
       

@@ -34,7 +34,7 @@ module Admin
       @count = FeedCategory.count(:conditions => conditions.join(" AND "), :include => [:category, :feed])
                               
       q = FeedCategory.where(conditions.join(" AND ")).order("category_id ASC, feed_category ASC, feed_subcategory ASC, feed_product_group ASC")
-      fcs = q.includes([:feed, :category]).limit(@limit).all  
+      @fcs = q.includes([:feed, :category]).limit(@limit).all  
     end     
     
     def multi_update

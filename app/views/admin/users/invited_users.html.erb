@@ -2,39 +2,18 @@
 
 <%= link_to "Back", admin_user_url(@user) %>
 
-<h3 style="margin-top: 10px;">Current user info</h3>
-<table class="data" width="100%" style="margin-bottom: 10px;">
-	<tr>
-		<th>User Agent</th>
-		<th>IP</th>
-		<th>Identity Hash</th>
-		<th>Abingo Id</th>
-	</tr>
-	<tr>
-		<td><%= @user.user_agent %></td>
-		<td><%= @user.ip_address %></td>
-		<td><%= @user.identity_hash %></td>
-		<td><%= @user.abingo_identity %></td>
-	</tr>
-</tr>
-</table>
-
 <h3>Invited Users</h3>
 <table class="data" style="width: 100%;">	
 	<% if @users.length > 0 %>
 		<tr>
 			<th>Email</th>
 			<th>State</th>
-			<th>Cookie</th>
-			<th>Identity Hash</th>
 			<th>Created</th>
 		</tr>
 		<% for user in @users %>
 		<tr>
 			<td><%= link_to user.email, admin_user_url(user) %></td>
 			<td><%= user.state %></td>
-			<td><%= user.abingo_identity %></td>
-			<td><%= user.identity_hash %></td>
 			<td><%= user.created_at %></td>
 		</tr>
 		<% end %>
