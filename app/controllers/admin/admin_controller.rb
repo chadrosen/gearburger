@@ -6,7 +6,7 @@ module Admin
     # but we want to ignore the filters from that controller.
     
     # TODO: Figure out how to skip all filters automatically... or just make this its own controller
-    skip_filter :set_layout_data, :set_abingo_identity
+    skip_filter :set_layout_data
     before_filter :ga_cookie, :authenticate # run the filters in this class
     
     # Use the admin layout

@@ -84,14 +84,7 @@ module AlertGenerator
 
       # look for the user of the click
       c = Click.find_by_id(sale.click_id)
-      if c and c.user_id
-        sale.user_id = c.user_id
-      elsif c and c.cookie
-        # This is definitely a soft check. Attempt to use the cookie to lookup the user.
-        # It's possible that this collides with multiple users and isn't quite unique.. 
-        u = User.find_by_abingo_identity(c.cookie)
-        sale.user_id = u.id if u
-      end
+      sale.user_id = c.user_id if c && c.user_id
       
       sale.order_id = row[5]
       sale.transaction_amount = get_currency_from_string(row[6])

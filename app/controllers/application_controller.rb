@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
     
   # Let's set the user's timezone if they're logged in..
-  before_filter :set_time_zone, :set_layout_data, :set_abingo_identity
+  before_filter :set_time_zone, :set_layout_data
     
   # Handle routing errors by throwing a 404 and logging something small instead of the entire stack
   rescue_from(ActionController::RoutingError) {
@@ -71,27 +71,4 @@ class ApplicationController < ActionController::Base
     redirect_to(root_url) unless current_user.state == "active"
   end
           
-  def set_abingo_identity
-    # Setup the Abingo identity that is used for A/B testing
-  	   
-    # This prevents robots from occupying more than 1 participant slot in A/B tests.
-    Abingo.identity = "robot" and return if Robots::Detector.is_robot?(request.user_agent)
-     
-    if current_user
-      # If there is a user and they have an identity use it
-      Abingo.identity = current_user.id
-    elsif session[:abingo_identity]
-      Abingo.identity = session[:abingo_identity]
-    elsif cookies[:abingo]
-      # Check for an abingo cookie
-      Abingo.identity = session[:abingo_identity] = cookies[:abingo]
-    else
-      # There is no user, session, or cookie.. Set a random id in the session
-      Abingo.identity = session[:abingo_identity] = rand(10 ** 10).to_i.to_s
-    end 
-  	   
-  	# Set the abingo in a cookie..
-  	cookies[:abingo] = Abingo.identity
-  end
-
 end

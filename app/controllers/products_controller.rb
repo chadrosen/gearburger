@@ -89,7 +89,6 @@ private
   def decorate_and_redirect(user, url, click_type, options = {})
         
     # Track the click
-    # Pass along the abingo cookie as the identifier, for now
     c = Click.track!(user, click_type, options)
     
     # Add url question mark if it isn't there, otherwise add &..

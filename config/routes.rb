@@ -135,10 +135,7 @@ Gearburger::Application.routes.draw do
         post "multi_update"
       end
     end
-            
-    # A/B teting stuff
-    match "/abingo/:action/:id", :as => "abingo_test", :to => "abingo"  
-        
+                    
     controller "stats" do        
       match :product_generation
       match :summary

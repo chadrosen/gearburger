@@ -19,9 +19,6 @@ gem 'recaptcha', "0.2.3", :require => 'recaptcha/rails', :git => 'git://github.c
 gem 'to-csv', "1.0.3"
 gem 'delayed_job', "2.1.1"
 
-# See http://rubydoc.info/gems/abingo_port/0.1.0/frames
-gem 'abingo', :git => "git://github.com/wildfalcon/abingo.git", :branch => "rails3"
-
 # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
 group :development do 
 	gem 'ruby-debug', "0.10.4"

@@ -1,4 +1,3 @@
-include AbingoSugar
 require 'SmtpApiHeader'
 
 # Category stuff for sendgrid
@@ -86,20 +85,7 @@ class ProductNotificationMailer < BaseMailer
     mail(:to => OPTIONS[:internal_email_to],
       :subject => "#{Time.zone.today} #{Rails.env.to_s} Queued: #{created} Sent: #{sent} Errors: #{errors.length}")
   end
-  
-  def simple_test(email)
-    # Send us the results of the product match emails..
     
-    headers = get_sendgrid_header(CategoryTest)    
-    
-    Abingo.identity = rand(10 ** 10).to_i.to_s
-      
-    subject = ""  
-    ab_test("call_to_action", %w{foo1 foo2 foo3 foo4 foo5}) { subject = button }
-    
-    mail(:to => email, :subject => "subject")
-  end
-  
   private
 
   def get_sendgrid_header(category, params = {})
