@@ -66,7 +66,7 @@ module Admin
     def giftcards
       @invites = params[:invites] || 1
       @count = User.count(:group => [:referral_id], :conditions => ["state = 'active' AND referral_id IS NOT NULL"],
-        :having => ["count_all >= ?", @invites], :order => "count_all DESC")
+        :having => ["count(*) >= ?", @invites], :order => "count(*) DESC")
       
       # Create a hash of user_id => user object
       @user_hash = Hash[*User.find(@count.keys).collect { |u| [u.id, u] }.flatten]
