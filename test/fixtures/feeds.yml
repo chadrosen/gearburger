@@ -1,15 +1,15 @@
 backcountry:
   name: backcountry.com
-  url: http://datafeed.avantlink.com/download_feed.php?id=22179&auth=b94ac9d3911f69692d14e0cefe1fb960
+  url: http://datafeed.avantlink.com/download_feed.php?id=22187&auth=b94ac9d3911f69692d14e0cefe1fb960
 
 dogfunk:
   name: DogFunk.com
-  url: http://datafeed.avantlink.com/download_feed.php?id=22233&auth=b94ac9d3911f69692d14e0cefe1fb960
+  url: http://datafeed.avantlink.com/download_feed.php?id=22225&auth=b94ac9d3911f69692d14e0cefe1fb960
 
 realcyclist:
   name: RealCyclist.com
-  url: http://datafeed.avantlink.com/download_feed.php?id=38337&auth=b94ac9d3911f69692d14e0cefe1fb960
+  url: http://datafeed.avantlink.com/download_feed.php?id=38329&auth=b94ac9d3911f69692d14e0cefe1fb960
   
 hucknroll:
   name: hucknroll.com
-  url: http://datafeed.avantlink.com/download_feed.php?id=38325&auth=b94ac9d3911f69692d14e0cefe1fb960
+  url: http://datafeed.avantlink.com/download_feed.php?id=38333&auth=b94ac9d3911f69692d14e0cefe1fb960

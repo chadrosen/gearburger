@@ -15,7 +15,7 @@
 	<tr>
 		<th>&nbsp;</th>
 		<th>Attempts</th>
-		<th>Handler</th>
+		<th style="width: 200px;">Handler</th>
 		<th>Times</th>
 		<th>Error</th>
 	</tr>
@@ -40,9 +40,7 @@
 			<div>created: <%= format_date j.created_at %></div>
 		</td>
 		<td>
-			<div style="overflow:auto; height: 300px; width: 400px;">
 			<%= j.last_error %>
-			</div>
 		</td>
 	</tr>
 	<% end %>

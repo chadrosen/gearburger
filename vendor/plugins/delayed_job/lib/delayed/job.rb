@@ -220,8 +220,7 @@ module Delayed
   private
 
     def deserialize(source)
-      handler = YAML.load(source) rescue nil
-
+      handler = YAML.load(source) rescue nil      
       unless handler.respond_to?(:perform)
         if handler.nil? && source =~ ParseObjectFromYaml
           handler_class = $1
