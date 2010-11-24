@@ -111,7 +111,8 @@ module Admin
                
       #render :json => {:pageviews => pageviews, :visits => visits, 
       #  :ss_views => sale_spot_views, :ss_clicks => si.clicks, :ss_revenue => si.revenue_formatted, 
-      #  :ss_rate => si.rate_formatted, :ss_rpc => si.ecpc_formatted}        
+      #  :ss_rate => si.rate_formatted, :ss_rpc => si.ecpc_formatted}
+      render :text => ""
     end
         
     def monthly_users
