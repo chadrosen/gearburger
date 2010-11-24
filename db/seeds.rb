@@ -1,7 +1,35 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
-#   Mayor.create(:name => 'Daley', :city => cities.first)
+Feed.create :id => 7, :name => 'Backcountry Outlet', :active => false, :url => 'http://datafeed.avantlink.com/download_feed.php?auth=b94ac9d3911f69692d14e0cefe1fb960&id='
+Feed.create :id => 8, :name =>'Backcountry.com', :url => 'http://datafeed.avantlink.com/download_feed.php?auth=b94ac9d3911f69692d14e0cefe1fb960&id=22187'
+Feed.create :id => 9, :name =>'DogFunk.com', :url => 'http://datafeed.avantlink.com/download_feed.php?auth=b94ac9d3911f69692d14e0cefe1fb960&id=22225'
+Feed.create :id => 10, :name =>'HucknRoll.com', :url => 'http://datafeed.avantlink.com/download_feed.php?auth=b94ac9d3911f69692d14e0cefe1fb960&id=38333'
+Feed.create :id => 11, :name =>'RealCyclist.com', :url => 'http://datafeed.avantlink.com/download_feed.php?auth=b94ac9d3911f69692d14e0cefe1fb960&id=38329'
+Feed.create :id => 12, :name =>'evogear.com', :url => 'http://datafeed.avantlink.com/download_feed.php?auth=b94ac9d3911f69692d14e0cefe1fb960&id=40493'
+Feed.create :id => 13, :name =>'Moosejaw', :url => 'http://datafeed.avantlink.com/download_feed.php?auth=b94ac9d3911f69692d14e0cefe1fb960&id=40505'
+Feed.create :id => 14, :name =>'Altrec.com Outdoors (New)', :url => 'http://datafeed.avantlink.com/download_feed.php?auth=b94ac9d3911f69692d14e0cefe1fb960&id=40517'
+Feed.create :id => 15, :name =>'AltrecOutlet.com', :url => 'http://datafeed.avantlink.com/download_feed.php?auth=b94ac9d3911f69692d14e0cefe1fb960&id=40529'
+Feed.create :id => 16, :name =>'CampSaver.com', :url => 'http://datafeed.avantlink.com/download_feed.php?auth=b94ac9d3911f69692d14e0cefe1fb960&id=40541'
+Feed.create :id => 17, :name =>'DepartmentOfGoods.com', :url => 'http://datafeed.avantlink.com/download_feed.php?auth=b94ac9d3911f69692d14e0cefe1fb960&id=40805'
+Feed.create :id => 18, :name =>'Patagonia.com', :url => 'http://datafeed.avantlink.com/download_feed.php?auth=b94ac9d3911f69692d14e0cefe1fb960&id=41249'
+Feed.create :id => 19, :name =>'GearX.com', :url => 'http://datafeed.avantlink.com/download_feed.php?auth=b94ac9d3911f69692d14e0cefe1fb960&id=41273'
+Feed.create :id => 20, :name =>'Bike.com', :url => 'http://datafeed.avantlink.com/download_feed.php?auth=b94ac9d3911f69692d14e0cefe1fb960&id=41261'
+Feed.create :id => 21, :name =>'Skis.com', :url => 'http://datafeed.avantlink.com/download_feed.php?auth=b94ac9d3911f69692d14e0cefe1fb960&id=41285'
+Feed.create :id => 22, :name =>'USOutdoorStore.com', :url => 'http://datafeed.avantlink.com/download_feed.php?auth=b94ac9d3911f69692d14e0cefe1fb960&id=41297'
+Feed.create :id => 23, :name =>'Giantnerd', :url => 'http://datafeed.avantlink.com/download_feed.php?auth=b94ac9d3911f69692d14e0cefe1fb960&id=41329'
+Feed.create :id => 24, :name =>'Half-Moon Outfitters', :url => 'http://datafeed.avantlink.com/download_feed.php?auth=b94ac9d3911f69692d14e0cefe1fb960&id=41341'
+Feed.create :id => 25, :name =>'Konasports.com', :url => 'http://datafeed.avantlink.com/download_feed.php?auth=b94ac9d3911f69692d14e0cefe1fb960&id=41353'
+Feed.create :id => 26, :name =>'OutdoorBasics.com', :url => 'http://datafeed.avantlink.com/download_feed.php?auth=b94ac9d3911f69692d14e0cefe1fb960&id=41365'
+Feed.create :id => 27, :name =>'o2 Gear Shop', :url => 'http://datafeed.avantlink.com/download_feed.php?auth=b94ac9d3911f69692d14e0cefe1fb960&id=41377'
+Feed.create :id => 28, :name =>'Snowboards.net', :url => 'http://datafeed.avantlink.com/download_feed.php?auth=b94ac9d3911f69692d14e0cefe1fb960&id=41389'
+Feed.create :id => 29, :name =>'MasseysOutfitters.com', :url => 'http://datafeed.avantlink.com/download_feed.php?auth=b94ac9d3911f69692d14e0cefe1fb960&id=41401'
+Feed.create :id => 30, :name =>'RamseyOutdoor.com', :url => 'http://datafeed.avantlink.com/download_feed.php?auth=b94ac9d3911f69692d14e0cefe1fb960&id=41413'
+Feed.create :id => 31, :name =>'FontanaSports.com', :url => 'http://datafeed.avantlink.com/download_feed.php?auth=b94ac9d3911f69692d14e0cefe1fb960&id=41425'
+Feed.create :id => 32, :name =>'ParagonSports.com', :active => false, :url => 'http://datafeed.avantlink.com/download_feed.php?auth=b94ac9d3911f69692d14e0cefe1fb960&id=41437'
+Feed.create :id => 33, :name =>'Marine Products', :url => 'http://datafeed.avantlink.com/download_feed.php?auth=b94ac9d3911f69692d14e0cefe1fb960&id=41705'
+Feed.create :id => 34, :name =>'REI', :url => 'http://datafeed.avantlink.com/download_feed.php?id=41777&auth=b94ac9d3911f69692d14e0cefe1fb960'
+Feed.create :id => 35, :name =>'WildFly.com', :url => 'http://datafeed.avantlink.com/download_feed.php?id=42549&auth=b94ac9d3911f69692d14e0cefe1fb960'
+Feed.create :id => 36, :name =>'TheRiversEdge.com', :url => 'http://datafeed.avantlink.com/download_feed.php?id=41961&auth=b94ac9d3911f69692d14e0cefe1fb960'
+Feed.create :id => 37, :name =>'RiverBum.com', :url => 'http://datafeed.avantlink.com/download_feed.php?id=42541&auth=b94ac9d3911f69692d14e0cefe1fb960'
+Feed.create :id => 38, :name =>'Chifly.com', :url => 'http://datafeed.avantlink.com/download_feed.php?id=42533&auth=b94ac9d3911f69692d14e0cefe1fb960'
+Feed.create :id => 39, :name =>'FishWest.net', :url => 'http://datafeed.avantlink.com/download_feed.php?id=42537&auth=b94ac9d3911f69692d14e0cefe1fb960'
