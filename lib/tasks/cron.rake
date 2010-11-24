@@ -11,60 +11,34 @@ task :cron => :environment do
   # TODO: Write function that keeps track of time
 
   if Time.now.hour == 0 # run at midnight
-    
-    vp = ProductValidity::VerifyProduct.new
-    fm = AlertGenerator::ProductFeedMatcher.new
-    
-    
     Rails.logger.info "Run midnight crons"
         
-    #stats = []
-    
+  if Time.now.hour == 1 
+    Rails.logger.info "Run 1am crons"
+        
+    # Download and process all feeds
     Feed.find_all_by_active(true).each do |f|
-      
-      # Download the gzip feed file from avantlink
-      pg = AlertGenerator::AvantlinkFeedParser.new(f)
-      r = pg.download_feed(OPTIONS[:full_feed_location])
-      
-       # Process the feed
-      pg.process_product_feed(r)
-      
-      #stats << pg.stats #Update the stats
-            
-      #begin      
-      #rescue Exception => e
-        # If there is an exception log it and email us
-        # ProductNotificationMailer.deliver_product_generator_error(f, e)
-      #end
+      Delayed::Job.enqueue AlertGenerator::FeedProcessorJob.new(f).perform      
     end
     
-    # Update gearburger peeps with the results...
-    # ProductNotificationMailer.deliver_product_generator_results(stats)
-
-    # Get changed products and validate them
-    products = Product.get_changed_products(options)  
-    vp.validate_products!(products)
+  elsif Time.now.hour == 3
+    Rails.logger.info "Run 3am crons"
     
-    # Send the emails after everything is done
-    sent = pm.generate_emails
-
-    # TODO: Figure out if I want to pre-generate and then email
-    # Send the product emails for valid products
-    # created = fm.create_emails
-    
-    Rails.logger.info "Midnight crons complete"
+    # Check the validity of all products
+    Product.get_changed_products.each do |p|
+      Delayed::Job.enqueue ProductValidity::ValidProductJob(p)
+    end
      
  elsif Time.now.hour == 22
-   # Misc system functions that can be run really at any time
+   # Misc system functions that aren't specifically time of day dependent
    
-   # Clean out users who have invalid info from sendgrid
-   cie = Sendgrid::ClearInvalidEmails.new
-   cie.clear_emails
+   Delayed::Job.enqueue Sendgrid::ClearEmailJob.new.perform
    
-   # Get sales from the last 3 days
-   sp = AlertGenerator::SalesProcessor.new
-   sp.start(:start_date => Date.today - 3, :end_date => Date.today)
-   
+   # Run sales processor job
+   Delayed::Job.enqueue AlertGenerator::SaleProcessorJob.new.perform(:start_date => Date.today - 3, 
+    :end_date => Date.today)
+  
+   # TODO: Make this a delayed job?
    # Clear out the breaks from users if they expire today
    User.clear_break_users(Time.zone.now.utc)
  end

@@ -1,71 +1,48 @@
 module ProductValidity
   
+  class ValidProductJob < Struct.new(:product)
+    # Uses delayed job plugin to initialize a sales processor and download the report
+  
+    def perform
+      vp = VerifyProduct.new      
+      vp.validate_product!(product)
+    end    
+   end
+   
+  class InvalidProductException < Exception
+    def initialize(message)
+      super(message)
+    end
+  end
+  
   class VerifyProduct
     
     attr_accessor :stats
     
     def initialize(options = {})
       @log = Rails.logger
-      @stats = reset_stats
     end
-    
-    def reset_stats
-      @stats = {
-        :valid_images => 0, 
-        :invalid_images => 0, 
-        :valid_prices => 0, 
-        :invalid_prices => 0,
-        :total_products => 0,
-        :started_at => Time.zone.now,
-        :ended_at => nil,
-        :total_time => nil,
-        :avg_time => nil
-      }      
-    end
-    
-    def update_stats(valid_image, valid_sale_price)
-      @stats[:total_products] += 1
-      valid_image ? @stats[:valid_images] += 1 : @stats[:invalid_images] += 1
-      valid_sale_price ? @stats[:valid_prices] += 1 : @stats[:invalid_prices] += 1
-    end
-    
-    def stats_complete
-      @stats[:ended_at] = Time.zone.now
-      @stats[:total_time] = @stats[:ended_at] - @stats[:started_at]
-      @stats[:avg_time] = @stats[:total_time] / @stats[:total_products]
-    end
-    
-    def validate_products!(products)
-      @log.info("Verify #{products.length} products")
-      reset_stats
-      products.each { |p| validate_product!(p) }
-      stats_complete
-      @log.info("Validation complete")
-    end
-    
-    def validate_all!
-      # Validate all products in the db
-      validate_products!(Product.find(:all))
-    end
-    
-    def validate_changed_products!(start_date, end_date)
-      # Validate all products in the db
-      p = Product.find(:all, :conditions => { :price_changed_at => (start_date...end_date)})
-      validate_products!(p)
-    end
-       
+                
     def validate_product!(product)
             
-      # Check a product's image and sale price
-      vi = valid_image?(product.small_image_url)
-      vsp = valid_sale_price?(product.buy_url, product.sale_price)
+      # Check a product's image and sale price      
+      begin
+        valid_image?(product.small_image_url)
+        vi = true
+      rescue
+        @log.debug("image fail: #{product.small_image_url}")
+        vi = false
+      end
       
-      @log.info("Result: #{product.id} image: #{vi} sale_price: #{vsp}")
-      @log.debug("sale fail: #{product.buy_url} #{product.sale_price}") unless vsp
-      @log.debug("image fail: #{product.small_image_url}") unless vi
+      begin
+        valid_sale_price?(product.buy_url, product.sale_price)
+        vsp = true
+      rescue
+        @log.debug("sale fail: #{product.buy_url} #{product.sale_price}")
+        vsp = false
+      end
       
-      update_stats(vi, vsp)
-      
+      @log.info("Result: #{product.id} image: #{vi} sale_price: #{vsp}")            
       product.update_attributes!(:valid_small_image => vi, :valid_sale_price => vsp)
     end
     
@@ -77,7 +54,7 @@ module ProductValidity
         res = fetch(small_image_url)
         return res.code == "200"
       rescue
-        return fail("invalid response code fetching image") 
+        raise InvalidProductException("invalid response code fetching image") 
       end
       
     end
@@ -85,38 +62,33 @@ module ProductValidity
     def validate_image(small_image_url)
       
       # Invalid url is always invalid
-      return fail("Empty small image url") unless small_image_url
+      raise InvalidProductException("Empty small image url") unless small_image_url
 
-      return fail("Invalid small image url") if URI.extract(small_image_url).empty?
+      raise InvalidProductException("Invalid small image url") if URI.extract(small_image_url).empty?
       
       # Validate the url must end in image format 
       # Also, found that some urls have the word image and are valid
       if (small_image_url =~ /(\.png|\.jpg|\.gif|\.jpeg)$|(.*image.*)|(.*img.*)/i).nil?
-        return fail("Invalid image url suffix")
+        raise InvalidProductException("Invalid image url suffix")
       end
       
       return true
     end
-    
-    def fail(message)
-      @log.debug(message)
-      return false
-    end
-    
+        
     def valid_sale_price?(buy_url, sale_price)
       # Get the html from the web and validate it
 
       # Invalid buy url is always invalid
-      return fail("Empty buy url") unless buy_url
+      raise InvalidProductException("Empty buy url") unless buy_url
       
-      return fail("Invalid buy url") if URI.extract(buy_url).empty?
+      raise InvalidProductException("Invalid buy url") if URI.extract(buy_url).empty?
 
       begin
         res = fetch(buy_url)
-        return fail("sale price status code: #{res.code}") unless res.code == "200"
-        return validate_sale_price(res.body, sale_price)
+        raise InvalidProductException("sale price status code: #{res.code}") unless res.code == "200"
+        raise InvalidProductException(res.body, sale_price)
       rescue
-        return fail("invalid response code fetching sale price")
+        raise InvalidProductException("invalid response code fetching sale price")
       end
 
     end
@@ -132,7 +104,7 @@ module ProductValidity
       # If it's not there then the product is invalid
       result = ( html =~ /(\D#{regexp}\D|^#{regexp}\D|\D#{regexp}$)/ ) 
       
-      return fail("Could not find sale regex in html") if result.nil?
+      raise InvalidProductException("Could not find sale regex in html") if result.nil?
             
       return true
     end

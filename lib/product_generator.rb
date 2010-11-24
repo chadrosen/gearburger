@@ -6,6 +6,17 @@ require 'bigdecimal/util'
 require 'stats'
 
 module AlertGenerator
+  
+  class FeedProcessorJob < Struct.new(:feed, :options)
+    # Download the gzip feed file from avantlink and process it
+  
+    def perform
+      options ||= {}
+      # TODO: Make this handle feeds generically
+      pg = AlertGenerator::AvantlinkFeedParser.new(f, options)
+      r = pg.download_feed(OPTIONS[:full_feed_location], options)
+      pg.process_product_feed(r) # Process the feed
+   end
 
   class FeedParser
     

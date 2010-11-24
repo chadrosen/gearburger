@@ -5,5 +5,5 @@ class Feed < ActiveRecord::Base
   
   has_one :most_recent_run, :class_name => 'ProductGenerationSummary', :order => 'id DESC'
 
-  validates_presence_of :name
+  validates_presence_of :name  
 end
