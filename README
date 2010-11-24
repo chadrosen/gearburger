@@ -2,6 +2,32 @@
 
 === Local Setup ===
 
-=== Production Deployment ===
+=== Production ===
+
+- Tell heroku the gearburger app is the production env. Note: only needs to be done once per heroku app
+
+- Add production heroku as a remote so we can push code
+
+- Push code to heroku
+
+git push prod --appname gearburger
+
+- Useful heroku commands
+
+heroku logs --appname gearburger (prints log info to the screen)
+
+heroku console --appname gearburger (run the console on heroku)
+
+heroku rake db:migrate --appname gearburger
 
 === Staging Deployment ===
+
+Staging is exactly the same as production except it uses a different app 
+
+- Tell heroku the gearburger app is the staging env. Note: only needs to be done once per heroku app
+
+- Add staging heroku as a remote
+
+- Important: make sure you specify staging appname when running the staging app
+
+ex: heroku console --appname gearburger-staging
