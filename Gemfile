@@ -17,7 +17,9 @@ gem "will_paginate", "~> 3.0.pre2"
 gem 'aws-s3', "0.6.2", :require => 'aws/s3'
 gem 'recaptcha', "0.2.3", :require => 'recaptcha/rails', :git => 'git://github.com/rfc2822/recaptcha.git', :branch => 'rails3'
 gem 'to-csv', "1.0.3"
-gem 'dm-delayed-job', "0.1.1"
+
+# This doesn't seem to be working as a gem. Using a plugin
+# gem 'dm-delayed-job', "0.1.1"
 
 # See http://rubydoc.info/gems/abingo_port/0.1.0/frames
 gem 'abingo', :git => "git://github.com/wildfalcon/abingo.git", :branch => "rails3"

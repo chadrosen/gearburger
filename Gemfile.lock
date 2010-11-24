@@ -43,7 +43,6 @@ GEM
       activemodel (= 3.0.3)
       activesupport (= 3.0.3)
     activesupport (3.0.3)
-    addressable (2.2.2)
     arel (2.0.2)
     aws-s3 (0.6.2)
       builder
@@ -54,23 +53,9 @@ GEM
     contacts (1.2.3)
       gdata (>= 1.1.1)
       json (>= 1.1.1)
-    dm-aggregates (1.0.2)
-      dm-core (~> 1.0.2)
-    dm-core (1.0.2)
-      addressable (~> 2.2)
-      extlib (~> 0.9.15)
-    dm-delayed-job (0.1.1)
-      activesupport
-      dm-aggregates
-      dm-core
-      dm-timestamps
-      extlib (>= 0.9.12)
-    dm-timestamps (1.0.2)
-      dm-core (~> 1.0.2)
     email_veracity (0.6.0)
     erubis (2.6.6)
       abstract (>= 1.0.0)
-    extlib (0.9.15)
     fastercsv (1.5.3)
     gattica (0.4.3)
       hpricot (>= 0.6.164)
@@ -144,7 +129,6 @@ DEPENDENCIES
   abingo!
   aws-s3 (= 0.6.2)
   contacts (= 1.2.3)
-  dm-delayed-job (= 0.1.1)
   email_veracity (= 0.6.0)
   fastercsv (= 1.5.3)
   gattica (= 0.4.3)

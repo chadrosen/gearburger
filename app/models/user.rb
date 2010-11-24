@@ -287,4 +287,103 @@ class User < ActiveRecord::Base
     return user
   end
   
+  def matching_products(options = {})
+    # Called on the individual user object
+    return User::get_matching_products(self, options)
+  end
+  
+  def self.get_matching_products(user, options = {})
+    # Get a list of products matching a user's selections that
+    # have a price change recently that is favorable
+    
+    # Run for last 24 hours by default & make sure UTC
+    sd = options[:start_date] ? Time.parse(options[:start_date]) : Time.zone.now - 1.days
+    sd = sd.utc unless sd.utc?
+    ed = options[:end_date] ? Time.parse(options[:end_date]) : Time.zone.now
+    ed = ed.utc unless ed.utc?
+                        
+    # Default price stuff to user values but can be overridden
+    min_discount = options[:min_discount] || user.min_discount
+    min_price = options[:min_price] || user.min_price
+    max_price = options[:max_price] || user.max_price
+    limit = options[:limit] || user.max_products_per_email
+                                                                                          
+    sql = "
+    (SELECT
+    pr.id,
+    (pr.retail_price - pr.sale_price) / pr.retail_price as discount
+    FROM
+    	products as pr
+      JOIN feed_categories as fc ON pr.feed_category_id = fc.id
+    	JOIN categories_users as cu ON fc.category_id = cu.category_id
+    	JOIN brands_users as bu ON pr.brand_id = bu.brand_id
+    	JOIN departments_users as du ON pr.department_id = du.department_id
+    	JOIN users as us ON (bu.user_id = us.id AND cu.user_id = us.id AND du.user_id = us.id)
+    	JOIN brands as br ON br.id = bu.brand_id
+    	JOIN categories as ca ON ca.id = cu.category_id
+    	JOIN departments as de ON de.id = du.department_id
+    WHERE
+    	ca.active = TRUE
+    	AND br.active = TRUE
+    	AND de.active = TRUE
+    	AND fc.active = TRUE
+    	AND (pr.previous_sale_price = 0.0 OR pr.sale_price < pr.previous_sale_price)
+    	AND pr.valid_sale_price = true
+    	AND (pr.retail_price - pr.sale_price) / pr.retail_price >= #{min_discount}
+    	AND pr.sale_price BETWEEN #{min_price} AND #{max_price}
+    	AND pr.price_changed_at BETWEEN '#{sd.strftime("%Y-%m-%d %H:%M:%S")}' AND '#{ed.strftime("%Y-%m-%d %H:%M:%S")}'
+    	AND us.id = #{user.id}
+    )
+    UNION
+    (SELECT
+      pr.id,
+      (pr.retail_price - pr.sale_price) / pr.retail_price as discount
+    FROM
+      products as pr
+      JOIN feed_categories as fc ON pr.feed_category_id = fc.id
+      JOIN categories_users as cu ON fc.category_id = cu.category_id
+    	JOIN brands_users as bu ON pr.brand_id = bu.brand_id
+    	JOIN brands as br ON br.id = bu.brand_id
+    	JOIN categories as ca ON ca.id = cu.category_id
+    	JOIN users as us ON (bu.user_id = us.id AND cu.user_id = us.id)
+    WHERE
+      ca.active = TRUE
+  	  AND br.active = TRUE
+  	  AND fc.active = TRUE
+      AND (pr.previous_sale_price = 0.0 OR pr.sale_price < pr.previous_sale_price)    	
+    	AND (pr.retail_price - pr.sale_price) / pr.retail_price >= #{min_discount}
+      AND pr.department_id IS NULL
+      AND pr.valid_sale_price = true
+      AND pr.sale_price BETWEEN #{min_price} AND #{max_price}      	
+    	AND pr.price_changed_at BETWEEN '#{sd.strftime("%Y-%m-%d %H:%M:%S")}' AND '#{ed.strftime("%Y-%m-%d %H:%M:%S")}'
+      AND us.id = #{user.id}
+    ) LIMIT #{limit}
+    "  
+    
+    # puts sql
+    # chad test user id: 860352380
+                
+    results = ActiveRecord::Base.connection.select_values(sql)
+    
+    # TODO: including category for now... 
+    return Product.find(results, :include => [:category, :brand], 
+      :order => "(retail_price - sale_price) / retail_price DESC")
+  end
+  
+  def self.get_eligible_users(options = {})
+    # Get all of the active users that want the email..
+    
+    # Get the day of week so we can make sure the user wants the email
+    d = options[:date] ? Time.parse(options[:date]) : Time.zone.today
+    dow = self.get_day_of_week(d)
+    
+    User.find(:all, :joins => [:email_day_preferences], 
+      :conditions => {"users.state" => "active", "email_day_preferences.day_of_week" => dow})        
+  end
+  
+  def self.get_day_of_week(date)
+    # Returns the day of the week from a day string
+    return EmailDayPreference::DaysOfWeek[date.strftime("%w").to_i]
+  end
+  
 end
