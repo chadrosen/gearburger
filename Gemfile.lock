@@ -53,6 +53,10 @@ GEM
     contacts (1.2.3)
       gdata (>= 1.1.1)
       json (>= 1.1.1)
+    daemons (1.1.0)
+    delayed_job (2.1.1)
+      activesupport (~> 3.0)
+      daemons
     email_veracity (0.6.0)
     erubis (2.6.6)
       abstract (>= 1.0.0)
@@ -129,6 +133,7 @@ DEPENDENCIES
   abingo!
   aws-s3 (= 0.6.2)
   contacts (= 1.2.3)
+  delayed_job
   email_veracity (= 0.6.0)
   fastercsv (= 1.5.3)
   gattica (= 0.4.3)
