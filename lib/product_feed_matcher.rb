@@ -1,15 +1,5 @@
 module AlertGenerator
 
-  class ProductEmailJob < Struct.new(:options)
-    # Uses delayed job plugin to initialize a product feed matcher, find matches, and send email
-  
-    def perform
-      options ||= {}
-      pfm = ProductFeedMatcher.new(options)
-      pfm.generate_emails
-    end    
-   end
-
   class ProductFeedMatcher
         
     def initialize(options = {})

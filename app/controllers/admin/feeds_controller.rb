@@ -1,5 +1,4 @@
-require 'product_generator'
-
+require 'delayed_jobs'
 module Admin
     
   class FeedsController < AdminController
@@ -56,17 +55,18 @@ module Admin
       end      
       
       feed_results = []
-      params[:feed_id].each do |f|        
-        feed = Feed.find(f)
-        pg = AlertGenerator::AvantlinkFeedParser.new(feed)
-        r = pg.download_feed(OPTIONS[:full_feed_location], opts)
+      params[:feed_id].each do |f|   
 
-        begin
-          pg.process_product_feed(r) # Process the feed
-          feed_results << "#{feed.name}: success</br>"
-        rescue Exception => e
-          feed_results << "#{feed.name}: #{e.message}</br>"
-        end
+        feed = Feed.find(f)
+        Delayed::Job.enqueue DelayedJobs::FeedProcessorJob.new(feed)
+
+        #begin
+        #  pg.process_product_feed(r) # Process the feed
+        #  feed_results << "#{feed.name}: success</br>"
+        #rescue Exception => e
+        #  feed_results << "#{feed.name}: #{e.message}</br>"
+        #end
+        feed_results << "processing..."
         
       end
                         

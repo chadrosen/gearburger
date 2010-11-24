@@ -1,7 +1,4 @@
-require 'product_feed_matcher'
-require 'product_generator'
-require 'sendgrid'
-require 'sales_processor'
+require 'delayed_jobs'
 
 desc "This task is called by the Heroku cron add-on"
 task :cron => :environment do
@@ -9,16 +6,13 @@ task :cron => :environment do
   # TODO: Figure out error handling in the cron
   # TODO: Figure out result emails
   # TODO: Write function that keeps track of time
-
-  if Time.now.hour == 0 # run at midnight
-    Rails.logger.info "Run midnight crons"
         
   if Time.now.hour == 1 
     Rails.logger.info "Run 1am crons"
         
     # Download and process all feeds
     Feed.find_all_by_active(true).each do |f|
-      Delayed::Job.enqueue AlertGenerator::FeedProcessorJob.new(f).perform      
+      Delayed::Job.enqueue DelayedJobs::FeedProcessorJob.new(f)
     end
     
   elsif Time.now.hour == 3
@@ -26,17 +20,16 @@ task :cron => :environment do
     
     # Check the validity of all products
     Product.get_changed_products.each do |p|
-      Delayed::Job.enqueue ProductValidity::ValidProductJob(p)
+      Delayed::Job.enqueue DelayedJobs::ValidProductJob(p)
     end
      
  elsif Time.now.hour == 22
    # Misc system functions that aren't specifically time of day dependent
    
-   Delayed::Job.enqueue Sendgrid::ClearEmailJob.new.perform
+   Delayed::Job.enqueue DelayedJobs::ClearEmailJob.new
    
    # Run sales processor job
-   Delayed::Job.enqueue AlertGenerator::SaleProcessorJob.new.perform(:start_date => Date.today - 3, 
-    :end_date => Date.today)
+   Delayed::Job.enqueue DelayedJobs::SaleProcessorJob.new(:start_date => Date.today - 3, :end_date => Date.today)
   
    # TODO: Make this a delayed job?
    # Clear out the breaks from users if they expire today

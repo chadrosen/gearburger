@@ -1,0 +1,52 @@
+<style>
+	TD {
+		vertical-align: top;
+	}
+	
+	.small {
+		font-size: 10px;
+	}
+</style>
+
+<h1>Delayed Jobs Queue</h1>
+
+<table class="data" width="100%">
+	<% if @jobs.length > 0 %>
+	<tr>
+		<th>&nbsp;</th>
+		<th>Attempts</th>
+		<th>Handler</th>
+		<th>Times</th>
+		<th>Error</th>
+	</tr>
+	<% for j in @jobs %>
+	<tr>
+		<td>
+			<%= button_to "delete", admin_delayed_job_url(j), :method => :delete, 
+				:confirm => "Are you sure?" %>
+		</td>
+		<td><%= j.attempts %></td>
+		<td><%= j.handler %></td>
+		<td>
+			<% if j.run_at %>
+			<div>run: <%= format_date j.run_at %></div>
+				<% end %>
+			<% if j.locked_at %>
+				<div>lock: <%= format_date j.locked_at %> <%= j.locked_by %></div>
+			<% end %>
+			<% if j.failed_at %>
+				<div>fail: <%= format_date j.failed_at %></div>
+			<% end %>
+			<div>created: <%= format_date j.created_at %></div>
+		</td>
+		<td>
+			<div style="overflow:auto; height: 300px; width: 400px;">
+			<%= j.last_error %>
+			</div>
+		</td>
+	</tr>
+	<% end %>
+	<% else %>
+	<tr><td class="center">no jobs found</td></tr>
+	<% end %>
+</table>

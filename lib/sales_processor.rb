@@ -6,17 +6,7 @@ require 'bigdecimal'
 require 'bigdecimal/util'
 
 module AlertGenerator
-  
-  class SaleProcessorJob < Struct.new(:options)
-    # Uses delayed job plugin to initialize a sales processor and download the report
-  
-    def perform
-      options ||= {}
-      sp = SalesProcessor.new(options)
-      sp.start(options)
-    end    
-   end
-  
+    
   class SalesProcessor
     def initialize(options = {})
       @url_params = {

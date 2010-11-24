@@ -4,16 +4,6 @@ module Sendgrid
   
   SENDGRID_URL = "https://sendgrid.com/api"
   
-  class ClearEmailJob < Struct.new
-    # Uses delayed job plugin to initialize a sales processor and download the report
-  
-    def perform
-      # Clean out users who have invalid info from sendgrid
-      cie = Sendgrid::ClearInvalidEmails.new
-      cie.clear_emails
-    end    
-   end
-  
   class SendgridAPI
     
     def initialize(api_user, api_key)
