@@ -6,8 +6,8 @@
 
 <h1>Take a Breather</h1>
 
-<% if current_user.state == :break %>
-	<h2>You are currently taking a breather until <%= current_user.break_ends_at.strftime("%B %d, %Y") %></h2>
+<% if @current_user.state == :break %>
+	<h2>You are currently taking a breather until <%= @current_user.break_ends_at.strftime("%B %d, %Y") %></h2>
 	<h3>You can <%= link_to "get back in the game", clear_breather_url %> or select a new date.</h3>
 <% else %>
 	<h2>I need a breather. Please stop sending Gear Burger emails until:</h2>

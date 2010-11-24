@@ -4,7 +4,7 @@
 
 <p>Changing your email address will require you to verify the new address</p>
 
-<%= form_for :user, current_user, :url => account_preferences_url, :html => { :id => "change_email" } do |f| -%>
+<%= form_for :user, @current_user, :url => account_preferences_url, :html => { :id => "change_email" } do |f| -%>
 	<table>
 		<tr>
 			<th>Email Address</th>

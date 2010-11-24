@@ -1,19 +1,19 @@
 <%= render :partial => "application/errors" %>
 
-<% if current_user.state == "pending" %>
+<% if @current_user.state == "pending" %>
 	<div id="account_status_pending" class="account_status">
 		To complete activation, please click the activation link in your email or
 		 <%= link_to "Resend the activation email", resend_activation_email_user_url(current_user) %>
 	</div>
-<% elsif current_user.state == "inactive" %>
+<% elsif @current_user.state == "inactive" %>
 	<div id="account_status_inactive" class="account_status">
 		Your account is deactivated and will not receive alerts. 
 		<%= link_to "Re-activate your account", reactivate_account_user_url(current_user) %>
 	</div>
-<% elsif current_user.state == "break" %>
+<% elsif @current_user.state == "break" %>
 	<div id="account_status_break" class="account_status">
 		You're on a break until
-		 <%= current_user.break_ends_at.strftime("%B %d, %Y") %>
+		 <%= @current_user.break_ends_at.strftime("%B %d, %Y") %>
 		 and will not receive alerts. <%= link_to "Get back in the game", clear_breather_url %>.
 	</div>
 <% end %>
@@ -24,7 +24,7 @@
 		<div class="title">Gear Bin</div>
 		<p><%= link_to "See all sale items", gear_bin_url %> that match your preferences.</p>
 	</div>
-	<% if current_user.state == "active" %>
+	<% if @current_user.state == "active" %>
 	<div class="left half">
 		<div class="title">Invite your friends, Win $10!</div>
 		<div id="gift_card_container">	
@@ -71,7 +71,7 @@
 		<ul>
 			<li><%= link_to "Account Preferences", account_preferences_url %></li>
 			<li><%= link_to "Change password", change_password_url %></li>			
-			<%- if current_user.state != "inactive" -%>
+			<%- if @current_user.state != "inactive" -%>
 			<li><%= link_to "Take a Breather", take_a_breather_url %></li>
 			<li><%= link_to "Unsubscribe", deactivate_account_url %></li>
 			<%- end -%>

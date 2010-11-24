@@ -17,7 +17,7 @@
 		<ul id="email_day_preferences">
 		<% for day in EmailDayPreference::DaysOfWeek %>
 			<li>
-				<%= check_box_tag day, 1, current_user.has_email_pref(day) %> <%= label_tag day %>
+				<%= check_box_tag day, 1, @current_user.has_email_pref(day) %> <%= label_tag day %>
 			</li>
 		<% end %>
 		<li class="clear"></li>
@@ -28,7 +28,7 @@
 
 	<div class="dont_go_container">
 		<h3>Change your email address</h3>
-		<%= text_field_tag "user[email]", current_user.email, :id => "email" %>
+		<%= text_field_tag "user[email]", @current_user.email, :id => "email" %>
 		<%= submit_tag("submit", :value => "Change Email")%>
 	</div>
 
@@ -48,6 +48,6 @@
 	
 	<div style="margin-top: 15px;">
 		<input type="submit" value="Unsubscribe" class="button" style="padding: 5px; font-size: 14px;"/>
-		 or <%= link_to "What was I thinking.. I love Gear Burger!", user_url(current_user) %>
+		 or <%= link_to "What was I thinking.. I love Gear Burger!", user_url(@current_user) %>
 	</div>
 <% end %>

@@ -32,7 +32,7 @@
 	<div class="filter_section">
 		<h3>Discount</h3>
 		<div style="padding-left: 10px;" class="filter_body">
-			<%= select_tag("min_discount", options_for_select(get_discount_preferences, current_user.min_discount)) %>
+			<%= select_tag("min_discount", options_for_select(get_discount_preferences, @current_user.min_discount)) %>
 		</div>
 	</div>
 		
