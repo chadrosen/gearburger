@@ -49,8 +49,8 @@ module Admin
       
       @limit = params[:limit] || 100
       
-      @vsp = params[:valid_sale_price] ? 1 : 0
-      @vsi = params[:valid_small_image] ? 1 : 0
+      @vsp = params[:valid_sale_price] ? true : false
+      @vsi = params[:valid_small_image] ? true : false
             
       sql = "price_changed_at BETWEEN ? AND ? AND valid_sale_price = #{@vsp} and valid_small_image = #{@vsi}"
             
