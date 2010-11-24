@@ -43,12 +43,6 @@ Gearburger::Application.configure do
   OPTIONS[:site_url] = "www.gearburger.com"
   config.action_mailer.default_url_options = { :host => OPTIONS[:site_url] }
 
-  OPTIONS[:full_feed_location] = File.join("/var/www/gearburger/full_feeds")
-
-  # The location of producct emails on disk
-  #OPTIONS[:product_email_location] = File.join("/var/www/gearburger/shared/product_emails")
-
-
   # Google account info used to interact with google APIs
   OPTIONS[:google_username] = "chadrosen@yahoo.com"
   OPTIONS[:google_password] = "fooooooo"
