@@ -17,7 +17,7 @@ module AlertGenerator
       # Used for testing in scary environments like prod without actually sending emails
       @dry_run = options[:dry_run] == true ? true : false
     end
-        
+            
     def generate_emails
       # Get the matching emails and send them out
       emails_sent = 0 

@@ -31,7 +31,7 @@ OPTIONS[:enable_starttls_auto] = false
 OPTIONS[:info_email] = "info@gearburger.com"
 
 # The full feed download location
-OPTIONS[:full_feed_location] = File.join(Rails.root.to_s, "tmp", "full_feeds")
+OPTIONS[:full_feed_location] = Rails.root.join("tmp", "full_feeds")
 
 OPTIONS[:recaptcha_public_key] = "6Le7eAcAAAAAAOCcjjhB4585JIJTbJteMcQtPbq0"
 OPTIONS[:recaptcha_private_key] = "6Le7eAcAAAAAAPdMo6rfwi15mDEwC4SUqU8s_OyC"
