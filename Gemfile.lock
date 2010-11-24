@@ -133,7 +133,7 @@ DEPENDENCIES
   abingo!
   aws-s3 (= 0.6.2)
   contacts (= 1.2.3)
-  delayed_job
+  delayed_job (= 2.1.1)
   email_veracity (= 0.6.0)
   fastercsv (= 1.5.3)
   gattica (= 0.4.3)

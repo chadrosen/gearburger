@@ -69,8 +69,7 @@ module DelayedJobs
     def perform
       # TODO: Make this handle different feed typess generically
       pg = AlertGenerator::AvantlinkFeedParser.new(@feed_id, @options)
-      r = pg.download_feed(OPTIONS[:full_feed_location], @options)
-      pg.process_product_feed(r) # Process the feed
+      pg.run
     end
   end
 

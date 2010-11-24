@@ -55,19 +55,10 @@ module Admin
       end      
       
       feed_results = []
-      params[:feed_id].each do |f|   
-
+      params[:feed_id].each do |f|
         feed = Feed.find(f)
         Delayed::Job.enqueue DelayedJobs::FeedProcessorJob.new(feed)
-
-        #begin
-        #  pg.process_product_feed(r) # Process the feed
-        #  feed_results << "#{feed.name}: success</br>"
-        #rescue Exception => e
-        #  feed_results << "#{feed.name}: #{e.message}</br>"
-        #end
-        feed_results << "processing..."
-        
+        feed_results << "Feed added to worker queue. Check back later"
       end
                         
       render(:text => feed_results.to_s)

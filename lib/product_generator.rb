@@ -13,9 +13,15 @@ module AlertGenerator
     end
     
     def download_feed(download_location, options = {})
+      # Downloads a feed file
     end
     
     def process_product_feed(feed_file)
+      # Processes a downloaded file
+    end
+    
+    def run(options = {})
+      # download and process feed
     end
     
   end
@@ -42,7 +48,7 @@ module AlertGenerator
       
     RequiredColumns = [Sku, BrandName, ProductName, Category, RetailPrice]
     
-    attr_accessor :feed, :limit, :column_mapping, :stats
+    attr_accessor :feed, :limit, :column_mapping, :stats, :file_name, :feed_file
     
     def initialize(feed, options = {})
       
@@ -52,34 +58,45 @@ module AlertGenerator
       # Limit the amount of products to process. For debugging
       @limit = options[:limit]      
       
+      # Download location is configurable
+      download_location = options[:download_location] || OPTIONS[:full_feed_location]
+      
       @column_mapping = {}
       @feed = feed
       @product_generator = ProductGenerator.new(options)
       @stats = nil
+      
+      # Create the new file name from the current time
+      @file_name = "#{@feed.id}-#{Time.now.to_i}.gz"
+      @feed_file = File.join(download_location, file_name)
+    end
+    
+    def run(options = {})
+      ff = download_feed
+      process_product_feed(ff)
+      
+      # Remove file from the path when we're done
+      File.delete(@feed_file)
     end
         
-    def download_feed(download_location, options = {})
+    def download_feed(options = {})
             
       # Figure out the date to start from... Default is 1 day ago from now
       from = options[:start_date] || (Time.zone.now - 1.days).strftime("%Y-%m-%d %H:%I:%M")
       from = CGI.escape(from) # Make sure it's escaped
       
-      # Create the new file name from the current time
-      file_name = "#{@feed.id}-#{Time.now.to_i}.gz"
-      feed_file = File.join(download_location, file_name)
-  
-      @log.debug("Download feed #{file_name} to #{feed_file}")
-
+      @log.debug("Download feed #{@file_name} to #{@feed_file}")
+      
       if options[:all]
         url = @feed.url
       else
         url = "#{@feed.url}&incr=only-modified&from=#{from}"
       end
 
-      puts "Process: #{@feed.name.downcase} #{url}"
+      @log.info "Process: #{@feed.name.downcase} #{url}"
       @log.debug("Avantlink file from #{url}")
 
-      File.open(feed_file, 'w') do |gf|
+      File.open(@feed_file, 'w') do |gf|
         f = open(url)
         f.readlines.each { |l| gf.write(l) }
       end
