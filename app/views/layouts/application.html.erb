@@ -25,7 +25,7 @@
 		<%= yield(:head) %>
 		
 		<script type="text/javascript" charset="utf-8">
-			<% if current_user %>
+			<% if @current_user %>
 				var logged_in = true;
 			<% else %>
 			 	var logged_in = false;
@@ -46,9 +46,9 @@
 			<div id="header">
 				<div id="header_content">
 					<div id="logo">
-						<% if current_user %>
+						<% if @current_user %>
 							<%= link_to image_tag('gearburger_horz_white.png', :class => 'logo_image'), 
-								user_url(current_user), {:class => 'logo_image'} %>
+								user_url(@current_user), {:class => 'logo_image'} %>
 						<% else %>
 							<%= link_to image_tag('gearburger_horz_white.png', :class => 'logo_image'), 
 								root_url, {:class => 'logo_image'} %>
@@ -56,20 +56,20 @@
 					</div>
 					<div id="right_nav">
 						<div id="nav" class="nav_section nav_button">
-							<% if logged_in? %>
+							<% if @current_user %>
 								<%= link_to "Sign out", logout_url, :id => "logout_button" %>
 							<% else %>
 								<%= link_to "Login", login_url, :id => "login_button" %>
 							<% end %>
 						</div>
 						<div class="nav_section">
-							<% if current_user and current_user.fb_user_id %>
-								<%= image_tag("http://graph.facebook.com/#{current_user.fb_user_id}/picture", 
+							<% if @current_user and @current_user.fb_user_id %>
+								<%= image_tag("http://graph.facebook.com/#{@current_user.fb_user_id}/picture", 
 									:id => "fb_profile_pic", :alt => "Your picture") %>
 							<% end %>
 						</div>
 						<div class="nav_section nav_button">
-							<% if current_user and !current_user.fb_user_id %>
+							<% if @current_user and !@current_user.fb_user_id %>
 								<fb:login-button onlogin="after_fb_login('/fb_login');" 
 									background="dark" perms="email">
 									<fb:intl>Connect</fb:intl>
@@ -116,8 +116,8 @@
 					<table>
 						<tr>
 							<td>
-							<% if logged_in? %>
-								<%= link_to "My Account", user_url(current_user) %>
+							<% if @current_user %>
+								<%= link_to "My Account", user_url(@current_user) %>
 							<% else %>
 								<%= link_to "My Account", root_url %>
 							<% end %>
