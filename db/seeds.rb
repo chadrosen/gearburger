@@ -20,7 +20,7 @@ Feed.create :id => 23, :name =>'Giantnerd', :url => 'http://datafeed.avantlink.c
 Feed.create :id => 24, :name =>'Half-Moon Outfitters', :url => 'http://datafeed.avantlink.com/download_feed.php?auth=b94ac9d3911f69692d14e0cefe1fb960&id=41341'
 Feed.create :id => 25, :name =>'Konasports.com', :url => 'http://datafeed.avantlink.com/download_feed.php?auth=b94ac9d3911f69692d14e0cefe1fb960&id=41353'
 Feed.create :id => 26, :name =>'OutdoorBasics.com', :url => 'http://datafeed.avantlink.com/download_feed.php?auth=b94ac9d3911f69692d14e0cefe1fb960&id=41365'
-Feed.create :id => 27, :name =>'o2 Gear Shop', :url => 'http://datafeed.avantlink.com/download_feed.php?auth=b94ac9d3911f69692d14e0cefe1fb960&id=41377'
+Feed.create :id => 27, :name =>'o2 Gear Shop', :active => false, :url => 'http://datafeed.avantlink.com/download_feed.php?auth=b94ac9d3911f69692d14e0cefe1fb960&id=41377'
 Feed.create :id => 28, :name =>'Snowboards.net', :url => 'http://datafeed.avantlink.com/download_feed.php?auth=b94ac9d3911f69692d14e0cefe1fb960&id=41389'
 Feed.create :id => 29, :name =>'MasseysOutfitters.com', :url => 'http://datafeed.avantlink.com/download_feed.php?auth=b94ac9d3911f69692d14e0cefe1fb960&id=41401'
 Feed.create :id => 30, :name =>'RamseyOutdoor.com', :url => 'http://datafeed.avantlink.com/download_feed.php?auth=b94ac9d3911f69692d14e0cefe1fb960&id=41413'
