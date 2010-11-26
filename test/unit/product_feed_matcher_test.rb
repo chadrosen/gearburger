@@ -33,7 +33,7 @@ class ProductFeedMatcherTest < ActiveSupport::TestCase
   end
 
   def test_price_matching_no_matches
-    matches = @pm.get_matching_products(users(:chad))    
+    matches = users(:chad).matching_products    
     assert_equal matches.length, 0
   end
   
@@ -42,7 +42,7 @@ class ProductFeedMatcherTest < ActiveSupport::TestCase
     @pg.create_product(@fc.feed_id, "sku", "product name", @b.name, @fc.feed_category, @fc.feed_subcategory, 
       @fc.feed_product_group, 100.0, :sale_price => 90.0)
     
-    matches = @pm.get_matching_products(@u)
+    matches = @u.matching_products
     assert_equal matches.length, 1
   end
   
@@ -51,7 +51,7 @@ class ProductFeedMatcherTest < ActiveSupport::TestCase
     @pg.create_product(@fc.feed_id, "sku", "product name", @b.name, @fc.feed_category, @fc.feed_subcategory, 
       @fc.feed_product_group, 100.0, :sale_price => 100.0)
     
-    matches = @pm.get_matching_products(@u, :min_discount => 0.2)
+    matches = @u.matching_products :min_discount => 0.2
     assert_equal matches.length, 0
   end
   
@@ -65,7 +65,7 @@ class ProductFeedMatcherTest < ActiveSupport::TestCase
     @pg.create_product(@fc.feed_id, "sku", "product name", @b.name, @fc.feed_category, @fc.feed_subcategory, 
       @fc.feed_product_group, 100.0, :sale_price => 95.0)
     
-    matches = @pm.get_matching_products(@u)
+    matches = @u.matching_products
     assert_equal matches.length, 0
   end
   
@@ -75,7 +75,7 @@ class ProductFeedMatcherTest < ActiveSupport::TestCase
     @pg.create_product(@fc.feed_id, "sku", "product name", @b.name, @fc.feed_category, @fc.feed_subcategory, 
       @fc.feed_product_group, 100.0, :sale_price => 90.0, :created_at => @t - 100000)
     
-    matches = @pm.get_matching_products(@u)
+    matches = @u.matching_products
     assert_equal matches.length, 0
   end
   
@@ -86,7 +86,7 @@ class ProductFeedMatcherTest < ActiveSupport::TestCase
     @pg.create_product(@fc.feed_id, "sku2", "product name2", @b.name, @fc.feed_category, 
       @fc.feed_subcategory, @fc.feed_product_group, 100.0, :sale_price => 90.0)
 
-    matches = @pm.get_matching_products(@u)
+    matches = @u.matching_products
     assert_equal matches.length, 2
   end
   
@@ -98,7 +98,7 @@ class ProductFeedMatcherTest < ActiveSupport::TestCase
     @pg.create_product(@fc.feed_id, "sku2", "product name2", @b.name, @fc.feed_category, @fc.feed_subcategory, 
       @fc.feed_product_group, 100.0, :sale_price => 90.0)
         
-    matches = @pm.get_matching_products(@u, :limit => 1)
+    matches = @u.matching_products :limit => 1
     assert_equal matches.length, 1
   end
   
@@ -110,7 +110,7 @@ class ProductFeedMatcherTest < ActiveSupport::TestCase
     assert_not_nil p
     assert_equal p.brand.id, @b.id
 
-    matches = @pm.get_matching_products(@u)
+    matches = @u.matching_products
     assert_equal matches[0], p
     assert_equal matches.length, 1
   end
@@ -121,7 +121,7 @@ class ProductFeedMatcherTest < ActiveSupport::TestCase
     p = @pg.create_product(@fc.feed_id, "sku2", "product name2", "barf brand", "barfers", "woot", "waht", 
       100.0, :sale_price => 90.0, :created_at => @t)
     
-    matches = @pm.get_matching_products(@u)
+    matches = @u.matching_products
     assert_equal matches.length, 0
   end
   
@@ -131,7 +131,7 @@ class ProductFeedMatcherTest < ActiveSupport::TestCase
     p = @pg.create_product(@fc.feed_id, "sku2", "product name2", @b.name, "barfers", "woot", "waht", 
       100.0, :sale_price => 90.0, :created_at => @t)
     
-    matches = @pm.get_matching_products(@u)
+    matches = @u.matching_products
     assert_equal matches.length, 0
   end
 
@@ -142,7 +142,7 @@ class ProductFeedMatcherTest < ActiveSupport::TestCase
       @fc.feed_subcategory, @fc.feed_product_group, 100.0, :sale_price => 90.0, 
       :created_at => @t)
       
-    matches = @pm.get_matching_products(@u)
+    matches = @u.matching_products
     assert_equal matches.length, 1    
   end
   
@@ -174,7 +174,7 @@ class ProductFeedMatcherTest < ActiveSupport::TestCase
       @fc.feed_subcategory, @fc.feed_product_group, 100.0, :sale_price => 90.0, 
       :created_at => @t)
       
-    matches = @pm.get_matching_products(@u)
+    matches = @u.matching_products
     assert_equal matches.length, 1
   end
   
@@ -306,16 +306,16 @@ class ProductFeedMatcherTest < ActiveSupport::TestCase
   
   def test_day_of_week_prohibits_match
     
-    dow = @pm.get_day_of_week(Time.zone.now)
+    dow = User::get_day_of_week(Time.zone.now)
     
     # User matches today
-    users = @pm.get_eligible_users()
+    users = User::get_eligible_users
     assert_equal users.include?(@u), true
     
     # Remove current users match for today
     EmailDayPreference.delete_all(:day_of_week => dow)
     
-    assert_equal @pm.get_eligible_users.length, 0
+    assert_equal User::get_eligible_users.length, 0
   end
 
   def test_category_array_basic
@@ -323,7 +323,7 @@ class ProductFeedMatcherTest < ActiveSupport::TestCase
     p = @pg.create_product(@fc.feed_id, "sku", "product name", @b.name, @fc.feed_category, @fc.feed_subcategory, 
       @fc.feed_product_group, 100.0, :sale_price => 90.0)
     
-    matches = @pm.get_matching_products(@u)
+    matches = @u.matching_products
     cats = @pm.make_category_array(matches)
     
     category = cats[0][0]

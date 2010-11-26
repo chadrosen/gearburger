@@ -54,7 +54,7 @@ module ProductValidity
         res = fetch(small_image_url)
         return res.code == "200"
       rescue
-        raise InvalidProductException("invalid response code fetching image") 
+        raise InvalidProductException, "invalid response code fetching image"
       end
       
     end
@@ -62,14 +62,14 @@ module ProductValidity
     def validate_image(small_image_url)
       
       # Invalid url is always invalid
-      raise InvalidProductException("Empty small image url") unless small_image_url
+      raise InvalidProductException, "Empty small image url" unless small_image_url
 
-      raise InvalidProductException("Invalid small image url") if URI.extract(small_image_url).empty?
+      raise InvalidProductException, "Invalid small image url" if URI.extract(small_image_url).empty?
       
       # Validate the url must end in image format 
       # Also, found that some urls have the word image and are valid
       if (small_image_url =~ /(\.png|\.jpg|\.gif|\.jpeg)$|(.*image.*)|(.*img.*)/i).nil?
-        raise InvalidProductException("Invalid image url suffix")
+        raise InvalidProductException, "Invalid image url suffix"
       end
       
       return true
@@ -79,16 +79,16 @@ module ProductValidity
       # Get the html from the web and validate it
 
       # Invalid buy url is always invalid
-      raise InvalidProductException("Empty buy url") unless buy_url
+      raise InvalidProductException, "Empty buy url" unless buy_url
       
-      raise InvalidProductException("Invalid buy url") if URI.extract(buy_url).empty?
+      raise InvalidProductException, "Invalid buy url" if URI.extract(buy_url).empty?
 
       begin
         res = fetch(buy_url)
-        raise InvalidProductException("sale price status code: #{res.code}") unless res.code == "200"
-        raise InvalidProductException(res.body, sale_price)
+        raise InvalidProductException, "sale price status code: #{res.code}" unless res.code == "200"
+        raise InvalidProductException, "#{res.body}, #{sale_price}"
       rescue
-        raise InvalidProductException("invalid response code fetching sale price")
+        raise InvalidProductException, "invalid response code fetching sale price"
       end
 
     end
@@ -104,7 +104,7 @@ module ProductValidity
       # If it's not there then the product is invalid
       result = ( html =~ /(\D#{regexp}\D|^#{regexp}\D|\D#{regexp}$)/ ) 
       
-      raise InvalidProductException("Could not find sale regex in html") if result.nil?
+      raise InvalidProductException, "Could not find sale regex in html" if result.nil?
             
       return true
     end

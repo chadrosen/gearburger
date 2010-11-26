@@ -5,13 +5,6 @@ GIT
   specs:
     recaptcha (0.2.3)
 
-GIT
-  remote: git://github.com/wildfalcon/abingo.git
-  revision: bc73f5875543ac8765259fa725d887ba24310c98
-  branch: rails3
-  specs:
-    abingo (0.0.0)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -130,7 +123,6 @@ PLATFORMS
 
 DEPENDENCIES
   aasm (= 2.2.0)
-  abingo!
   aws-s3 (= 0.6.2)
   contacts (= 1.2.3)
   delayed_job (= 2.1.1)

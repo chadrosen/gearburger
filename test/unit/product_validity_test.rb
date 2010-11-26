@@ -8,18 +8,18 @@ class ProductValidityTest < ActiveSupport::TestCase
   end
     
   def test_empty_image_url
-    assert !@p.validate_image("")
-    assert !@p.validate_image(nil)
+    assert_raise(ProductValidity::InvalidProductException) { @p.validate_image("") }
+    assert_raise(ProductValidity::InvalidProductException) { @p.validate_image(nil) }
   end
   
   def test_invalid_image_url
-    assert !@p.validate_image("asdfs")
-    assert !@p.validate_image("www.foo.com")
+    assert_raise(ProductValidity::InvalidProductException) { @p.validate_image("asdfs") }
+    assert_raise(ProductValidity::InvalidProductException) { !@p.validate_image("www.foo.com") }
   end
   
   def test_invalid_image_suffix
-    assert !@p.validate_image("http://www.foo.com")
-    assert !@p.validate_image("http://www.foo.html")        
+    assert_raise(ProductValidity::InvalidProductException) { @p.validate_image("http://www.foo.com") }
+    assert_raise(ProductValidity::InvalidProductException) { @p.validate_image("http://www.foo.html") }
   end
   
   def test_valid_image_url
@@ -43,10 +43,10 @@ class ProductValidityTest < ActiveSupport::TestCase
   end
   
   def test_html_with_no_price
-    assert !@p.validate_sale_price("chad chad $335.89", "35.89".to_d)
-    assert !@p.validate_sale_price("chad chad $35.8922", "35.89".to_d)
-    assert !@p.validate_sale_price("chad chad $5.89", "35.89".to_d)
-    assert !@p.validate_sale_price("", "35.89".to_d)
+    assert_raise(ProductValidity::InvalidProductException) { @p.validate_sale_price("chad chad $335.89", "35.89".to_d) }
+    assert_raise(ProductValidity::InvalidProductException) { @p.validate_sale_price("chad chad $35.8922", "35.89".to_d) }
+    assert_raise(ProductValidity::InvalidProductException) { @p.validate_sale_price("chad chad $5.89", "35.89".to_d) }
+    assert_raise(ProductValidity::InvalidProductException) { @p.validate_sale_price("", "35.89".to_d) }
   end
   
   def test_no_hundredth_price
