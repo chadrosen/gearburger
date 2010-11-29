@@ -3,12 +3,12 @@
 <% if @current_user.state == "pending" %>
 	<div id="account_status_pending" class="account_status">
 		To complete activation, please click the activation link in your email or
-		 <%= link_to "Resend the activation email", resend_activation_email_user_url(current_user) %>
+		 <%= link_to "Resend the activation email", resend_activation_email_user_url(@current_user) %>
 	</div>
 <% elsif @current_user.state == "inactive" %>
 	<div id="account_status_inactive" class="account_status">
 		Your account is deactivated and will not receive alerts. 
-		<%= link_to "Re-activate your account", reactivate_account_user_url(current_user) %>
+		<%= link_to "Re-activate your account", reactivate_account_user_url(@current_user) %>
 	</div>
 <% elsif @current_user.state == "break" %>
 	<div id="account_status_break" class="account_status">
