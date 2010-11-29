@@ -235,75 +235,7 @@ class ProductFeedMatcherTest < ActiveSupport::TestCase
     # Make sure counter cache works
     assert_equal upe.products_users_count, pus.length  
   end
-  
-  def test_creating_mail_no_matches
     
-     @pm.create_emails
-     
-     # Nothing created
-     path = File.join(OPTIONS[:product_email_location], "*_#{Time.zone.today}.email")
-     file_names = Dir.glob(path)
-     assert_equal file_names.length, 0
-    
-  end
-  
-  def test_creating_mail_with_matches
-    
-    # Create a product that I know the user has
-    @pg.create_product(@fc.feed_id, "sku", "product name", @b.name, @fc.feed_category, @fc.feed_subcategory, 
-      @fc.feed_product_group, 100.0, :sale_price => 90.0)
-    
-    @pm.create_emails
-    
-    path = File.join(OPTIONS[:product_email_location], "*_#{Time.zone.today}.email")
-    file_names = Dir.glob(path)
-    assert_equal file_names.length, 5 # I guess 5 users match this product
-  end
-  
-  def test_delivering_created_mail
-    
-    # Create a product that I know the user has
-    p = @pg.create_product(@fc.feed_id, "sku", "product name", @b.name, @fc.feed_category, @fc.feed_subcategory, 
-      @fc.feed_product_group, 100.0, :sale_price => 90.0)
-   
-    @pm.create_emails
-    
-    path = File.join(OPTIONS[:product_email_location], "*_#{Time.zone.today}.email")
-    file_names = Dir.glob(path)
-    
-    @pm.deliver_email(file_names[0])
-    
-    assert_equal ActionMailer::Base.deliveries.length, 1    
-  end
-  
-  def test_delivering_batched_emails
-
-    # Create a product that I know the user has
-    @pg.create_product(@fc.feed_id, "sku", "product name", @b.name, @fc.feed_category, @fc.feed_subcategory, 
-      @fc.feed_product_group, 100.0, :sale_price => 90.0)
-
-    @pm.create_emails
-    @pm.deliver_in_batches
-    
-    assert_equal ActionMailer::Base.deliveries.length, 5  
-  end
-  
-  def test_deliver_mail_multiple_times_same_day
-    
-    # Create a product that I know the user has
-    @pg.create_product(@fc.feed_id, "sku", "product name", @b.name, @fc.feed_category, @fc.feed_subcategory, 
-      @fc.feed_product_group, 100.0, :sale_price => 90.0)
-
-    @pm.create_emails
-    @pm.create_emails
-    @pm.create_emails
-    
-    @pm.deliver_in_batches
-    
-    assert_equal ActionMailer::Base.deliveries.length, 5    
-    
-  end
-  
   def test_day_of_week_prohibits_match
     
     dow = User::get_day_of_week(Time.zone.now)

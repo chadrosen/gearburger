@@ -94,9 +94,7 @@ module Sendgrid
 
       # http://sendgrid.com/documentation/ApiWebMailSpamReports
       # [{"email":"email1@domain.com","created":"2009-06-01 19:41:39}]
-     
-      
-      
+          
     end
     
   end
