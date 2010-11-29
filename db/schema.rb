@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101124013926) do
+ActiveRecord::Schema.define(:version => 20101129062905) do
 
   create_table "alternatives", :force => true do |t|
     t.integer "experiment_id"
@@ -228,14 +228,14 @@ ActiveRecord::Schema.define(:version => 20101124013926) do
   create_table "sales", :force => true do |t|
     t.integer  "click_id"
     t.string   "custom_tracking_code"
-    t.integer  "order_id"
+    t.string   "order_id"
     t.string   "transaction_id",                                                          :null => false
     t.decimal  "transaction_amount",   :precision => 10, :scale => 2, :default => 0.0,    :null => false
     t.decimal  "total_commission",     :precision => 10, :scale => 2, :default => 0.0,    :null => false
     t.datetime "transaction_time",                                                        :null => false
     t.datetime "last_click_through"
     t.string   "merchant_name",                                                           :null => false
-    t.integer  "merchant_id",                                                             :null => false
+    t.string   "merchant_id"
     t.string   "product_name"
     t.datetime "created_at",                                                              :null => false
     t.integer  "user_id"
