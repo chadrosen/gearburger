@@ -2,10 +2,6 @@
 
 <%= render :partial => "/admin/common/simple_filter" %>
 
-<div style="margin: 10px 0;">
-	<%= link_to "manually pull report", pull_report_admin_sales_url %>
-</div>
-
 <%= page_entries_info @results %>
 <%= will_paginate @results %>
 

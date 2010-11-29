@@ -18,15 +18,6 @@ module Admin
     def show
       @sale = Sale.find(params[:id], :include => [:click, :user])
     end
-    
-    def pull_report
-      # TODO: Let user select dates
-      Delayed::Job.enqueue DelayedJobs::SaleProcessorJob.new(:start_date => Date.today - 3, 
-        :end_date => Date.today)
         
-      flash[:notice] = "Sales processor job queued up"
-      redirect_to :back
-    end
-    
   end
 end

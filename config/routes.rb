@@ -82,14 +82,16 @@ Gearburger::Application.routes.draw do
     
     match "/", :to => "stats#index", :as => :home
     
-    resources :campaigns, :clicks, :friends, :categories, :departments, :delayed_jobs
-    
-    resources :sales do
+    resources :campaigns, :clicks, :friends, :categories, :departments, :sales
+
+    resources :delayed_jobs do
       collection do
-        get "pull_report"
+        get "manually_send_emails"
+        get "pull_sales_report"
+        get "clear_sendgrid"
       end
     end
-        
+            
     resources :products do
       member do 
         get "feed_results" 

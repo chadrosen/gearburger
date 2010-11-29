@@ -39,7 +39,7 @@ module Sendgrid
       # TODO: Use username and password
       # TODO: Use start date and end date
       
-      @api = SendgridAPI.new(OPTIONS[:sendgrid_username], OPTIONS[:sendgrid_password])
+      @api = SendgridAPI.new(OPTIONS[:email_username], OPTIONS[:email_password])
     end
     
     def clear_emails

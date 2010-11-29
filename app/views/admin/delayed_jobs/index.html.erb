@@ -10,6 +10,12 @@
 
 <h1>Delayed Jobs Queue</h1>
 
+<ul style="margin: 10px 0;">
+	<li><%= link_to "send product emails", manually_send_emails_admin_delayed_jobs_url %></li>
+	<li><%= link_to "pull sales report", pull_sales_report_admin_delayed_jobs_url %></li>
+	<li><%= link_to "clear sendgrid", clear_sendgrid_admin_delayed_jobs_url %></li>
+</ul>
+
 <table class="data" width="100%">
 	<% if @jobs.length > 0 %>
 	<tr>
