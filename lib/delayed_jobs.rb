@@ -5,13 +5,6 @@ require 'sendgrid'
 
 module DelayedJobs
   
-  class TestJob
-    
-    def perform
-      puts "foo"
-    end
-  end
-
   class ProductEmailJob
     # Uses delayed job plugin to initialize a product feed matcher, find matches, and send email
     attr_accessor :options
@@ -22,7 +15,7 @@ module DelayedJobs
     end
 
     def perform
-      pfm = ProductFeedMatcher.new(@options)
+      pfm = AlertGenerator::ProductFeedMatcher.new(@options)
       pfm.generate_emails
     end    
   end
@@ -52,7 +45,7 @@ module DelayedJobs
 
     def perform
       options ||= {}
-      sp = SalesProcessor.new(@options)
+      sp = AlertGenerator::SalesProcessor.new(@options)
       sp.start(@options)
     end    
   end
