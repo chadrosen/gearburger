@@ -74,7 +74,7 @@ module AlertGenerator
       ctc = row[4].strip
       
       # Note: The new active record has issues using the CSV column.. Make sure to cast to int
-      sale = Sale.find_or_initialize_by_transaction_id_and_merchant_id(tx_id.to_s, merchant_id.to_i)
+      sale = Sale.find_or_initialize_by_transaction_id_and_merchant_id(tx_id.to_s, merchant_id.to_s)
       
       sale.merchant_name = row[0]
       sale.product_name = row[3]
