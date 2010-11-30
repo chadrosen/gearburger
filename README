@@ -1,6 +1,28 @@
-=== Gear Burger ===
-
 === Local Setup ===
+
+- checkout code
+
+git fetch git@github.com:chadrosen/gearburger.git
+
+- create the db
+
+rake db:create
+
+- update db
+
+rake db:migrate
+
+- load some test data
+
+rake db:fixtures:load
+
+- start the server
+
+script/rails s
+
+- Hit the server
+
+http://localhost:3000
 
 === Production ===
 
