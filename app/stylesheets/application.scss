@@ -66,8 +66,7 @@ INPUT.submit {
 	width: 65px;
 	height: 30px;
 	font-size: 14px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
+	@include rounded(5px);
 }
 
 /* Common elements across the site */
@@ -95,8 +94,7 @@ INPUT.submit {
 	padding: 5px;
 	float: left;
 	margin: 2px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
+	@include rounded(5px);
 	font-size: 12px;
 }
 
@@ -137,9 +135,8 @@ INPUT.submit {
 	padding: 3px 3px 3px 3px; 
 	background-color: #b4b4b4; 
 	color: white; 
-	-moz-border-radius: 3px; 
+	@include rounded(3px);	
 	font-size: 12px;
-	-webkit-border-radius: 3px; 
 	text-decoration: none;
 	color: #FFFFFF;
 }
@@ -217,8 +214,7 @@ SPAN.checkbox_select {
 	padding: 3px;
 	float: left;
 	margin: 3px;
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
+	@include rounded(4px);	
 }
 
 /* end */
@@ -340,8 +336,7 @@ SPAN.checkbox_select {
 	color: #feffef;
 	border: 0;
 	font-weight: bold;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
+	@include rounded(5px);
 }
 
 #nav A:hover { 

@@ -8,6 +8,12 @@ html,body,p,div,img,h1,h2,h3,h4,dl,dd,dt,form,table,td,tr,form {
 	color: #666666;
 }
 
+@mixin rounded($radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	border-radius: $radius;
+}
+
 /* Set defaults back for lists */
 ul, ol {
 	list-style-position: outside;

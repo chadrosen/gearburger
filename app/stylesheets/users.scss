@@ -115,8 +115,7 @@
 	border: none;
 	font-size: 26px;
 	font-weight: bold;
-	-moz-border-radius: 8px;
-	-webkit-border-radius: 8px;	
+	@include rounded(8px);
 }
 
 #users_new #register:hover {
