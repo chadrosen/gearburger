@@ -1,5 +1,7 @@
 @import "global";
 
+@include sticky-footer(125px);
+
 HTML, BODY {
 	height: 100%;
 	padding: 0;
@@ -81,7 +83,7 @@ INPUT {
 }
 
 #products_huge_deals #drill_down {
-	float: left;
+	@include float-left;
 	width: 150px;
 }
 
@@ -90,7 +92,7 @@ INPUT {
 	P {
 		background-color: #ff8200;
 		padding: 5px;
-		float: left;
+		@include float-left;
 		margin: 2px;
 		@include rounded(5px);
 		font-size: $font-size;
@@ -128,7 +130,7 @@ INPUT {
 #view_more {
 	text-align: center; 
 	width: 60px;
-	float: right;
+	@include float-right;
 	margin-top: 15px;
 	font-weight: bold;
 	padding: 3px 3px 3px 3px; 
@@ -211,7 +213,7 @@ SPAN.checkbox_select {
 	font-size: $font-size - 2;
 	color: #0c5238;
 	padding: 3px;
-	float: left;
+	@include float-left;
 	margin: 3px;
 	@include rounded(4px);	
 }
@@ -220,62 +222,52 @@ SPAN.checkbox_select {
 
 /* See http://ryanfait.com/resources/footer-stick-to-bottom-of-page/ for more footer info */
 #container {
-	height: auto !important;
-	min-height: 100%;
 	margin: 0 auto -140px;
 	width: 985px;
 }
 
-#push, #footer {
-	height: 160px;
-}
-
-#footer_content { 
-	position: relative; 
-	top: 1px; 
-	height: 1px; 
-	background-color: #515151;
-}
-
 #footer {
 	background-color: #1e1e1e;
-	width: 100%;
+	
+	text-align: center; 
+	margin: 0 auto;
 
 	#menu {
-		width: 785px;
-		margin: 10px auto;
-	}
-
-	DIV.nav_item {
-		float: left;
-		width: 240px;
-		height: 120px;
-		padding: 0 10px 0 10px;
+		@include inline-block-list-container;
+		padding-top: 10px;
 		
-		DIV.title {
-			font-size: $font-size + 3;
-			color: #d5f6ff;
-			font-weight: bold;
+		LI {
+			height: 100px;
+			@include inline-block-list-item;		
+			padding: 0 10px;
+		
+			.title {
+				font-size: $font-size + 3;
+				color: #d5f6ff;
+				font-weight: bold;
+				text-align: left;
+			}			
 		}
-	}
-
-	DIV.nav_border {
-		border-right: 1px solid $color-more-grey;
+		
+		.nav_border {
+			border-right: 1px solid $color-more-grey;
+		}
 	}
 
 	TABLE {
 		width: 100%;
-	}
 
-	TD {
-		padding: 4px;
-		color: white;
-		font-size: $font-size - 2;
+		TD {
+			padding: 4px;
+			color: white;
+			font-size: $font-size - 2;
+		}
 	}
 
 	DIV {
 		color: white;
 		font-size: $font-size - 2;
+		text-align: left;
 	}
 
 	A {
@@ -283,12 +275,12 @@ SPAN.checkbox_select {
 		color: white;
 	}
 
-	DIV.social_network_container {
+	.social_network_container {
 		margin-top: 5px;
-	}
-
-	DIV.social_network_container A {
-		color: #d7f4ff;
+	
+		A {
+			color: #d7f4ff;
+		}
 	}
 }
 
@@ -305,7 +297,7 @@ SPAN.checkbox_select {
 }
 
 #right_nav {
-	float: right;
+	@include float-right;
 }
 
 #fb_profile_pic {
@@ -313,7 +305,7 @@ SPAN.checkbox_select {
 }
 
 #right_nav .nav_section {
-	float: left;
+	@include float-left;
 	margin: 0 10px 0 0;
 }
 
@@ -329,7 +321,7 @@ SPAN.checkbox_select {
 		padding: 5px 12px;
 		margin-left: 15px;
 		font-size: $font-size;
-		float: left;
+		@include float-left;
 		color: #feffef;
 		border: 0;
 		font-weight: bold;
@@ -352,8 +344,7 @@ SPAN.checkbox_select {
 }
 
 #content {
-	min-height: 400px;
-	_height: 400px;
+	@include min-height(400px);
 	background-color: #f6f6f6;
 }
 
@@ -369,7 +360,7 @@ SPAN.checkbox_select {
 
 #logo {
 	margin: 0 0 0 5px;
-	float: left;
+	@include float-left;
 }
 
 .logo_image {
@@ -400,7 +391,7 @@ SPAN.checkbox_select {
 }
 
 .product_image_container {
-	float: left;
+	@include float-left;
 	width: 40px;
 	margin-right: 5px;
 }
@@ -414,7 +405,7 @@ DIV.product_container {
 	color: $color-more-grey;
 	margin-bottom: 25px;
 	width: 295px;
-	float: left;
+	@include float-left;
 }
 
 DIV.product_container .product_name {

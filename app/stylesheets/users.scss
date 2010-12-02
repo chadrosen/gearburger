@@ -41,33 +41,31 @@
 	}
 
 	#products {
-		margin: 10px auto 0; 
-		width: 785px;
+		@include inline-block-list-container;
+		margin-top: 10px;
+	
+		.product {
+			@include inline-block-list-item;
+			margin-right: 10px;
+			.image {
+				height: 75px; 
+				padding: 3px; 
+				background-color: $color-white; 
+				border: 1px solid $color-more-grey;
+			}
+			.name {
+				font-size: $font-size; 
+				margin: 3px 0; 
+				font-weight: bold;
+			}
+
+			.price {
+				font-size: $font-size; 
+				color: #090; 
+				font-weight: bold;
+			}
+		}
 	}
-
-	.product {
-		float: left; 
-		width: 240px; 
-		margin-left: 5px; 
-		.image {
-			height: 75px; 
-			padding: 3px; 
-			background-color: $color-white; 
-			border: 1px solid $color-more-grey;
-		}
-		.name {
-			font-size: $font-size; 
-			margin: 3px 0; 
-			font-weight: bold;
-		}
-
-		.price {
-			font-size: $font-size; 
-			color: #090; 
-			font-weight: bold;
-		}
-	}
-
 
 	#bg_img {
 		height: 283px;
@@ -140,8 +138,7 @@
 	background-color: $color-lighter-grey;
 	/* changed from 620px width to fit 1024x768 */
 	width: 580px;
-	min-height: 350px;
-	_height: 350px;
+	@include min-height(350px);
 	border: 1px solid #DDDDDD;
 	margin-left: 185px;
 }
@@ -150,81 +147,83 @@
 
 /* users_signup */
 
-/* See http://wiki.recaptcha.net/index.php/How_to_change_reCAPTCHA_colors for styling the captcha */
-#users_signup #recaptcha_container {
-	margin: 10px 0 10px 0;
-}
-
 .recaptchatable .recaptcha_image_cell, #recaptcha_table {
   background-color: #caedf8 !important; //reCaptcha widget background color
 }
 
-#users_signup #manual_signup_form INPUT {
-	width: 250px;
-	font-size: $font-size + 2;
-	padding: 3px;
-}
+/* See http://wiki.recaptcha.net/index.php/How_to_change_reCAPTCHA_colors for styling the captcha */
+#users_signup {
+	#recaptcha_container {
+		margin: 10px 0 10px 0;
+	}
 
-#users_signup #title {
-	color: #d0441d;
-	font-size: $font-size + 6;
-}
+	#manual_signup_form INPUT {
+		width: 250px;
+		font-size: $font-size + 2;
+		padding: 3px;
+	}
 
-#users_signup .unselected {
-	color: $color-darkest-grey;
-}
+	#title {
+		color: #d0441d;
+		font-size: $font-size + 6;
+	}
 
-#users_signup #submit_btns {
-	margin-top: 15px;
-}
+	.unselected {
+		color: $color-darkest-grey;
+	}
 
-#users_signup .step {
-	font-size: $font-size + 4;
-	margin-bottom: 10px;
-	padding: 5px 15px;
-	border-bottom: 1px solid #7cd2ed;
-	background-color: #caedf8;
-}
+	#submit_btns {
+		margin-top: 15px;
+	}
 
-#users_signup .step H3 {
-	color: #0079a3;
-	font-size: $font-size + 6;
-	font-weight: bold;
-	padding: 0px;
-	margin: 0px;
-	text-align: left;
-}
+	.step {
+		font-size: $font-size + 4;
+		margin-bottom: 10px;
+		padding: 5px 15px;
+		border-bottom: 1px solid #7cd2ed;
+		background-color: #caedf8;
 
-#users_signup .step P {
-	color: #0079a3;
-	font-size: $font-size + 2;
-}
+		H3 {
+			color: #0079a3;
+			font-size: $font-size + 6;
+			font-weight: bold;
+			padding: 0px;
+			margin: 0px;
+			text-align: left;
+		}
 
-#users_signup #email_address {
-	font-size: $font-size + 2;
-	padding: 2px;
-	width: 250px;
-}
+		P {
+			color: #0079a3;
+			font-size: $font-size + 2;
+		}
 
-#users_signup DIV.items {
-	margin: 15px 0px 15px 0px;
-}
+	}
 
-#users_signup DIV.items H3 {
-	margin: 0px 0px 5px 0px;
-	padding: 0px;
-	font-size: $font-size + 8;
-	color: #505050;
-}
+	#email_address {
+		font-size: $font-size + 2;
+		padding: 2px;
+		width: 250px;
+	}
 
-#users_signup #fb_submit {
-	padding-top: 5px;
-}
+	DIV.items {
+		margin: 15px 0px 15px 0px;
 
-#users_signup .gear_list LABEL {
-	font-size: $font-size - 2;
-}
+		H3 {
+			margin: 0px 0px 5px 0px;
+			padding: 0px;
+			font-size: $font-size + 8;
+			color: #505050;
+		}
+	}
 
+	#fb_submit {
+		padding-top: 5px;
+	}
+
+	.gear_list LABEL {
+		font-size: $font-size - 2;
+	}
+}
 /* end */
 
 /* General login stuff */
@@ -268,7 +267,7 @@ IMG.partner_logo {
 
 SPAN.price_title {
 	/* float the span so we can give it width */
-	float: left;
+	@include float-left;
 	width: 100px;
 }
 
@@ -282,7 +281,7 @@ H1#page_title {
 /* end */
 
 #signup_products {
-	float: left;
+	@include float-left;
 	margin-left: 5px;
 	width: 250px;
 }
@@ -432,7 +431,7 @@ H1#page_title {
 }
 
 #users_show #preferences {
-	float: left;
+	@include float-left;
 	width: 425px;
 }
 
@@ -468,7 +467,7 @@ H1#page_title {
 }
 
 #account_actions {
-	float: left;
+	@include float-left;
 	margin-left: 10px;
 	width: 475px;
 }
@@ -940,7 +939,7 @@ INPUT.invite_hidden {
 #users_gear_bin .product {
 	width: 170px;
 	margin: 0 5px 0 0;
-	float: left;
+	@include float-left;
 	text-align: center;
 	padding: 5px;
 }
@@ -1064,7 +1063,7 @@ INPUT.invite_hidden {
 }
 
 #users_account_preferences #email_day_preferences LI {
-	float: left;
+	@include float-left;
 	font-size: 12px;
 	margin: 0 10px 0 0;
 }
@@ -1137,7 +1136,7 @@ INPUT.invite_hidden {
 }
 
 #users_deactivate_account #email_day_preferences LI {
-	float: left;
+	@include float-left;
 	font-size: 12px;
 	margin: 0 10px 0 0;
 }
@@ -1163,7 +1162,7 @@ INPUT.invite_hidden {
 #users_gearguide .friend_container {
 	width: 310px;
 	margin: 0 10px 0 0;
-	float: left;
+	@include float-left;
 }
 
 #users_gearguide .friend_container .friend_info {

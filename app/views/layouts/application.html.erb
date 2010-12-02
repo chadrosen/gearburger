@@ -17,8 +17,6 @@
 		<%= javascript_include_tag "application" %>
 		<%= javascript_include_tag "user" %>	
 
-		<%= stylesheet_link_tag "global" %>
-		<%= stylesheet_link_tag "application" %>
 		<%= stylesheet_link_tag "users" %>
 						
 		<%= yield(:head) %>
@@ -41,66 +39,61 @@
 	</head>
 	
 	<body id="<%= controller.controller_name %>_<%= controller.action_name %>">		
-		<div id="container">
-			<div id="header">
-				<div id="header_content">
-					<div id="logo">
-						<% if @current_user %>
-							<%= link_to image_tag('gearburger_horz_white.png', :class => 'logo_image'), 
-								user_url(@current_user), {:class => 'logo_image'} %>
-						<% else %>
-							<%= link_to image_tag('gearburger_horz_white.png', :class => 'logo_image'), 
-								root_url, {:class => 'logo_image'} %>
-						<% end %>
-					</div>
-					<div id="right_nav">
-						<div id="nav" class="nav_section nav_button">
+		
+		<div id="root">
+			<div id="container">
+				<div id="header">
+					<div id="header_content">
+						<div id="logo">
 							<% if @current_user %>
-								<%= link_to "Sign out", logout_url, :id => "logout_button" %>
+								<%= link_to image_tag('gearburger_horz_white.png', :class => 'logo_image'), 
+									user_url(@current_user), {:class => 'logo_image'} %>
 							<% else %>
-								<%= link_to "Login", login_url, :id => "login_button" %>
+								<%= link_to image_tag('gearburger_horz_white.png', :class => 'logo_image'), 
+									root_url, {:class => 'logo_image'} %>
 							<% end %>
 						</div>
-						<div class="nav_section">
-							<% if @current_user and @current_user.fb_user_id %>
-								<%= image_tag("http://graph.facebook.com/#{@current_user.fb_user_id}/picture", 
-									:id => "fb_profile_pic", :alt => "Your picture") %>
-							<% end %>
-						</div>
-						<div class="nav_section nav_button">
-							<% if @current_user and !@current_user.fb_user_id %>
-								<fb:login-button onlogin="after_fb_login('/fb_login');" 
-									background="dark" perms="email">
-									<fb:intl>Connect</fb:intl>
-								</fb:login-button>
-							<% end %>						
-						</div>
-						<div class="nav_section nav_button">
-							<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Ffacebook.com%2FGearBurger&amp;layout=button_count&amp;show_faces=false&amp;action=like&amp;font=arial&amp;colorscheme=dark" 
-							scrolling="no" frameborder="0" id="fb_like" allowTransparency="true"></iframe>							
+						<div id="right_nav">
+							<div id="nav" class="nav_section nav_button">
+								<% if @current_user %>
+									<%= link_to "Sign out", logout_url, :id => "logout_button" %>
+								<% else %>
+									<%= link_to "Login", login_url, :id => "login_button" %>
+								<% end %>
+							</div>
+							<div class="nav_section">
+								<% if @current_user and @current_user.fb_user_id %>
+									<%= image_tag("http://graph.facebook.com/#{@current_user.fb_user_id}/picture", 
+										:id => "fb_profile_pic", :alt => "Your picture") %>
+								<% end %>
+							</div>
+							<div class="nav_section nav_button">
+								<% if @current_user and !@current_user.fb_user_id %>
+									<fb:login-button onlogin="after_fb_login('/fb_login');" 
+										background="dark" perms="email">
+										<fb:intl>Connect</fb:intl>
+									</fb:login-button>
+								<% end %>						
+							</div>
+							<div class="nav_section nav_button">
+								<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Ffacebook.com%2FGearBurger&amp;layout=button_count&amp;show_faces=false&amp;action=like&amp;font=arial&amp;colorscheme=dark" 
+								scrolling="no" frameborder="0" id="fb_like" allowTransparency="true"></iframe>							
+							</div>
+							<div class="clear"></div>
 						</div>
 						<div class="clear"></div>
 					</div>
-					<div class="clear"></div>
 				</div>
+				<div id="tabs"></div>
+				<div id="content"><%= yield %></div>
 			</div>
-			<div id="tabs">
-				<%= yield(:breadcrumb) %>
-			</div>
-			<div id="content"><%= yield %></div>
-			<div id="push">&nbsp;</div>
-			
-						
+			<div id="root_footer"></div>
 		</div>
-					
+		
 		<div id="footer">
-			<div id="footer_content"></div>
-			<div id="menu">				
-				<div class="nav_item nav_border">
-					<div class="title">About Gear Burger</div>
-					<div>Gear Burger tracks the products you want from the brands you like and sends
-						you an e-mail when they go on sale.
-					</div>
+			<ul id="menu">				
+				<li class="nav_border">
+					<div class="title">Gear Burger</div>
 					<div class="social_network_container">
 						<img src="/images/twitter.png" alt="Follow us on Twitter"/>
 						 <%= link_to "Follow us on Twitter", "http://twitter.com/gearburger" %>
@@ -109,8 +102,8 @@
 						<img src="/images/facebook.png" alt="Become a fan on Facebook"/>
 						 <%= link_to "Become a fan on Facebook", "http://www.facebook.com/pages/Gear-Burger/127166921453" %>
 					</div>
-				</div>
-				<div class="nav_item nav_border">
+				</li>
+				<li class="nav_border">
 					<div class="title">You</div>
 					<table>
 						<tr>
@@ -133,8 +126,8 @@
 						</tr>
 						
 					</table>
-				</div>
-				<div class="nav_item">
+				</li>
+				<li class="nav_item">
 					<div class="title">Us</div>
 					<table>
 						<tr>
@@ -150,11 +143,10 @@
 							<td><%= link_to "Gear Guide", gearguide_url %></td>
 						</tr>
 					</table>
-				</div>
-				<div class="clear"></div>
-			</div>
+				</li>
+			</ul>
 		</div>
-					
+										
 		<%# Ignore google analytics except for production %>
 		<% if Rails.env.to_s == "production" %>
 		<!-- Google Code for Gear Burger Remarketing List -->
