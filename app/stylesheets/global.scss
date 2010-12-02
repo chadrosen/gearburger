@@ -1,3 +1,6 @@
+@import "compass";
+@import "compass/reset";
+
 /* block elements need to be reset */
 html,body,p,div,img,h1,h2,h3,h4,dl,dd,dt,form,table,td,tr,form {
 	font-weight: normal;

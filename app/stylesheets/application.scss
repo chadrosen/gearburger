@@ -1,4 +1,7 @@
+@import "global";
+
 HTML, BODY {
+	height: 100%;
 	padding: 0;
 	margin: 0;
 	width: 100%;
@@ -58,7 +61,7 @@ INPUT {
 INPUT.submit {
 	background-color: #0093c3;
 	color: #FFFFFF;
-	padding: 0px;
+	padding: 0;
 	border: 2px solid #aae0f0;
 	width: 65px;
 	height: 30px;
@@ -111,8 +114,8 @@ INPUT.submit {
 	font-weight: bold;
 	text-align: left;
 	color: black;
-	margin: 0px;
-	padding: 0px 0px 5px 2px;
+	margin: 0;
+	padding: 0 0 5px 2px;
 }
 
 #drill_down A {
@@ -162,7 +165,7 @@ DIV.title {
 }
 
 TABLE.gear_list {
-	margin-left: 0px;
+	margin-left: 0;
 	padding-left: 10px;
 	width: 100%;
 	border-top: 1px solid #cecdcd;
@@ -194,12 +197,12 @@ SPAN.checkbox_select {
 	color: #272727;
 	font-weight: bold;
 	text-align: left;
-	padding: 0px;
-	margin: 0px;
+	padding: 0;
+	margin: 0;
 }
 
 #signup_status DIV.items {
-	margin: 5px 0px 25px 0px;
+	margin: 5px 0 25px 0;
 }
 
 #signup_status DIV.items {
@@ -224,7 +227,7 @@ SPAN.checkbox_select {
 #container {
 	height: auto !important;
 	min-height: 100%;
-	margin: 0px auto -140px;
+	margin: 0 auto -140px;
 	width: 985px;
 }
 
@@ -253,7 +256,7 @@ SPAN.checkbox_select {
 	float: left;
 	width: 240px;
 	height: 120px;
-	padding: 0px 10px 0px 10px;
+	padding: 0 10px 0 10px;
 }
 
 #footer DIV.nav_border {
@@ -335,7 +338,7 @@ SPAN.checkbox_select {
 	font-size: 12px;
 	float: left;
 	color: #feffef;
-	border: 0px;
+	border: 0;
 	font-weight: bold;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
@@ -413,7 +416,7 @@ SPAN.checkbox_select {
 }
 
 #logo {
-	margin: 0px 0px 0px 5px;
+	margin: 0 0 0 5px;
 	float: left;
 }
 
@@ -525,9 +528,9 @@ DIV.product_container .product_name {
 .modal-window {
 	background-color: #fff;
 	border: 2px solid #999999;
-	-moz-box-shadow: 0px 2px 4px rgba(0, 0, 0, .5); /* FF3.5+ */
-	-webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, .5); /* Saf3.0+, Chrome */    
-	box-shadow: 0px 2px 4px rgba(0, 0, 0, .5); /* Opera 10.5, IE 9.0 */
+	-moz-box-shadow: 0 2px 4px rgba(0, 0, 0, .5); /* FF3.5+ */
+	-webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, .5); /* Saf3.0+, Chrome */    
+	box-shadow: 0 2px 4px rgba(0, 0, 0, .5); /* Opera 10.5, IE 9.0 */
 	filter:  progid:DXImageTransform.Microsoft.dropshadow(OffX=0px, OffY=2px, Color='#666666'); /* IE6,IE7 */
 	-ms-filter: "progid:DXImageTransform.Microsoft.dropshadow(OffX=0px, OffY=2px, Color='#666666')"; /* IE8 */
 }
@@ -602,7 +605,7 @@ DIV.product_container .product_name {
 	font-size: 14px;
 	color: black;
 	font-weight: bold;
-	padding: 0px;
+	padding: 0;
 	margin: 0 0 10px 0;
 }
 

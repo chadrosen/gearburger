@@ -1,10 +1,11 @@
-/* Home page users_new */
+@import "application";
+
 #users_new {
-        /* This code here styles the body element only on the home page */
-        background-color: #f6f6f6;
-        background-repeat: repeat-x;
-        background-image: url('/images/bg_repeat_984.jpg');
-        height: 105%; /* I have no idea why this is happening.. Things don't look right unless this is set to 105 */
+	/* This code here styles the body element only on the home page */
+	background-color: #f6f6f6;
+	background-repeat: repeat-x;
+	background-image: url('/images/bg_repeat_984.jpg');
+	height: 105%; /* I have no idea why this is happening.. Things don't look right unless this is set to 105 */
 }
 
 #users_new #tabs {
