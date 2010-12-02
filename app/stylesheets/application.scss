@@ -7,19 +7,15 @@ HTML, BODY {
 	width: 100%;
 	font-family: Arial,'Trebuchet MS',Verdana;
 	background-color: #f6f6f6;
-	font-size: 14px;
+	font-size: $font-size + 2;
 	background-repeat: repeat-x;
 	background-image: url('/images/bg_repeat_common2.jpg');
 }
 
 H1, H2, H3, H4, TABLE, DIV, TD, TR, P, INPUT {
 	font-family: Arial,'Trebuchet MS',Verdana;
-	font-size: 14px;
-	color: #666666;
-}
-
-A, A:visited, A:active, A:link, A:hover {
-	color: #3ea1bf;
+	font-size: $font-size + 2;
+	color: $color-dark-grey;
 }
 
 #fb_multi_friend_selector, #fb_multi_friend_selector_wrapper {
@@ -27,19 +23,19 @@ A, A:visited, A:active, A:link, A:hover {
 }
 
 H1 {
-	font-size: 26px;
+	font-size: $font-size + 14;
 	padding-left: 5px;
 	padding-bottom: 5px;
 }
 
 H2 {
-	font-size: 18px;
+	font-size: $font-size + 6;
 	padding-left: 5px;
 	padding-bottom: 5px;
 }
 
 H3 {
-	font-size: 16px;
+	font-size: $font-size + 4;
 	padding-left: 20px;
 	padding-top: 10px;
 }
@@ -51,22 +47,22 @@ STRONG {
 
 INPUT {
 	background-color: #FFFFFF;
-	color: #666666;
+	color: $color-dark-grey;
 	border: 1 solid #808080 ;
-	font-size: 22pt;
+	font-size: $font-size + 10;
 	font-weight: normal;
-	font-color: black;
-}
+	font-color: $color-black;
 
-INPUT.submit {
-	background-color: #0093c3;
-	color: #FFFFFF;
-	padding: 0;
-	border: 2px solid #aae0f0;
-	width: 65px;
-	height: 30px;
-	font-size: 14px;
-	@include rounded(5px);
+	.submit {
+		background-color: #0093c3;
+		color: #FFFFFF;
+		padding: 0;
+		border: 2px solid #aae0f0;
+		width: 65px;
+		height: 30px;
+		font-size: $font-size + 2;
+		@include rounded(5px);
+	}
 }
 
 /* Common elements across the site */
@@ -89,40 +85,43 @@ INPUT.submit {
 	width: 150px;
 }
 
-#drill_down P {
-	background-color: #ff8200;
-	padding: 5px;
-	float: left;
-	margin: 2px;
-	@include rounded(5px);
-	font-size: 12px;
-}
+#drill_down {
 
-#drill_down P.selected {
-	background-color: #fe4400;
-}
+	P {
+		background-color: #ff8200;
+		padding: 5px;
+		float: left;
+		margin: 2px;
+		@include rounded(5px);
+		font-size: $font-size;
+	
+		.selected {
+			background-color: #fe4400;
+		}
+		
+		&:hover {
+			background-color: #fe4400;
+			cursor: pointer;
+		}
+	}
 
-#drill_down P:hover {
-	background-color: #fe4400;
-	cursor: pointer;
-}
+	H3 {
+		font-size: $font-size - 2;
+		font-weight: bold;
+		text-align: left;
+		color: $color-black;
+		margin: 0;
+		padding: 0 0 5px 2px;
+	}
 
-#drill_down H3 {
-	font-size: 10px;
-	font-weight: bold;
-	text-align: left;
-	color: black;
-	margin: 0;
-	padding: 0 0 5px 2px;
-}
-
-#drill_down A {
-	text-decoration: none;
-	color: #FFFFFF;
+	A {
+		text-decoration: none;
+		color: #FFFFFF;
+	}
 }
 
 #products_divider {
-	border-top: 1px solid #999999; 
+	border-top: 1px solid $color-more-grey; 
 	margin-top: 20px;
 }
 
@@ -136,29 +135,29 @@ INPUT.submit {
 	background-color: #b4b4b4; 
 	color: white; 
 	@include rounded(3px);	
-	font-size: 12px;
+	font-size: $font-size;
 	text-decoration: none;
 	color: #FFFFFF;
-}
 
-#view_more:hover {
-	background-color: #CCCCCC;
-	cursor: pointer;
-}
+	&:hover {
+		background-color: $color-darkest-grey;
+		cursor: pointer;
+	}
 
-#view_more:active {
-	background-color: #000000;
+	&:active {
+		background-color: $color-black;
+	}
 }
 
 DIV.title {
-	color:#666666;
+	color:$color-dark-grey;
 	margin-bottom: 10px;
 	margin-top: 10px;
 }
 
 .input_field {
-	font-size: 28px;
-	color: #666666;
+	font-size: $font-size + 16;
+	color: $color-dark-grey;
 }
 
 TABLE.gear_list {
@@ -166,31 +165,31 @@ TABLE.gear_list {
 	padding-left: 10px;
 	width: 100%;
 	border-top: 1px solid #cecdcd;
-}
 
-TABLE.gear_list TD {
-	width: 33%;
-	color: #4f4f4f;
-	font-size: 12px;
-	padding: 8px;
-}
+	TD {
+		width: 33%;
+		color: #4f4f4f;
+		font-size: $font-size;
+		padding: 8px;
+	}
 
-TABLE.gear_list INPUT {
-	margin-right: 5px;
-}
+	NPUT {
+		margin-right: 5px;
+	}
 
-TABLE.gear_list TR.even {
-	background-color: #EEEEEE;
+	TR.even {
+		background-color: $color-lighter-grey;
+	}
 }
 
 SPAN.checkbox_select {
-	font-size: 10px;
+	font-size: $font-size - 2;
 }
 
 /* The style for the signup status section on the signup flow */
 
 #signup_status H3 {
-	font-size: 12px;
+	font-size: $font-size;
 	color: #272727;
 	font-weight: bold;
 	text-align: left;
@@ -203,13 +202,13 @@ SPAN.checkbox_select {
 }
 
 #signup_status DIV.items {
-	font-size: 12px;
+	font-size: $font-size;
 }
 
 #signup_status DIV.items SPAN {
 	font-weight: bold;
 	background-color: #73e6be;
-	font-size: 10px;
+	font-size: $font-size - 2;
 	color: #0c5238;
 	padding: 3px;
 	float: left;
@@ -231,11 +230,6 @@ SPAN.checkbox_select {
 	height: 160px;
 }
 
-#footer {
-	background-color: #1e1e1e;
-	width: 100%;
-}
-
 #footer_content { 
 	position: relative; 
 	top: 1px; 
@@ -243,54 +237,59 @@ SPAN.checkbox_select {
 	background-color: #515151;
 }
 
-#footer #menu {
-	width: 785px;
-	margin: 10px auto;
-}
-
-#footer DIV.nav_item {
-	float: left;
-	width: 240px;
-	height: 120px;
-	padding: 0 10px 0 10px;
-}
-
-#footer DIV.nav_border {
-	border-right: 1px solid #999999;
-}
-
-#footer TABLE {
+#footer {
+	background-color: #1e1e1e;
 	width: 100%;
-}
 
-#footer TD {
-	padding: 4px;
-	color: white;
-	font-size: 10px;
-}
+	#menu {
+		width: 785px;
+		margin: 10px auto;
+	}
 
-#footer DIV {
-	color: white;
-	font-size: 10px;
-}
+	DIV.nav_item {
+		float: left;
+		width: 240px;
+		height: 120px;
+		padding: 0 10px 0 10px;
+		
+		DIV.title {
+			font-size: $font-size + 3;
+			color: #d5f6ff;
+			font-weight: bold;
+		}
+	}
 
-#footer A {
-	text-decoration: none;
-	color: white;
-}
+	DIV.nav_border {
+		border-right: 1px solid $color-more-grey;
+	}
 
-#footer DIV.nav_item DIV.title {
-	font-size: 15px;
-	color: #d5f6ff;
-	font-weight: bold;
-}
+	TABLE {
+		width: 100%;
+	}
 
-#footer DIV.social_network_container {
-	margin-top: 5px;
-}
+	TD {
+		padding: 4px;
+		color: white;
+		font-size: $font-size - 2;
+	}
 
-#footer DIV.social_network_container A {
-	color: #d7f4ff;
+	DIV {
+		color: white;
+		font-size: $font-size - 2;
+	}
+
+	A {
+		text-decoration: none;
+		color: white;
+	}
+
+	DIV.social_network_container {
+		margin-top: 5px;
+	}
+
+	DIV.social_network_container A {
+		color: #d7f4ff;
+	}
 }
 
 #header {
@@ -310,7 +309,7 @@ SPAN.checkbox_select {
 }
 
 #fb_profile_pic {
-	border: 1px solid #666666;
+	border: 1px solid $color-dark-grey;
 }
 
 #right_nav .nav_section {
@@ -324,24 +323,23 @@ SPAN.checkbox_select {
 
 #nav {
 	vertical-align: bottom;
-}
-
-#nav A {
-	text-decoration: none;
-	background-color: #2c2c2c;
-	padding: 5px 12px;
-	margin-left: 15px;
-	font-size: 12px;
-	float: left;
-	color: #feffef;
-	border: 0;
-	font-weight: bold;
-	@include rounded(5px);
-}
-
-#nav A:hover { 
-	background-color: #505050; 
-	cursor: pointer;
+	A {
+		text-decoration: none;
+		background-color: #2c2c2c;
+		padding: 5px 12px;
+		margin-left: 15px;
+		font-size: $font-size;
+		float: left;
+		color: #feffef;
+		border: 0;
+		font-weight: bold;
+		@include rounded(5px);
+	
+		&:hover { 
+			background-color: #505050; 
+			cursor: pointer;
+		}
+	}
 }
 
 #fb_like {
@@ -364,50 +362,9 @@ SPAN.checkbox_select {
 	margin-bottom: 10px;
 	padding-top: 14px;
 	width: 985px;
-	font-size: 12px;
+	font-size: $font-size;
 	background-color: #E7E7E7;
-	color: #999999;
-}
-
-#tabs DIV.tab {
-	background-color: #d7d7d7; 
-	width: 100px; 
-	float: left;
-	margin-right: 10px;
-	font-size: 12px; 
-	padding: 5px;
-	text-align: center;
-	-moz-border-radius-topright: 5px;
-	-moz-border-radius-topleft: 5px;
-	-webkit-border-top-left-radius: 5px;
-	-webkit-border-top-right-radius: 5px;	
-}
-
-#tabs DIV.tab A {
-	color: #0083ac;
-}
-
-#tabs DIV.tab:hover {
-	background-color: #caedf8;
-	cursor: pointer;
-}
-
-#tabs DIV.selected {
-	background-color: #c4c3c3;
-}
-
-#tabs DIV.selected A {
-	font-weight: bold;
-	color: black;
-}
-
-#tabs A {
-	color: #999999;
-	text-decoration: none;
-}
-
-#tabs #current_page {
-	font-weight: bold;
+	color: $color-more-grey;
 }
 
 #logo {
@@ -425,7 +382,7 @@ SPAN.checkbox_select {
 }
 
 #submit_section #submit_cancel {
-	font-size: 16px;
+	font-size: $font-size + 4;
 	font-weight: bold;
 }
 /* end */
@@ -447,13 +404,14 @@ SPAN.checkbox_select {
 	width: 40px;
 	margin-right: 5px;
 }
+
 .product_image_container img {
 	width: 40px;
 	height: 40px;
 }
 
 DIV.product_container {
-	color: #999999;
+	color: $color-more-grey;
 	margin-bottom: 25px;
 	width: 295px;
 	float: left;
@@ -461,30 +419,8 @@ DIV.product_container {
 
 DIV.product_container .product_name {
 	font-weight: bold; 
-	font-size: 12px;
+	font-size: $font-size;
 	margin-bottom: 5px;
-}
-
-#deals_seen_container {
-	float: right;
-}
-
-#deals_seen_container #deals_seen_text {
-	color: #666666;
-	font-size: 12px;
-	padding-bottom: 4px;	
-}
-
-#deals_seen_container #deals_seen_number_container {
-	text-align: right;
-	margin-top: 3px;
-}
-
-#deals_seen_number_container #deals_seen_number {
-	color : #FFFFFF; 
-	font-size : 25px;
-	background: #000000;
-	padding: 4px;
 }
 
 #product_spinner {
@@ -498,36 +434,15 @@ DIV.product_container .product_name {
 	font-weight: bold;
 }
 
-.dynamic_flash_content {
-	/* Hide the flash cookie embed off screen */
-	position: absolute; 
-	margin-left: -5000px; 
-	height: 1px; 
-	width: 1px;
-}
-
-#footer #common_deals {
-	text-align: center; 
-	margin-top: 5px;
-}
-
-#footer #common_deals A {
-	text-decoration: underline;
-}
-
-#footer #common_deals A.even {
-	color: #008BC5;
-}
-
 /* Modal window stuff */
 .modal-window {
 	background-color: #fff;
-	border: 2px solid #999999;
+	border: 2px solid $color-more-grey;
 	-moz-box-shadow: 0 2px 4px rgba(0, 0, 0, .5); /* FF3.5+ */
 	-webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, .5); /* Saf3.0+, Chrome */    
 	box-shadow: 0 2px 4px rgba(0, 0, 0, .5); /* Opera 10.5, IE 9.0 */
-	filter:  progid:DXImageTransform.Microsoft.dropshadow(OffX=0px, OffY=2px, Color='#666666'); /* IE6,IE7 */
-	-ms-filter: "progid:DXImageTransform.Microsoft.dropshadow(OffX=0px, OffY=2px, Color='#666666')"; /* IE8 */
+	filter:  progid:DXImageTransform.Microsoft.dropshadow(OffX=0px, OffY=2px, Color='$color-dark-grey'); /* IE6,IE7 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.dropshadow(OffX=0px, OffY=2px, Color='$color-dark-grey')"; /* IE8 */
 }
 .modal-window .modal-content {
 	left: 10px;
@@ -563,7 +478,7 @@ DIV.product_container .product_name {
 
 #login_modal LABEL {
 	display: block;
-	font-size: 10px;
+	font-size: $font-size - 2;
 	font-weight: bold;
 	margin-bottom: 3px;
 }
@@ -575,7 +490,7 @@ DIV.product_container .product_name {
 #login_modal .form_field INPUT {
 	width: 200px;
 	padding: 3px;
-	font-size: 14px;
+	font-size: $font-size + 2;
 }
 
 #login_modal .button.ok {
@@ -597,8 +512,8 @@ DIV.product_container .product_name {
 }
 
 #login_modal_form H3 {
-	font-size: 14px;
-	color: black;
+	font-size: $font-size + 2;
+	color: $color-black;
 	font-weight: bold;
 	padding: 0;
 	margin: 0 0 10px 0;

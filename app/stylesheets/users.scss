@@ -1,64 +1,7 @@
 @import "application";
 
-#users_new {
-	/* This code here styles the body element only on the home page */
-	background-color: #f6f6f6;
-	background-repeat: repeat-x;
-	background-image: url('/images/bg_repeat_984.jpg');
-	height: 105%; /* I have no idea why this is happening.. Things don't look right unless this is set to 105 */
-}
-
-#users_new #tabs {
-	display: none;
-}
-
-#users_new #common_search_text {
-	display: none;
-}
-
-#users_new #about {
-	text-align: center; 
-	margin: 0 auto;
-}
-
-#users_new #about_gb {
-	font-size: 20px; 
-	font-weight: bold; 
-	margin: 3px 0;
-}
-
-#users_new #products {
-	margin: 10px auto 0; 
-	width: 785px;
-}
-
-#users_new .product {
-	float: left; 
-	width: 240px; 
-	margin-left: 5px; 
-}
-
-#users_new .product .image {
-	height: 75px; 
-	padding: 3px; 
-	background-color: #FFFFFF; 
-	border: 1px solid #999999;
-}
-
-#users_new .product .name {
-	font-size: 12px; 
-	margin: 3px 0; 
-	font-weight: bold;
-}
-
-#users_new .product .price {
-	font-size: 12px; 
-	color: #090; 
-	font-weight: bold;
-}
-
 .terms {
-	font-size: 10px;
+	font-size: $font-size - 2;
 }
 
 .half {
@@ -70,56 +13,109 @@
 	color: #d0441d;
 }
 
-#users_new #tabs {
-	margin-bottom: 0px;
-}
+#users_new {
+	/* This code here styles the body element only on the home page */
+	background-color: #f6f6f6;
+	background-repeat: repeat-x;
+	background-image: url('/images/bg_repeat_984.jpg');
+	height: 105%; /* I have no idea why this is happening.. Things don't look right unless this is set to 105 */
 
-#users_new #bg_img {
-	height: 283px;
-    width: 986px;
-	padding-top: 10px;
-    background-image: url('/images/gb_home_blank_RGB_24.png');
-	margin-bottom: 10px;
-}
+	#tabs {
+		display: none;
+		margin-bottom: 0px;
+	}
 
-#users_new #site_intro {
-	margin: 0px 0 10px 0;
-	text-align: center; 
-	font-size: 20px; 
-}
+	#common_search_text {
+		display: none;
+	}
 
-#users_new H1 {
-	color: #FFFFFF; 
-	font-size: 40px; 
-	padding: 0px;
-	font-weight: bold;
-	margin-top: 20px;
-}
+	#about {
+		text-align: center; 
+		margin: 0 auto;
+	}
 
-#users_new #brand_name {
-	font-size: 38px;
-	font-weight: bold;
-	margin: 20px 0;
-}
+	#about_gb {
+		font-size: $font-size + 8; 
+		font-weight: bold; 
+		margin: 3px 0;
+	}
 
-#users_new #register {
-	width: 138px;
-	height: 35px;
-	margin: 0 auto;
-}
+	#products {
+		margin: 10px auto 0; 
+		width: 785px;
+	}
 
-#users_new #start_now {
-	padding: 8px 34px;
-	background-color: #f4ba2e;
-	color: #FFFFFF;
-	border: none;
-	font-size: 26px;
-	font-weight: bold;
-	@include rounded(8px);
-}
+	.product {
+		float: left; 
+		width: 240px; 
+		margin-left: 5px; 
+		.image {
+			height: 75px; 
+			padding: 3px; 
+			background-color: $color-white; 
+			border: 1px solid $color-more-grey;
+		}
+		.name {
+			font-size: $font-size; 
+			margin: 3px 0; 
+			font-weight: bold;
+		}
 
-#users_new #register:hover {
-	background-image: url('/images/signup_free_hover_btn.gif');	
+		.price {
+			font-size: $font-size; 
+			color: #090; 
+			font-weight: bold;
+		}
+	}
+
+
+	#bg_img {
+		height: 283px;
+	    width: 986px;
+		padding-top: 10px;
+	    background-image: url('/images/gb_home_blank_RGB_24.png');
+		margin-bottom: 10px;
+	}
+
+	#site_intro {
+		margin: 0px 0 10px 0;
+		text-align: center; 
+		font-size: $font-size + 8; 
+	}
+
+	H1 {
+		color: $color-white; 
+		font-size: 40px; 
+		padding: 0px;
+		font-weight: bold;
+		margin-top: 20px;
+	}
+
+	#brand_name {
+		font-size: 38px;
+		font-weight: bold;
+		margin: 20px 0;
+	}
+
+	#register {
+		width: 138px;
+		height: 35px;
+		margin: 0 auto;
+	}
+
+	#start_now {
+		padding: 8px 34px;
+		background-color: #f4ba2e;
+		color: $color-white;
+		border: none;
+		font-size: 26px;
+		font-weight: bold;
+		@include rounded(8px);
+	}
+
+	#register:hover {
+		background-image: url('/images/signup_free_hover_btn.gif');	
+	}
 }
 
 #fp_pick_icon IMG {
@@ -141,7 +137,7 @@
 
 #fp_signup_form {
 	padding: 10px; 
-	background-color: #EEEEEE;
+	background-color: $color-lighter-grey;
 	/* changed from 620px width to fit 1024x768 */
 	width: 580px;
 	min-height: 350px;
@@ -165,17 +161,17 @@
 
 #users_signup #manual_signup_form INPUT {
 	width: 250px;
-	font-size: 14px;
+	font-size: $font-size + 2;
 	padding: 3px;
 }
 
 #users_signup #title {
 	color: #d0441d;
-	font-size: 18px;
+	font-size: $font-size + 6;
 }
 
 #users_signup .unselected {
-	color: #CCCCCC;
+	color: $color-darkest-grey;
 }
 
 #users_signup #submit_btns {
@@ -183,7 +179,7 @@
 }
 
 #users_signup .step {
-	font-size: 16px;
+	font-size: $font-size + 4;
 	margin-bottom: 10px;
 	padding: 5px 15px;
 	border-bottom: 1px solid #7cd2ed;
@@ -192,7 +188,7 @@
 
 #users_signup .step H3 {
 	color: #0079a3;
-	font-size: 18px;
+	font-size: $font-size + 6;
 	font-weight: bold;
 	padding: 0px;
 	margin: 0px;
@@ -201,11 +197,11 @@
 
 #users_signup .step P {
 	color: #0079a3;
-	font-size: 14px;
+	font-size: $font-size + 2;
 }
 
 #users_signup #email_address {
-	font-size: 14px;
+	font-size: $font-size + 2;
 	padding: 2px;
 	width: 250px;
 }
@@ -217,7 +213,7 @@
 #users_signup DIV.items H3 {
 	margin: 0px 0px 5px 0px;
 	padding: 0px;
-	font-size: 18px;
+	font-size: $font-size + 8;
 	color: #505050;
 }
 
@@ -226,7 +222,7 @@
 }
 
 #users_signup .gear_list LABEL {
-	font-size: 10px;
+	font-size: $font-size - 2;
 }
 
 /* end */
@@ -237,14 +233,14 @@ DIV.form_field {
 }
 
 .form_field LABEL {
-	font-size: 10px;
+	font-size: $font-size - 2;
 	font-weight: bold;
 	display: block;
 	margin-bottom: 2px;
 }
 
 .form_field #email_address {
-	font-size: 22px;
+	font-size: $font-size + 10;
 	padding: 3px;
 	width: 350px;
 }
@@ -279,7 +275,7 @@ SPAN.price_title {
 /* Generic page title */
 H1#page_title {
 	font-size: 26px;
-	color: #000000;
+	color: $color-black;
 	margin-bottom: 10px;
 	margin-top: 10px;
 }
@@ -313,7 +309,7 @@ H1#page_title {
 #misc_invite_terms LI {
 	margin: 0 0 10px 0;
 	padding: 0 0 0 5px;
-	font-size: 12px;
+	font-size: $font-size;
 }
 
 /* end */
@@ -322,7 +318,7 @@ H1#page_title {
 #misc_about H1 {
 	padding: 0; 
 	margin: 0 0 20px 0; 
-	font-size: 22px;
+	font-size: $font-size + 10;
 	font-weight: bold;
 }
 
@@ -330,11 +326,11 @@ H1#page_title {
 	padding: 0;
 	margin: 10px 0;
 	font-weight: bold;
-	font-size: 14px;
+	font-size: $font-size + 2;
 }
 
 #misc_about P {
-	font-size: 14px;
+	font-size: $font-size + 2;
 	margin: 15px 0;
 }
 
@@ -376,12 +372,12 @@ H1#page_title {
 }
 
 #misc_faq .faq_q {
-	font-size: 16px;
+	font-size: $font-size + 4;
 	font-weight: bold;
 }
 
 #misc_faq .faq_a {
-	font-size: 12px;
+	font-size: $font-size;
 	margin: 10px 0 20px 10px;
 }
 /* end */
@@ -390,7 +386,7 @@ H1#page_title {
 
 #brands .brand_letter {
 	font-weight: bold; 
-	font-size: 16px; 
+	font-size: $font-size + 4; 
 	margin-bottom: 5px;
 }
 
@@ -402,8 +398,8 @@ H1#page_title {
 
 /* latest gear alert box style */
 #latest_gear_alert_header {
-	font-size: 18px;
-	color: #666666;
+	font-size: $font-size + 6;
+	color: $color-dark-grey;
 	margin-bottom: 20px;
 	font-weight: bold;
 	text-align: center;
@@ -413,8 +409,8 @@ H1#page_title {
 /* User home page */
 #users_show .section_container H3 {
 	margin-bottom: 5px; 
-	border-bottom: 1px solid #666666; 
-	font-size: 16px;
+	border-bottom: 1px solid $color-dark-grey; 
+	font-size: $font-size + 4;
 	margin: 0 0 15px 0;
 	padding: 0;
 }
@@ -426,7 +422,7 @@ H1#page_title {
 #users_show .account_status {
 	font-size: 16px; 
 	margin-bottom: 15px; 
-	border: 1px solid #999999; 
+	border: 1px solid $color-more-grey; 
 	padding: 10px;	
 	text-align: center;
 }
@@ -446,7 +442,7 @@ H1#page_title {
 }
 
 #users_show .item_group .item_title {
-	font-size: 15px;
+	font-size: $font-size + 3;
 	padding-left: 10px;
 	margin: 0 0 3px 0;
 }
@@ -462,12 +458,12 @@ H1#page_title {
 }
 
 #users_show .item_group .items {
-	font-size: 12px;
+	font-size: $font-size;
 	margin-left: 10px;
 }
 
 #users_show .item_group SPAN.no_alerts {
-	font-size: 12px;
+	font-size: $font-size;
 	margin-left: 10px;
 }
 
@@ -487,7 +483,7 @@ H1#page_title {
 }
 
 #users_show #invite_title {
-	font-size: 32px;
+	font-size: $font-size + 20;
 	margin-bottom: 5px;
 }
 
@@ -495,7 +491,7 @@ H1#page_title {
 	margin: 0 0 10px 0;
 	padding: 0;
 	font-weight: bold;
-	font-size: 14px;
+	font-size: $font-size + 2;
 }
 
 #users_show #gift_card_container {
@@ -514,7 +510,7 @@ H1#page_title {
 
 /* Login page */
 #sessions_new H1 {
-	font-size: 22px;
+	font-size: $font-size + 10;
 	margin-bottom: 10px;
 	padding: 10px;
 	text-align: center;
@@ -553,13 +549,13 @@ H1#page_title {
 
 #sessions_new #create_account_btn_container P {	
 	margin-bottom: 20px;
-	font-size: 16px;
+	font-size: $font-size + 4;
 }
 /* end */
 
 /* Login page */
 #sessions_create H1 {
-	font-size: 22px;
+	font-size: $font-size + 10;
 	margin-bottom: 10px;
 	padding: 10px;
 	text-align: center;
@@ -598,7 +594,7 @@ H1#page_title {
 
 #sessions_create #create_account_btn_container P {	
 	margin-bottom: 20px;
-	font-size: 16px;
+	font-size: $font-size + 4;
 }
 /* end */
 
@@ -610,7 +606,7 @@ H1#page_title {
 
 /* User signup complete page */
 #users_signup_complete H1 {
-	font-size: 28px;
+	font-size: $font-size + 14;
 	font-weight: bold;
 	margin-bottom: 20px;
 	padding: 0px;
@@ -618,7 +614,7 @@ H1#page_title {
 
 #users_signup_complete H2 {
 	margin-top: 15px;
-	font-size: 22px;
+	font-size: $font-size + 10;
 	font-weight: normal;
 }
 
@@ -647,7 +643,7 @@ H1#page_title {
 }
 
 #users_manage_products DIV.section_title {
-	font-size: 16px;
+	font-size: $font-size + 4;
 	font-weight: bold;
 	margin-bottom: 10px;
 }
@@ -680,19 +676,19 @@ H1#page_title {
 #friends_invite_friends H1 {
 	margin: 0 0 15px 0;
 	padding: 0px;
-	font-size: 22px;
+	font-size: $font-size + 10;
 }
 
 #friends_invite_friends H2 {
 	margin: 10px 0 20px;
 	padding: 0px;
-	font-size: 12px;
+	font-size: $font-size;
 }
 
 #friends_invite_friends H3 {
 	margin: 0 0 10px 0;
 	padding: 0px;
-	font-size: 14px;
+	font-size: $font-size + 2;
 	font-weight: bold;
 }
 
@@ -776,7 +772,7 @@ INPUT.invite_hidden {
 	margin-top: 2px;
 	width: 100%;
 	border-collapse: collapse;
-	border: 1px solid #999999;
+	border: 1px solid $color-more-grey;
 }
 
 #friends_invite_friends #friends TD {
@@ -792,7 +788,7 @@ INPUT.invite_hidden {
 }
 	
 #friends_invite_friends #friends .table-tr-odd {
-	background-color: #CCCCCC;
+	background-color: $color-darkest-grey;
 }
 
 #friends_invite_friends #spinner {
@@ -847,13 +843,13 @@ INPUT.invite_hidden {
     width: 550px;
     height: 450px;
 	padding: 5px;
-    background-color: #fff;
+    background-color: $color-white;
     
     -moz-box-shadow: 0px 2px 4px rgba(0, 0, 0, .5); /* FF3.5+ */
     -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, .5); /* Saf3.0+, Chrome */    
     box-shadow: 0px 2px 4px rgba(0, 0, 0, .5); /* Opera 10.5, IE 9.0 */
-    filter:  progid:DXImageTransform.Microsoft.dropshadow(OffX=0px, OffY=2px, Color='#666666'); /* IE6,IE7 */
-    -ms-filter: "progid:DXImageTransform.Microsoft.dropshadow(OffX=0px, OffY=2px, Color='#666666')"; /* IE8 */
+    filter:  progid:DXImageTransform.Microsoft.dropshadow(OffX=0px, OffY=2px, Color='$color-dark-grey'); /* IE6,IE7 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.dropshadow(OffX=0px, OffY=2px, Color='$color-dark-grey')"; /* IE8 */
 }
 
 #frends_invite_friends #contact_select_modal .model-content {
@@ -903,7 +899,7 @@ INPUT.invite_hidden {
 
 #users_gear_bin #filter H3 {
 	font-size: 12px;
-	border-bottom: 1px solid #999999;
+	border-bottom: 1px solid $color-more-grey;
 	padding: 0 0 2px 0;
 	margin: 0 0 5px 0;
 	font-weight: bold;
@@ -933,7 +929,7 @@ INPUT.invite_hidden {
 	margin: 0;
 	padding: 0 0 2px 0;
 	font-size: 12px;
-	border-bottom: 1px solid #999999;
+	border-bottom: 1px solid $color-more-grey;
 	font-weight: bold;
 }
 
@@ -960,9 +956,9 @@ INPUT.invite_hidden {
 }
 
 #users_gear_bin .product .image {
-	background-color: #FFFFFF;
+	background-color: $color-white;
 	margin-bottom: 3px;
-	border: 2px solid #CCCCCC;
+	border: 2px solid $color-darkest-grey;
 	text-align: center;
 	padding: 3px;
 	width: 100px;
@@ -983,7 +979,7 @@ INPUT.invite_hidden {
 
 #users_gear_bin .product .retail {
 	font-size: 10px;
-	color: #999999;
+	color: $color-more-grey;
 	margin-bottom: 3px;
 }
 
@@ -1079,7 +1075,7 @@ INPUT.invite_hidden {
 }
 
 #users_take_a_breather .welcome_back {
-	border: 1px solid #999999;
+	border: 1px solid $color-more-grey;
 	color: green;
 	padding: 10px;
 	margin: 0 0 15px;
@@ -1122,7 +1118,7 @@ INPUT.invite_hidden {
 
 #users_deactivate_account .dont_go_container {
 	padding: 10px;
-	border: 1px solid #999999;
+	border: 1px solid $color-more-grey;
 	margin: 0 0 20px;
 }
 
