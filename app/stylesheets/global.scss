@@ -8,6 +8,36 @@ $color-darkest-grey : #CCC;
 $color-dark-grey : #666;
 $color-lighter-grey : #EEE;
 $color-white : #FFF;
+$color-orange: #d0441d;
+$color-green: green; /* Replace */
+$color-red: red; /* Replace;
+
+/* Numerous colors that probably can be combined */
+$color-wtf: #0079a3;
+$color-wtf2: #ff8200;
+$color-wtf3: #fe4400;
+$color-wtf4: #f6f6f6;
+$color-wtf5: #E7E7E7;
+$color-wtf6: #DDDDDD;
+$color-wtf7: #7cd2ed;
+$color-wtf8: #0093c3;
+$color-wtf9: #aae0f0;
+$color-wtf10: #caedf8;
+$color-wtf11: #808080;
+$color-wtf12: #b4b4b4;
+$color-wtf13: #cecdcd;
+$color-wtf14: #4f4f4f;
+$color-wtf15: #272727;
+$color-wtf16: #73e6be;
+$color-wtf17: #0c5238;
+$color-wtf18: #1e1e1e;
+$color-wtf19: #d5f6ff;
+$color-wtf20: #515151;
+$color-wtf21: #2c2c2c;
+$color-wtf22: #505050;
+$color-wtf23: #f4ba2e;
+$color-wtf24: #009900;
+
 $color-links: #EB5024;
 
 $font-size: 12px;
@@ -23,6 +53,17 @@ html,body,p,div,img,h1,h2,h3,h4,dl,dd,dt,form,table,td,tr,form {
 	-webkit-border-radius: $radius;
 	-moz-border-radius: $radius;
 	border-radius: $radius;
+}
+
+/* Set padding and margin to a single value */
+@mixin mp-set($mp) {
+	margin: $mp;
+	padding: $mp;
+}
+
+@mixin size-set($height, $width) {
+	height: $height;
+	width: $width;
 }
 
 /* Set defaults back for lists */
@@ -82,24 +123,24 @@ TABLE.data {
 /* Generic notice messages */
 #messages {
 	margin: 10px 0;
-	color: red; 
+	color: $color-red; 
 
 	#notice {
-		color: green;
+		color: $color-green;
 		font-size: $font-size + 4;
 	}
 
 	#error {
-		color: red;
+		color: $color-red;
 		font-size: $font-size + 4;
 	}
 
 	#js_error {
-		color: red;
+		color: $color-red;
 	}
 
 	#js_msg {
-		color: green;
+		color: $color-green;
 		font-size: $font-size + 2;
 		IMG {
 			height: 12px;
