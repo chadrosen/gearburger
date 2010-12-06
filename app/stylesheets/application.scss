@@ -215,8 +215,8 @@ SPAN.checkbox_select {
 /* end */
 
 /* See http://ryanfait.com/resources/footer-stick-to-bottom-of-page/ for more footer info */
-#container {
-	margin: 0 auto -140px;
+#root {
+	margin: 0 auto;
 	width: 985px;
 }
 
@@ -350,8 +350,8 @@ SPAN.checkbox_select {
 }
 
 #content {
-	@include min-height(400px);
 	background-color: #f6f6f6;
+	@include min-height(300);
 }
 
 #tabs {
