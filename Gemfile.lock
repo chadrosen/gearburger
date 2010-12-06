@@ -37,10 +37,6 @@ GEM
       activesupport (= 3.0.3)
     activesupport (3.0.3)
     arel (2.0.2)
-    aws-s3 (0.6.2)
-      builder
-      mime-types
-      xml-simple
     builder (2.1.2)
     columnize (0.3.2)
     compass (0.10.6)
@@ -119,14 +115,12 @@ GEM
       polyglot (>= 0.3.1)
     tzinfo (0.3.23)
     will_paginate (3.0.pre2)
-    xml-simple (1.0.12)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   aasm (= 2.2.0)
-  aws-s3 (= 0.6.2)
   compass (>= 0.10.6)
   contacts (= 1.2.3)
   delayed_job (= 2.1.1)

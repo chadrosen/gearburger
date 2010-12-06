@@ -23,5 +23,4 @@ gem "compass", ">= 0.10.6"
 group :development, :test do 
 	gem 'ruby-debug', "0.10.4"
 	gem "mysql", "2.8.1"
-	gem 'aws-s3', "0.6.2", :require => 'aws/s3'
 end
