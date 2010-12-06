@@ -82,11 +82,6 @@ INPUT {
 	font-weight: bold;
 }
 
-#products_huge_deals #drill_down {
-	@include float-left;
-	width: 150px;
-}
-
 #drill_down {
 
 	P {
@@ -190,32 +185,31 @@ SPAN.checkbox_select {
 
 /* The style for the signup status section on the signup flow */
 
-#signup_status H3 {
-	font-size: $font-size;
-	color: #272727;
-	font-weight: bold;
-	text-align: left;
-	padding: 0;
-	margin: 0;
-}
+#signup_status {
+	H3 {
+		font-size: $font-size;
+		color: #272727;
+		font-weight: bold;
+		text-align: left;
+		padding: 0;
+		margin: 0;
+	}
 
-#signup_status DIV.items {
-	margin: 5px 0 25px 0;
-}
+	DIV.items {
+		margin: 5px 0 25px 0;
+		font-size: $font-size;
 
-#signup_status DIV.items {
-	font-size: $font-size;
-}
-
-#signup_status DIV.items SPAN {
-	font-weight: bold;
-	background-color: #73e6be;
-	font-size: $font-size - 2;
-	color: #0c5238;
-	padding: 3px;
-	@include float-left;
-	margin: 3px;
-	@include rounded(4px);	
+		SPAN {
+			font-weight: bold;
+			background-color: #73e6be;
+			font-size: $font-size - 2;
+			color: #0c5238;
+			padding: 3px;
+			@include float-left;
+			margin: 3px;
+			@include rounded(4px);	
+		}
+	}
 }
 
 /* end */
@@ -285,36 +279,39 @@ SPAN.checkbox_select {
 }
 
 #header {
-	/*background-color: #1e1e1e;*/
-	height: 73px;
-}
+	height: 73px;	
+	
+	#header_content {
+		/* small bar under the header */
+		height: 71px; 
+		border-bottom: 1px solid #515151;
+		margin-top: 22px;
 
-#header_content {
-	/* small bar under the header */
-	height: 71px; 
-	border-bottom: 1px solid #515151;
-	margin-top: 22px;
+		#logo {
+			margin: 0 0 0 5px;
+			@include float-left;
+
+			.logo_image {
+				outline: none;
+			}
+		}
+	}
 }
 
 #right_nav {
 	@include float-right;
-}
-
-#fb_profile_pic {
-	border: 1px solid $color-dark-grey;
-}
-
-#right_nav .nav_section {
-	@include float-left;
-	margin: 0 10px 0 0;
-}
-
-#right_nav .nav_button {
-	padding: 28px 0 0;
-}
-
-#nav {
+	
 	vertical-align: bottom;
+
+	.nav_section {
+		@include float-left;
+		margin: 0 10px 0 0;
+	}
+
+	.nav_button {
+		padding: 28px 0 0;
+	}
+
 	A {
 		text-decoration: none;
 		background-color: #2c2c2c;
@@ -326,21 +323,30 @@ SPAN.checkbox_select {
 		border: 0;
 		font-weight: bold;
 		@include rounded(5px);
-	
+
 		&:hover { 
 			background-color: #505050; 
 			cursor: pointer;
 		}
 	}
-}
+	
+	#fb_like {
+		height: 80px;
+		border: none; 
+		overflow: hidden; 
+		height: 35px;
+		color: #FFFFFF;
+		width: 100px;
+	}
 
-#fb_like {
-	height: 80px;
-	border: none; 
-	overflow: hidden; 
-	height: 35px;
-	color: #FFFFFF;
-	width: 100px;
+	#fb_profile_pic {
+		border: 1px solid $color-dark-grey;
+	}
+	
+	/* The facebook connect button in the header */
+	.fb_button {
+		padding: 0;
+	}
 }
 
 #content {
@@ -358,23 +364,14 @@ SPAN.checkbox_select {
 	color: $color-more-grey;
 }
 
-#logo {
-	margin: 0 0 0 5px;
-	@include float-left;
-}
-
-.logo_image {
-	outline: none;
-}
-
 /* Style the submit button / cancel partial */
 #submit_section {
 	margin-top: 15px;
-}
-
-#submit_section #submit_cancel {
-	font-size: $font-size + 4;
-	font-weight: bold;
+	
+	#submit_cancel {
+		font-size: $font-size + 4;
+		font-weight: bold;
+	}
 }
 /* end */
 
@@ -394,11 +391,11 @@ SPAN.checkbox_select {
 	@include float-left;
 	width: 40px;
 	margin-right: 5px;
-}
-
-.product_image_container img {
-	width: 40px;
-	height: 40px;
+	
+	.img {
+		width: 40px;
+		height: 40px;
+	}
 }
 
 DIV.product_container {
@@ -406,12 +403,12 @@ DIV.product_container {
 	margin-bottom: 25px;
 	width: 295px;
 	@include float-left;
-}
 
-DIV.product_container .product_name {
-	font-weight: bold; 
-	font-size: $font-size;
-	margin-bottom: 5px;
+	.product_name {
+		font-weight: bold; 
+		font-size: $font-size;
+		margin-bottom: 5px;
+	}
 }
 
 #product_spinner {
@@ -434,30 +431,33 @@ DIV.product_container .product_name {
 	box-shadow: 0 2px 4px rgba(0, 0, 0, .5); /* Opera 10.5, IE 9.0 */
 	filter:  progid:DXImageTransform.Microsoft.dropshadow(OffX=0px, OffY=2px, Color='$color-dark-grey'); /* IE6,IE7 */
 	-ms-filter: "progid:DXImageTransform.Microsoft.dropshadow(OffX=0px, OffY=2px, Color='$color-dark-grey')"; /* IE8 */
-}
-.modal-window .modal-content {
-	left: 10px;
-	top: 10px;
-	position: absolute;
-	padding: 5px;
-}
-.modal-window .button {
-	position: absolute;
-	bottom: 10px;
-	text-indent: -1000000px;
-	outline: none;
-}
-.modal-window .button.ok {
-	background-image: url(/images/ok.gif);
-	width: 40px;
-	height: 12px;
-	right: 10px;
-}
-.modal-window .button.cancel {
-	background-image: url(/images/cancel.gif);
-	width: 62px;
-	height: 13px;
-	right: 60px;
+
+	.modal-content {
+		left: 10px;
+		top: 10px;
+		position: absolute;
+		padding: 5px;
+	}
+
+	.button {
+		position: absolute;
+		bottom: 10px;
+		text-indent: -1000000px;
+		outline: none;
+		.ok {
+			background-image: url(/images/ok.gif);
+			width: 40px;
+			height: 12px;
+			right: 10px;
+		}
+		
+		.cancel {
+			background-image: url(/images/cancel.gif);
+			width: 62px;
+			height: 13px;
+			right: 60px;
+		}
+	}
 }
 
 /* Login modal that appears on every page while not logged in */
@@ -465,41 +465,43 @@ DIV.product_container .product_name {
 #login_modal {
 	width: 600px;
 	height: 235px;
-}
 
-#login_modal LABEL {
-	display: block;
-	font-size: $font-size - 2;
-	font-weight: bold;
-	margin-bottom: 3px;
-}
+	LABEL {
+		display: block;
+		font-size: $font-size - 2;
+		font-weight: bold;
+		margin-bottom: 3px;
+	}
 
-#login_modal .submit {
-	margin: 5px 0;
-}
+	.submit {
+		margin: 5px 0;
+	}
 
-#login_modal .form_field INPUT {
-	width: 200px;
-	padding: 3px;
-	font-size: $font-size + 2;
-}
+	.form_field INPUT {
+		width: 200px;
+		padding: 3px;
+		font-size: $font-size + 2;
+	}
 
-#login_modal .button.ok {
-	visibility: hidden;
-}
+	.button {
+		ok {
+			visibility: hidden;
+		}
 
-#login_modal .button.cancel {
-	right: 10px;
-}
+		.cancel {
+			right: 10px;
+		}
+	}
 
-#login_modal #get_started {
-	margin-left: 50px;
-	text-align: center;
-}
-
-#login_modal #get_started .submit {
-	width: 100px;
-	margin: 10px 0 0;
+	#get_started {
+		margin-left: 50px;
+		text-align: center;
+		
+		.submit {
+			width: 100px;
+			margin: 10px 0 0;
+		}
+	}
 }
 
 #login_modal_form H3 {
@@ -508,9 +510,4 @@ DIV.product_container .product_name {
 	font-weight: bold;
 	padding: 0;
 	margin: 0 0 10px 0;
-}
-
-/* The facebook connect button in the header */
-#fb_connect .fb_button {
-	padding: 0;
 }
