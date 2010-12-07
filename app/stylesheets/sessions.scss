@@ -1,0 +1,82 @@
+#sessions_new {
+	H1 {
+		font-size: $font-size + 10;
+		margin-bottom: 10px;
+		padding: 10px;
+		text-align: center;
+		background-color: $color-wtf10;
+		border-bottom: 1px solid $color-wtf7;
+		color: $color-wtf;
+		font-weight: bold;
+	}
+
+	#submit_btns {
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+
+	#submit_btns {
+		margin: 10px 0;
+	}
+
+	DIV.login_container {
+		padding: 10px;
+		width: 425px;
+	}
+
+	#create_account_btn_container {
+		width: 100%; 
+		text-align: center; 
+		margin-top: 25px;
+		height: 150px;
+	
+		INPUT {
+			margin-top: 5px;
+			width: 100px;
+		}
+
+		P {	
+			margin-bottom: 20px;
+			font-size: $font-size + 4;
+		}
+	}
+}
+
+#sessions_create {
+	H1 {
+		font-size: $font-size + 10;
+		margin-bottom: 10px;
+		padding: 10px;
+		text-align: center;
+		background-color: $color-wtf10;
+		border-bottom: 1px solid $color-wtf7;
+		color: $color-wtf;
+		font-weight: bold;
+	}
+
+	#submit_btns {
+		margin-top: 10px;
+	}
+
+	DIV.login_container {
+		padding: 10px;
+		width: 425px;
+	}
+
+	#create_account_btn_container {
+		width: 100%; 
+		text-align: center; 
+		margin-top: 25px;
+		height: 150px;
+
+		INPUT {
+			margin-top: 5px;
+			width: 100px;
+		}
+
+		P {	
+			margin-bottom: 20px;
+			font-size: $font-size + 4;
+		}
+	}
+}

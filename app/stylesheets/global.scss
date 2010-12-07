@@ -37,16 +37,19 @@ $color-wtf21: #2c2c2c;
 $color-wtf22: #505050;
 $color-wtf23: #f4ba2e;
 $color-wtf24: #009900;
+$color-wtf25: #090;
+$color-wtf26: #d7f4ff;
 
 $color-links: #EB5024;
 
-$font-size: 12px;
+$font-size: 14px;
 
 /* block elements need to be reset */
 html,body,p,div,img,h1,h2,h3,h4,dl,dd,dt,form,table,td,tr,form {
 	font-weight: normal;
-	font: $font-size verdana, arial, sans-serif;
+	font-family: Arial,'Trebuchet MS',Verdana;
 	color: $color-dark-grey;
+	font-size: $font-size;
 }
 
 @mixin rounded($radius) {
@@ -66,15 +69,6 @@ html,body,p,div,img,h1,h2,h3,h4,dl,dd,dt,form,table,td,tr,form {
 	width: $width;
 }
 
-/* Set defaults back for lists */
-ul, ol {
-	list-style-position: outside;
-	margin-left: 0; 
-	padding-left: 2.5em;
-}
-
-/* li,ul,ol */
-
 A {
 	@include link-colors(#3ea1bf, #3ea1bf, #3ea1bf, #3ea1bf, #3ea1bf);
 }
@@ -85,7 +79,7 @@ IMG {
 
 /* Global data table */
 TABLE.data {	
-	$table-color: #EEE;
+	$table-color: $color-lighter-grey;
 	@include table-scaffolding;
     @include inner-table-borders(1px, darken($table-color, 40%));
     @include outer-table-borders(1px);
@@ -99,7 +93,7 @@ TABLE.data {
 .clear {
 	clear: both;
 	font-size: 1px;
-	overflow:hidden;
+	overflow: hidden;
 }
 
 .center {
@@ -118,7 +112,11 @@ TABLE.data {
 	float: right;
 }
 
-/* end */
+#page_header {
+	font-size: $font-size + 4;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
 
 /* Generic notice messages */
 #messages {
@@ -148,30 +146,6 @@ TABLE.data {
 	}
 }
 
-/* end */
-
-
 #grande_header {
 	font-size: $font-size + 8;
-}
-
-.clearfix:after {
-	content: ".";
-	display: block;
-	clear: both;
-	visibility: hidden;
-	line-height: 0;
-	height: 0;
-}
- 
-.clearfix {
-	display: inline-block;
-}
- 
-html[xmlns] .clearfix {
-	display: block;
-}
- 
-* html .clearfix {
-	height: 1%;
 }

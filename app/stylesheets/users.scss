@@ -1,22 +1,113 @@
-@import "application";
+/* ??? */
 
-/* Common stuff */
-.terms {
-	font-size: $font-size - 2;
+#fp_pick_icon IMG {
+	@include size-set(40px, 40px);
 }
 
-.half {
-	width: 50%;
+#fp_check_icon IMG {
+	@include size-set(35px, 35px);
+	padding: 0 2px;
 }
 
-.orange {
-	font-weight: bold;
-	color: $color-orange;
+#fp_mail_icon IMG {
+	@include size-set(29px, 40px);
+}
+
+#fp_signup_form {
+	padding: 10px; 
+	background-color: $color-lighter-grey;
+	/* changed from 620px width to fit 1024x768 */
+	width: 580px;
+	@include min-height(350px);
+	border: 1px solid $color-wtf6;
+	margin-left: 185px;
+}
+
+DIV.form_field {
+	margin-top: 10px;
+
+	LABEL {
+		font-size: $font-size - 2;
+		font-weight: bold;
+		display: block;
+		margin-bottom: 2px;
+	}
+
+	#email_address {
+		font-size: $font-size + 10;
+		padding: 3px;
+		width: 350px;
+	}
+
+	#password {
+		font-size: $font-size + 10;
+		padding: 3px;
+		width: 350px;
+	}
+
+	.remember_me_container {
+		margin-top: 10px;
+	}
+
+	#confirm_password {
+		font-size: $font-size + 10;	
+	}
+}
+
+IMG.partner_logo {
+	@include size-set(60px, 60px);
+	margin-right: 15px;
+}
+
+SPAN.price_title {
+	/* float the span so we can give it width */
+	@include float-left;
+	width: 100px;
+}
+
+H1#page_title {
+	font-size: $font-size + 14;
+	color: $color-black;
+	margin: 10px 0;
 }
 /* end */
 
+#signup_products {
+	@include float-left;
+	margin-left: 5px;
+	width: 250px;
+}
+
+/* brands partial stuff */
+
+#brands {
+
+	.brand_letter {
+		font-weight: bold; 
+		font-size: $font-size + 4; 
+		margin-bottom: 5px;
+	}
+
+	.brand_container {
+		margin-bottom: 5px;
+	}
+}
+
+/* end */
+
+/* latest gear alert box style */
+#latest_gear_alert_header {
+	font-size: $font-size + 6;
+	color: $color-dark-grey;
+	margin-bottom: 20px;
+	font-weight: bold;
+	text-align: center;
+	margin-top: 10px;
+}
+
+/* end */
+
 #users_new {
-	/* This code here styles the body element only on the home page */
 	background-color: $color-wtf4;
 	background-repeat: repeat-x;
 	background-image: url('/images/bg_repeat_984.jpg');
@@ -56,14 +147,12 @@
 				border: 1px solid $color-more-grey;
 			}
 			.name {
-				font-size: $font-size; 
 				margin: 3px 0; 
 				font-weight: bold;
 			}
 
 			.price {
-				font-size: $font-size; 
-				color: #090; 
+				color: $color-wtf25; 
 				font-weight: bold;
 			}
 		}
@@ -71,29 +160,38 @@
 
 	#bg_img {
 		@include size-set(283px, 986px);
-		padding-top: 10px;
 	    background-image: url('/images/gb_home_blank_RGB_24.png');
 		margin-bottom: 10px;
+		padding-top: 10px;
 	}
 
 	#site_intro {
-		margin: 0px 0 10px 0;
+		margin-bottom: 10px;
 		text-align: center; 
 		font-size: $font-size + 8; 
-	}
 
-	H1 {
-		color: $color-white; 
-		font-size: 40px; 
-		padding: 0;
-		font-weight: bold;
-		margin-top: 20px;
-	}
+		H1 {
+			color: $color-white; 
+			font-size: 40px; 
+			font-weight: bold;
+			margin-top: 20px;
+		}
 
-	#brand_name {
-		font-size: 38px;
-		font-weight: bold;
-		margin: 20px 0;
+		#brand_name {
+			font-size: 38px;
+			font-weight: bold;
+			margin: 20px 0;
+		}
+		
+		#start_now {
+			padding: 8px 34px;
+			background-color: $color-wtf23;
+			color: $color-white;
+			border: none;
+			font-size: 26px;
+			font-weight: bold;
+			@include rounded(8px);
+		}
 	}
 
 	#register {
@@ -101,53 +199,16 @@
 		margin: 0 auto;
 	}
 
-	#start_now {
-		padding: 8px 34px;
-		background-color: $color-wtf23;
-		color: $color-white;
-		border: none;
-		font-size: 26px;
-		font-weight: bold;
-		@include rounded(8px);
-	}
-
 	#register:hover {
 		background-image: url('/images/signup_free_hover_btn.gif');	
 	}
 }
 
-#fp_pick_icon IMG {
-	@include size-set(40px, 40px);
-}
-
-#fp_check_icon IMG {
-	@include size-set(35px, 35px);
-	padding: 0 2px;
-}
-
-#fp_mail_icon IMG {
-	@include size-set(29px, 40px);
-}
-
-#fp_signup_form {
-	padding: 10px; 
-	background-color: $color-lighter-grey;
-	/* changed from 620px width to fit 1024x768 */
-	width: 580px;
-	@include min-height(350px);
-	border: 1px solid $color-wtf6;
-	margin-left: 185px;
-}
-
-/* end */
-
-/* users_signup */
-
+/* See http://wiki.recaptcha.net/index.php/How_to_change_reCAPTCHA_colors for styling the captcha */
 .recaptchatable .recaptcha_image_cell, #recaptcha_table {
   background-color: $color-wtf10 !important; //reCaptcha widget background color
 }
 
-/* See http://wiki.recaptcha.net/index.php/How_to_change_reCAPTCHA_colors for styling the captcha */
 #users_signup {
 	#recaptcha_container {
 		margin: 10px 0 10px 0;
@@ -183,7 +244,6 @@
 			color: $color-wtf;
 			font-size: $font-size + 6;
 			font-weight: bold;
-			@include mp-set(0);
 			text-align: left;
 		}
 
@@ -201,11 +261,10 @@
 	}
 
 	DIV.items {
-		margin: 15px 0px 15px 0px;
+		margin: 15px 0px;
 
 		H3 {
 			margin-bottom: 5px;
-			padding: 0;
 			font-size: $font-size + 8;
 			color: $color-wtf22;
 		}
@@ -219,205 +278,12 @@
 		font-size: $font-size - 2;
 	}
 }
-/* end */
 
-/* General login stuff */
-DIV.form_field {
-	margin-top: 10px;
-
-	LABEL {
-		font-size: $font-size - 2;
-		font-weight: bold;
-		display: block;
-		margin-bottom: 2px;
-	}
-
-	#email_address {
-		font-size: $font-size + 10;
-		padding: 3px;
-		width: 350px;
-	}
-
-	#password {
-		font-size: 22px;
-		padding: 3px;
-		width: 350px;
-	}
-
-	.remember_me_container {
-		font-size: 12px;
-		margin-top: 10px;
-	}
-
-	#confirm_password {
-		font-size: 22px;	
-	}
-}
-
-IMG.partner_logo {
-	@include size-set(60px, 60px);
-	margin-right: 15px;
-}
-
-SPAN.price_title {
-	/* float the span so we can give it width */
-	@include float-left;
-	width: 100px;
-}
-
-/* Generic page title */
-H1#page_title {
-	font-size: 26px;
-	color: $color-black;
-	margin-bottom: 10px;
-	margin-top: 10px;
-}
-/* end */
-
-#signup_products {
-	@include float-left;
-	margin-left: 5px;
-	width: 250px;
-}
-
-/* Invite terms */
-
-#misc_invite_terms {
-
-	H1 {
-		margin-bottom: 15px;
-	}
-
-	UL {
-		margin: 0;
-		padding-left: 20px;
-
-		LI {
-			list-style-type: disc;
-		}
-	}
-
-	OL LI {
-		list-style-type: decimal;
-	}
-
-	LI {
-		margin-bottom: 10px;
-		padding-left: 5px;
-		font-size: $font-size;
-	}
-}
-/* end */
-
-/* About us page */
-#misc_about {
-
-	H1 {
-		padding: 0; 
-		margin-bottom: 20px; 
-		font-size: $font-size + 10;
-		font-weight: bold;
-	}
-
-	H2 {
-		padding: 0;
-		margin: 10px 0;
-		font-weight: bold;
-		font-size: $font-size + 2;
-	}
-
-	P {
-		font-size: $font-size + 2;
-		margin: 15px 0;
-	}
-}
-/* end */
-
-/* Privacy */
-
-#misc_privacy {
-	H1 {
-		margin-bottom: 20px;
-		padding: 0;
-	}
-
-	H3 {
-		margin-bottom: 10px;
-		padding: 0;
-		font-weight: bold;
-	}
-
-	UL {
-		margin: 0 0 10px;
-	}
-
-	LI {
-		list-style-type: disc;
-		padding: 5px 0;
-	}
-
-	P {
-		margin-bottom: 10px;
-	}
-}
-/* end */
-
-/* FAQ */
-
-#misc_faq {
-	H1 {
-		padding: 0;
-		margin-bottom: 20px;
-	}
-
-	.faq_q {
-		font-size: $font-size + 4;
-		font-weight: bold;
-	}
-
-	.faq_a {
-		font-size: $font-size;
-		margin: 10px 0 20px 10px;
-	}
-}
-/* end */
-
-/* brands partial stuff */
-
-#brands {
-
-	.brand_letter {
-		font-weight: bold; 
-		font-size: $font-size + 4; 
-		margin-bottom: 5px;
-	}
-
-	.brand_container {
-		margin-bottom: 5px;
-	}
-}
-
-/* end */
-
-/* latest gear alert box style */
-#latest_gear_alert_header {
-	font-size: $font-size + 6;
-	color: $color-dark-grey;
-	margin-bottom: 20px;
-	font-weight: bold;
-	text-align: center;
-	margin-top: 10px;
-}
-
-/* User home page */
 #users_show {
 
-	.section_container H3 {
-		margin-bottom: 5px; 
+	H3 {
+		margin-bottom: 10px; 
 		border-bottom: 1px solid $color-dark-grey; 
-		font-size: $font-size + 4;
-		margin-bottom: 15px;
-		padding: 0;
 	}
 
 	.section_container {
@@ -425,10 +291,10 @@ H1#page_title {
 	}
 
 	.account_status {
-		font-size: 16px; 
+		font-size: $font-size + 4; 
 		margin-bottom: 15px; 
-		border: 1px solid $color-more-grey; 
 		padding: 10px;	
+		border: 1px solid $color-more-grey; 
 		text-align: center;
 	}
 
@@ -446,9 +312,8 @@ H1#page_title {
 		margin-bottom: 20px;
 
 		.item_title {
-			font-size: $font-size + 3;
 			padding-left: 10px;
-			margin-bottom: 3px;
+			margin-bottom: 5px;
 		}
 
 		.clear {
@@ -459,21 +324,16 @@ H1#page_title {
 			margin-bottom: 10px;
 			padding-left: 20px;
 			width: 375px;
+			font-size: $font-size - 2;
 		}
 
 		.items {
-			font-size: $font-size;
 			margin-left: 10px;
 		}
 
 		SPAN.no_alerts {
-			font-size: $font-size;
 			margin-left: 10px;
 		}
-	}
-
-	UL {
-		@include mp-set(0);
 	}
 
 	LI {
@@ -487,9 +347,6 @@ H1#page_title {
 
 	.title {
 		margin-bottom: 10px;
-		padding: 0;
-		font-weight: bold;
-		font-size: $font-size + 2;
 	}
 
 	#gift_card_container {
@@ -513,391 +370,271 @@ H1#page_title {
 
 /* end */ 
 
-/* Login page */
-#sessions_new {
-	H1 {
-		font-size: $font-size + 10;
-		margin-bottom: 10px;
-		padding: 10px;
-		text-align: center;
-		background-color: $color-wtf10;
-		border-bottom: 1px solid $color-wtf7;
-		color: $color-wtf;
-		font-weight: bold;
-	}
-
-	#submit_btns {
-		margin-top: 10px;
-		margin-bottom: 10px;
-	}
-
-	#submit_btns {
-		margin-top: 10px;
-		margin-bottom: 10px;	
-	}
-
-	DIV.login_container {
-		padding: 10px;
-		width: 425px;
-	}
-
-	#create_account_btn_container {
-		width: 100%; 
-		text-align: center; 
-		margin-top: 25px;
-		height: 150px;
-	
-		INPUT {
-			margin-top: 5px;
-			width: 100px;
-		}
-
-		P {	
-			margin-bottom: 20px;
-			font-size: $font-size + 4;
-		}
-	}
-}
-/* end */
-
-/* Login page */
-#sessions_create H1 {
-	font-size: $font-size + 10;
-	margin-bottom: 10px;
-	padding: 10px;
-	text-align: center;
-	background-color: $color-wtf10;
-	border-bottom: 1px solid $color-wtf7;
-	color: $color-wtf;
-	font-weight: bold;
-}
-
-#sessions_create #submit_btns {
-	margin-top: 10px;
-}
-
-#sessions_create #submit_btns {
-	margin-top: 10px;
-}
-
-#sessions_create DIV.login_container {
-	padding: 10px;
-	width: 425px;
-}
-
-#sessions_create #create_account_btn_container {
-	width: 100%; 
-	text-align: center; 
-	margin-top: 25px;
-	height: 150px;
-}
-
-#sessions_create #create_account_btn_container INPUT {
-	margin-top: 5px;
-	width: 100px;
-}
-
-#sessions_create #create_account_btn_container P {	
-	margin-bottom: 20px;
-	font-size: $font-size + 4;
-}
-/* end */
-
 /* Lost password */
-#users_lost_password #submit_btns {
-	margin-top: 10px;
-}
-/* end */
-
-/* User signup complete page */
-#users_signup_complete H1 {
-	font-size: $font-size + 14;
-	font-weight: bold;
-	margin-bottom: 20px;
-	padding: 0;
+#users_lost_password {
+	#submit_btns {
+		margin-top: 10px;
+	}
 }
 
-#users_signup_complete H2 {
-	margin-top: 15px;
-	font-size: $font-size + 10;
-	font-weight: normal;
-}
+#users_signup_complete {
+	H1 {
+		font-size: $font-size + 14;
+		font-weight: bold;
+		margin-bottom: 20px;
+	}
 
-#users_signup_complete H3 {
-	margin: 10px 0px 0px 25px;
-	font-size: 14px;
-	padding: 0;
-	font-weight: normal;
+	H2 {
+		margin-top: 15px;
+		font-size: $font-size + 10;
+		font-weight: normal;
+	}
+
+	H3 {
+		margin: 10px 0px 0px 25px;
+		font-size: $font-size + 2;
+		font-weight: normal;
+	}
 }
 
 /* Email preferences partial styling */
 #email_preferences_partial {
 	padding: 10;
+	
+	DIV {
+		margin-bottom: 20px;
+	}
 }
-
-#email_preferences_partial DIV {
-	margin-bottom: 20px;
-}
-
 /* end */
 
-/* managed products */
+#users_manage_products {
 
-#users_manage_products DIV.info {
-	margin-bottom: 25px; 
+	DIV.info {
+		margin-bottom: 25px; 
+	}
+
+	DIV.section_title {
+		font-size: $font-size + 4;
+		font-weight: bold;
+		margin-bottom: 10px;
+	}
+
+	#product_shit {
+		display: none;
+	}
+
+	#products {
+		width: 100%;
+	}
 }
-
-#users_manage_products DIV.section_title {
-	font-size: $font-size + 4;
-	font-weight: bold;
-	margin-bottom: 10px;
-}
-
-#users_manage_products #product_shit {
-	display: none;
-}
-
-#users_manage_products #products {
-	width: 100%;
-}
-
 /* end */
 
-/* HTML sitemap */
+#friends_invite_friends {
 
-#users_sitemap {}
+	H1 {
+		margin-bottom: 15px;
+		font-size: $font-size + 10;
+	}
 
-#users_sitemap #base_urls {
-	margin: 10px 0;
-}
+	H2 {
+		margin: 10px 0 20px;
+	}
 
-#users_sitemap #base_urls LI {
-	margin-bottom: 2px;
-}
+	H3 {
+		margin-bottom: 10px;
+		font-size: $font-size + 2;
+		font-weight: bold;
+	}
 
-/* end */
-
-#friends_invite_friends H1 {
-	margin-bottom: 15px;
-	padding: 0;
-	font-size: $font-size + 10;
-}
-
-#friends_invite_friends H2 {
-	margin: 10px 0 20px;
-	padding: 0;
-	font-size: $font-size;
-}
-
-#friends_invite_friends H3 {
-	margin: 0 0 10px 0;
-	padding: 0;
-	font-size: $font-size + 2;
-	font-weight: bold;
-}
-
-#friends_invite_friends #invited_friends {
-	margin-top: 10px;
-}
+	#invited_friends {
+		margin-top: 10px;
+	}
 	
-#friends_invite_friends #services {
-	margin-bottom: 5px;
-	padding: 0;
-	font-size: 12px;
-}
+	#services {
+		margin-bottom: 5px;
+		padding: 0;
 
-#friends_invite_friends #services A {
-	text-align: center;
-	text-decoration: none;
-}
+		A {
+			text-align: center;
+			text-decoration: none;
+			
+			&:hover {
+				color: $color-red;
+			}
+			
+			.selected {
+				color: black;
+				text-decoration: none;
+			}
+		}
+	}
 
-#friends_invite_friends #services A:hover {
-	color: $color-red;
-}
+	LABEL {
+		display: block;
+		font-size: $font-size - 2;
+		font-weight: bold;
+	}
+
+	#get_contacts_form TABLE TD {
+		padding: 5px;
+	}
+
+	#username {
+		font-size: $font-size + 4;
+		padding: 3px;
+	}
+
+	#password {
+		font-size: $font-size + 4;
+		padding: 3px;
+	}
+
+	#submit {
+		font-size: $font-size + 4;
+		padding: 3px;
+		margin-top: 5px;
+	}
+
+	#manual_invite_submit {
+		font-size: $font-size + 4;
+		padding: 3px;
+	}
+
+	INPUT.invite_hidden {
+		padding: 2px;
+		font-weight: bold;
+		margin: 10px 0;
+	}
+
+	#username, #friends_invite_friends #password {
+		width: 300px;
+	}
+
+	#friends_status {
+		margin-left: 10px;
+	}
+
+	#friends {
+		margin-top: 2px;
+		width: 100%;
+		border-collapse: collapse;
+		border: 1px solid $color-more-grey;
+
+		TD {
+			padding: 3px;
+		}
 	
-#friends_invite_friends #services A.selected {
-	color: black;
-	text-decoration: none;
-}
+		.select {
+			width: 10px;
+		}
 
-#friends_invite_friends LABEL {
-	display: block;
-	font-size: 10px;
-	font-weight: bold;
-}
-
-#friends_invite_friends #get_contacts_form TABLE TD {
-	padding: 5px;
-}
-
-#friends_invite_friends #username {
-	font-size: 16px;
-	padding: 3px;
-}
-
-#friends_invite_friends #password {
-	font-size: 16px;
-	padding: 3px;
-}
-
-#friends_invite_friends #submit {
-	font-size: 16px;
-	padding: 3px;
-}
-
-#friends_invite_friends #manual_invite_submit {
-	font-size: 16px;
-	padding: 3px;
-}
-
-INPUT.invite_hidden {
-	font-size: 12px;
-	padding: 2px;
-	font-weight: bold;
-}
-
-#friends_invite_friends INPUT.invite_hidden {
-	margin: 10px 0;
-}
-
-#friends_invite_friends #submit {
-	margin: 5px 0 0 0;
-}
-
-#friends_invite_friends #username, #friends_invite_friends #password {
-	width: 300px;
-}
-
-#friends_invite_friends #friends_status {
-	margin-left: 10px;
-}
-
-#friends_invite_friends #friends {
-	margin-top: 2px;
-	width: 100%;
-	border-collapse: collapse;
-	border: 1px solid $color-more-grey;
-}
-
-#friends_invite_friends #friends TD {
-	padding: 3px;
-}
-
-#friends_invite_friends #friends .select {
-	width: 10px;
-}
-
-#friends_invite_friends #friends .name {
-	width: 150px;
-}
+		.name {
+			width: 150px;
+		}
 	
-#friends_invite_friends #friends .table-tr-odd {
-	background-color: $color-darkest-grey;
-}
+		.table-tr-odd {
+			background-color: $color-darkest-grey;
+		}
+	}
 
-#friends_invite_friends #spinner {
-	height: 10px;
-}
+	#spinner {
+		height: 10px;
+	}
 
-#friends_invite_friends #friends_data {
-	@include size-set(300PX, 550px);
-	overflow: auto;
-}
+	#friends_data {
+		@include size-set(300PX, 550px);
+		overflow: auto;
+	}
 
-#friends_invite_friends #friends_container {
-	margin-top: 5px;
-}
+	#friends_container {
+		margin-top: 5px;
+	}
 
-#friends_invite_friends #loading, #thanks {
-	font-weight: bold;
-}
+	#loading, #thanks {
+		font-weight: bold;
+	}
 
-/* Text areas for personal invites */
-#friends_invite_friends .invite_textarea  {
-	@include size-set(90px, 340px);
-	padding: 5px;
-	font-size: 12px;
-}
+	/* Text areas for personal invites */
+	.invite_textarea  {
+		@include size-set(90px, 340px);
+		padding: 5px;
+	}
 
-#friends_invite_friends #manual_invite P {
-	font-size: 12px;
-	margin-bottom: 5px;
-}
+	#manual_invite P {
+		margin-bottom: 5px;
 
-#friends_invite_friends #manual_invite H3 {
-	font-size: 12px; 
-	padding: 0;
-	margin-bottom: 10px;
-	border: none;
-}
+		H3 {
+			margin-bottom: 10px;
+			border: none;
+		}
 
-#friends_invite_friends #manual_invite #manual_invite_submit {
-	display: block;
-	margin-top: 10px;
-}
+		#manual_invite_submit {
+			display: block;
+			margin-top: 10px;
+		}
+	}
 
-#friends_invite_friends #multi_select {
-	margin-bottom: 5px;
-}
+	#multi_select {
+		margin-bottom: 5px;
+	}
 
-/* Modal window stuff */
-#friends_invite_friends #contact_select_modal {
-	@include size-set(450px, 550px);
-	padding: 5px;
-    background-color: $color-white;
+	/* Modal window stuff */
+	#contact_select_modal {
+		@include size-set(450px, 550px);
+		padding: 5px;
+	    background-color: $color-white;
     
-    -moz-box-shadow: 0px 2px 4px rgba(0, 0, 0, .5); /* FF3.5+ */
-    -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, .5); /* Saf3.0+, Chrome */    
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, .5); /* Opera 10.5, IE 9.0 */
-    filter:  progid:DXImageTransform.Microsoft.dropshadow(OffX=0px, OffY=2px, Color='$color-dark-grey'); /* IE6,IE7 */
-    -ms-filter: "progid:DXImageTransform.Microsoft.dropshadow(OffX=0px, OffY=2px, Color='$color-dark-grey')"; /* IE8 */
+	    -moz-box-shadow: 0px 2px 4px rgba(0, 0, 0, .5); /* FF3.5+ */
+	    -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, .5); /* Saf3.0+, Chrome */    
+	    box-shadow: 0px 2px 4px rgba(0, 0, 0, .5); /* Opera 10.5, IE 9.0 */
+	    filter:  progid:DXImageTransform.Microsoft.dropshadow(OffX=0px, OffY=2px, Color='$color-dark-grey'); /* IE6,IE7 */
+	    -ms-filter: "progid:DXImageTransform.Microsoft.dropshadow(OffX=0px, OffY=2px, Color='$color-dark-grey')"; /* IE8 */
+	
+		.model-content {
+			@include size-set(450px, 550px);
+		    left: 10px;
+		    top: 10px;
+		    position: absolute;
+		}
+
+		.button {
+		    position: absolute;
+		    bottom: 10px;
+		    text-indent: -1000000px;
+		    outline: none;
+			
+			.ok {
+			    background-image: url(/images/ok.gif);
+				@include size-set(12px, 40px);
+			    right: 10px;
+			}
+
+			.cancel {
+			    background-image: url(/images/cancel.gif);
+				@include size-set(13px, 62px);	
+			    right: 60px;
+			}
+		}
+	}
+	
+	STRONG {
+		color: inherit;
+		font-weight: bold;
+	}
+
+	.show_message {
+		display: block;
+		margin: 5px 0;
+		font-size: $font-size - 2;
+	}
 }
 
-#frends_invite_friends #contact_select_modal .model-content {
-	@include size-set(450px, 550px);
-    left: 10px;
-    top: 10px;
-    position: absolute;
-}
-
-#contact_select_modal .button {
-    position: absolute;
-    bottom: 10px;
-    text-indent: -1000000px;
-    outline: none;
-}
-
-#contact_select_modal .button.ok {
-    background-image: url(/images/ok.gif);
-	@include size-set(12px, 40px);
-    right: 10px;
-}
-
-#contact_select_modal .button.cancel {
-    background-image: url(/images/cancel.gif);
-	@include size-set(13px, 62px);	
-    right: 60px;
-}
-
-#friends_invite_friends STRONG {
-	color: inherit;
-	font-weight: bold;
-}
-
-#friends_invite_friends .show_message {
-	display: block;
-	margin: 5px 0;
-	font-size: 10px;
-}
-
-/* users sales spot */
 #users_gear_bin {
 
 	#filter {
 		width: 175px;
 	
 		H3 {
-			font-size: 12px;
 			border-bottom: 1px solid $color-more-grey;
 			padding-bottom: 2px;
 			margin-bottom: 5px;
@@ -910,7 +647,6 @@ INPUT.invite_hidden {
 		}
 
 		LI {
-			font-size: 12px;
 			padding: 3px 0;
 		}
 	}
@@ -922,13 +658,10 @@ INPUT.invite_hidden {
 
 	H1 {
 		margin-bottom: 15px;
-		padding: 0;
 	}
 
 	H2 {
-		margin: 0;
 		padding-bottom: 2px;
-		font-size: 12px;
 		border-bottom: 1px solid $color-more-grey;
 		font-weight: bold;
 	}
@@ -942,9 +675,8 @@ INPUT.invite_hidden {
 	}
 
 	.products_row {
-		font-size: 12px;
-		margin: 0 0 20px 0;
-		padding: 5px 0 0 0;
+		margin-bottom: 20px;
+		padding-top: 5px;
 	}
 
 	.product {
@@ -970,46 +702,43 @@ INPUT.invite_hidden {
 		}
 
 		.name {
-			font-size: 10px;
+			font-size: $font-size - 2;
 			float: none;
 			height: 35px;
 		}
 
 		.retail {
-			font-size: 10px;
+			font-size: $font-size - 2;
 			color: $color-more-grey;
 			margin-bottom: 3px;
 		}
 
 		.sale {
-			font-size: 12px;
 			font-weight: bold;
 			float: none;
 			color: $color-wtf24;
 		}
 
 		.discount {
-			font-size: 12px;
 			font-weight: bold;	
 		}
 	}
 
 	.no_matches {
 		padding-left: 10px;
-		font-size: 12px;
 	}
 
 	.filter_section {
-		margin: 0 0 15px 0;
+		margin-bottom: 15px;
 	}
 
 	.item_label {
-		margin: 0 0 0 3px;
+		margin-left: 3px;
 		width: 130px;
 	}
 
 	LABEL {
-		font-size: 10px;
+		font-size: $font-size - 2;
 		text-decoration: underline;
 	
 		&:hover {
@@ -1023,28 +752,23 @@ INPUT.invite_hidden {
 	}
 
 	.toggle {
-		font-size: 10px;
+		font-size: $font-size - 2;
 	}
 
 	#see_more {
-		font-size: 10px;
+		font-size: $font-size - 2;
 	}
 }
 
-/* Change email */
-
 #users_account_preferences {
-	H1 {
-		@include mp-set(0);
-	}
-
+	
 	P {
 		margin: 10px 0;
 	}
 
 	.text_field {
 		padding: 5px;
-		font-size: 14px;
+		font-size: $font-size + 2;
 		width: 400px;
 	}
 
@@ -1054,7 +778,7 @@ INPUT.invite_hidden {
 
 	.price_field {
 		padding: 3px;
-		font-size: 14px;
+		font-size: $font-size + 2;
 		width: 75px;
 	}
 
@@ -1063,13 +787,11 @@ INPUT.invite_hidden {
 
 		LI {
 			@include float-left;
-			font-size: 12px;
 			margin-right: 10px;
 		}
 	}
 }
 
-/* Take a breather */
 #users_take_a_breather {
 	text-align: center;
 
@@ -1077,7 +799,7 @@ INPUT.invite_hidden {
 		border: 1px solid $color-more-grey;
 		color: $color-green;
 		padding: 10px;
-		margin: 0 0 15px;
+		margin-bottom: 15px;
 	}
 
 	H2 {
@@ -1086,8 +808,7 @@ INPUT.invite_hidden {
 
 	H3 {
 		margin-bottom: 10px;
-		padding: 0;
-		font-size: 14px;
+		font-size: $font-size + 2;
 	}
 
 	#submit_button {
@@ -1096,33 +817,30 @@ INPUT.invite_hidden {
 
 	#submit_button INPUT {
 		padding: 5px;
-		font-size: 16px;
+		font-size: $font-size + 4;
 	}
 }
 
-/* Deactivate page */
 #users_deactivate_account {
 	H1 {
 		margin-bottom: 10px;
-		padding: 0;
 	}
 
 	H3 {
-		font-size: 14px;
+		font-size: $font-size + 2;
 		margin-bottom: 10px;
-		padding: 0;
 	}
 
 	.dont_go_container {
 	
 		padding: 10px;
 		border: 1px solid $color-more-grey;
-		margin: 0 0 20px;
+		margin-bottom: 20px;
 	
 		H3 { font-weight: bold; }
 
 		INPUT {
-			font-size: 14px;
+			font-size: $font-size + 2;
 			padding: 5px;
 		}
 	}
@@ -1135,23 +853,16 @@ INPUT.invite_hidden {
 			
 		LI {
 			@include float-left;
-			font-size: 12px;
 			margin-right: 10px;
 		}
 	}
 }
-/* Blog roll */
+
 #users_gearguide {
 
-	H1 {
-		font-size: 20px;
-		@include mp-set(0);
-	}
-
 	H2 {
-		font-size: 14px;
+		font-size: $font-size + 2;
 		margin: 10px 0 20px;
-		padding: 0;
 	}
 	
 	.friend_row { margin-bottom: 30px; }
@@ -1176,17 +887,17 @@ INPUT.invite_hidden {
 			.friend_info {
 			
 				.name {
-					font-size: 14px;
+					font-size: $font-size + 2;
 					font-weight: bold;
 					margin: 0;
 				}
 				
 				.description {
-					font-size: 10px;
+					font-size: $font-size - 2;
 					margin: 5px 0;
 				}
 				
-				.url { font-size: 10px; }
+				.url { font-size: $font-size - 2; }
 			}
 		}
 	}

@@ -3,41 +3,13 @@
 @include sticky-footer(125px);
 
 HTML, BODY {
-	@include size-set(100%, 100%);
-	@include mp-set(0);
-	font-family: Arial,'Trebuchet MS',Verdana;
 	background-color: $color-wtf4;
-	font-size: $font-size + 2;
 	background-repeat: repeat-x;
 	background-image: url('/images/bg_repeat_common2.jpg');
 }
 
-H1, H2, H3, H4, TABLE, DIV, TD, TR, P, INPUT {
-	font-family: Arial,'Trebuchet MS',Verdana;
-	font-size: $font-size + 2;
-	color: $color-dark-grey;
-}
-
 #fb_multi_friend_selector, #fb_multi_friend_selector_wrapper {
 	background-color: $color-red;
-}
-
-H1 {
-	font-size: $font-size + 14;
-	padding-left: 5px;
-	padding-bottom: 5px;
-}
-
-H2 {
-	font-size: $font-size + 6;
-	padding-left: 5px;
-	padding-bottom: 5px;
-}
-
-H3 {
-	font-size: $font-size + 4;
-	padding-left: 20px;
-	padding-top: 10px;
 }
 
 STRONG {
@@ -70,6 +42,20 @@ INPUT {
 	visibility: hidden;
 }
 
+/* Common stuff */
+.terms {
+	font-size: $font-size - 2;
+}
+
+.half {
+	width: 50%;
+}
+
+.orange {
+	font-weight: bold;
+	color: $color-orange;
+}
+
 /* Box at the top of some of the product pages */
 .page_description_header {
 	background-color: $color-wtf10;
@@ -87,7 +73,6 @@ INPUT {
 		@include float-left;
 		margin: 2px;
 		@include rounded(5px);
-		font-size: $font-size;
 	
 		.selected {
 			background-color: $color-wtf3;
@@ -104,7 +89,6 @@ INPUT {
 		font-weight: bold;
 		text-align: left;
 		color: $color-black;
-		margin: 0;
 		padding: 0 0 5px 2px;
 	}
 
@@ -129,7 +113,6 @@ INPUT {
 	background-color: $color-wtf12; 
 	color: white; 
 	@include rounded(3px);	
-	font-size: $font-size;
 	text-decoration: none;
 	color: $color-white;
 
@@ -163,7 +146,6 @@ TABLE.gear_list {
 	TD {
 		width: 33%;
 		color: $color-wtf14;
-		font-size: $font-size;
 		padding: 8px;
 	}
 
@@ -184,16 +166,13 @@ SPAN.checkbox_select {
 
 #signup_status {
 	H3 {
-		font-size: $font-size;
 		color: $color-wtf15;
 		font-weight: bold;
 		text-align: left;
-		@include mp-set(0);
 	}
 
 	DIV.items {
 		margin: 5px 0 25px 0;
-		font-size: $font-size;
 
 		SPAN {
 			font-weight: bold;
@@ -207,8 +186,6 @@ SPAN.checkbox_select {
 		}
 	}
 }
-
-/* end */
 
 /* See http://ryanfait.com/resources/footer-stick-to-bottom-of-page/ for more footer info */
 #root {
@@ -232,7 +209,6 @@ SPAN.checkbox_select {
 			padding: 0 10px;
 		
 			.title {
-				font-size: $font-size + 3;
 				color: $color-wtf19;
 				font-weight: bold;
 				text-align: left;
@@ -255,13 +231,13 @@ SPAN.checkbox_select {
 	}
 
 	DIV {
-		color: white;
-		font-size: $font-size - 2;
 		text-align: left;
 	}
 
 	A {
 		text-decoration: none;
+		color: white;
+		font-size: $font-size - 4;
 		color: white;
 	}
 
@@ -269,7 +245,7 @@ SPAN.checkbox_select {
 		margin-top: 5px;
 	
 		A {
-			color: #d7f4ff;
+			color: $color-wtf26;
 		}
 	}
 }
@@ -284,7 +260,7 @@ SPAN.checkbox_select {
 		margin-top: 22px;
 
 		#logo {
-			margin: 0 0 0 5px;
+			margin-left: 5px;
 			@include float-left;
 
 			.logo_image {
@@ -301,7 +277,7 @@ SPAN.checkbox_select {
 
 	.nav_section {
 		@include float-left;
-		margin: 0 10px 0 0;
+		margin-right: 10px;
 	}
 
 	.nav_button {
@@ -313,12 +289,12 @@ SPAN.checkbox_select {
 		background-color: $color-wtf21;
 		padding: 5px 12px;
 		margin-left: 15px;
-		font-size: $font-size;
 		@include float-left;
 		color: #feffef;
 		border: 0;
 		font-weight: bold;
 		@include rounded(5px);
+		font-size: $font-size - 2;
 
 		&:hover { 
 			background-color: $color-wtf22; 
@@ -352,7 +328,6 @@ SPAN.checkbox_select {
 	@include size-set(24px, 985px);
 	margin-bottom: 10px;
 	padding-top: 14px;
-	font-size: $font-size;
 	background-color: $color-wtf5;
 	color: $color-more-grey;
 }
@@ -366,7 +341,6 @@ SPAN.checkbox_select {
 		font-weight: bold;
 	}
 }
-/* end */
 
 /* Style the recents product partial */
 #recent_products {
@@ -398,7 +372,6 @@ DIV.product_container {
 
 	.product_name {
 		font-weight: bold; 
-		font-size: $font-size;
 		margin-bottom: 5px;
 	}
 }
@@ -497,6 +470,9 @@ DIV.product_container {
 	font-size: $font-size + 2;
 	color: $color-black;
 	font-weight: bold;
-	padding: 0;
 	margin-bottom: 10px;
 }
+
+@import "users";
+@import "sessions";
+@import "misc";

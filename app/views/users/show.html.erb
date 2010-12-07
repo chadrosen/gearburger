@@ -29,8 +29,8 @@
 		<div class="title">Invite your friends, Win $10!</div>
 		<div id="gift_card_container">	
 			<p>
-				<%= link_to "Win a $10 BackCountry.com gift certificate", invite_friends_url %> when <span class="orange">10</span> 
-				of your invited friends activate an account.
+				<%= link_to "Win a $10 BackCountry.com gift certificate", invite_friends_url %> 
+				when <span class="orange">10</span> of your invited friends activate an account.
 			</p>
 			<%- if @registered_friends == 1 -%>
 				<p><span class="orange"><%= @registered_friends %></span> friend has activated their account</p>
@@ -60,9 +60,9 @@
 		<div class="item_group">
 			<div class="item_title">
 				<%= link_to "Brands", item_edit_url("brands") %>
-				<div class="data">
-					<span class="items"><%= @brands %> brands monitored</span>
-				</div>
+			</div>
+			<div class="data">
+				<span class="items"><%= @brands %> brands monitored</span>
 			</div>
 		</div>
 	</div>
