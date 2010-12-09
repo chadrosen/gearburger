@@ -17,25 +17,6 @@ STRONG {
 	font-weight: bold;
 }
 
-INPUT {
-	background-color: $color-white;
-	color: $color-dark-grey;
-	border: 1 solid $color-wtf11;
-	font-size: $font-size + 10;
-	font-weight: normal;
-	font-color: $color-black;
-
-	.submit {
-		background-color: $color-wtf8;
-		color: $color-white;
-		padding: 0;
-		border: 2px solid $color-wtf9;
-		@include size-set(30px, 65px);
-		font-size: $font-size + 2;
-		@include rounded(5px);
-	}
-}
-
 /* Common elements across the site */
 
 .hidden {
@@ -335,11 +316,7 @@ SPAN.checkbox_select {
 /* Style the submit button / cancel partial */
 #submit_section {
 	margin-top: 15px;
-	
-	#submit_cancel {
-		font-size: $font-size + 4;
-		font-weight: bold;
-	}
+	font-size: $font-size - 2;
 }
 
 /* Style the recents product partial */

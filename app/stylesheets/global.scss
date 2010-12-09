@@ -1,6 +1,7 @@
 @import "compass";
 @import "compass/reset";
 @import "compass/layout";
+@import "blueprint/buttons";
 
 $color-black : #000;
 $color-more-grey: #999;
@@ -67,6 +68,25 @@ html,body,p,div,img,h1,h2,h3,h4,dl,dd,dt,form,table,td,tr,form {
 @mixin size-set($height, $width) {
 	height: $height;
 	width: $width;
+}
+
+INPUT {
+	background-color: $color-white;
+	color: $color-dark-grey;
+	border: 1 solid $color-wtf11;
+	font-size: $font-size + 10;
+	font-weight: normal;
+	font-color: $color-black;
+	@include rounded(3px);
+}
+
+INPUT[type="button"], INPUT[type="submit"] {
+	@include button-button;
+	background-color: $color-wtf23;
+	color: $color-white;
+	border: none;
+	@include rounded(3px);
+	font-size: $font-size - 2;
 }
 
 A {

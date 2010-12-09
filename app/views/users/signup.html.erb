@@ -16,8 +16,12 @@
 		</div>
 
 		<div class="items" id="categories">
-			<h3>Categories <span class="checkbox_select">
-				<a href="#" class="check_all">check all</a> | <a href="#" class="uncheck_all">uncheck all</a></span>
+			<h3>
+				Categories 
+				<span class="checkbox_select">
+					<a href="#" class="check_all">check all</a>
+					 | <a href="#" class="uncheck_all">uncheck all</a>
+				</span>
 			</h3>
 			<%= render :partial => "users/categories", 
 				:locals => { :categories => @cat_list, :selected => @selected_c } %>

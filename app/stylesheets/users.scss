@@ -130,12 +130,12 @@ H1#page_title {
 	#about_gb {
 		font-size: $font-size + 8; 
 		font-weight: bold; 
-		margin: 3px 0;
+		margin: 15px 0;
 	}
 
 	#products {
 		@include inline-block-list-container;
-		margin-top: 10px;
+		margin-top: 20px;
 	
 		.product {
 			@include inline-block-list-item;
@@ -146,7 +146,9 @@ H1#page_title {
 				background-color: $color-white; 
 				border: 1px solid $color-more-grey;
 			}
+			
 			.name {
+				font-size: $font-size - 2;
 				margin: 3px 0; 
 				font-weight: bold;
 			}
@@ -154,6 +156,7 @@ H1#page_title {
 			.price {
 				color: $color-wtf25; 
 				font-weight: bold;
+				font-size: $font-size - 2;
 			}
 		}
 	}
@@ -174,7 +177,7 @@ H1#page_title {
 			color: $color-white; 
 			font-size: 40px; 
 			font-weight: bold;
-			margin-top: 20px;
+			margin-top: 30px;
 		}
 
 		#brand_name {
@@ -214,17 +217,6 @@ H1#page_title {
 		margin: 10px 0 10px 0;
 	}
 
-	#manual_signup_form INPUT {
-		width: 250px;
-		font-size: $font-size + 2;
-		padding: 3px;
-	}
-
-	#title {
-		color: $color-orange;
-		font-size: $font-size + 6;
-	}
-
 	.unselected {
 		color: $color-darkest-grey;
 	}
@@ -232,9 +224,12 @@ H1#page_title {
 	#submit_btns {
 		margin-top: 15px;
 	}
+		
+	#categories A {
+		font-size: $font-size - 4;
+	}
 
 	.step {
-		font-size: $font-size + 4;
 		margin-bottom: 10px;
 		padding: 5px 15px;
 		border-bottom: 1px solid $color-wtf7;
@@ -242,16 +237,9 @@ H1#page_title {
 
 		H3 {
 			color: $color-wtf;
-			font-size: $font-size + 6;
-			font-weight: bold;
-			text-align: left;
-		}
-
-		P {
-			color: $color-wtf;
 			font-size: $font-size + 2;
+			font-weight: bold;	
 		}
-
 	}
 
 	#email_address {
@@ -265,7 +253,7 @@ H1#page_title {
 
 		H3 {
 			margin-bottom: 5px;
-			font-size: $font-size + 8;
+			font-size: $font-size;
 			color: $color-wtf22;
 		}
 	}
@@ -490,14 +478,7 @@ H1#page_title {
 	}
 
 	#submit {
-		font-size: $font-size + 4;
-		padding: 3px;
 		margin-top: 5px;
-	}
-
-	#manual_invite_submit {
-		font-size: $font-size + 4;
-		padding: 3px;
 	}
 
 	INPUT.invite_hidden {
@@ -814,11 +795,6 @@ H1#page_title {
 	#submit_button {
 		margin: 10px 0 0;
 	}
-
-	#submit_button INPUT {
-		padding: 5px;
-		font-size: $font-size + 4;
-	}
 }
 
 #users_deactivate_account {
@@ -838,11 +814,6 @@ H1#page_title {
 		margin-bottom: 20px;
 	
 		H3 { font-weight: bold; }
-
-		INPUT {
-			font-size: $font-size + 2;
-			padding: 5px;
-		}
 	}
 
 	#email { width: 250px; }
