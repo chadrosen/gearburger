@@ -1,6 +1,6 @@
-<h1>Thank you so much for using Gear Burger!<h1>
+<h1 id="page_header">Thank you so much for using Gear Burger!<h1>
 	
-<h3>Did you know you could...</h3>
+<h2>Did you know you could...</h2>
 
 <div class="dont_go_container">
 	<h3>Take a Breather</h3>
@@ -35,19 +35,20 @@
 <% end %>
 
 <%= form_for :user, deactivate_account_url do |f| %>
-
-	<h3>If you still wish to unsubscribe...</h3>
+	<div class="dont_go_container">
+		<h3>If you still wish to unsubscribe...</h3>
 	
-	<div style="font-size: 12px; margin-top: 15px; margin-bottom: 2px;">
-		Why you're leaving
-	</div>
+		<div style="font-size: 12px; margin-top: 15px; margin-bottom: 2px;">
+			Why you're leaving
+		</div>
 	
-	<div id="reason_container">
-		<textarea style="width: 400px; height: 100px;" id="reason" name="reason"></textarea>
-	</div>
+		<div id="reason_container">
+			<textarea style="width: 400px; height: 100px;" id="reason" name="reason"></textarea>
+		</div>
 	
-	<div style="margin-top: 15px;">
-		<input type="submit" value="Unsubscribe" class="button"/>
-		 or <%= link_to "What was I thinking.. I love Gear Burger!", user_url(@current_user) %>
+		<div style="margin-top: 15px;">
+			<input type="submit" value="Unsubscribe" class="button"/>
+			 or <%= link_to "What was I thinking.. I love Gear Burger!", user_url(@current_user) %>
+		</div>
 	</div>
 <% end %>

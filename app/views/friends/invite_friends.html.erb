@@ -1,4 +1,4 @@
-<h1>Invite your friends to Gear Burger and win Backcountry.com gift cards!</h1>
+<h1 id="page_header">Invite your friends to Gear Burger and win Backcountry.com gift cards!</h1>
 
 <h2>
 	Win a $10 BackCountry.com gift certificate when 10 of your invited friends activate an account. 
@@ -8,11 +8,10 @@
 <%= render :partial => "/application/errors" %>
 
 
-<div class="left" style="width: 450px;">
+<div class="left" style="width: 400px;">
 
 	<div id="services">
-		<strong>Select your email, enter your username password, and select your friends</strong>
-		<br/><br/>
+		<p>Enter your email and password. Then select your friends</p>
 		<a href="#" class="selected" id="gmail">Gmail</a>
 		| <a href="#" id="yahoo">Yahoo</a>
 		| <a href="#" id="hotmail">Hotmail</a>
@@ -43,7 +42,7 @@
 </div>
 
 <div class="left" id="manual_invite">
-	<p><strong>Or, enter their email addresses below. Separate emails with commas or new lines.</strong></p>
+	<p>Or, enter their email addresses below. Separate emails with commas or new lines.</p>
 	<%= form_tag("/invite_friends", :id => "manual_invite_form") do %>
 		<%= text_area_tag 'friend', "", :id => "manual_invite_text", :class => "invite_textarea" %>
 		<a id="manual_message_show" class="show_message" href="#">Add a personalized message to your friends</a>

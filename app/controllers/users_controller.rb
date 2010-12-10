@@ -6,8 +6,8 @@ class UsersController < ApplicationController
   # Protect every action using login except for the actions below
   before_filter :protect_login, :only => [:show, :toggle_newsletter, :brands,
     :brands_submit, :categories, :categories_submit, :departments, :departments_submit,
-    :resend_activation_email, :deactivate_account, :reactivate_account, 
-    :signup_complete, :sale_spot, :account_preferences, :account_preferences_submit]
+    :resend_activation_email, :deactivate_account, :reactivate_account, :take_a_breather, 
+    :signup_complete, :sale_spot, :account_preferences, :account_preferences_submit, :change_password]
             
   # Pre-populate the signup pages
   before_filter :get_departments, :only => [:signup, :departments, :create]
@@ -177,7 +177,7 @@ class UsersController < ApplicationController
     flash[:notice] = "Your account has been reactivated and will start to receive alerts again"
     redirect_to(user_url(current_user))    
   end
-                
+             
   def change_password_submit
     
     # Change the user's password

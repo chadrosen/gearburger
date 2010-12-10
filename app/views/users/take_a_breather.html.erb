@@ -4,7 +4,7 @@
 </div>
 <% end %>
 
-<h1>Take a Breather</h1>
+<h1 id="page_header">Take a Breather</h1>
 
 <% if @current_user.state == :break %>
 	<h2>You are currently taking a breather until <%= @current_user.break_ends_at.strftime("%B %d, %Y") %></h2>

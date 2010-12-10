@@ -34,23 +34,19 @@ DIV.form_field {
 	}
 
 	#email_address {
-		font-size: $font-size + 10;
+		font-size: $font-size + 6;
 		padding: 3px;
-		width: 350px;
+		width: 300px;
 	}
 
-	#password {
-		font-size: $font-size + 10;
+	#password, #confirm_password {
+		font-size: $font-size + 6;
 		padding: 3px;
-		width: 350px;
+		width: 300px;
 	}
 
 	.remember_me_container {
 		margin-top: 10px;
-	}
-
-	#confirm_password {
-		font-size: $font-size + 10;	
 	}
 }
 
@@ -65,11 +61,6 @@ SPAN.price_title {
 	width: 100px;
 }
 
-H1#page_title {
-	font-size: $font-size + 14;
-	color: $color-black;
-	margin: 10px 0;
-}
 /* end */
 
 #signup_products {
@@ -419,13 +410,8 @@ H1#page_title {
 
 #friends_invite_friends {
 
-	H1 {
-		margin-bottom: 15px;
-		font-size: $font-size + 10;
-	}
-
 	H2 {
-		margin: 10px 0 20px;
+		margin: 10px 0 25px;
 	}
 
 	H3 {
@@ -437,6 +423,12 @@ H1#page_title {
 	#invited_friends {
 		margin-top: 10px;
 	}
+
+	P {
+		font-weight: normal;
+		font-size: $font-size - 2;
+		margin-bottom: 5px;
+	}
 	
 	#services {
 		margin-bottom: 5px;
@@ -445,36 +437,32 @@ H1#page_title {
 		A {
 			text-align: center;
 			text-decoration: none;
+			font-size: $font-size - 2;
 			
 			&:hover {
 				color: $color-red;
-			}
-			
-			.selected {
-				color: black;
-				text-decoration: none;
-			}
+			}			
 		}
+		
+		A.selected {
+			color: $color-dark-grey;
+			text-decoration: none;
+		}
+		
 	}
 
 	LABEL {
 		display: block;
-		font-size: $font-size - 2;
+		font-size: $font-size - 4;
 		font-weight: bold;
 	}
 
 	#get_contacts_form TABLE TD {
 		padding: 5px;
 	}
-
-	#username {
-		font-size: $font-size + 4;
-		padding: 3px;
-	}
-
-	#password {
-		font-size: $font-size + 4;
-		padding: 3px;
+	
+	#username, #password {
+		width: 300px;
 	}
 
 	#submit {
@@ -485,10 +473,6 @@ H1#page_title {
 		padding: 2px;
 		font-weight: bold;
 		margin: 10px 0;
-	}
-
-	#username, #friends_invite_friends #password {
-		width: 300px;
 	}
 
 	#friends_status {
@@ -503,6 +487,7 @@ H1#page_title {
 
 		TD {
 			padding: 3px;
+			font-size: $font-size - 2;
 		}
 	
 		.select {
@@ -523,12 +508,8 @@ H1#page_title {
 	}
 
 	#friends_data {
-		@include size-set(300PX, 550px);
+		@include size-set(300px, 520px);
 		overflow: auto;
-	}
-
-	#friends_container {
-		margin-top: 5px;
 	}
 
 	#loading, #thanks {
@@ -557,11 +538,12 @@ H1#page_title {
 
 	#multi_select {
 		margin-bottom: 5px;
+		font-size: $font-size - 2;
 	}
 
 	/* Modal window stuff */
 	#contact_select_modal {
-		@include size-set(450px, 550px);
+		@include size-set(450px, 530px);
 		padding: 5px;
 	    background-color: $color-white;
     
@@ -572,7 +554,7 @@ H1#page_title {
 	    -ms-filter: "progid:DXImageTransform.Microsoft.dropshadow(OffX=0px, OffY=2px, Color='$color-dark-grey')"; /* IE8 */
 	
 		.model-content {
-			@include size-set(450px, 550px);
+			@include size-set(500px, 530px);
 		    left: 10px;
 		    top: 10px;
 		    position: absolute;
@@ -581,28 +563,11 @@ H1#page_title {
 		.button {
 		    position: absolute;
 		    bottom: 10px;
-		    text-indent: -1000000px;
+		    text-indent: 0;
 		    outline: none;
-			
-			.ok {
-			    background-image: url(/images/ok.gif);
-				@include size-set(12px, 40px);
-			    right: 10px;
-			}
-
-			.cancel {
-			    background-image: url(/images/cancel.gif);
-				@include size-set(13px, 62px);	
-			    right: 60px;
-			}
-		}
+		}		
 	}
 	
-	STRONG {
-		color: inherit;
-		font-weight: bold;
-	}
-
 	.show_message {
 		display: block;
 		margin: 5px 0;
@@ -620,6 +585,7 @@ H1#page_title {
 			padding-bottom: 2px;
 			margin-bottom: 5px;
 			font-weight: bold;
+			font-size: $font-size - 2;
 		}
 
 		UL {
@@ -697,6 +663,7 @@ H1#page_title {
 		.sale {
 			font-weight: bold;
 			float: none;
+			font-size: $font-size - 2;
 			color: $color-wtf24;
 		}
 
@@ -798,13 +765,15 @@ H1#page_title {
 }
 
 #users_deactivate_account {
-	H1 {
+
+	H2 {
+		font-size: $font-size;
 		margin-bottom: 10px;
 	}
-
+	
 	H3 {
-		font-size: $font-size + 2;
-		margin-bottom: 10px;
+		font-size: $font-size - 2;
+		margin-bottom: 3px;
 	}
 
 	.dont_go_container {

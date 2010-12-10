@@ -121,7 +121,13 @@
 						</tr>
 						<tr>
 							<td><%= link_to "Account Preferences", account_preferences_url %></td>
-							<td></td>
+							<td>
+								<% if @current_user %>
+								&nbsp;
+								<% else %>
+								<%= link_to "Lost Password", lost_password_url %>
+								<% end %>
+							</td>
 						</tr>
 						
 					</table>
@@ -186,26 +192,24 @@ document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.
 		
 		<div id="login_modal_form" class="hidden">
 			<div class="left">
-				<h3>Log into your Gear Burger account</h3>
 				<%= form_tag login_url do -%>
-					<div class="form_field">
+					<div>
 						<%= label_tag 'email' %>
 						<%= text_field_tag "email", @email, {:class => "email", :maxLength => 100} %>
 					</div>
-					<div class="form_field">
+					<div>
 						<%= label_tag 'Password' %>
 						<%= password_field_tag 'password', nil, {:class => "password", :maxLength => 40} %>
 					</div>
-					<div class="remember_me_container">
+					<div id="rm_container">
 						<%= check_box_tag 'remember_me', '1', @remember_me %> Remember me
 					</div>
 					<%= hidden_field_tag "u", @next_url %>
 					<%= submit_tag "Login", {:class => "submit"} %>
-					or <fb:login-button onlogin="after_fb_login('/fb_login');" background="dark" perms="email">
+					<fb:login-button onlogin="after_fb_login('/fb_login');" background="dark" perms="email">
 						<fb:intl>Connect</fb:intl>
 					</fb:login-button>
 				<% end -%>
-				<%= link_to "Lost password", lost_password_url %>
 			</div>
 			<div class="left" id="get_started">
 				<h3>Create a new Gear Burger account</h3>

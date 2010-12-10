@@ -108,9 +108,8 @@ STRONG {
 }
 
 DIV.title {
-	color:$color-dark-grey;
-	margin-bottom: 10px;
-	margin-top: 10px;
+	color: $color-dark-grey;
+	margin: 3px 0;
 }
 
 .input_field {
@@ -123,14 +122,15 @@ TABLE.gear_list {
 	padding-left: 10px;
 	width: 100%;
 	border-top: 1px solid $color-wtf13;
-
+	
 	TD {
 		width: 33%;
 		color: $color-wtf14;
 		padding: 8px;
+		font-size: $font-size - 2;
 	}
 
-	NPUT {
+	INPUT {
 		margin-right: 5px;
 	}
 
@@ -378,7 +378,6 @@ DIV.product_container {
 		left: 10px;
 		top: 10px;
 		position: absolute;
-		padding: 5px;
 	}
 
 	.button {
@@ -386,18 +385,9 @@ DIV.product_container {
 		bottom: 10px;
 		text-indent: -1000000px;
 		outline: none;
-		.ok {
-			background-image: url(/images/ok.gif);
-			@include size-set(12px, 40px);
-			right: 10px;
-		}
-		
-		.cancel {
-			background-image: url(/images/cancel.gif);
-			@include size-set(13px, 62px);
-			right: 60px;
-		}
 	}
+	.ok { right: 10px; }		
+	.cancel { right: 60px; }
 }
 
 /* Login modal that appears on every page while not logged in */
@@ -405,31 +395,35 @@ DIV.product_container {
 #login_modal {
 	@include size-set(235px, 600px);
 
+	H3 {
+		font-size: $font-size;
+		font-weight: bold;
+		margin-bottom: 10px;
+	}
+
 	LABEL {
 		display: block;
-		font-size: $font-size - 2;
+		font-size: $font-size - 4;
 		font-weight: bold;
-		margin-bottom: 3px;
+		margin-bottom: 2px;
 	}
 
 	.submit {
 		margin: 5px 0;
 	}
 
-	.form_field INPUT {
-		width: 200px;
+	.email, .password {
+		width: 240px;
 		padding: 3px;
-		font-size: $font-size + 2;
 	}
 
-	.button {
-		ok {
-			visibility: hidden;
-		}
+	.ok {
+		visibility: hidden;
+	}
 
-		.cancel {
-			right: 10px;
-		}
+	.cancel {
+		right: 10px;
+		text-indent: 0;
 	}
 
 	#get_started {
@@ -441,13 +435,11 @@ DIV.product_container {
 			margin-top: 10px;
 		}
 	}
-}
-
-#login_modal_form H3 {
-	font-size: $font-size + 2;
-	color: $color-black;
-	font-weight: bold;
-	margin-bottom: 10px;
+	
+	#rm_container {
+		margin: 5px 0 20px;
+		font-size: $font-size - 2;
+	}
 }
 
 @import "users";

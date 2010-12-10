@@ -74,7 +74,8 @@ INPUT {
 	background-color: $color-white;
 	color: $color-dark-grey;
 	border: 1 solid $color-wtf11;
-	font-size: $font-size + 10;
+	font-size: $font-size + 2;
+	padding: 3px;
 	font-weight: normal;
 	font-color: $color-black;
 	@include rounded(3px);
@@ -82,11 +83,28 @@ INPUT {
 
 INPUT[type="button"], INPUT[type="submit"] {
 	@include button-button;
-	background-color: $color-wtf23;
-	color: $color-white;
-	border: none;
-	@include rounded(3px);
-	font-size: $font-size - 2;
+	background-color: whiteSmoke;
+	border-color: #EEE #DEDEDE #DEDEDE #EEE;
+	border-style: solid;
+	border-width: 1px;
+	color: #565656;
+	font-weight: bold;
+	line-height: 130%;
+	margin: 0.7em 0.5em 0.7em 0px;
+	padding: 5px 10px 5px 7px;
+	text-decoration: none;
+		
+	&:hover {
+		background-color: #DFF4FF;
+		border-color: #D2F1FF #C2E1EF #C2E1EF #D2F1FF;
+		color: #369;	
+	}
+	
+	&:active {
+		background-color: #6299C5;
+		border-color: #72A9D5 #6299C5 #6299C5 #72A9D5;
+		color: white;	
+	}	
 }
 
 A {

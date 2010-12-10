@@ -66,22 +66,22 @@ var onload_contests_index = function() {
 };
 
 var onload_users_categories = function() {
-	var c = $('page_title').getElement(".check_all");
-	var u = $('page_title').getElement(".uncheck_all");
+	var c = $('page_header').getElement(".check_all");
+	var u = $('page_header').getElement(".uncheck_all");
 	var cbs = $('categories').getElements("INPUT");
 	add_check_all(c, u, cbs);
 };
 
 var onload_users_brands = function() {
-	var c = $('page_title').getElement(".check_all");
-	var u = $('page_title').getElement(".uncheck_all");
+	var c = $('page_header').getElement(".check_all");
+	var u = $('page_header').getElement(".uncheck_all");
 	var cbs = $('brands').getElements("INPUT");
 	add_check_all(c, u, cbs);
 };
 
 var onload_users_departments = function() {
-	var c = $('page_title').getElement(".check_all");
-	var u = $('page_title').getElement(".uncheck_all");
+	var c = $('page_header').getElement(".check_all");
+	var u = $('page_header').getElement(".uncheck_all");
 	var cbs = $('departments').getElements("INPUT.departments");
 	add_check_all(c, u, cbs);
 };
