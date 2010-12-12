@@ -49,6 +49,16 @@ H2 {
 	height: 25px;
 }
 
+#stats_index {
+	UL {
+		margin: 10px 0 0 10px;
+	}
+	
+	LI {
+		margin: 5px 0 0 10px;
+	}
+}
+
 /* Stats summary page */
 #stats_summary H3 {
 	margin: 15px 0;
