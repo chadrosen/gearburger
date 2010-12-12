@@ -58,28 +58,5 @@ module Admin
       @products = Product.paginate :conditions => [sql, @start_date.getutc, @end_date.getutc], 
         :page => page, :per_page => @limit
     end
-
-    def product_changes
-
-      @start_date, @end_date = Stats::get_date_range_from_strings(:start_date => params[:start_date], 
-        :end_date => params[:end_date])
-            
-      sql = "price_changed_at BETWEEN ? AND ?"
-      sql += params[:sale_eq_previous] ? " AND sale_price = previous_sale_price" : " AND sale_price != previous_sale_price" 
-      sql += params[:retail_eq_sale] ? " AND retail_price = sale_price" : " AND retail_price != sale_price"
-            
-      page = params[:page] || 1
-      @pp = Product.paginate :conditions => [sql, @start_date.getutc, @end_date.getutc],
-        :page => page, :per_page => 50, :order => "(retail_price - sale_price) DESC"
-    end
-  
-    def product_prices
-      @start_date, @end_date = Stats::get_date_range_from_strings(:start_date => params[:start_date], 
-        :end_date => params[:end_date])
-        
-      page = params[:page] || 1
-      @prices = ProductPrice.paginate :order => "created_at DESC", :page => page, :per_page => 50,
-        :conditions => ["product_id = ? AND created_at BETWEEN ? AND ?", params[:id], @start_date.getutc, @end_date.getutc]
-    end
   end
 end

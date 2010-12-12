@@ -95,10 +95,8 @@ Gearburger::Application.routes.draw do
     resources :products do
       member do 
         get "feed_results" 
-        get "product_prices"
       end 
       collection do
-        get "product_changes"
         get "validation_results"
       end
     end

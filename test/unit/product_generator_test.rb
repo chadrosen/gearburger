@@ -186,11 +186,7 @@ class ProductGeneratorTest < ActiveSupport::TestCase
     # Sanity
     assert_equal product.retail_price, "10.0".to_d
     assert_equal product.sale_price, "10.0".to_d
-    
-    # Product price info
-    assert_equal product.product_prices.length, 1 # There should only be one record
-    assert_equal product.product_prices[0].price, "10.0".to_d
-    
+        
     # New products are always marked as new product price changes
     assert product.price_changed_at, Date.today
   end
@@ -209,11 +205,7 @@ class ProductGeneratorTest < ActiveSupport::TestCase
     # Sanity
     assert_equal p2.retail_price, "10.0".to_d
     assert_equal p2.sale_price, "10.0".to_d
-    
-    # Product prices
-    assert_equal product.product_prices.length, 1 # There should still only be one record
-    assert_equal product.product_prices[0].price, "10.0".to_d
-    
+        
     assert_equal @pg.stats[:price_changes], 0
   end
   
@@ -231,12 +223,7 @@ class ProductGeneratorTest < ActiveSupport::TestCase
     # Sanity
     assert_equal p2.retail_price, "10.0".to_d
     assert_equal p2.sale_price, "9.0".to_d
-    
-    # Product prices
-    assert_equal p2.product_prices.length, 2 # There should be two records now
-    assert_equal p2.product_prices[0].price, "10.0".to_d
-    assert_equal p2.product_prices[1].price, "9.0".to_d    
-    
+        
     assert_equal @pg.stats[:price_changes], 1
     
   end
@@ -275,7 +262,6 @@ class ProductGeneratorTest < ActiveSupport::TestCase
             
     assert_not_nil p3
     assert p3.price_changed_at, Date.today
-    assert_equal p3.product_prices.length, 2
   end
   
   def test_product_same_day_update
@@ -293,7 +279,6 @@ class ProductGeneratorTest < ActiveSupport::TestCase
         
     assert_not_nil p
     assert_equal p.price_changed_at.to_i, t2.to_i
-    assert_equal p.product_prices.length, 2
     assert_equal p.sale_price, 9.0.to_d
   end 
   

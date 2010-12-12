@@ -10,19 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101129062905) do
-
-  create_table "alternatives", :force => true do |t|
-    t.integer "experiment_id"
-    t.string  "content"
-    t.string  "lookup",        :limit => 32
-    t.integer "weight",                      :default => 1
-    t.integer "participants",                :default => 0
-    t.integer "conversions",                 :default => 0
-  end
-
-  add_index "alternatives", ["experiment_id"], :name => "index_alternatives_on_experiment_id"
-  add_index "alternatives", ["lookup"], :name => "index_alternatives_on_lookup"
+ActiveRecord::Schema.define(:version => 20101212191806) do
 
   create_table "brands", :force => true do |t|
     t.string   "name",                          :null => false
@@ -124,15 +112,6 @@ ActiveRecord::Schema.define(:version => 20101129062905) do
   add_index "email_day_preferences", ["day_of_week"], :name => "index_email_day_preferences_on_day_of_week"
   add_index "email_day_preferences", ["user_id", "day_of_week"], :name => "index_email_day_preferences_on_user_id_and_day_of_week"
 
-  create_table "experiments", :force => true do |t|
-    t.string   "test_name"
-    t.string   "status"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "experiments", ["test_name"], :name => "index_experiments_on_test_name"
-
   create_table "feed_categories", :force => true do |t|
     t.string   "feed_category",                        :null => false
     t.integer  "feed_id",                              :null => false
@@ -178,15 +157,6 @@ ActiveRecord::Schema.define(:version => 20101129062905) do
     t.integer  "feed_id",                        :null => false
     t.integer  "price_changes",   :default => 0, :null => false
   end
-
-  create_table "product_prices", :id => false, :force => true do |t|
-    t.integer  "product_id",                                                 :null => false
-    t.datetime "created_at",                                                 :null => false
-    t.decimal  "price",      :precision => 10, :scale => 2, :default => 0.0, :null => false
-  end
-
-  add_index "product_prices", ["created_at", "product_id"], :name => "index_product_prices_on_created_at_and_product_id"
-  add_index "product_prices", ["product_id", "created_at"], :name => "index_product_prices_on_product_id_and_created_at"
 
   create_table "products", :force => true do |t|
     t.string   "product_name"

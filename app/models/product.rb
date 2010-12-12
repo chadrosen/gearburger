@@ -1,8 +1,5 @@
 class Product < ActiveRecord::Base
-      
-  # A product has many sale prices
-  has_many :product_prices
-  
+        
   # A single product will probably be in many different emails to users
   has_many :products_user
   
@@ -123,52 +120,6 @@ class Product < ActiveRecord::Base
 		  "discount" => ("%0.2f" % self.discount).to_f, # Ghetto?
 		  "department_id" => self.department ? self.department.id : 0
 	  }
-  end
-
-  
-  def populate_price_history
-
-    prices = self.product_prices(:order => "created_at asc")
-    unless prices.nil?
-
-      # Initialization
-      first = prices.shift
-      min_price = first.price
-      max_price = first.price
-      avg_price = 0
-
-      previous_start = first.created_at
-      previous_price = first.price
-      total_length = 0
-
-      prices.each do |price|
-        start = price.created_at
-        price = price.price
-
-        if price > max_price
-          max_price = price
-        end
-
-        if price < min_price
-          min_price = price
-        end
-
-        length = start - previous_start
-        avg_price = ((total_length * avg_price) + (length * previous_price)) / (total_length + length) 
-
-        total_length += length
-        previous_start = start
-        previous_price = price
-      end
-
-      length = Time.zone.now - previous_start
-      avg_price = ((total_length * avg_price) + (length * previous_price)) / (total_length + length)       
-
-      self.min_price = min_price
-      self.max_price = max_price
-      self.avg_price = avg_price
-    end
-
   end
   
   def to_s

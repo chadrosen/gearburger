@@ -338,9 +338,7 @@ module AlertGenerator
           
           # New products are always eligible for notification
           # Note: new products have a previous_price value of 0.0
-          product.price_changed_at = created_at
-          product.product_prices.build(:price => product.sale_price, :created_at => created_at)
-          
+          product.price_changed_at = created_at          
         else
           # This product already exists..
           @stats[:product_updates] += 1 
@@ -358,12 +356,7 @@ module AlertGenerator
                                             
           # Keep track of previous sale price and update new price
           if sale_price != product.sale_price
-            @stats[:price_changes] += 1               
-
-            product.product_prices.build(:price => sale_price, :created_at => created_at)
-            
-            product.product_prices.length
-            
+            @stats[:price_changes] += 1
             product.sale_price = sale_price
             product.price_changed_at = created_at
             product.previous_sale_price = product.sale_price
