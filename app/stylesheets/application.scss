@@ -1,15 +1,18 @@
 @import "global";
+@import "users";
+@import "sessions";
+@import "misc";
 
 @include sticky-footer(125px);
 
 HTML, BODY {
-	background-color: $color-wtf4;
+	background-color: $color-main-bg;
 	background-repeat: repeat-x;
 	background-image: url('/images/bg_repeat_common2.jpg');
 }
 
 #fb_multi_friend_selector, #fb_multi_friend_selector_wrapper {
-	background-color: $color-red;
+	background-color: $color-red-orange;
 }
 
 STRONG {
@@ -49,18 +52,18 @@ STRONG {
 #drill_down {
 
 	P {
-		background-color: $color-wtf2;
+		background-color: $color-orange;
 		padding: 5px;
 		@include float-left;
 		margin: 2px;
 		@include rounded(5px);
 	
 		.selected {
-			background-color: $color-wtf3;
+			background-color: $color-red-orange;
 		}
 		
 		&:hover {
-			background-color: $color-wtf3;
+			background-color: $color-red-orange;
 			cursor: pointer;
 		}
 	}
@@ -91,7 +94,7 @@ STRONG {
 	margin-top: 15px;
 	font-weight: bold;
 	padding: 3px; 
-	background-color: $color-wtf12; 
+	background-color: $color-header-btn-hvr; 
 	color: white; 
 	@include rounded(3px);	
 	text-decoration: none;
@@ -121,11 +124,11 @@ TABLE.gear_list {
 	margin-left: 0;
 	padding-left: 10px;
 	width: 100%;
-	border-top: 1px solid $color-wtf13;
+	border-top: 1px solid $color-header-btn-hvr;
 	
 	TD {
 		width: 33%;
-		color: $color-wtf14;
+		color: $color-header-btn-hvr;
 		padding: 8px;
 		font-size: $font-size - 2;
 	}
@@ -237,7 +240,7 @@ SPAN.checkbox_select {
 	#header_content {
 		/* small bar under the header */
 		height: 71px; 
-		border-bottom: 1px solid $color-wtf20;
+		border-bottom: 1px solid $color-header-background;
 		margin-top: 22px;
 
 		#logo {
@@ -278,7 +281,7 @@ SPAN.checkbox_select {
 		font-size: $font-size - 2;
 
 		&:hover { 
-			background-color: $color-wtf22; 
+			background-color: $color-header-btn-hvr; 
 			cursor: pointer;
 		}
 	}
@@ -301,7 +304,7 @@ SPAN.checkbox_select {
 }
 
 #content {
-	background-color: $color-wtf4;
+	background-color: $color-main-bg;
 	@include min-height(300);
 }
 
@@ -309,7 +312,7 @@ SPAN.checkbox_select {
 	@include size-set(24px, 985px);
 	margin-bottom: 10px;
 	padding-top: 14px;
-	background-color: $color-wtf5;
+	background-color: $color-light-grey;
 	color: $color-more-grey;
 }
 
@@ -321,13 +324,13 @@ SPAN.checkbox_select {
 
 /* Style the recents product partial */
 #recent_products {
-	border: 1px solid $color-wtf6;
+	border: 1px solid $color-main-bg;
 	padding: 5px 5px 5px 5px;
 	width: 350px;
 }
 
 #recent_product {
-	border: 1px solid $color-wtf6;
+	border: 1px solid $color-main-bg;
 	font-size: 200px;
 }
 
@@ -427,7 +430,7 @@ DIV.product_container {
 	}
 
 	#get_started {
-		margin-left: 50px;
+		margin: 15px 0 0 50px;
 		text-align: center;
 		
 		.submit {
@@ -441,7 +444,3 @@ DIV.product_container {
 		font-size: $font-size - 2;
 	}
 }
-
-@import "users";
-@import "sessions";
-@import "misc";

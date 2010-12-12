@@ -19,7 +19,7 @@
 	/* changed from 620px width to fit 1024x768 */
 	width: 580px;
 	@include min-height(350px);
-	border: 1px solid $color-wtf6;
+	border: 1px solid $color-main-bg;
 	margin-left: 185px;
 }
 
@@ -99,7 +99,6 @@ SPAN.price_title {
 /* end */
 
 #users_new {
-	background-color: $color-wtf4;
 	background-repeat: repeat-x;
 	background-image: url('/images/bg_repeat_984.jpg');
 	height: 105%; /* I have no idea why this is happening.. Things don't look right unless this is set to 105 */
@@ -179,7 +178,7 @@ SPAN.price_title {
 		
 		#start_now {
 			padding: 8px 34px;
-			background-color: $color-wtf23;
+			background-color: $color-yellow-orange;
 			color: $color-white;
 			border: none;
 			font-size: 26px;
@@ -245,7 +244,7 @@ SPAN.price_title {
 		H3 {
 			margin-bottom: 5px;
 			font-size: $font-size;
-			color: $color-wtf22;
+			color: $color-header-btn-hvr;
 		}
 	}
 
@@ -262,7 +261,8 @@ SPAN.price_title {
 
 	H3 {
 		margin-bottom: 10px; 
-		border-bottom: 1px solid $color-dark-grey; 
+		border-bottom: 1px solid $color-more-grey; 
+		font-weight: bold;
 	}
 
 	.section_container {
@@ -270,15 +270,15 @@ SPAN.price_title {
 	}
 
 	.account_status {
-		font-size: $font-size + 4; 
+		font-weight: bold;
 		margin-bottom: 15px; 
 		padding: 10px;	
-		border: 1px solid $color-more-grey; 
+		border: 1px dashed $color-darkest-grey; 
 		text-align: center;
 	}
 
 	#account_status_inactive {
-		color: $color-red; 
+		color: $color-red-orange; 
 	}
 
 	#preferences {
@@ -357,22 +357,15 @@ SPAN.price_title {
 }
 
 #users_signup_complete {
-	H1 {
-		font-size: $font-size + 14;
-		font-weight: bold;
-		margin-bottom: 20px;
-	}
 
 	H2 {
 		margin-top: 15px;
-		font-size: $font-size + 10;
-		font-weight: normal;
+		font-size: $font-size + 2;
+		font-weight: bold;
 	}
 
 	H3 {
 		margin: 10px 0px 0px 25px;
-		font-size: $font-size + 2;
-		font-weight: normal;
 	}
 }
 
@@ -440,7 +433,7 @@ SPAN.price_title {
 			font-size: $font-size - 2;
 			
 			&:hover {
-				color: $color-red;
+				color: $color-red-orange;
 			}			
 		}
 		
@@ -618,7 +611,7 @@ SPAN.price_title {
 	}
 	
 	.fresh {
-		border: 1px solid $color-red;
+		border: 1px solid $color-red-orange;
 	}
 
 	.products_row {
