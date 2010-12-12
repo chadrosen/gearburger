@@ -10,6 +10,7 @@ class FriendsController < ApplicationController
 
   def invite_friends
 
+    # TODO: move to template?
     # Default message for personal messages...
     @personal_message = <<-END
 Hey there,

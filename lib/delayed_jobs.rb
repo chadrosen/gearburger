@@ -66,4 +66,36 @@ module DelayedJobs
     end
   end
 
+  class UserRegisterEmail
+    # Send the user a registration email
+    
+    attr_accessor :user_id
+    
+    def initialize(user_id, options = {})
+      @user_id = user_id
+    end
+    
+    def perform
+      u = User.find(@user_id)
+      UserMailer.signup_notification(u).deliver
+    end
+  end
+  
+  class UserInviteEmail
+    # Invite a user's friends
+    
+    attr_accessor :user_id, :email, :message
+    
+    def initialize(user_id, email, message, options = {})
+      @user_id = user_id
+      @email = email
+      @message = message
+    end
+    
+    def perform
+      user = User.find(@user_id)
+      UserMailer.user_invitation(user, email, :personal_message => message).deliver
+    end
+  end
+
 end

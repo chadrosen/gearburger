@@ -1,5 +1,6 @@
 require 'email_veracity'
 require 'product_feed_matcher'
+require 'delayed_jobs'
 
 class UsersController < ApplicationController
   
@@ -126,8 +127,8 @@ class UsersController < ApplicationController
 
       self.current_user = u
 
-      # Send the user email..
-      UserMailer.signup_notification(u).deliver
+      # Send the user email through a delayed job
+      Delayed::Job.enqueue DelayedJobs::UserRegisterEmail.new(u.id)
 
       return redirect_to(signup_complete_url)
     

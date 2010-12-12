@@ -1,4 +1,6 @@
 require 'email_veracity'
+require 'delayed_jobs'
+
 module Messaging
   
   class UserInviter
@@ -46,8 +48,9 @@ module Messaging
           ui.attempts += 1
           ui.save!
 
-          UserMailer.user_invitation(user, email, :personal_message => options[:personal_message]).deliver
-          
+          # Send the user email through a delayed job
+          Delayed::Job.enqueue DelayedJobs::UserInviteEmail.new(user.id, email, options[:personal_message])
+                    
           return ui
           
         rescue Exception => e
