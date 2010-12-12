@@ -97,5 +97,22 @@ module DelayedJobs
       UserMailer.user_invitation(user, email, :personal_message => message).deliver
     end
   end
+  
+  class UserLostPassword
+    # Send lost password email
+    
+    attr_accessor :email
+    def initialize(email, options = {})
+      @email = email
+    end
+    
+    def perform
+      user = User.find_by_email(email)
+      if user
+        password = user.reset_password!
+        UserMailer.lost_password(user, password).deliver
+      end
+    end
+  end
 
 end

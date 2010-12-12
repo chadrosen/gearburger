@@ -210,13 +210,7 @@ class UsersController < ApplicationController
     
     # Re-send the user activation email
     redirect_to(home_url, :status => 404) and return unless current_user.state == "pending"
-    
-    begin
-      UserMailer.signup_notification(current_user).deliver
-    rescue SocketError => se
-      # Couldnt send the email for some reason.. No internet access :)
-      flash[:error] = "There was error sending your activation email. Please contact error@gearburger.com"
-    end
+    Delayed::Job.enqueue DelayedJobs::UserRegisterEmail.new(current_user.id)
   end
   
   def toggle_newsletter
@@ -228,12 +222,10 @@ class UsersController < ApplicationController
     
     if params[:email].empty?
       flash[:error] = "Email address is required"
-      return redirect_to(lost_password_url) 
+    else
+      Delayed::Job.enqueue DelayedJobs::UserLostPassword.new(params[:email])
+      flash[:notice] = "An email was sent to your address. Please follow the instructions within the email to reset your password"
     end
-
-    user = User.find_by_email(params[:email])
-    UserMailer.lost_password(user, user.reset_password!).deliver if user 
-    flash[:notice] = "An email was sent to your address. Please follow the instructions within the email to reset your password"
 
     redirect_to(lost_password_url)
   end
@@ -369,8 +361,7 @@ class UsersController < ApplicationController
             return redirect_to(account_preferences_url)
           end
       
-          UserMailer.signup_notification(current_user).deliver
-      
+          Delayed::Job.enqueue DelayedJobs::UserRegisterEmail.new(current_user.id)      
         end
               
         current_user.save!
