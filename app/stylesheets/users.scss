@@ -181,9 +181,9 @@ SPAN.price_title {
 			background-color: $color-yellow-orange;
 			color: $color-white;
 			border: none;
-			font-size: 26px;
-			font-weight: bold;
+			font-size: $font-size + 12;;
 			@include rounded(8px);
+			margin: 0;
 		}
 	}
 
@@ -794,7 +794,7 @@ SPAN.price_title {
 #users_gearguide {
 
 	H2 {
-		font-size: $font-size + 2;
+		font-size: $font-size;
 		margin: 10px 0 20px;
 	}
 	
@@ -808,30 +808,24 @@ SPAN.price_title {
 		.friend_info {
 			margin-left: 3px;
 			width: 225px;
+			
+			.name {
+				font-size: $font-size + 2;
+				font-weight: bold;
+				margin: 0;
+			}
+			
+			.description {
+				font-size: $font-size - 2;
+				margin: 5px 0;
+			}
+			
+			.url { font-size: $font-size - 2; }
 		}
 
 		.friend_image_container {
-			width: 80px;	
-		
-			IMG {
-				@include size-set(75px, 75px);
-			}
-		
-			.friend_info {
-			
-				.name {
-					font-size: $font-size + 2;
-					font-weight: bold;
-					margin: 0;
-				}
-				
-				.description {
-					font-size: $font-size - 2;
-					margin: 5px 0;
-				}
-				
-				.url { font-size: $font-size - 2; }
-			}
+			width: 80px;
+			IMG { @include size-set(75px, 75px); }		
 		}
 	}
 }
