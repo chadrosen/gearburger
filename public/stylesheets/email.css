@@ -1,0 +1,20 @@
+/* line 1, ../../app/stylesheets/email.scss */
+body {
+  font-size: 14px;
+}
+
+/* line 5, ../../app/stylesheets/email.scss */
+#title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* line 10, ../../app/stylesheets/email.scss */
+#body {
+  padding: 10px;
+}
+
+/* line 14, ../../app/stylesheets/email.scss */
+#closing {
+  font-size: 16px;
+}

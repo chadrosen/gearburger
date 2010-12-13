@@ -1,0 +1,1918 @@
+@charset "UTF-8";
+/* line 14, ../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
+}
+
+/* line 17, ../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+body {
+  line-height: 1;
+  color: black;
+  background: white;
+}
+
+/* line 19, ../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 21, ../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  vertical-align: middle;
+}
+
+/* line 23, ../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 25, ../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: "" "";
+}
+/* line 96, ../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+}
+
+/* line 27, ../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* primaries */
+/* black */
+/* black */
+/* black */
+/* Greys */
+/* a dark grey for the header */
+/* header button hover */
+/* blues */
+/* blue  */
+/* */
+/* */
+/* */
+/* */
+/* */
+/* */
+/* reds - oranges */
+/* red - orange */
+/* a red orange but lighter */
+/* yellow-orange */
+/* Greens */
+/* Replace */
+/* */
+/* */
+/* */
+/* */
+/* block elements need to be reset */
+/* line 48, ../../app/stylesheets/global.scss */
+html, body, p, div, img, h1, h2, h3, h4, dl, dd, dt, form, table, td, tr, form {
+  font-weight: normal;
+  font-family: Arial,'Trebuchet MS',Verdana;
+  color: #666666;
+  font-size: 14px;
+}
+
+/* Set padding and margin to a single value */
+/* line 72, ../../app/stylesheets/global.scss */
+INPUT {
+  background-color: white;
+  color: #666666;
+  border: 1 solid #e7e7e7;
+  font-size: 16px;
+  padding: 3px;
+  font-weight: normal;
+  font-color: black;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+/* line 83, ../../app/stylesheets/global.scss */
+INPUT[type="button"], INPUT[type="submit"] {
+  display: -moz-inline-box;
+  -moz-box-orient: vertical;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  margin: 0.7em 0.5em 0.7em 0;
+  border-width: 1px;
+  border-style: solid;
+  font-family: "Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+  font-size: 100%;
+  line-height: 130%;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  width: auto;
+  overflow: visible;
+  padding: 4px 10px 3px 7px;
+  background-color: whiteSmoke;
+  border-color: #EEE #DEDEDE #DEDEDE #EEE;
+  border-style: solid;
+  border-width: 1px;
+  color: #565656;
+  font-weight: bold;
+  line-height: 130%;
+  margin: 0.7em 0.5em 0.7em 0px;
+  padding: 5px 10px 5px 7px;
+  text-decoration: none;
+}
+/* line 7, ../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/css3/_inline-block.scss */
+INPUT[type="button"], INPUT[type="submit"] {
+  *display: inline;
+}
+/* line 75, ../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/_buttons.scss */
+INPUT[type="button"] img, INPUT[type="submit"] img {
+  margin: 0 3px -3px 0 !important;
+  padding: 0;
+  border: none;
+  width: 16px;
+  height: 16px;
+  float: none;
+}
+/* line 95, ../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/_buttons.scss */
+INPUT[type="button"][type], INPUT[type="submit"][type] {
+  padding: 4px 10px 4px 7px;
+  line-height: 17px;
+}
+/* line 98, ../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/_buttons.scss */
+*:first-child + html INPUT[type="button"][type], *:first-child + html INPUT[type="submit"][type] {
+  padding: 4px 10px 3px 7px;
+}
+/* line 96, ../../app/stylesheets/global.scss */
+INPUT[type="button"]:hover, INPUT[type="submit"]:hover {
+  background-color: #DFF4FF;
+  border-color: #D2F1FF #C2E1EF #C2E1EF #D2F1FF;
+  color: #369;
+}
+/* line 102, ../../app/stylesheets/global.scss */
+INPUT[type="button"]:active, INPUT[type="submit"]:active {
+  background-color: #6299C5;
+  border-color: #72A9D5 #6299C5 #6299C5 #72A9D5;
+  color: white;
+}
+
+/* line 109, ../../app/stylesheets/global.scss */
+A {
+  color: #3ea1bf;
+}
+/* line 18, ../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/utilities/links/_link-colors.scss */
+A:visited {
+  color: #3ea1bf;
+}
+/* line 21, ../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/utilities/links/_link-colors.scss */
+A:focus {
+  color: #3ea1bf;
+}
+/* line 24, ../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/utilities/links/_link-colors.scss */
+A:hover {
+  color: #3ea1bf;
+}
+/* line 27, ../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/utilities/links/_link-colors.scss */
+A:active {
+  color: #3ea1bf;
+}
+
+/* line 113, ../../app/stylesheets/global.scss */
+IMG {
+  border-style: none;
+}
+
+/* Global data table */
+/* line 118, ../../app/stylesheets/global.scss */
+TABLE.data {
+  border: 1px solid black;
+}
+/* line 2, ../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/utilities/tables/_scaffolding.scss */
+TABLE.data th {
+  text-align: center;
+  font-weight: bold;
+}
+/* line 6, ../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/utilities/tables/_scaffolding.scss */
+TABLE.data td,
+TABLE.data th {
+  padding: 2px;
+}
+/* line 8, ../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/utilities/tables/_scaffolding.scss */
+TABLE.data td.numeric,
+TABLE.data th.numeric {
+  text-align: right;
+}
+/* line 14, ../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/utilities/tables/_borders.scss */
+TABLE.data th, TABLE.data td {
+  border-right: 1px solid #888888;
+  border-bottom: 1px solid #888888;
+  border-left-width: 0px;
+  border-top-width: 0px;
+}
+/* line 21, ../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/utilities/tables/_borders.scss */
+TABLE.data th:last-child, TABLE.data th.last, TABLE.data td:last-child, TABLE.data td.last {
+  border-right-width: 0px;
+}
+/* line 26, ../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/utilities/tables/_borders.scss */
+TABLE.data tbody tr:last-child th, TABLE.data tbody tr:last-child td,
+TABLE.data tbody tr.last th,
+TABLE.data tbody tr.last td, TABLE.data tfoot tr:last-child th, TABLE.data tfoot tr:last-child td, TABLE.data tfoot tr.last th, TABLE.data tfoot tr.last td {
+  border-bottom-width: 0px;
+}
+/* line 4, ../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/utilities/tables/_borders.scss */
+TABLE.data thead th {
+  border-bottom: 1px solid black;
+}
+/* line 7, ../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/utilities/tables/_borders.scss */
+TABLE.data tfoot th, TABLE.data tfoot td {
+  border-top: 1px solid black;
+}
+/* line 10, ../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/utilities/tables/_borders.scss */
+TABLE.data th:first-child {
+  border-right: 1px solid black;
+}
+/* line 2, ../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/utilities/tables/_alternating-rows-and-columns.scss */
+TABLE.data th {
+  background-color: white;
+}
+/* line 4, ../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/utilities/tables/_alternating-rows-and-columns.scss */
+TABLE.data th.even, TABLE.data th:nth-child(2n) {
+  background-color: #dddddd;
+}
+/* line 7, ../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/utilities/tables/_alternating-rows-and-columns.scss */
+TABLE.data tr.odd td {
+  background-color: #eeeeee;
+}
+/* line 9, ../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/utilities/tables/_alternating-rows-and-columns.scss */
+TABLE.data tr.odd td.even, TABLE.data tr.odd td:nth-child(2n) {
+  background-color: #cccccc;
+}
+/* line 12, ../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/utilities/tables/_alternating-rows-and-columns.scss */
+TABLE.data tr.even td {
+  background-color: #eeeeee;
+}
+/* line 14, ../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/utilities/tables/_alternating-rows-and-columns.scss */
+TABLE.data tr.even td.even, TABLE.data tr.even td:nth-child(2n) {
+  background-color: #cccccc;
+}
+/* line 17, ../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/utilities/tables/_alternating-rows-and-columns.scss */
+TABLE.data tfoot th, TABLE.data tfoot td {
+  background-color: white;
+}
+/* line 19, ../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/utilities/tables/_alternating-rows-and-columns.scss */
+TABLE.data tfoot th.even, TABLE.data tfoot th:nth-child(2n), TABLE.data tfoot td.even, TABLE.data tfoot td:nth-child(2n) {
+  background-color: #dddddd;
+}
+
+/* line 126, ../../app/stylesheets/global.scss */
+.hidden {
+  display: none;
+}
+
+/* line 130, ../../app/stylesheets/global.scss */
+.clear {
+  clear: both;
+  font-size: 1px;
+  overflow: hidden;
+}
+
+/* line 136, ../../app/stylesheets/global.scss */
+.center {
+  text-align: center;
+}
+
+/* line 140, ../../app/stylesheets/global.scss */
+.bold {
+  font-weight: bold;
+}
+
+/* line 144, ../../app/stylesheets/global.scss */
+.left {
+  float: left;
+}
+
+/* line 148, ../../app/stylesheets/global.scss */
+.right {
+  float: right;
+}
+
+/* line 152, ../../app/stylesheets/global.scss */
+#page_header {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Generic notice messages */
+/* line 159, ../../app/stylesheets/global.scss */
+#messages {
+  margin: 10px 0;
+  color: #fe4400;
+}
+/* line 163, ../../app/stylesheets/global.scss */
+#messages #notice {
+  color: green;
+  font-size: 18px;
+}
+/* line 168, ../../app/stylesheets/global.scss */
+#messages #error {
+  color: #fe4400;
+  font-size: 18px;
+}
+/* line 173, ../../app/stylesheets/global.scss */
+#messages #js_error {
+  color: #fe4400;
+}
+/* line 177, ../../app/stylesheets/global.scss */
+#messages #js_msg {
+  color: green;
+  font-size: 16px;
+}
+/* line 180, ../../app/stylesheets/global.scss */
+#messages #js_msg IMG {
+  height: 12px;
+}
+
+/* line 186, ../../app/stylesheets/global.scss */
+#grande_header {
+  font-size: 22px;
+}
+
+/* ??? */
+/* line 3, ../../app/stylesheets/users.scss */
+#fp_pick_icon IMG {
+  height: 40px;
+  width: 40px;
+}
+
+/* line 7, ../../app/stylesheets/users.scss */
+#fp_check_icon IMG {
+  height: 35px;
+  width: 35px;
+  padding: 0 2px;
+}
+
+/* line 12, ../../app/stylesheets/users.scss */
+#fp_mail_icon IMG {
+  height: 29px;
+  width: 40px;
+}
+
+/* line 16, ../../app/stylesheets/users.scss */
+#fp_signup_form {
+  padding: 10px;
+  background-color: #eeeeee;
+  /* changed from 620px width to fit 1024x768 */
+  width: 580px;
+  min-height: 350px;
+  height: auto !important;
+  height: 350px;
+  border: 1px solid #f6f6f6;
+  margin-left: 185px;
+}
+
+/* line 26, ../../app/stylesheets/users.scss */
+DIV.form_field {
+  margin-top: 10px;
+}
+/* line 29, ../../app/stylesheets/users.scss */
+DIV.form_field LABEL {
+  font-size: 12px;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 2px;
+}
+/* line 36, ../../app/stylesheets/users.scss */
+DIV.form_field #email_address {
+  font-size: 20px;
+  padding: 3px;
+  width: 300px;
+}
+/* line 42, ../../app/stylesheets/users.scss */
+DIV.form_field #password, DIV.form_field #confirm_password {
+  font-size: 20px;
+  padding: 3px;
+  width: 300px;
+}
+/* line 48, ../../app/stylesheets/users.scss */
+DIV.form_field .remember_me_container {
+  margin-top: 10px;
+}
+
+/* line 53, ../../app/stylesheets/users.scss */
+IMG.partner_logo {
+  height: 60px;
+  width: 60px;
+  margin-right: 15px;
+}
+
+/* line 58, ../../app/stylesheets/users.scss */
+SPAN.price_title {
+  /* float the span so we can give it width */
+  display: inline;
+  float: left;
+  width: 100px;
+}
+
+/* end */
+/* line 66, ../../app/stylesheets/users.scss */
+#signup_products {
+  display: inline;
+  float: left;
+  margin-left: 5px;
+  width: 250px;
+}
+
+/* brands partial stuff */
+/* line 76, ../../app/stylesheets/users.scss */
+#brands .brand_letter {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+/* line 82, ../../app/stylesheets/users.scss */
+#brands .brand_container {
+  margin-bottom: 5px;
+}
+
+/* end */
+/* latest gear alert box style */
+/* line 90, ../../app/stylesheets/users.scss */
+#latest_gear_alert_header {
+  font-size: 20px;
+  color: #666666;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* end */
+/* line 101, ../../app/stylesheets/users.scss */
+#users_new {
+  background-repeat: repeat-x;
+  background-image: url("/images/bg_repeat_984.jpg");
+  height: 105%;
+  /* I have no idea why this is happening.. Things don't look right unless this is set to 105 */
+}
+/* line 106, ../../app/stylesheets/users.scss */
+#users_new #tabs {
+  display: none;
+  margin-bottom: 0px;
+}
+/* line 111, ../../app/stylesheets/users.scss */
+#users_new #common_search_text {
+  display: none;
+}
+/* line 115, ../../app/stylesheets/users.scss */
+#users_new #about {
+  text-align: center;
+  margin: 0 auto;
+}
+/* line 120, ../../app/stylesheets/users.scss */
+#users_new #about_gb {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 15px 0;
+}
+/* line 126, ../../app/stylesheets/users.scss */
+#users_new #products {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  overflow: hidden;
+  *zoom: 1;
+  margin-top: 20px;
+}
+/* line 130, ../../app/stylesheets/users.scss */
+#users_new #products .product {
+  list-style-image: none;
+  list-style-type: none;
+  margin-left: 0px;
+  display: -moz-inline-box;
+  -moz-box-orient: vertical;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  white-space: nowrap;
+  margin-right: 10px;
+}
+/* line 7, ../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/css3/_inline-block.scss */
+#users_new #products .product {
+  *display: inline;
+}
+/* line 133, ../../app/stylesheets/users.scss */
+#users_new #products .product .image {
+  height: 75px;
+  padding: 3px;
+  background-color: white;
+  border: 1px solid #999999;
+}
+/* line 140, ../../app/stylesheets/users.scss */
+#users_new #products .product .name {
+  font-size: 12px;
+  margin: 3px 0;
+  font-weight: bold;
+}
+/* line 146, ../../app/stylesheets/users.scss */
+#users_new #products .product .price {
+  color: #009900;
+  font-weight: bold;
+  font-size: 12px;
+}
+/* line 154, ../../app/stylesheets/users.scss */
+#users_new #bg_img {
+  height: 283px;
+  width: 986px;
+  background-image: url("/images/gb_home_blank_RGB_24.png");
+  margin-bottom: 10px;
+  padding-top: 10px;
+}
+/* line 161, ../../app/stylesheets/users.scss */
+#users_new #site_intro {
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 22px;
+}
+/* line 166, ../../app/stylesheets/users.scss */
+#users_new #site_intro H1 {
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  margin-top: 30px;
+}
+/* line 173, ../../app/stylesheets/users.scss */
+#users_new #site_intro #brand_name {
+  font-size: 38px;
+  font-weight: bold;
+  margin: 20px 0;
+}
+/* line 179, ../../app/stylesheets/users.scss */
+#users_new #site_intro #start_now {
+  padding: 8px 34px;
+  background-color: #f4ba2e;
+  color: white;
+  border: none;
+  font-size: 26px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  margin: 0;
+}
+/* line 190, ../../app/stylesheets/users.scss */
+#users_new #register {
+  height: 35px;
+  width: 138px;
+  margin: 0 auto;
+}
+/* line 195, ../../app/stylesheets/users.scss */
+#users_new #register:hover {
+  background-image: url("/images/signup_free_hover_btn.gif");
+}
+
+/* See http://wiki.recaptcha.net/index.php/How_to_change_reCAPTCHA_colors for styling the captcha */
+/* line 201, ../../app/stylesheets/users.scss */
+.recaptchatable .recaptcha_image_cell, #recaptcha_table {
+  background-color: #caedf8 !important;
+}
+
+/* line 206, ../../app/stylesheets/users.scss */
+#users_signup #recaptcha_container {
+  margin: 10px 0 10px 0;
+}
+/* line 210, ../../app/stylesheets/users.scss */
+#users_signup .unselected {
+  color: #cccccc;
+}
+/* line 214, ../../app/stylesheets/users.scss */
+#users_signup #submit_btns {
+  margin-top: 15px;
+}
+/* line 218, ../../app/stylesheets/users.scss */
+#users_signup #categories A {
+  font-size: 10px;
+}
+/* line 222, ../../app/stylesheets/users.scss */
+#users_signup .step {
+  margin-bottom: 10px;
+  padding: 5px 15px;
+  border-bottom: 1px solid #7cd2ed;
+  background-color: #caedf8;
+}
+/* line 228, ../../app/stylesheets/users.scss */
+#users_signup .step H3 {
+  color: #0079a3;
+  font-size: 16px;
+  font-weight: bold;
+}
+/* line 235, ../../app/stylesheets/users.scss */
+#users_signup #email_address {
+  font-size: 16px;
+  padding: 2px;
+  width: 250px;
+}
+/* line 241, ../../app/stylesheets/users.scss */
+#users_signup DIV.items {
+  margin: 15px 0px;
+}
+/* line 244, ../../app/stylesheets/users.scss */
+#users_signup DIV.items H3 {
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #505050;
+}
+/* line 251, ../../app/stylesheets/users.scss */
+#users_signup #fb_submit {
+  padding-top: 5px;
+}
+/* line 255, ../../app/stylesheets/users.scss */
+#users_signup .gear_list LABEL {
+  font-size: 12px;
+}
+
+/* line 260, ../../app/stylesheets/users.scss */
+#users_show {
+  /* Display the item name and a list of values */
+}
+/* line 262, ../../app/stylesheets/users.scss */
+#users_show H3 {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #999999;
+  font-weight: bold;
+}
+/* line 268, ../../app/stylesheets/users.scss */
+#users_show .section_container {
+  margin-bottom: 20px;
+}
+/* line 272, ../../app/stylesheets/users.scss */
+#users_show .account_status {
+  font-weight: bold;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px dashed #cccccc;
+  text-align: center;
+}
+/* line 280, ../../app/stylesheets/users.scss */
+#users_show #account_status_inactive {
+  color: #fe4400;
+}
+/* line 284, ../../app/stylesheets/users.scss */
+#users_show #preferences {
+  display: inline;
+  float: left;
+  width: 425px;
+}
+/* line 290, ../../app/stylesheets/users.scss */
+#users_show .item_group {
+  margin-bottom: 20px;
+}
+/* line 293, ../../app/stylesheets/users.scss */
+#users_show .item_group .item_title {
+  padding-left: 10px;
+  margin-bottom: 5px;
+}
+/* line 298, ../../app/stylesheets/users.scss */
+#users_show .item_group .clear {
+  margin-bottom: 5px;
+}
+/* line 302, ../../app/stylesheets/users.scss */
+#users_show .item_group .data {
+  margin-bottom: 10px;
+  padding-left: 20px;
+  width: 375px;
+  font-size: 12px;
+}
+/* line 309, ../../app/stylesheets/users.scss */
+#users_show .item_group .items {
+  margin-left: 10px;
+}
+/* line 313, ../../app/stylesheets/users.scss */
+#users_show .item_group SPAN.no_alerts {
+  margin-left: 10px;
+}
+/* line 318, ../../app/stylesheets/users.scss */
+#users_show LI {
+  margin-bottom: 20px;
+}
+/* line 322, ../../app/stylesheets/users.scss */
+#users_show #invite_title {
+  font-size: 34px;
+  margin-bottom: 5px;
+}
+/* line 327, ../../app/stylesheets/users.scss */
+#users_show .title {
+  margin-bottom: 10px;
+}
+/* line 331, ../../app/stylesheets/users.scss */
+#users_show #gift_card_container {
+  margin-bottom: 20px;
+}
+/* line 334, ../../app/stylesheets/users.scss */
+#users_show #gift_card_container P {
+  margin-bottom: 10px;
+}
+/* line 338, ../../app/stylesheets/users.scss */
+#users_show #gift_card_container STRONG {
+  color: orange;
+}
+
+/* line 344, ../../app/stylesheets/users.scss */
+#account_actions {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  width: 475px;
+}
+
+/* end */
+/* Lost password */
+/* line 354, ../../app/stylesheets/users.scss */
+#users_lost_password #submit_btns {
+  margin-top: 10px;
+}
+
+/* line 361, ../../app/stylesheets/users.scss */
+#users_signup_complete H2 {
+  margin-top: 15px;
+  font-size: 16px;
+  font-weight: bold;
+}
+/* line 367, ../../app/stylesheets/users.scss */
+#users_signup_complete H3 {
+  margin: 10px 0px 0px 25px;
+}
+
+/* Email preferences partial styling */
+/* line 373, ../../app/stylesheets/users.scss */
+#email_preferences_partial {
+  padding: 10;
+}
+/* line 376, ../../app/stylesheets/users.scss */
+#email_preferences_partial DIV {
+  margin-bottom: 20px;
+}
+
+/* end */
+/* line 384, ../../app/stylesheets/users.scss */
+#users_manage_products DIV.info {
+  margin-bottom: 25px;
+}
+/* line 388, ../../app/stylesheets/users.scss */
+#users_manage_products DIV.section_title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+/* line 394, ../../app/stylesheets/users.scss */
+#users_manage_products #product_shit {
+  display: none;
+}
+/* line 398, ../../app/stylesheets/users.scss */
+#users_manage_products #products {
+  width: 100%;
+}
+
+/* end */
+/* line 404, ../../app/stylesheets/users.scss */
+#friends_invite_friends {
+  /* Text areas for personal invites */
+  /* Modal window stuff */
+}
+/* line 406, ../../app/stylesheets/users.scss */
+#friends_invite_friends H2 {
+  margin: 10px 0 25px;
+}
+/* line 410, ../../app/stylesheets/users.scss */
+#friends_invite_friends H3 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+/* line 416, ../../app/stylesheets/users.scss */
+#friends_invite_friends #invited_friends {
+  margin-top: 10px;
+}
+/* line 420, ../../app/stylesheets/users.scss */
+#friends_invite_friends P {
+  font-weight: normal;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+/* line 426, ../../app/stylesheets/users.scss */
+#friends_invite_friends #services {
+  margin-bottom: 5px;
+  padding: 0;
+}
+/* line 430, ../../app/stylesheets/users.scss */
+#friends_invite_friends #services A {
+  text-align: center;
+  text-decoration: none;
+  font-size: 12px;
+}
+/* line 435, ../../app/stylesheets/users.scss */
+#friends_invite_friends #services A:hover {
+  color: #fe4400;
+}
+/* line 440, ../../app/stylesheets/users.scss */
+#friends_invite_friends #services A.selected {
+  color: #666666;
+  text-decoration: none;
+}
+/* line 447, ../../app/stylesheets/users.scss */
+#friends_invite_friends LABEL {
+  display: block;
+  font-size: 10px;
+  font-weight: bold;
+}
+/* line 453, ../../app/stylesheets/users.scss */
+#friends_invite_friends #get_contacts_form TABLE TD {
+  padding: 5px;
+}
+/* line 457, ../../app/stylesheets/users.scss */
+#friends_invite_friends #username, #friends_invite_friends #password {
+  width: 300px;
+}
+/* line 461, ../../app/stylesheets/users.scss */
+#friends_invite_friends #submit {
+  margin-top: 5px;
+}
+/* line 465, ../../app/stylesheets/users.scss */
+#friends_invite_friends INPUT.invite_hidden {
+  padding: 2px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+/* line 471, ../../app/stylesheets/users.scss */
+#friends_invite_friends #friends_status {
+  margin-left: 10px;
+}
+/* line 475, ../../app/stylesheets/users.scss */
+#friends_invite_friends #friends {
+  margin-top: 2px;
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #999999;
+}
+/* line 481, ../../app/stylesheets/users.scss */
+#friends_invite_friends #friends TD {
+  padding: 3px;
+  font-size: 12px;
+}
+/* line 486, ../../app/stylesheets/users.scss */
+#friends_invite_friends #friends .select {
+  width: 10px;
+}
+/* line 490, ../../app/stylesheets/users.scss */
+#friends_invite_friends #friends .name {
+  width: 150px;
+}
+/* line 494, ../../app/stylesheets/users.scss */
+#friends_invite_friends #friends .table-tr-odd {
+  background-color: #cccccc;
+}
+/* line 499, ../../app/stylesheets/users.scss */
+#friends_invite_friends #spinner {
+  height: 10px;
+}
+/* line 503, ../../app/stylesheets/users.scss */
+#friends_invite_friends #friends_data {
+  height: 300px;
+  width: 520px;
+  overflow: auto;
+}
+/* line 508, ../../app/stylesheets/users.scss */
+#friends_invite_friends #loading, #friends_invite_friends #thanks {
+  font-weight: bold;
+}
+/* line 513, ../../app/stylesheets/users.scss */
+#friends_invite_friends .invite_textarea {
+  height: 90px;
+  width: 340px;
+  padding: 5px;
+}
+/* line 518, ../../app/stylesheets/users.scss */
+#friends_invite_friends #manual_invite P {
+  margin-bottom: 5px;
+}
+/* line 521, ../../app/stylesheets/users.scss */
+#friends_invite_friends #manual_invite P H3 {
+  margin-bottom: 10px;
+  border: none;
+}
+/* line 526, ../../app/stylesheets/users.scss */
+#friends_invite_friends #manual_invite P #manual_invite_submit {
+  display: block;
+  margin-top: 10px;
+}
+/* line 532, ../../app/stylesheets/users.scss */
+#friends_invite_friends #multi_select {
+  margin-bottom: 5px;
+  font-size: 12px;
+}
+/* line 538, ../../app/stylesheets/users.scss */
+#friends_invite_friends #contact_select_modal {
+  height: 450px;
+  width: 530px;
+  padding: 5px;
+  background-color: white;
+  -moz-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+  /* FF3.5+ */
+  -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+  /* Saf3.0+, Chrome */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+  /* Opera 10.5, IE 9.0 */
+  filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0px, OffY=2px, Color='$color-dark-grey');
+  /* IE6,IE7 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.dropshadow(OffX=0px, OffY=2px, Color='$color-dark-grey')";
+  /* IE8 */
+}
+/* line 549, ../../app/stylesheets/users.scss */
+#friends_invite_friends #contact_select_modal .model-content {
+  height: 500px;
+  width: 530px;
+  left: 10px;
+  top: 10px;
+  position: absolute;
+}
+/* line 556, ../../app/stylesheets/users.scss */
+#friends_invite_friends #contact_select_modal .button {
+  position: absolute;
+  bottom: 10px;
+  text-indent: 0;
+  outline: none;
+}
+/* line 564, ../../app/stylesheets/users.scss */
+#friends_invite_friends .show_message {
+  display: block;
+  margin: 5px 0;
+  font-size: 12px;
+}
+
+/* line 573, ../../app/stylesheets/users.scss */
+#users_gear_bin #filter {
+  width: 175px;
+}
+/* line 576, ../../app/stylesheets/users.scss */
+#users_gear_bin #filter H3 {
+  border-bottom: 1px solid #999999;
+  padding-bottom: 2px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 12px;
+}
+/* line 584, ../../app/stylesheets/users.scss */
+#users_gear_bin #filter UL {
+  margin-left: 10px;
+  padding: 0;
+}
+/* line 589, ../../app/stylesheets/users.scss */
+#users_gear_bin #filter LI {
+  padding: 3px 0;
+}
+/* line 594, ../../app/stylesheets/users.scss */
+#users_gear_bin #data {
+  width: 750px;
+  padding-left: 10px;
+}
+/* line 599, ../../app/stylesheets/users.scss */
+#users_gear_bin H1 {
+  margin-bottom: 15px;
+}
+/* line 603, ../../app/stylesheets/users.scss */
+#users_gear_bin H2 {
+  padding-bottom: 2px;
+  border-bottom: 1px solid #999999;
+  font-weight: bold;
+}
+/* line 609, ../../app/stylesheets/users.scss */
+#users_gear_bin #products_container {
+  padding: 10px 0 0 0;
+}
+/* line 613, ../../app/stylesheets/users.scss */
+#users_gear_bin .fresh {
+  border: 1px solid #fe4400;
+}
+/* line 617, ../../app/stylesheets/users.scss */
+#users_gear_bin .products_row {
+  margin-bottom: 20px;
+  padding-top: 5px;
+}
+/* line 622, ../../app/stylesheets/users.scss */
+#users_gear_bin .product {
+  width: 170px;
+  margin-right: 5px;
+  display: inline;
+  float: left;
+  text-align: center;
+  padding: 5px;
+}
+/* line 629, ../../app/stylesheets/users.scss */
+#users_gear_bin .product .image {
+  background-color: white;
+  margin-bottom: 3px;
+  border: 2px solid #cccccc;
+  text-align: center;
+  padding: 3px;
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 640, ../../app/stylesheets/users.scss */
+#users_gear_bin .product IMG {
+  height: 75px;
+  width: 75px;
+}
+/* line 644, ../../app/stylesheets/users.scss */
+#users_gear_bin .product .name {
+  font-size: 12px;
+  float: none;
+  height: 35px;
+}
+/* line 650, ../../app/stylesheets/users.scss */
+#users_gear_bin .product .retail {
+  font-size: 12px;
+  color: #999999;
+  margin-bottom: 3px;
+}
+/* line 656, ../../app/stylesheets/users.scss */
+#users_gear_bin .product .sale {
+  font-weight: bold;
+  float: none;
+  font-size: 12px;
+  color: #009900;
+}
+/* line 663, ../../app/stylesheets/users.scss */
+#users_gear_bin .product .discount {
+  font-weight: bold;
+}
+/* line 668, ../../app/stylesheets/users.scss */
+#users_gear_bin .no_matches {
+  padding-left: 10px;
+}
+/* line 672, ../../app/stylesheets/users.scss */
+#users_gear_bin .filter_section {
+  margin-bottom: 15px;
+}
+/* line 676, ../../app/stylesheets/users.scss */
+#users_gear_bin .item_label {
+  margin-left: 3px;
+  width: 130px;
+}
+/* line 681, ../../app/stylesheets/users.scss */
+#users_gear_bin LABEL {
+  font-size: 12px;
+  text-decoration: underline;
+}
+/* line 685, ../../app/stylesheets/users.scss */
+#users_gear_bin LABEL:hover {
+  text-decoration: none;
+}
+/* line 690, ../../app/stylesheets/users.scss */
+#users_gear_bin .overflow {
+  overflow: auto;
+  height: 175px;
+}
+/* line 695, ../../app/stylesheets/users.scss */
+#users_gear_bin .toggle {
+  font-size: 12px;
+}
+/* line 699, ../../app/stylesheets/users.scss */
+#users_gear_bin #see_more {
+  font-size: 12px;
+}
+
+/* line 706, ../../app/stylesheets/users.scss */
+#users_account_preferences P {
+  margin: 10px 0;
+}
+/* line 710, ../../app/stylesheets/users.scss */
+#users_account_preferences .text_field {
+  padding: 5px;
+  font-size: 16px;
+  width: 400px;
+}
+/* line 716, ../../app/stylesheets/users.scss */
+#users_account_preferences TABLE TD {
+  padding: 5px;
+}
+/* line 720, ../../app/stylesheets/users.scss */
+#users_account_preferences .price_field {
+  padding: 3px;
+  font-size: 16px;
+  width: 75px;
+}
+/* line 726, ../../app/stylesheets/users.scss */
+#users_account_preferences #email_day_preferences {
+  margin: 0;
+  padding: 0;
+}
+/* line 729, ../../app/stylesheets/users.scss */
+#users_account_preferences #email_day_preferences LI {
+  display: inline;
+  float: left;
+  margin-right: 10px;
+}
+
+/* line 736, ../../app/stylesheets/users.scss */
+#users_take_a_breather {
+  text-align: center;
+}
+/* line 739, ../../app/stylesheets/users.scss */
+#users_take_a_breather .welcome_back {
+  border: 1px solid #999999;
+  color: green;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+/* line 746, ../../app/stylesheets/users.scss */
+#users_take_a_breather H2 {
+  margin: 10px 0;
+}
+/* line 750, ../../app/stylesheets/users.scss */
+#users_take_a_breather H3 {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+/* line 755, ../../app/stylesheets/users.scss */
+#users_take_a_breather #submit_button {
+  margin: 10px 0 0;
+}
+
+/* line 762, ../../app/stylesheets/users.scss */
+#users_deactivate_account H2 {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+/* line 767, ../../app/stylesheets/users.scss */
+#users_deactivate_account H3 {
+  font-size: 12px;
+  margin-bottom: 3px;
+}
+/* line 772, ../../app/stylesheets/users.scss */
+#users_deactivate_account .dont_go_container {
+  padding: 10px;
+  border: 1px solid #999999;
+  margin-bottom: 20px;
+}
+/* line 778, ../../app/stylesheets/users.scss */
+#users_deactivate_account .dont_go_container H3 {
+  font-weight: bold;
+}
+/* line 781, ../../app/stylesheets/users.scss */
+#users_deactivate_account #email {
+  width: 250px;
+}
+/* line 783, ../../app/stylesheets/users.scss */
+#users_deactivate_account #email_day_preferences {
+  margin: 0;
+  padding: 0;
+}
+/* line 787, ../../app/stylesheets/users.scss */
+#users_deactivate_account #email_day_preferences LI {
+  display: inline;
+  float: left;
+  margin-right: 10px;
+}
+
+/* line 796, ../../app/stylesheets/users.scss */
+#users_gearguide H2 {
+  font-size: 14px;
+  margin: 10px 0 20px;
+}
+/* line 801, ../../app/stylesheets/users.scss */
+#users_gearguide .friend_row {
+  margin-bottom: 30px;
+}
+/* line 803, ../../app/stylesheets/users.scss */
+#users_gearguide .friend_container {
+  width: 310px;
+  margin-right: 10px;
+  display: inline;
+  float: left;
+}
+/* line 808, ../../app/stylesheets/users.scss */
+#users_gearguide .friend_container .friend_info {
+  margin-left: 3px;
+  width: 225px;
+}
+/* line 812, ../../app/stylesheets/users.scss */
+#users_gearguide .friend_container .friend_info .name {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+/* line 818, ../../app/stylesheets/users.scss */
+#users_gearguide .friend_container .friend_info .description {
+  font-size: 12px;
+  margin: 5px 0;
+}
+/* line 823, ../../app/stylesheets/users.scss */
+#users_gearguide .friend_container .friend_info .url {
+  font-size: 12px;
+}
+/* line 826, ../../app/stylesheets/users.scss */
+#users_gearguide .friend_container .friend_image_container {
+  width: 80px;
+}
+/* line 828, ../../app/stylesheets/users.scss */
+#users_gearguide .friend_container .friend_image_container IMG {
+  height: 75px;
+  width: 75px;
+}
+
+/* line 2, ../../app/stylesheets/sessions.scss */
+#sessions_new H1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  padding: 10px;
+  text-align: center;
+  background-color: #caedf8;
+  border-bottom: 1px solid #7cd2ed;
+  color: #0079a3;
+  font-weight: bold;
+}
+/* line 13, ../../app/stylesheets/sessions.scss */
+#sessions_new #submit_btns {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+/* line 18, ../../app/stylesheets/sessions.scss */
+#sessions_new #submit_btns {
+  margin: 10px 0;
+}
+/* line 22, ../../app/stylesheets/sessions.scss */
+#sessions_new DIV.login_container {
+  padding: 10px;
+  width: 425px;
+}
+/* line 27, ../../app/stylesheets/sessions.scss */
+#sessions_new #create_account_btn_container {
+  width: 100%;
+  text-align: center;
+  margin-top: 25px;
+  height: 150px;
+}
+/* line 33, ../../app/stylesheets/sessions.scss */
+#sessions_new #create_account_btn_container INPUT {
+  margin-top: 5px;
+  width: 100px;
+}
+/* line 38, ../../app/stylesheets/sessions.scss */
+#sessions_new #create_account_btn_container P {
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+/* line 46, ../../app/stylesheets/sessions.scss */
+#sessions_create H1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  padding: 10px;
+  text-align: center;
+  background-color: #caedf8;
+  border-bottom: 1px solid #7cd2ed;
+  color: #0079a3;
+  font-weight: bold;
+}
+/* line 57, ../../app/stylesheets/sessions.scss */
+#sessions_create #submit_btns {
+  margin-top: 10px;
+}
+/* line 61, ../../app/stylesheets/sessions.scss */
+#sessions_create DIV.login_container {
+  padding: 10px;
+  width: 425px;
+}
+/* line 66, ../../app/stylesheets/sessions.scss */
+#sessions_create #create_account_btn_container {
+  width: 100%;
+  text-align: center;
+  margin-top: 25px;
+  height: 150px;
+}
+/* line 72, ../../app/stylesheets/sessions.scss */
+#sessions_create #create_account_btn_container INPUT {
+  margin-top: 5px;
+  width: 100px;
+}
+/* line 77, ../../app/stylesheets/sessions.scss */
+#sessions_create #create_account_btn_container P {
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+/* line 3, ../../app/stylesheets/misc.scss */
+#misc_invite_terms UL {
+  padding-left: 20px;
+}
+/* line 6, ../../app/stylesheets/misc.scss */
+#misc_invite_terms UL LI {
+  list-style-type: disc;
+}
+/* line 11, ../../app/stylesheets/misc.scss */
+#misc_invite_terms OL LI {
+  list-style-type: decimal;
+}
+/* line 15, ../../app/stylesheets/misc.scss */
+#misc_invite_terms LI {
+  margin-bottom: 10px;
+  padding-left: 5px;
+}
+
+/* line 23, ../../app/stylesheets/misc.scss */
+#misc_about H2 {
+  margin: 10px 0;
+  font-weight: bold;
+}
+/* line 28, ../../app/stylesheets/misc.scss */
+#misc_about P {
+  margin: 15px 0;
+}
+
+/* line 34, ../../app/stylesheets/misc.scss */
+#misc_privacy H1 {
+  margin-bottom: 20px;
+}
+/* line 38, ../../app/stylesheets/misc.scss */
+#misc_privacy H3 {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+/* line 43, ../../app/stylesheets/misc.scss */
+#misc_privacy UL {
+  margin: 0 0 10px 10px;
+}
+/* line 47, ../../app/stylesheets/misc.scss */
+#misc_privacy LI {
+  list-style-type: disc;
+  padding: 5px 0;
+  margin-left: 10px;
+}
+/* line 53, ../../app/stylesheets/misc.scss */
+#misc_privacy P {
+  margin-bottom: 10px;
+}
+
+/* line 60, ../../app/stylesheets/misc.scss */
+#misc_faq .faq_q {
+  font-weight: bold;
+}
+/* line 64, ../../app/stylesheets/misc.scss */
+#misc_faq .faq_a {
+  margin: 10px 0 20px 10px;
+}
+
+/* line 10, ../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/layout/_sticky-footer.scss */
+html, body {
+  height: 100%;
+}
+
+/* line 12, ../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/layout/_sticky-footer.scss */
+#root {
+  clear: both;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin-bottom: -125px;
+}
+/* line 18, ../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/layout/_sticky-footer.scss */
+#root #root_footer {
+  height: 125px;
+}
+
+/* line 20, ../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/layout/_sticky-footer.scss */
+#footer {
+  clear: both;
+  position: relative;
+  height: 125px;
+}
+
+/* line 8, ../../app/stylesheets/application.scss */
+HTML, BODY {
+  background-color: #f6f6f6;
+  background-repeat: repeat-x;
+  background-image: url("/images/bg_repeat_common2.jpg");
+}
+
+/* line 14, ../../app/stylesheets/application.scss */
+#fb_multi_friend_selector, #fb_multi_friend_selector_wrapper {
+  background-color: #fe4400;
+}
+
+/* line 18, ../../app/stylesheets/application.scss */
+STRONG {
+  color: #EB5024;
+  font-weight: bold;
+}
+
+/* Common elements across the site */
+/* line 25, ../../app/stylesheets/application.scss */
+.hidden {
+  visibility: hidden;
+}
+
+/* Common stuff */
+/* line 30, ../../app/stylesheets/application.scss */
+.terms {
+  font-size: 12px;
+}
+
+/* line 34, ../../app/stylesheets/application.scss */
+.half {
+  width: 50%;
+}
+
+/* line 38, ../../app/stylesheets/application.scss */
+.orange {
+  font-weight: bold;
+  color: #d0441d;
+}
+
+/* Box at the top of some of the product pages */
+/* line 44, ../../app/stylesheets/application.scss */
+.page_description_header {
+  background-color: #caedf8;
+  border-top: 1px solid #7cd2ed;
+  color: #0079a3;
+  padding: 10px;
+  font-weight: bold;
+}
+
+/* line 54, ../../app/stylesheets/application.scss */
+#drill_down P {
+  background-color: #d0441d;
+  padding: 5px;
+  display: inline;
+  float: left;
+  margin: 2px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+/* line 61, ../../app/stylesheets/application.scss */
+#drill_down P .selected {
+  background-color: #fe4400;
+}
+/* line 65, ../../app/stylesheets/application.scss */
+#drill_down P:hover {
+  background-color: #fe4400;
+  cursor: pointer;
+}
+/* line 71, ../../app/stylesheets/application.scss */
+#drill_down H3 {
+  font-size: 12px;
+  font-weight: bold;
+  text-align: left;
+  color: black;
+  padding: 0 0 5px 2px;
+}
+/* line 79, ../../app/stylesheets/application.scss */
+#drill_down A {
+  text-decoration: none;
+  color: white;
+}
+
+/* line 85, ../../app/stylesheets/application.scss */
+#products_divider {
+  border-top: 1px solid #999999;
+  margin-top: 20px;
+}
+
+/* line 90, ../../app/stylesheets/application.scss */
+#view_more {
+  text-align: center;
+  width: 60px;
+  display: inline;
+  float: right;
+  margin-top: 15px;
+  font-weight: bold;
+  padding: 3px;
+  background-color: #505050;
+  color: white;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  text-decoration: none;
+  color: white;
+}
+/* line 103, ../../app/stylesheets/application.scss */
+#view_more:hover {
+  background-color: #cccccc;
+  cursor: pointer;
+}
+/* line 108, ../../app/stylesheets/application.scss */
+#view_more:active {
+  background-color: black;
+}
+
+/* line 113, ../../app/stylesheets/application.scss */
+DIV.title {
+  color: #666666;
+  margin: 3px 0;
+}
+
+/* line 118, ../../app/stylesheets/application.scss */
+.input_field {
+  font-size: 30px;
+  color: #666666;
+}
+
+/* line 123, ../../app/stylesheets/application.scss */
+TABLE.gear_list {
+  margin-left: 0;
+  padding-left: 10px;
+  width: 100%;
+  border-top: 1px solid #505050;
+}
+/* line 129, ../../app/stylesheets/application.scss */
+TABLE.gear_list TD {
+  width: 33%;
+  color: #505050;
+  padding: 8px;
+  font-size: 12px;
+}
+/* line 136, ../../app/stylesheets/application.scss */
+TABLE.gear_list INPUT {
+  margin-right: 5px;
+}
+/* line 140, ../../app/stylesheets/application.scss */
+TABLE.gear_list TR.even {
+  background-color: #eeeeee;
+}
+
+/* line 145, ../../app/stylesheets/application.scss */
+SPAN.checkbox_select {
+  font-size: 12px;
+}
+
+/* The style for the signup status section on the signup flow */
+/* line 152, ../../app/stylesheets/application.scss */
+#signup_status H3 {
+  color: #272727;
+  font-weight: bold;
+  text-align: left;
+}
+/* line 158, ../../app/stylesheets/application.scss */
+#signup_status DIV.items {
+  margin: 5px 0 25px 0;
+}
+/* line 161, ../../app/stylesheets/application.scss */
+#signup_status DIV.items SPAN {
+  font-weight: bold;
+  background-color: #73e6be;
+  font-size: 12px;
+  color: #0c5238;
+  padding: 3px;
+  display: inline;
+  float: left;
+  margin: 3px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+/* See http://ryanfait.com/resources/footer-stick-to-bottom-of-page/ for more footer info */
+/* line 175, ../../app/stylesheets/application.scss */
+#root {
+  margin: 0 auto;
+  width: 985px;
+}
+
+/* line 180, ../../app/stylesheets/application.scss */
+#footer {
+  background-color: #1e1e1e;
+  text-align: center;
+  margin: 0 auto;
+}
+/* line 186, ../../app/stylesheets/application.scss */
+#footer #menu {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  overflow: hidden;
+  *zoom: 1;
+  padding-top: 10px;
+}
+/* line 190, ../../app/stylesheets/application.scss */
+#footer #menu LI {
+  height: 100px;
+  list-style-image: none;
+  list-style-type: none;
+  margin-left: 0px;
+  display: -moz-inline-box;
+  -moz-box-orient: vertical;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  white-space: nowrap;
+  padding: 0 10px;
+}
+/* line 7, ../../../../.rvm/gems/ruby-1.8.7-p302/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/css3/_inline-block.scss */
+#footer #menu LI {
+  *display: inline;
+}
+/* line 195, ../../app/stylesheets/application.scss */
+#footer #menu LI .title {
+  color: #d5f6ff;
+  font-weight: bold;
+  text-align: left;
+}
+/* line 202, ../../app/stylesheets/application.scss */
+#footer #menu .nav_border {
+  border-right: 1px solid #999999;
+}
+/* line 207, ../../app/stylesheets/application.scss */
+#footer TABLE {
+  width: 100%;
+}
+/* line 210, ../../app/stylesheets/application.scss */
+#footer TABLE TD {
+  padding: 4px;
+  color: white;
+  font-size: 12px;
+}
+/* line 217, ../../app/stylesheets/application.scss */
+#footer DIV {
+  text-align: left;
+}
+/* line 221, ../../app/stylesheets/application.scss */
+#footer A {
+  text-decoration: none;
+  color: white;
+  font-size: 10px;
+  color: white;
+}
+/* line 228, ../../app/stylesheets/application.scss */
+#footer .social_network_container {
+  margin-top: 5px;
+}
+/* line 231, ../../app/stylesheets/application.scss */
+#footer .social_network_container A {
+  color: #d7f4ff;
+}
+
+/* line 237, ../../app/stylesheets/application.scss */
+#header {
+  height: 73px;
+}
+/* line 240, ../../app/stylesheets/application.scss */
+#header #header_content {
+  /* small bar under the header */
+  height: 71px;
+  border-bottom: 1px solid #515151;
+  margin-top: 22px;
+}
+/* line 246, ../../app/stylesheets/application.scss */
+#header #header_content #logo {
+  margin-left: 5px;
+  display: inline;
+  float: left;
+}
+/* line 250, ../../app/stylesheets/application.scss */
+#header #header_content #logo .logo_image {
+  outline: none;
+}
+
+/* line 257, ../../app/stylesheets/application.scss */
+#right_nav {
+  display: inline;
+  float: right;
+  vertical-align: bottom;
+  /* The facebook connect button in the header */
+}
+/* line 262, ../../app/stylesheets/application.scss */
+#right_nav .nav_section {
+  display: inline;
+  float: left;
+  margin-right: 10px;
+}
+/* line 267, ../../app/stylesheets/application.scss */
+#right_nav .nav_button {
+  padding: 28px 0 0;
+}
+/* line 271, ../../app/stylesheets/application.scss */
+#right_nav A {
+  text-decoration: none;
+  background-color: #2c2c2c;
+  padding: 5px 12px;
+  margin-left: 15px;
+  display: inline;
+  float: left;
+  color: #feffef;
+  border: 0;
+  font-weight: bold;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+/* line 283, ../../app/stylesheets/application.scss */
+#right_nav A:hover {
+  background-color: #505050;
+  cursor: pointer;
+}
+/* line 289, ../../app/stylesheets/application.scss */
+#right_nav #fb_like {
+  height: 80px;
+  width: 100px;
+  border: none;
+  overflow: hidden;
+  color: white;
+}
+/* line 296, ../../app/stylesheets/application.scss */
+#right_nav #fb_profile_pic {
+  border: 1px solid #666666;
+}
+/* line 301, ../../app/stylesheets/application.scss */
+#right_nav .fb_button {
+  padding: 0;
+}
+
+/* line 306, ../../app/stylesheets/application.scss */
+#content {
+  background-color: #f6f6f6;
+  min-height: 300;
+  height: auto !important;
+  height: 300;
+}
+
+/* line 311, ../../app/stylesheets/application.scss */
+#tabs {
+  height: 24px;
+  width: 985px;
+  margin-bottom: 10px;
+  padding-top: 14px;
+  background-color: #e7e7e7;
+  color: #999999;
+}
+
+/* Style the submit button / cancel partial */
+/* line 320, ../../app/stylesheets/application.scss */
+#submit_section {
+  margin-top: 15px;
+  font-size: 12px;
+}
+
+/* Style the recents product partial */
+/* line 326, ../../app/stylesheets/application.scss */
+#recent_products {
+  border: 1px solid #f6f6f6;
+  padding: 5px 5px 5px 5px;
+  width: 350px;
+}
+
+/* line 332, ../../app/stylesheets/application.scss */
+#recent_product {
+  border: 1px solid #f6f6f6;
+  font-size: 200px;
+}
+
+/* line 337, ../../app/stylesheets/application.scss */
+.product_image_container {
+  display: inline;
+  float: left;
+  width: 40px;
+  margin-right: 5px;
+}
+/* line 342, ../../app/stylesheets/application.scss */
+.product_image_container .img {
+  height: 40px;
+  width: 40px;
+}
+
+/* line 347, ../../app/stylesheets/application.scss */
+DIV.product_container {
+  color: #999999;
+  margin-bottom: 25px;
+  width: 295px;
+  display: inline;
+  float: left;
+}
+/* line 353, ../../app/stylesheets/application.scss */
+DIV.product_container .product_name {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* line 359, ../../app/stylesheets/application.scss */
+#product_spinner {
+  width: 100%;
+  text-align: center;
+  margin-top: 25px;
+}
+
+/* line 365, ../../app/stylesheets/application.scss */
+#no_deals_found {
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Modal window stuff */
+/* line 371, ../../app/stylesheets/application.scss */
+.modal-window {
+  background-color: white;
+  border: 2px solid #999999;
+  -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  /* FF3.5+ */
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  /* Saf3.0+, Chrome */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  /* Opera 10.5, IE 9.0 */
+  filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0px, OffY=2px, Color='$color-dark-grey');
+  /* IE6,IE7 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.dropshadow(OffX=0px, OffY=2px, Color='$color-dark-grey')";
+  /* IE8 */
+}
+/* line 380, ../../app/stylesheets/application.scss */
+.modal-window .modal-content {
+  left: 10px;
+  top: 10px;
+  position: absolute;
+}
+/* line 386, ../../app/stylesheets/application.scss */
+.modal-window .button {
+  position: absolute;
+  bottom: 10px;
+  text-indent: -1000000px;
+  outline: none;
+}
+/* line 392, ../../app/stylesheets/application.scss */
+.modal-window .ok {
+  right: 10px;
+}
+/* line 393, ../../app/stylesheets/application.scss */
+.modal-window .cancel {
+  right: 60px;
+}
+
+/* Login modal that appears on every page while not logged in */
+/* line 398, ../../app/stylesheets/application.scss */
+#login_modal {
+  height: 235px;
+  width: 600px;
+}
+/* line 401, ../../app/stylesheets/application.scss */
+#login_modal H3 {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+/* line 407, ../../app/stylesheets/application.scss */
+#login_modal LABEL {
+  display: block;
+  font-size: 10px;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+/* line 414, ../../app/stylesheets/application.scss */
+#login_modal .submit {
+  margin: 5px 0;
+}
+/* line 418, ../../app/stylesheets/application.scss */
+#login_modal .email, #login_modal .password {
+  width: 240px;
+  padding: 3px;
+}
+/* line 423, ../../app/stylesheets/application.scss */
+#login_modal .ok {
+  visibility: hidden;
+}
+/* line 427, ../../app/stylesheets/application.scss */
+#login_modal .cancel {
+  right: 10px;
+  text-indent: 0;
+}
+/* line 432, ../../app/stylesheets/application.scss */
+#login_modal #get_started {
+  margin: 15px 0 0 50px;
+  text-align: center;
+}
+/* line 436, ../../app/stylesheets/application.scss */
+#login_modal #get_started .submit {
+  width: 100px;
+  margin-top: 10px;
+}
+/* line 442, ../../app/stylesheets/application.scss */
+#login_modal #rm_container {
+  margin: 5px 0 20px;
+  font-size: 12px;
+}

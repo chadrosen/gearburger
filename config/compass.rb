@@ -4,8 +4,7 @@ project_type = :rails
 project_path = Compass::AppIntegration::Rails.root
 # Set this to the root of your project when deployed:
 http_path = "/"
-#css_dir = "public/stylesheets" # We can use this in dev mode if we want later
-css_dir = "tmp/stylesheets" # Put compiled sass stylesheets under tmp for now
+css_dir = "public/stylesheets" # Compile stylesheets to the public/stylesheets dir
 sass_dir = "app/stylesheets"
 environment = Compass::AppIntegration::Rails.env
 # To enable relative paths to assets via compass helper functions. Uncomment:
