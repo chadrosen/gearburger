@@ -45,6 +45,7 @@ GEM
       gdata (>= 1.1.1)
       json (>= 1.1.1)
     daemons (1.1.0)
+    dalli (1.0.0)
     delayed_job (2.1.1)
       activesupport (~> 3.0)
       daemons
@@ -123,6 +124,7 @@ DEPENDENCIES
   aasm (= 2.2.0)
   compass (>= 0.10.6)
   contacts (= 1.2.3)
+  dalli
   delayed_job (= 2.1.1)
   email_veracity (= 0.6.0)
   fastercsv (= 1.5.3)

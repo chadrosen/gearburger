@@ -9,7 +9,7 @@ Gearburger::Application.configure do
   # Full error reports are disabled and caching is turned on
   config.consider_all_requests_local = false
   config.action_controller.perform_caching             = true
-
+    
   # Specifies the header that your server uses for sending files
   config.action_dispatch.x_sendfile_header = "X-Sendfile"
 
@@ -17,6 +17,9 @@ Gearburger::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+
+  # Use memcache
+  Rails.configuration.cache_store = :dalli_store
 
   # See everything in the log (default is :info)
   # config.log_level = :debug

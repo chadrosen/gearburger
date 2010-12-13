@@ -10,6 +10,9 @@ Gearburger::Application.configure do
   config.consider_all_requests_local = false
   config.action_controller.perform_caching             = true
 
+  # Use memcache
+  Rails.configuration.cache_store = :dalli_store
+  
   # See everything in the log (default is :info)
   # config.log_level = :debug
 
