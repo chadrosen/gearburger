@@ -47,5 +47,9 @@ module Gearburger
     
     # Raise errors on mail delivery
     config.action_mailer.raise_delivery_errors = true
+    
+    # Log to standard out so we can get heroku logs
+    # http://docs.heroku.com/logging
+    config.action_controller.logger = Logger.new(STDOUT)
   end
 end
