@@ -18,26 +18,31 @@ class UserInviteTest < ActiveSupport::TestCase
   end
 
   def test_valid_email
-    ui = @ui.invite_user(users(:rob), "doo@hotmail.com")
+    ui = run_with_jobs do
+      @ui.invite_user(users(:rob), "doo@hotmail.com")
+    end
+    
     assert_equal ActionMailer::Base.deliveries.length, 1
     assert_equal ui.state, "sent"    
   end
-  
-  def test_valid_email_but_fails_delivery
-    # TODO: hard to test in test mode...
-  end
-  
+    
   def test_user_invites_friend_twice
-    ui = Messaging::UserInviter.new(:max_attempts => 1)
-    u = ui.invite_user(users(:rob), "chadrosen@hotmail.com")
-    assert_equal u.attempts, 1
-    assert_nil ui.invite_user(users(:rob), "chadrosen@hotmail.com")
+
+    run_with_jobs do 
+      ui = Messaging::UserInviter.new(:max_attempts => 1)
+      u = ui.invite_user(users(:rob), "chadrosen@hotmail.com")
+      assert_equal u.attempts, 1
+      assert_nil ui.invite_user(users(:rob), "chadrosen@hotmail.com")
+    end
+
     assert_equal ActionMailer::Base.deliveries.length, 1
   end
   
   def test_user_invites_friend_of_another_user
-    ui = @ui.invite_user(users(:rob), "chadrosen@hotmail.com")
-    ui2 = @ui.invite_user(users(:chad), "chadrosen@hotmail.com")
+    run_with_jobs do 
+      ui = @ui.invite_user(users(:rob), "chadrosen@hotmail.com")
+      ui2 = @ui.invite_user(users(:chad), "chadrosen@hotmail.com")
+    end
     assert_equal ActionMailer::Base.deliveries.length, 2
   end
   
@@ -59,22 +64,31 @@ class UserInviteTest < ActiveSupport::TestCase
   end
   
   def test_user_registers_without_referral
-    new_user = User.register("foo1@hotmail.com")
+    new_user = run_with_jobs do
+      User.register("foo1@hotmail.com")
+    end    
     assert_nil new_user.referrer    
   end
   
   def test_valid_email_array
-    assert_not_nil @ui.invite_users(users(:rob), ["foo1@hotmail.com", "foo2@gmail.com"])
+
+    run_with_jobs do
+      assert_not_nil @ui.invite_users(users(:rob), ["foo1@hotmail.com", "foo2@gmail.com"])
+    end
     assert_equal ActionMailer::Base.deliveries.length, 2
   end
   
   def test_comma_separated_string
-    @ui.invite_users(users(:rob), "foo1@hotmail.com,foo2@gmail.com")
+    run_with_jobs do 
+      @ui.invite_users(users(:rob), "foo1@hotmail.com,foo2@gmail.com")
+    end
     assert_equal ActionMailer::Base.deliveries.length, 2
   end
   
   def test_newline_separated_string
-    @ui.invite_users(users(:rob), "foo1@hotmail.com\nfoo2@gmail.com\n")
+    run_with_jobs do 
+      @ui.invite_users(users(:rob), "foo1@hotmail.com\nfoo2@gmail.com\n")
+    end
     assert_equal ActionMailer::Base.deliveries.length, 2
   end
   
@@ -87,6 +101,18 @@ class UserInviteTest < ActiveSupport::TestCase
   
   def test_user_must_be_active_to_invite
     assert_nil @ui.invite_user(users(:aaron), "foo1@hotmail.com")    
+  end
+  
+  private
+  def run_with_jobs
+    
+    # Run code
+    r = yield
+    
+    #  Run jobs
+    dj = Delayed::Job.all
+    dj.each { |d| d.invoke_job } 
+    return r
   end
 
 end

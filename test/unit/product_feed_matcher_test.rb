@@ -152,12 +152,8 @@ class ProductFeedMatcherTest < ActiveSupport::TestCase
     p = @pg.create_product(@fc.feed_id, "SkuPoo", "Foo Bar - Men's", @b.name, @fc.feed_category, 
       @fc.feed_subcategory, @fc.feed_product_group, 100.0, :sale_price => 90.0, :created_at => @t)
           
-    @pm.generate_emails
-                
-    # Assert only one user gets an email
-    active_users = User.find_all_by_state(:active)
-    assert_equal ActionMailer::Base.deliveries.length, 2
-        
+    @pm.generate_emails                
+            
     # Assert summary row was created
     upe = UserProductEmail.find_by_user_id(@u.id, :include => [:user])
     assert_not_nil upe

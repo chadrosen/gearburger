@@ -44,11 +44,11 @@ class User < ActiveRecord::Base
   # A user can have many categories
   has_many :categories_users
   has_many :categories, :through => :categories_users
-
+  
   # A user can choose to monitor different sex params
   has_many :departments_users
   has_many :departments, :through => :departments_users
-  
+    
   has_many :user_product_emails # These are product emails sent to the user
   has_many :clicks
   has_many :sales
@@ -275,13 +275,7 @@ class User < ActiveRecord::Base
       end
             
       # Save the whole package
-      user.save!     
-      
-      # Default a user's brands to everything on registration
-      sql = "INSERT INTO brands_users (user_id, brand_id, created_at, updated_at)
-      SELECT #{user.id}, id, NOW(), NOW() from brands where active = true
-      "
-      ActiveRecord::Base.connection.execute(sql)
+      user.save!      
     end
     
     return user
@@ -307,67 +301,38 @@ class User < ActiveRecord::Base
     min_price = options[:min_price] || user.min_price
     max_price = options[:max_price] || user.max_price
     limit = options[:limit] || user.max_products_per_email
-                                                                                          
-    sql = "
-    (SELECT
-    pr.id,
-    (pr.retail_price - pr.sale_price) / pr.retail_price as discount
-    FROM
-    	products as pr
-      JOIN feed_categories as fc ON pr.feed_category_id = fc.id
-    	JOIN categories_users as cu ON fc.category_id = cu.category_id
-    	JOIN brands_users as bu ON pr.brand_id = bu.brand_id
-    	JOIN departments_users as du ON pr.department_id = du.department_id
-    	JOIN users as us ON (bu.user_id = us.id AND cu.user_id = us.id AND du.user_id = us.id)
-    	JOIN brands as br ON br.id = bu.brand_id
-    	JOIN categories as ca ON ca.id = cu.category_id
-    	JOIN departments as de ON de.id = du.department_id
-    WHERE
-    	ca.active = TRUE
-    	AND br.active = TRUE
-    	AND de.active = TRUE
-    	AND fc.active = TRUE
-    	AND (pr.previous_sale_price = 0.0 OR pr.sale_price < pr.previous_sale_price)
-    	AND pr.valid_sale_price = true
-    	AND (pr.retail_price - pr.sale_price) / pr.retail_price >= #{min_discount}
-    	AND pr.sale_price BETWEEN #{min_price} AND #{max_price}
-    	AND pr.price_changed_at BETWEEN '#{sd.strftime("%Y-%m-%d %H:%M:%S")}' AND '#{ed.strftime("%Y-%m-%d %H:%M:%S")}'
-    	AND us.id = #{user.id}
-    )
-    UNION
-    (SELECT
-      pr.id,
-      (pr.retail_price - pr.sale_price) / pr.retail_price as discount
-    FROM
-      products as pr
-      JOIN feed_categories as fc ON pr.feed_category_id = fc.id
-      JOIN categories_users as cu ON fc.category_id = cu.category_id
-    	JOIN brands_users as bu ON pr.brand_id = bu.brand_id
-    	JOIN brands as br ON br.id = bu.brand_id
-    	JOIN categories as ca ON ca.id = cu.category_id
-    	JOIN users as us ON (bu.user_id = us.id AND cu.user_id = us.id)
-    WHERE
-      ca.active = TRUE
-  	  AND br.active = TRUE
-  	  AND fc.active = TRUE
-      AND (pr.previous_sale_price = 0.0 OR pr.sale_price < pr.previous_sale_price)    	
-    	AND (pr.retail_price - pr.sale_price) / pr.retail_price >= #{min_discount}
-      AND pr.department_id IS NULL
-      AND pr.valid_sale_price = true
-      AND pr.sale_price BETWEEN #{min_price} AND #{max_price}      	
-    	AND pr.price_changed_at BETWEEN '#{sd.strftime("%Y-%m-%d %H:%M:%S")}' AND '#{ed.strftime("%Y-%m-%d %H:%M:%S")}'
-      AND us.id = #{user.id}
-    ) LIMIT #{limit}
-    "  
+
+    # Get feed category ids for the user...
+    fcs = FeedCategory.where(:category_id => user.categories)
+  
+    # Non department case query section
+    q = Product.where(:brand_id => user.brands)
+    q = q.where(:feed_category_id => fcs)
+    q = q.where(:price_changed_at => (sd...ed), :valid_sale_price => true)
+    q = q.where(["sale_price BETWEEN ? AND ?", min_price, max_price])
+    q = q.where(["(retail_price - sale_price) / retail_price >= ?", min_discount])    
+    q = q.where("previous_sale_price = 0.0 OR sale_price < previous_sale_price")
+
+    # Add some extra data objects to the result
+    q.includes([:category, :brand])
     
-    # puts sql
-    # chad test user id: 860352380
-                
-    results = ActiveRecord::Base.connection.select_values(sql)
+    # Query one
+    result = q.all
     
-    # TODO: including category for now... 
-    return Product.find(results, :include => [:category, :brand], 
-      :order => "(retail_price - sale_price) / retail_price DESC")
+    # Do the query again but this time filter adding departments
+    q = q.where(:department_id => user.departments)
+    
+    # Merge results with query two
+    result += q.all
+    
+    result.uniq!
+    
+    # If there's a limit, limit the result set
+    return result[0...limit] if limit
+    
+    # TODO: Figure out how to order the final merged result
+    # :order => "(retail_price - sale_price) / retail_price DESC")
+    return result
   end
   
   def self.get_eligible_users(options = {})
