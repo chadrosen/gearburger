@@ -588,6 +588,7 @@ SPAN.price_title {
 
 		LI {
 			padding: 3px 0;
+			font-size: $font-size - 2;
 		}
 	}
 
@@ -676,15 +677,6 @@ SPAN.price_title {
 	.item_label {
 		margin-left: 3px;
 		width: 130px;
-	}
-
-	LABEL {
-		font-size: $font-size - 2;
-		text-decoration: underline;
-	
-		&:hover {
-			text-decoration: none;
-		}
 	}
 
 	.overflow {

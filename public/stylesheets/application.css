@@ -986,36 +986,37 @@ SPAN.price_title {
 /* line 589, ../../app/stylesheets/users.scss */
 #users_gear_bin #filter LI {
   padding: 3px 0;
+  font-size: 12px;
 }
-/* line 594, ../../app/stylesheets/users.scss */
+/* line 595, ../../app/stylesheets/users.scss */
 #users_gear_bin #data {
   width: 750px;
   padding-left: 10px;
 }
-/* line 599, ../../app/stylesheets/users.scss */
+/* line 600, ../../app/stylesheets/users.scss */
 #users_gear_bin H1 {
   margin-bottom: 15px;
 }
-/* line 603, ../../app/stylesheets/users.scss */
+/* line 604, ../../app/stylesheets/users.scss */
 #users_gear_bin H2 {
   padding-bottom: 2px;
   border-bottom: 1px solid #999999;
   font-weight: bold;
 }
-/* line 609, ../../app/stylesheets/users.scss */
+/* line 610, ../../app/stylesheets/users.scss */
 #users_gear_bin #products_container {
   padding: 10px 0 0 0;
 }
-/* line 613, ../../app/stylesheets/users.scss */
+/* line 614, ../../app/stylesheets/users.scss */
 #users_gear_bin .fresh {
   border: 1px solid #fe4400;
 }
-/* line 617, ../../app/stylesheets/users.scss */
+/* line 618, ../../app/stylesheets/users.scss */
 #users_gear_bin .products_row {
   margin-bottom: 20px;
   padding-top: 5px;
 }
-/* line 622, ../../app/stylesheets/users.scss */
+/* line 623, ../../app/stylesheets/users.scss */
 #users_gear_bin .product {
   width: 170px;
   margin-right: 5px;
@@ -1024,7 +1025,7 @@ SPAN.price_title {
   text-align: center;
   padding: 5px;
 }
-/* line 629, ../../app/stylesheets/users.scss */
+/* line 630, ../../app/stylesheets/users.scss */
 #users_gear_bin .product .image {
   background-color: white;
   margin-bottom: 3px;
@@ -1035,204 +1036,195 @@ SPAN.price_title {
   margin-left: auto;
   margin-right: auto;
 }
-/* line 640, ../../app/stylesheets/users.scss */
+/* line 641, ../../app/stylesheets/users.scss */
 #users_gear_bin .product IMG {
   height: 75px;
   width: 75px;
 }
-/* line 644, ../../app/stylesheets/users.scss */
+/* line 645, ../../app/stylesheets/users.scss */
 #users_gear_bin .product .name {
   font-size: 12px;
   float: none;
   height: 35px;
 }
-/* line 650, ../../app/stylesheets/users.scss */
+/* line 651, ../../app/stylesheets/users.scss */
 #users_gear_bin .product .retail {
   font-size: 12px;
   color: #999999;
   margin-bottom: 3px;
 }
-/* line 656, ../../app/stylesheets/users.scss */
+/* line 657, ../../app/stylesheets/users.scss */
 #users_gear_bin .product .sale {
   font-weight: bold;
   float: none;
   font-size: 12px;
   color: #009900;
 }
-/* line 663, ../../app/stylesheets/users.scss */
+/* line 664, ../../app/stylesheets/users.scss */
 #users_gear_bin .product .discount {
   font-weight: bold;
 }
-/* line 668, ../../app/stylesheets/users.scss */
+/* line 669, ../../app/stylesheets/users.scss */
 #users_gear_bin .no_matches {
   padding-left: 10px;
 }
-/* line 672, ../../app/stylesheets/users.scss */
+/* line 673, ../../app/stylesheets/users.scss */
 #users_gear_bin .filter_section {
   margin-bottom: 15px;
 }
-/* line 676, ../../app/stylesheets/users.scss */
+/* line 677, ../../app/stylesheets/users.scss */
 #users_gear_bin .item_label {
   margin-left: 3px;
   width: 130px;
 }
-/* line 681, ../../app/stylesheets/users.scss */
-#users_gear_bin LABEL {
-  font-size: 12px;
-  text-decoration: underline;
-}
-/* line 685, ../../app/stylesheets/users.scss */
-#users_gear_bin LABEL:hover {
-  text-decoration: none;
-}
-/* line 690, ../../app/stylesheets/users.scss */
+/* line 682, ../../app/stylesheets/users.scss */
 #users_gear_bin .overflow {
   overflow: auto;
   height: 175px;
 }
-/* line 695, ../../app/stylesheets/users.scss */
+/* line 687, ../../app/stylesheets/users.scss */
 #users_gear_bin .toggle {
   font-size: 12px;
 }
-/* line 699, ../../app/stylesheets/users.scss */
+/* line 691, ../../app/stylesheets/users.scss */
 #users_gear_bin #see_more {
   font-size: 12px;
 }
 
-/* line 706, ../../app/stylesheets/users.scss */
+/* line 698, ../../app/stylesheets/users.scss */
 #users_account_preferences P {
   margin: 10px 0;
 }
-/* line 710, ../../app/stylesheets/users.scss */
+/* line 702, ../../app/stylesheets/users.scss */
 #users_account_preferences .text_field {
   padding: 5px;
   font-size: 16px;
   width: 400px;
 }
-/* line 716, ../../app/stylesheets/users.scss */
+/* line 708, ../../app/stylesheets/users.scss */
 #users_account_preferences TABLE TD {
   padding: 5px;
 }
-/* line 720, ../../app/stylesheets/users.scss */
+/* line 712, ../../app/stylesheets/users.scss */
 #users_account_preferences .price_field {
   padding: 3px;
   font-size: 16px;
   width: 75px;
 }
-/* line 726, ../../app/stylesheets/users.scss */
+/* line 718, ../../app/stylesheets/users.scss */
 #users_account_preferences #email_day_preferences {
   margin: 0;
   padding: 0;
 }
-/* line 729, ../../app/stylesheets/users.scss */
+/* line 721, ../../app/stylesheets/users.scss */
 #users_account_preferences #email_day_preferences LI {
   display: inline;
   float: left;
   margin-right: 10px;
 }
 
-/* line 736, ../../app/stylesheets/users.scss */
+/* line 728, ../../app/stylesheets/users.scss */
 #users_take_a_breather {
   text-align: center;
 }
-/* line 739, ../../app/stylesheets/users.scss */
+/* line 731, ../../app/stylesheets/users.scss */
 #users_take_a_breather .welcome_back {
   border: 1px solid #999999;
   color: green;
   padding: 10px;
   margin-bottom: 15px;
 }
-/* line 746, ../../app/stylesheets/users.scss */
+/* line 738, ../../app/stylesheets/users.scss */
 #users_take_a_breather H2 {
   margin: 10px 0;
 }
-/* line 750, ../../app/stylesheets/users.scss */
+/* line 742, ../../app/stylesheets/users.scss */
 #users_take_a_breather H3 {
   margin-bottom: 10px;
   font-size: 16px;
 }
-/* line 755, ../../app/stylesheets/users.scss */
+/* line 747, ../../app/stylesheets/users.scss */
 #users_take_a_breather #submit_button {
   margin: 10px 0 0;
 }
 
-/* line 762, ../../app/stylesheets/users.scss */
+/* line 754, ../../app/stylesheets/users.scss */
 #users_deactivate_account H2 {
   font-size: 14px;
   margin-bottom: 10px;
 }
-/* line 767, ../../app/stylesheets/users.scss */
+/* line 759, ../../app/stylesheets/users.scss */
 #users_deactivate_account H3 {
   font-size: 12px;
   margin-bottom: 3px;
 }
-/* line 772, ../../app/stylesheets/users.scss */
+/* line 764, ../../app/stylesheets/users.scss */
 #users_deactivate_account .dont_go_container {
   padding: 10px;
   border: 1px solid #999999;
   margin-bottom: 20px;
 }
-/* line 778, ../../app/stylesheets/users.scss */
+/* line 770, ../../app/stylesheets/users.scss */
 #users_deactivate_account .dont_go_container H3 {
   font-weight: bold;
 }
-/* line 781, ../../app/stylesheets/users.scss */
+/* line 773, ../../app/stylesheets/users.scss */
 #users_deactivate_account #email {
   width: 250px;
 }
-/* line 783, ../../app/stylesheets/users.scss */
+/* line 775, ../../app/stylesheets/users.scss */
 #users_deactivate_account #email_day_preferences {
   margin: 0;
   padding: 0;
 }
-/* line 787, ../../app/stylesheets/users.scss */
+/* line 779, ../../app/stylesheets/users.scss */
 #users_deactivate_account #email_day_preferences LI {
   display: inline;
   float: left;
   margin-right: 10px;
 }
 
-/* line 796, ../../app/stylesheets/users.scss */
+/* line 788, ../../app/stylesheets/users.scss */
 #users_gearguide H2 {
   font-size: 14px;
   margin: 10px 0 20px;
 }
-/* line 801, ../../app/stylesheets/users.scss */
+/* line 793, ../../app/stylesheets/users.scss */
 #users_gearguide .friend_row {
   margin-bottom: 30px;
 }
-/* line 803, ../../app/stylesheets/users.scss */
+/* line 795, ../../app/stylesheets/users.scss */
 #users_gearguide .friend_container {
   width: 310px;
   margin-right: 10px;
   display: inline;
   float: left;
 }
-/* line 808, ../../app/stylesheets/users.scss */
+/* line 800, ../../app/stylesheets/users.scss */
 #users_gearguide .friend_container .friend_info {
   margin-left: 3px;
   width: 225px;
 }
-/* line 812, ../../app/stylesheets/users.scss */
+/* line 804, ../../app/stylesheets/users.scss */
 #users_gearguide .friend_container .friend_info .name {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
-/* line 818, ../../app/stylesheets/users.scss */
+/* line 810, ../../app/stylesheets/users.scss */
 #users_gearguide .friend_container .friend_info .description {
   font-size: 12px;
   margin: 5px 0;
 }
-/* line 823, ../../app/stylesheets/users.scss */
+/* line 815, ../../app/stylesheets/users.scss */
 #users_gearguide .friend_container .friend_info .url {
   font-size: 12px;
 }
-/* line 826, ../../app/stylesheets/users.scss */
+/* line 818, ../../app/stylesheets/users.scss */
 #users_gearguide .friend_container .friend_image_container {
   width: 80px;
 }
-/* line 828, ../../app/stylesheets/users.scss */
+/* line 820, ../../app/stylesheets/users.scss */
 #users_gearguide .friend_container .friend_image_container IMG {
   height: 75px;
   width: 75px;
