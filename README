@@ -53,3 +53,34 @@ Staging is exactly the same as production except it uses a different app
 - Important: make sure you specify staging appname when running the staging app
 
 ex: heroku console --appname gearburger-staging
+
+
+=== GB heroku migration ===
+
+- Dump prod db (skip some tables)
+
+mysqldump -uroot -psc0reb0ard --skip-trigger --compact --ignore-table=gearburger_prod.alternatives --ignore-table=gearburger_prod.experiments --ignore-table=gearburger_prod.sales --ignore-table=gearburger_prod.captions --ignore-table=gearburger_prod.contests --ignore-table=gearburger_prod.product_generation_summaries --ignore-table=gearburger_prod.product_prices --ignore-table=gearburger_prod.schema_migrations --ignore-table=gearburger_prod.sessions --ignore-table=gearburger_prod.votes  --no-create-info gearburger_prod > gb.sql
+
+- Tar.gz
+
+tar -cvzf gb.gz gb.sql
+
+- Download
+
+scp crosen@hulk.packethole.com:/home/crosen/gb.sql
+
+- Un-tar
+
+Use mac os x
+
+- Import
+
+mysql -uroot -Dgearburger_dev < gb.sql
+
+- Blow away some brands_users (better in a query?)
+
+User.all.each { |u| u.brands.delete_all if u.brands.length > 50 }
+
+- Upload to heroku
+
+heroku db:push mysql://root@localhost/gearburger_dev
