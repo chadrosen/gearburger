@@ -285,10 +285,13 @@ class User < ActiveRecord::Base
     # Called on the individual user object
     return User::get_matching_products(self, options)
   end
-  
+    
   def self.get_matching_products(user, options = {})
     # Get a list of products matching a user's selections that
     # have a price change recently that is favorable
+
+    # Optimization: no need to even run the query unless the user has categories
+    return [] if user.categories.empty?
     
     # Run for last 24 hours by default & make sure UTC
     sd = options[:start_date] ? Time.parse(options[:start_date]) : Time.zone.now - 1.days
@@ -302,37 +305,52 @@ class User < ActiveRecord::Base
     max_price = options[:max_price] || user.max_price
     limit = options[:limit] || user.max_products_per_email
 
-    # Get feed category ids for the user...
-    fcs = FeedCategory.where(:category_id => user.categories)
-  
+    # Get feed category ids for the user in one query...
+    fcs = FeedCategory.where(:category_id => user.categories).select("DISTINCT(id)").all
+    
+    # Get the user's brand_ids in one query...
+    brands = user.brands.map { |b| b.id }
+      
     # Non department case query section
-    q = Product.where(:brand_id => user.brands)
-    q = q.where(:feed_category_id => fcs)
-    q = q.where(:price_changed_at => (sd...ed), :valid_sale_price => true)
+    q = Product.where(:feed_category_id => fcs)
+    
+    # Only add brands if the user has specified them. Otherwise, assume all brands
+    q = q.where(:brand_id => brands) unless brands.empty?
+    
+    # Product must have a price change within a certain span of time
+    q = q.where(["price_changed_at BETWEEN ? AND ?", sd, ed])
+    
+    # The product must be validated by our auto-nightly-validator
+    q = q.where(:valid_sale_price => true)
+    
+    # Sale price restrictions
     q = q.where(["sale_price BETWEEN ? AND ?", min_price, max_price])
-    q = q.where(["(retail_price - sale_price) / retail_price >= ?", min_discount])    
+    
+    # The item's discount must be greater or equal to the min discount
+    q = q.where(["(retail_price - sale_price) / retail_price >= ?", min_discount])
+    
+    # The product must either be new or on sale
     q = q.where("previous_sale_price = 0.0 OR sale_price < previous_sale_price")
 
     # Add some extra data objects to the result
     q.includes([:category, :brand])
     
-    # Query one
+    # Get the results
     result = q.all
     
     # Do the query again but this time filter adding departments
-    q = q.where(:department_id => user.departments)
+    result2 = q.where(:department_id => user.departments).all
     
-    # Merge results with query two
-    result += q.all
+    # Return union of both arrays
+    r = result | result2
     
-    result.uniq!
-    
-    # If there's a limit, limit the result set
-    return result[0...limit] if limit
-    
+    # ?
     # TODO: Figure out how to order the final merged result
     # :order => "(retail_price - sale_price) / retail_price DESC")
-    return result
+    #result.sort_by { |p| (p.retail_price - p.sale_price) / retail_price }
+    
+    # If there's a limit, limit the result set
+    return limit ? r[0...limit] : r
   end
   
   def self.get_eligible_users(options = {})

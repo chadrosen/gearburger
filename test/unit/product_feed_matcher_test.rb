@@ -15,26 +15,15 @@ class ProductFeedMatcherTest < ActiveSupport::TestCase
     @c = categories(:clothing)
     @fc = feed_categories(:shirts)
     @pm = AlertGenerator::ProductFeedMatcher.new(:batch_wait => 0)
-
   end
 
   def teardown
-    ActionMailer::Base.deliveries = []
-    
-    # Delete everything in product_emails dir
-    path = File.join(OPTIONS[:product_email_location], "*_#{Time.zone.today}.email")
-    file_names = Dir.glob(path)
-    file_names.each do |f|
-      p = File.join("#{OPTIONS[:product_email_location]}", f)
-      File.delete(f)
-    end
-    
-    Product.delete_all
+    ActionMailer::Base.deliveries = []    
   end
 
   def test_price_matching_no_matches
     matches = users(:chad).matching_products    
-    assert_equal matches.length, 0
+    assert_equal 0, matches.length
   end
   
   def test_price_match_new_product_with_sale        
@@ -43,7 +32,7 @@ class ProductFeedMatcherTest < ActiveSupport::TestCase
       @fc.feed_product_group, 100.0, :sale_price => 90.0)
     
     matches = @u.matching_products
-    assert_equal matches.length, 1
+    assert_equal 1, matches.length
   end
   
   def test_price_match_new_product_with_no_sale
@@ -52,7 +41,7 @@ class ProductFeedMatcherTest < ActiveSupport::TestCase
       @fc.feed_product_group, 100.0, :sale_price => 100.0)
     
     matches = @u.matching_products :min_discount => 0.2
-    assert_equal matches.length, 0
+    assert_equal 0, matches.length
   end
   
   def test_price_match_existing_sale_worse_than_previous
@@ -66,7 +55,7 @@ class ProductFeedMatcherTest < ActiveSupport::TestCase
       @fc.feed_product_group, 100.0, :sale_price => 95.0)
     
     matches = @u.matching_products
-    assert_equal matches.length, 0
+    assert_equal 0, matches.length
   end
   
   def test_price_match_for_old_product
@@ -76,7 +65,7 @@ class ProductFeedMatcherTest < ActiveSupport::TestCase
       @fc.feed_product_group, 100.0, :sale_price => 90.0, :created_at => @t - 100000)
     
     matches = @u.matching_products
-    assert_equal matches.length, 0
+    assert_equal 0, matches.length
   end
   
   def test_multiple_matches
@@ -87,7 +76,7 @@ class ProductFeedMatcherTest < ActiveSupport::TestCase
       @fc.feed_subcategory, @fc.feed_product_group, 100.0, :sale_price => 90.0)
 
     matches = @u.matching_products
-    assert_equal matches.length, 2
+    assert_equal 2, matches.length
   end
   
   def test_multiple_matches_doesnt_exceed_limit
@@ -98,8 +87,8 @@ class ProductFeedMatcherTest < ActiveSupport::TestCase
     @pg.create_product(@fc.feed_id, "sku2", "product name2", @b.name, @fc.feed_category, @fc.feed_subcategory, 
       @fc.feed_product_group, 100.0, :sale_price => 90.0)
         
-    matches = @u.matching_products :limit => 1
-    assert_equal matches.length, 1
+    matches = @u.matching_products(:limit => 1)
+    assert_equal 1, matches.length
   end
   
   def test_default_created_at_date_works    
@@ -112,7 +101,7 @@ class ProductFeedMatcherTest < ActiveSupport::TestCase
 
     matches = @u.matching_products
     assert_equal matches[0], p
-    assert_equal matches.length, 1
+    assert_equal 1, matches.length
   end
   
   def test_non_matching_product
@@ -122,7 +111,7 @@ class ProductFeedMatcherTest < ActiveSupport::TestCase
       100.0, :sale_price => 90.0, :created_at => @t)
     
     matches = @u.matching_products
-    assert_equal matches.length, 0
+    assert_equal 0, matches.length
   end
   
   def test_non_matching_feed_category
@@ -132,7 +121,7 @@ class ProductFeedMatcherTest < ActiveSupport::TestCase
       100.0, :sale_price => 90.0, :created_at => @t)
     
     matches = @u.matching_products
-    assert_equal matches.length, 0
+    assert_equal 0, matches.length
   end
 
   def test_matches_with_department_matching_case
@@ -143,7 +132,7 @@ class ProductFeedMatcherTest < ActiveSupport::TestCase
       :created_at => @t)
       
     matches = @u.matching_products
-    assert_equal matches.length, 1    
+    assert_equal 1, matches.length
   end
   
   def test_make_sure_email_summary_generated
@@ -171,7 +160,7 @@ class ProductFeedMatcherTest < ActiveSupport::TestCase
       :created_at => @t)
       
     matches = @u.matching_products
-    assert_equal matches.length, 1
+    assert_equal 1, matches.length
   end
   
   def test_no_summary_generated_on_zero_results
@@ -185,8 +174,8 @@ class ProductFeedMatcherTest < ActiveSupport::TestCase
         
     # Assert summary row was not created
     upe = UserProductEmail.find(:all)
-    assert_equal upe.length, 0
-    assert_equal emails_sent, 0    
+    assert_equal 0, upe.length
+    assert_equal 0, emails_sent    
   end
   
   def test_dry_run_doesnt_send_emails
@@ -199,7 +188,7 @@ class ProductFeedMatcherTest < ActiveSupport::TestCase
     pm.generate_emails
                 
     # Assert only one user gets an email
-    assert_equal ActionMailer::Base.deliveries.length, 0    
+    assert_equal 0, ActionMailer::Base.deliveries.length   
   end
   
   def test_user_product_mails_create_once_per_product
@@ -258,8 +247,8 @@ class ProductFeedMatcherTest < ActiveSupport::TestCase
     product_rows = cats[0][1]
     products = product_rows[0]
 
-    assert_equal cats.length, 1
-    assert_equal products.length, 1    
+    assert_equal 1, cats.length
+    assert_equal 1, products.length    
     assert_equal Category.exists?(category), true
     assert_equal products[0].id, p.id
     assert_equal Product.exists?(products[0]), true

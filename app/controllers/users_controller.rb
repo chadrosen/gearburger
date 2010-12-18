@@ -197,7 +197,10 @@ class UsersController < ApplicationController
   def show
     @categories = current_user.categories(:order => "name ASC")
     @departments = current_user.departments(:order => "name ASC")
-    @brands =  BrandsUser.count(:conditions => {:user_id => current_user.id })
+
+    # The user has all brands if they have zero selected
+    brand_length = current_user.brands.length
+    @brands = brand_length == 0 ? Brand.count : brand_length
 
     @alerts = []
     

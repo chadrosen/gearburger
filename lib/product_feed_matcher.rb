@@ -44,24 +44,20 @@ module AlertGenerator
       
       cats = {}
       # Turn into general hash first
-      products.each { |p|
+      products.each do |p|
         unless p.category.nil?
-          if cats[p.category].nil?
-            cats[p.category] = [p]
-          else
-            cats[p.category] = cats[p.category].push(p) 
-          end
+          cats[p.category] = cats[p.category] ? cats[p.category].push(p) : [p]          
         end
-      }
+      end
       
       # Handle limit and group by
-      cats.each { |c, p|
+      cats.each do |c, p|
         if (limit == 0) or (group_by == 0)
           cats[c] = [[]]
         else
           cats[c] = p.first(limit).in_groups_of(group_by,false)
         end
-      }
+      end
       
       # Then sorting
       if sort_by == :number
@@ -135,12 +131,8 @@ module AlertGenerator
       end
 
       # Return all products that pass
-      tests.each do |t|
-        if t[:pass]
-          results.push(t[:product])
-        end
-      end
-
+      tests.each { |t| results.push(t[:product]) if t[:pass] }
+        
       return results
     end
 
