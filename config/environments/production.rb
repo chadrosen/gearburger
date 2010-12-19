@@ -12,8 +12,6 @@ Gearburger::Application.configure do
 
   # Use memcache
   Rails.configuration.cache_store = :dalli_store
-
-  Compass.configuration.sass_options = { :never_update => true }
   
   # See everything in the log (default is :info)
   # config.log_level = :debug
