@@ -8,7 +8,6 @@ product_one:
     sku: FTS0012
     feed_category: pants
     department: NULL
-    large_image_url: http://content.backcountry.com/images/items/medium/SES/SES0512/BK.jpg  
     buy_url: http://content.backcountry.com/images/items/medium/SES/SES0512/BK.jpg
     sale_price: 100.00
     previous_sale_price: 90.00
@@ -27,7 +26,6 @@ product_two:
     sku: FTS0019
     feed_category: pants2
     department: womens
-    large_image_url: http://content.backcountry.com/images/items/medium/SES/SES0512/BK.jpg  
     buy_url: http://content.backcountry.com/images/items/medium/SES/SES0512/BK.jpg
     sale_price: 50.00
     previous_sale_price: 30.00
@@ -46,7 +44,6 @@ product_three:
     sku: FTS0020
     feed_category: pants
     department: kids
-    large_image_url: http://content.backcountry.com/images/items/medium/SES/SES0512/BK.jpg  
     buy_url: http://content.backcountry.com/images/items/medium/SES/SES0512/BK.jpg
     sale_price: 35.00
     previous_sale_price: 30.00
@@ -64,7 +61,6 @@ product_four:
     sku: FTS0028
     feed_category: pants2 
     department: mens
-    large_image_url: http://content.backcountry.com/images/items/medium/SES/SES0512/BK.jpg  
     buy_url: http://content.backcountry.com/images/items/medium/SES/SES0512/BK.jpg
     sale_price: 200.00
     previous_sale_price: 0.00
@@ -83,7 +79,6 @@ product_empty_department:
     sku: FTS0029
     feed_category: pants
     department: NULL
-    large_image_url: http://content.backcountry.com/images/items/medium/SES/SES0512/BK.jpg  
     buy_url: http://content.backcountry.com/images/items/medium/SES/SES0512/BK.jpg
     sale_price: 300.00
     previous_sale_price: 0.00
@@ -102,7 +97,6 @@ product_other_brand:
     sku: FTS0030
     feed_category: shoes
     department: NULL
-    large_image_url: http://content.backcountry.com/images/items/medium/SES/SES0512/BK.jpg  
     buy_url: http://content.backcountry.com/images/items/medium/SES/SES0512/BK.jpg
     sale_price: 339.95
     previous_sale_price: 0.00
@@ -121,7 +115,6 @@ product_no_recent_alert:
     sku: FTS0099
     feed_category: pants
     department: NULL
-    large_image_url: http://content.backcountry.com/images/items/medium/SES/SES0512/BK.jpg  
     buy_url: http://content.backcountry.com/images/items/medium/SES/SES0512/BK.jpg
     sale_price: 400.00
     previous_sale_price: 300.00
@@ -140,7 +133,6 @@ product_old_alert:
     sku: FTS0100
     feed_category: hiking
     department: NULL
-    large_image_url: http://content.backcountry.com/images/items/medium/SES/SES0512/BK.jpg  
     buy_url: http://content.backcountry.com/images/items/medium/SES/SES0512/BK.jpg
     sale_price: 0.50
     previous_sale_price: 0.75
