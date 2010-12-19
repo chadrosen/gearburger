@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101212191806) do
+ActiveRecord::Schema.define(:version => 20101219193733) do
 
   create_table "brands", :force => true do |t|
     t.string   "name",                          :null => false
@@ -167,7 +167,6 @@ ActiveRecord::Schema.define(:version => 20101212191806) do
     t.string   "sku",                                                                  :null => false
     t.integer  "department_id"
     t.integer  "brand_id",                                                             :null => false
-    t.string   "large_image_url"
     t.string   "buy_url"
     t.decimal  "sale_price",          :precision => 10, :scale => 2, :default => 0.0,  :null => false
     t.decimal  "previous_sale_price", :precision => 10, :scale => 2, :default => 0.0

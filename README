@@ -79,7 +79,9 @@ mysql -uroot -Dgearburger_dev < gb.sql
 
 - Blow away some brands_users (better in a query?)
 
-User.all.each { |u| u.brands.delete_all if u.brands.length > 50 }
+BrandsUser.count(:group => :user, :joins => :user).each_pair do |user, count|
+	BrandsUser.delete_all(:user_id => user.id) if count > 50
+end
 
 - Upload to heroku
 

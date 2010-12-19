@@ -37,14 +37,12 @@ module AlertGenerator
     SubCategory = "subcategory"
     ProductGroup = "productgroup"
     ThumbUrl = "thumburl"
-    ImageUrl = "imageurl"
     BuyLink = "buylink"
     RetailPrice = "retailprice"
     SalePrice = "saleprice"
-    ManufacturerId = "manufacturerid"
 
-    Columns = [Sku, BrandName, ProductName, Category, SubCategory, ProductGroup, ThumbUrl, ImageUrl,
-      BuyLink, RetailPrice, SalePrice, ManufacturerId]
+    Columns = [Sku, BrandName, ProductName, Category, SubCategory, ProductGroup, ThumbUrl,
+      BuyLink, RetailPrice, SalePrice]
       
     RequiredColumns = [Sku, BrandName, ProductName, Category, RetailPrice]
     
@@ -199,10 +197,8 @@ module AlertGenerator
         product_map[ProductGroup],
         product_map[RetailPrice],
         :small_image_url => product_map[ThumbUrl],
-        :large_image_url => product_map[ImageUrl],
         :buy_url => product_map[BuyLink],
-        :sale_price => product_map[SalePrice],
-        :manufacturer_id => product_map[ManufacturerId]
+        :sale_price => product_map[SalePrice]
       )
     end
     
@@ -304,9 +300,7 @@ module AlertGenerator
                 
         product.product_name = product_name
         product.small_image_url = options[:small_image_url]
-        product.large_image_url = options[:large_image_url]
         product.buy_url = options[:buy_url]
-        product.manufacturer_id = options[:manufacturer_id]
         
         # Set relations        
         product.feed_category = feed_category
