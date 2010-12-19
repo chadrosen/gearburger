@@ -22,9 +22,9 @@ OPTIONS[:action_mailer_deliver_method] = :smtp
 OPTIONS[:email_address] = "smtp.sendgrid.net" 
 OPTIONS[:email_port] = "25"
 OPTIONS[:email_authentication] = :plain
-OPTIONS[:email_username] = "chad@gearburger.com"
-OPTIONS[:email_password] = "chadpw00"
-OPTIONS[:email_domain] = "gearburger.com"
+OPTIONS[:email_username] = ENV['SENDGRID_USERNAME']
+OPTIONS[:email_password] = ENV['SENDGRID_PASSWORD']
+OPTIONS[:email_domain] = ENV['SENDGRID_PASSWORD']
 OPTIONS[:enable_starttls_auto] = false
 
 # TODO: not sure if we use this anymore...

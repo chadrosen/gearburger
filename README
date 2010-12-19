@@ -79,9 +79,18 @@ mysql -uroot -Dgearburger_dev < gb.sql
 
 - Blow away some brands_users (better in a query?)
 
+d = 0
 BrandsUser.count(:group => :user, :joins => :user).each_pair do |user, count|
-	BrandsUser.delete_all(:user_id => user.id) if count > 50
+	if count > 50
+		puts "User: #{user.email} delete"
+		BrandsUser.delete_all(:user_id => user.id)
+		d += 1
+	else
+		puts "User: #{user.email} do not delete"
+	end
 end
+
+puts "deleted #{d} user's brands"
 
 - Upload to heroku
 
