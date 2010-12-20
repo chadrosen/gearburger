@@ -32,16 +32,15 @@ class ProductsController < ApplicationController
     
     begin
       # The UPE must be valid
-      upe = UserProductEmail.find(params[:upe])
+      upe = UserProductEmail.find(params[:upe]).include(:product)
       upe.update_attributes!(:clicked => true, :clicked_at => Time.now)           
+
+      # Normal redirection case. Just redirect to a url
+      decorate_and_redirect(upe.user, upe.product.buy_url, "product_email_link", :source => params[:source], 
+        :user_product_email => upe)
     rescue
       return redirect_to(root_url)
-    end
-          
-    # Normal redirection case. Just redirect to a url
-    return decorate_and_redirect(upe.user, params[:url], "product_email_link", 
-      :source => params[:source], :user_product_email => upe)
-                
+    end        
   end
   
   def product_redirector
