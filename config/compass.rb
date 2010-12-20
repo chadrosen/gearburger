@@ -11,6 +11,6 @@ Sass::Plugin.options[:never_update] = true
 Compass.configuration.sass_options = { :never_update => true }
 
 puts "Compass install"
-puts Sass::Plugin.options[:never_update]
+#puts Sass::Plugin.options[:never_update]
 puts Compass.configuration.sass_options
 puts "Compass post install"
