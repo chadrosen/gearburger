@@ -58,9 +58,6 @@ GEM
     gchart (1.0.0)
     gdata (1.1.1)
     haml (3.0.24)
-    hassle (0.0.1)
-      haml
-      rack
     hpricot (0.8.3)
     i18n (0.4.2)
     json (1.4.3)
@@ -134,7 +131,6 @@ DEPENDENCIES
   gattica (= 0.4.3)
   gchart (= 1.0.0)
   gdata (= 1.1.1)
-  hassle
   json (= 1.4.3)
   mysql (= 2.8.1)
   rails (= 3.0.3)
