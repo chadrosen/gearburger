@@ -17,12 +17,11 @@ gem "will_paginate", "~> 3.0.pre2"
 gem 'recaptcha', "0.2.3", :require => 'recaptcha/rails', :git => 'git://github.com/rfc2822/recaptcha.git', :branch => 'rails3'
 gem 'to-csv', "1.0.3"
 gem 'delayed_job', "2.1.1"
-gem "compass", ">= 0.10.6"
-
 gem 'dalli'
 
 # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
 group :development, :test do 
+	gem "compass", ">= 0.10.6"
 	gem 'ruby-debug', "0.10.4"
 	gem "mysql", "2.8.1"
 end

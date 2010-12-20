@@ -51,8 +51,5 @@ module Gearburger
     # Log to standard out so we can get heroku logs
     # http://docs.heroku.com/logging
     config.action_controller.logger = Logger.new(STDOUT)    
-    
-    #config.middleware.use(Rack::Static, :root => "tmp/", :urls => ["/stylesheets"])
-    Compass.configuration.sass_options = { :never_update => true }
   end
 end
