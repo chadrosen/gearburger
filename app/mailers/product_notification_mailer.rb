@@ -14,26 +14,13 @@ class ProductNotificationMailer < BaseMailer
     # User is optional so that we can send these to users not actually in the system... for testing
             
     upe = UserProductEmail.create!(:user => user, :sent_at => Time.now)
-  
-    # Keep track of each of the products that we send out
-    product_count = 0
-    category_rows.each do |cr|
-      category = cr[0]
-      product_rows = cr[1]
-      product_rows.each do |pr|
-        pr.each_with_index do |p,i|
-          pu = ProductsUser.new(:user_product_email => upe, :user => user, :product => p)
-          pu.save!
-          pr[i] = pu
-          product_count += 1
-        end
-      end
-    end
-      
+        
+
     # Generate some grouped data for HTML emails
     @category_rows = category_rows
-                                                           
+    product_count = 1                                                             
     deals = product_count == 1 ? "Deal" : "Deals"
+
     @today = Time.zone.today
     @upe = upe
     @user = user

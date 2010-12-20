@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101219193733) do
+ActiveRecord::Schema.define(:version => 20101220044452) do
 
   create_table "brands", :force => true do |t|
     t.string   "name",                          :null => false
@@ -161,21 +161,20 @@ ActiveRecord::Schema.define(:version => 20101219193733) do
   create_table "products", :force => true do |t|
     t.string   "product_name"
     t.string   "small_image_url"
-    t.decimal  "retail_price",        :precision => 10, :scale => 2, :default => 0.0,  :null => false
+    t.decimal  "retail_price",                       :precision => 10, :scale => 2, :default => 0.0,  :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "sku",                                                                  :null => false
+    t.string   "sku",                 :limit => 100,                                                  :null => false
     t.integer  "department_id"
-    t.integer  "brand_id",                                                             :null => false
+    t.integer  "brand_id",                                                                            :null => false
     t.string   "buy_url"
-    t.decimal  "sale_price",          :precision => 10, :scale => 2, :default => 0.0,  :null => false
-    t.decimal  "previous_sale_price", :precision => 10, :scale => 2, :default => 0.0
+    t.decimal  "sale_price",                         :precision => 10, :scale => 2, :default => 0.0,  :null => false
+    t.decimal  "previous_sale_price",                :precision => 10, :scale => 2, :default => 0.0
     t.datetime "price_changed_at"
-    t.integer  "feed_id",                                                              :null => false
-    t.integer  "feed_category_id",                                                     :null => false
-    t.string   "manufacturer_id"
-    t.boolean  "valid_sale_price",                                   :default => true, :null => false
-    t.boolean  "valid_small_image",                                  :default => true, :null => false
+    t.integer  "feed_id",                                                                             :null => false
+    t.integer  "feed_category_id",                                                                    :null => false
+    t.boolean  "valid_sale_price",                                                  :default => true, :null => false
+    t.boolean  "valid_small_image",                                                 :default => true, :null => false
   end
 
   add_index "products", ["brand_id"], :name => "index_products_on_brand_id"
@@ -183,16 +182,6 @@ ActiveRecord::Schema.define(:version => 20101219193733) do
   add_index "products", ["feed_category_id"], :name => "index_products_on_feed_category_id"
   add_index "products", ["feed_id", "sku"], :name => "index_products_on_feed_id_and_sku", :unique => true
   add_index "products", ["price_changed_at"], :name => "index_products_on_price_changed_at"
-
-  create_table "products_users", :force => true do |t|
-    t.integer  "user_product_email_id",                    :null => false
-    t.integer  "product_id",                               :null => false
-    t.integer  "user_id",                                  :null => false
-    t.boolean  "clicked",               :default => false, :null => false
-    t.datetime "clicked_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "sales", :force => true do |t|
     t.integer  "click_id"
@@ -240,16 +229,15 @@ ActiveRecord::Schema.define(:version => 20101219193733) do
   add_index "user_invites", ["user_id"], :name => "index_user_invites_on_user_id"
 
   create_table "user_product_emails", :force => true do |t|
-    t.integer  "user_id",                                 :null => false
-    t.boolean  "sent",                 :default => false, :null => false
+    t.integer  "user_id",                       :null => false
+    t.boolean  "sent",       :default => false, :null => false
     t.datetime "sent_at"
-    t.boolean  "clicked",              :default => false, :null => false
+    t.boolean  "clicked",    :default => false, :null => false
     t.datetime "clicked_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "viewed",               :default => false, :null => false
+    t.boolean  "viewed",     :default => false, :null => false
     t.datetime "viewed_at"
-    t.integer  "products_users_count", :default => 0,     :null => false
   end
 
   add_index "user_product_emails", ["user_id"], :name => "index_user_product_emails_on_user_id"

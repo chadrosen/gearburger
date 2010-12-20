@@ -17,7 +17,6 @@
 	</tr>
 	<% for r in @results %>
 	<tr>
-		<td class="center"><%= link_to r.products_users_count, admin_user_product_email_url(r.id) %></td>
 		<td><%= link_to r.user.email, admin_user_url(r.user) %></td>
 		<td><%= r.sent_at %></td>
 		<td><%= r.viewed_at %></td>

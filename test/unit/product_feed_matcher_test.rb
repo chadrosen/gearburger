@@ -194,7 +194,6 @@ class ProductFeedMatcherTest < ActiveSupport::TestCase
   def test_user_product_mails_create_once_per_product
     
     # Clean out the fixtures
-    ProductsUser.delete_all
     UserProductEmail.delete_all
     
     # Create a product that I know the user has
@@ -209,16 +208,7 @@ class ProductFeedMatcherTest < ActiveSupport::TestCase
     # Assert summary row was created
     upe = UserProductEmail.find_by_user_id(@u.id, :include => [:user])
     assert_not_nil upe
-    assert_equal @u, upe.user
-    
-    pus = upe.products_users(:order => "product_id ASC")
-    assert_not_nil pus
-    assert_equal pus.length, 2
-    assert_equal pus[0].product, p1
-    assert_equal pus[1].product, p2
-    
-    # Make sure counter cache works
-    assert_equal upe.products_users_count, pus.length  
+    assert_equal @u, upe.user    
   end
     
   def test_day_of_week_prohibits_match

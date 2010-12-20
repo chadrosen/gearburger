@@ -1,8 +1,5 @@
 class Product < ActiveRecord::Base
-        
-  # A single product will probably be in many different emails to users
-  has_many :products_user
-  
+          
   # A product get it's category through the feed category
   has_one :category, :through => :feed_category
     

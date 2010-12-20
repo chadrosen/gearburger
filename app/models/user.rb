@@ -58,10 +58,7 @@ class User < ActiveRecord::Base
   
   # This is the user that referred the existing user
   belongs_to :referrer, :class_name => "User", :foreign_key => "referral_id" 
-  
-  # A user has been emailed many times about products
-  has_many :products_user
-  
+    
   # So, we can keep track of which marketing campaign a user comes from
   belongs_to :campaign
   

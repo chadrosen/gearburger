@@ -8,11 +8,10 @@ Stuff you might like just got cheaper. Git on it!
 <%= category.name %>
 <%-   product_rows = c_row[1] -%>
 <%-   for p_row in product_rows -%>
-<%-     for product_user in p_row -%>
-<%-       p = product_user.product -%>
-<%= product_user.product.product_name %>
+<%-     for p in p_row -%>
+<%= p.product_name %>
 <%= number_to_currency(p.sale_price)  %> <%= number_to_percentage(p.get_price_percentage, :precision => 0) %> off
-<%= redirector_url(@upe, :pu => product_user.id, :p => product_user.product.id) %>
+<%= redirector_url(@upe, :p => p.id) %>
 <%-     end -%>
 <%-   end  -%>
 <%- end -%>

@@ -25,11 +25,10 @@
 			<table cellspacing="7" cellpadding="7" style="font-size: 12px; border-collapse: separate;">
 			<% for p_row in product_rows %>
 			<tr class="row">
-				<% for product_user in p_row %>
-				<% p = product_user.product %>
+				<% for p in p_row %>
 				<td style="width: 175px; background-color: #FFFFFF; text-align: center; border: 1px solid #cdcdcd;">
 					
-					<a href="<%= redirector_url(@upe, :pu => product_user.id, :p => p.id) %>"
+					<a href="<%= redirector_url(@upe, :p => p.id) %>"
 						style="display: block;">
 						<img src="<%= p.get_small_image_url %>" style="height: 125px; width: 125px;"/>
 					</a>

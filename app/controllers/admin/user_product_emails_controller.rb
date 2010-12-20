@@ -20,7 +20,6 @@ module Admin
     
     def show      
       @upe = UserProductEmail.find(params[:id], :include => [:user])
-      @pus = @upe.products_users(:include => [:product])              
     end
     
     def email_user

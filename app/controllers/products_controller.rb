@@ -26,7 +26,7 @@ class ProductsController < ApplicationController
     return redirect_to(root_url) unless params[:upe]
 
     # One of these two sets of parameters are required paramaters
-    if !(params[:url] and params[:source]) and !(params[:p] and params[:pu])
+    if !(params[:url] and params[:source]) and !params[:p]
       return redirect_to(root_url)
     end
     
@@ -39,37 +39,9 @@ class ProductsController < ApplicationController
     end
           
     # Normal redirection case. Just redirect to a url
-    if params[:url] and params[:source]
-      return decorate_and_redirect(upe.user, params[:url], "product_email_link", 
-        :source => params[:source], :user_product_email => upe)
-    end
+    return decorate_and_redirect(upe.user, params[:url], "product_email_link", 
+      :source => params[:source], :user_product_email => upe)
                 
-    begin
-      
-      # Run everything in a tx
-      UserProductEmail.transaction do
-      
-        # Get the data
-        p = Product.find(params[:p])
-        pu = ProductsUser.find(params[:pu])
-        
-        # Make sure everything is connected...
-        if p.id != pu.product_id or pu.user_product_email_id != upe.id
-          return redirect_to(root_url)
-        end
-        
-        # Update tracking on objects
-        pu.update_attributes!(:clicked => true, :clicked_at => Time.now)
-        
-        # Decorate url and redirect
-        decorate_and_redirect(upe.user, p.buy_url, "product_email_link", 
-          :user_product_email => upe, :product => p, :product_user => pu)
-      end
-      
-    rescue Exception => e
-      redirect_to(root_url)
-    end
-    
   end
   
   def product_redirector
