@@ -51,5 +51,16 @@ module Gearburger
     # Log to standard out so we can get heroku logs
     # http://docs.heroku.com/logging
     config.action_controller.logger = Logger.new(STDOUT)
+    
+    require 'sass'
+
+    if Rails.env.production?
+      Sass::Plugin.options[:never_update] = true
+    else
+      require 'compass'
+      require 'compass/app_integration/rails'
+      Compass::AppIntegration::Rails.initialize!
+    end
+    
   end
 end
