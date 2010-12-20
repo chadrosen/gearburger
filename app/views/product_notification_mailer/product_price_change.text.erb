@@ -1,5 +1,5 @@
 Invite your friends to Gear Burger and win Backcountry.com gift cards!
-<%= redirector_url(@upe, :controller => "friends", :action => "invite_friends", :source => "invite_friends") %>
+<%= url_for :controller => "friends", :action => "invite_friends", :source => "invite_friends" %>
 
 Stuff you might like just got cheaper. Git on it!
 
@@ -17,7 +17,7 @@ Stuff you might like just got cheaper. Git on it!
 <%- end -%>
 
 More great deals only available today!
-<%= redirector_url(@upe, :controller => "users", :action => "sale_spot", :source => "sale_spot") %>
+<%= url_for :controller => "users", :action => "sale_spot", :source => "sale_spot" %>
 
 Regards,
 The Gear Burger
@@ -26,4 +26,4 @@ The Gear Burger
 This email was sent to you at your request from Gearburger.com
 41 Arguello Blvd. | San Francisco | CA | 94118
 To unsubscribe, respond to this email with UNSUBSCRIBE in the subject line or visit this URL:
-<%= redirector_url(@upe, :controller => "users", :action => "deactivate_account", :source => "unsubscribe") %>
+<%= url_for :controller => "users", :action => "deactivate_account", :source => "unsubscribe" %>

@@ -9,8 +9,7 @@
 			<img src="http://www.gearburger.com/images/gearburger_horz_white.png"/>
 		</div>
 						
-		<a href="<%= redirector_url(@upe, :controller => "friends", :action => "invite_friends", 
-			:source => "invite_friends") %>" 
+		<a href="<%= url_for :controller => 'friends', :action => 'invite_friends' %>" 
 			style="display: block; font-size: 10px; color: #3ea1bf; margin-bottom: 20px; font-weight: bold;">
 			Hey! Invite your friends to Gear Burger & win Backcountry.com gift cards!
 		</a>
@@ -49,8 +48,7 @@
 
 		<br/>
 			
-		<a href="<%= redirector_url(@upe, :controller => "users", :action => "sale_spot", 
-			:source => "sale_spot") %>" 
+		<a href="<%= url_for :controller => 'users', :action => 'sale_spot' %>" 
 			style="display: block; font-size: 10px; color: #3ea1bf; font-weight: bold;">
 			See more great deals only available today!
 		</a>
@@ -71,8 +69,7 @@
 					Sent to <%= @user.email %>
 				</td>
 				<td width="15%" style="text-align: right; padding: 0 20px 0 0">
-					<a href="<%= redirector_url(@upe, :controller => "users", :action => "deactivate_account", 
-						:source => "unsubscribe") %>">
+					<a href="<%= url_for :controller => "users", :action => "deactivate_account" %>">
 						Unsubscribe
 					</a>
 				</td>

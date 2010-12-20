@@ -24,23 +24,16 @@ class ProductsController < ApplicationController
       
     # Upe is always required
     return redirect_to(root_url) unless params[:upe]
-      
-    begin
+    return redirect_to(root_url) unless params[:p]
     
-      if params[:p]
-        url = Product.find(params[:p]).buy_url
-      elsif params[:url]
-        url = params[:url]
-      else
-        return redirect_to(root_url)
-      end 
-        
+    begin
       # The UPE must be valid
+      p = Product.find(params[:p])        
       upe = UserProductEmail.find(params[:upe])
       upe.update_attributes!(:clicked => true, :clicked_at => Time.now)           
 
       # Normal redirection case. Just redirect to a url
-      decorate_and_redirect(upe.user, url, "product_email_link", :source => params[:source], 
+      decorate_and_redirect(upe.user, p.buy_url, "product_email_link", :source => params[:source], 
         :user_product_email => upe)
     rescue
       return redirect_to(root_url)
