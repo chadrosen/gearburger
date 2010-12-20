@@ -9,7 +9,7 @@
 			<img src="http://www.gearburger.com/images/gearburger_horz_white.png"/>
 		</div>
 						
-		<a href="<%= url_for :controller => 'friends', :action => 'invite_friends' %>" 
+		<a href="<%= url_for :controller => 'friends', :action => 'invite_friends', :only_path => false %>" 
 			style="display: block; font-size: 10px; color: #3ea1bf; margin-bottom: 20px; font-weight: bold;">
 			Hey! Invite your friends to Gear Burger & win Backcountry.com gift cards!
 		</a>
@@ -48,7 +48,7 @@
 
 		<br/>
 			
-		<a href="<%= url_for :controller => 'users', :action => 'sale_spot' %>" 
+		<a href="<%= url_for :controller => 'users', :action => 'sale_spot', :only_path => false %>" 
 			style="display: block; font-size: 10px; color: #3ea1bf; font-weight: bold;">
 			See more great deals only available today!
 		</a>
@@ -69,7 +69,7 @@
 					Sent to <%= @user.email %>
 				</td>
 				<td width="15%" style="text-align: right; padding: 0 20px 0 0">
-					<a href="<%= url_for :controller => "users", :action => "deactivate_account" %>">
+					<a href="<%= url_for :controller => "users", :action => "deactivate_account", :only_path => false %>">
 						Unsubscribe
 					</a>
 				</td>
