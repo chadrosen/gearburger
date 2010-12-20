@@ -17,7 +17,7 @@ gem "will_paginate", "~> 3.0.pre2"
 gem 'recaptcha', "0.2.3", :require => 'recaptcha/rails', :git => 'git://github.com/rfc2822/recaptcha.git', :branch => 'rails3'
 gem 'to-csv', "1.0.3"
 gem 'delayed_job', "2.1.1"
-gem "compass", ">= 0.10.6"
+#gem "compass", ">= 0.10.6"
 
 gem 'dalli'
 

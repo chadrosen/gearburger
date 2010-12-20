@@ -3,11 +3,11 @@
 #if Rails.env.production?
   
   
-  require 'compass'
-  require 'compass/app_integration/rails'
+#  require 'compass'
+#  require 'compass/app_integration/rails'
 
-  Compass.configuration.sass_options = { :never_update => true } #:never_check => true, :cache => false,  } #  }
+#  Compass.configuration.sass_options = { :never_update => true } #:never_check => true, :cache => false,  } #  }
 
-  Compass::AppIntegration::Rails.initialize!
+#  Compass::AppIntegration::Rails.initialize!
   
 #end
