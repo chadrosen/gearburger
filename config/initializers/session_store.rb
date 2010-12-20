@@ -8,8 +8,8 @@
 # Gearburger::Application.config.session_store :active_record_store
 
 # Use dalli memcache store for sessions if memcache is set (prod and stage)
-if Rails.configuration.cache_store == :dalli_store
-  require 'action_dispatch/middleware/session/dalli_store'
-  Rails.application.config.session_store :dalli_store, :namespace => 'sessions', 
-    :key => '_foundation_session', :expire_after => 30.minutes
-end
+#if Rails.configuration.cache_store == :dalli_store
+#  require 'action_dispatch/middleware/session/dalli_store'
+#  Rails.application.config.session_store :dalli_store, :namespace => 'sessions', 
+#    :key => '_foundation_session', :expire_after => 30.minutes
+#end
