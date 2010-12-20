@@ -32,9 +32,8 @@ staging:
 # gearburger.com
 production:
   adapter: mysql
-  database: gearburger_prod
-  username: gearburger
-  password: burg3rt1m3
+  database: gearburger_dev
+  user: gearburger
   pool: 5
   timeout: 5000
   reconnect: true  

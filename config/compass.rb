@@ -10,12 +10,11 @@ environment = Compass::AppIntegration::Rails.env
 #Sass::Plugin.options[:never_update] = true
 
 
-puts "Compass install"
+#puts "Compass install"
 #puts Sass::Plugin.options[:never_update]
-puts Compass.configuration.sass_options
-Compass.configuration.sass_options = { :never_update => true, :never_check => true, :cache => false }
-puts Compass.configuration.sass_options
+#puts Compass.configuration.sass_options
+#puts Compass.configuration.sass_options
 
 
-puts Compass.configuration.sass_options
-puts "Compass post install"
+#puts Compass.configuration.sass_options
+#puts "Compass post install"
