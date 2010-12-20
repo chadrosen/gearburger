@@ -6,3 +6,10 @@ http_path = "/"
 css_dir = "public/stylesheets" # Compile stylesheets to the public/stylesheets dir
 sass_dir = "app/stylesheets"
 environment = Compass::AppIntegration::Rails.env
+
+Sass::Plugin.options[:never_update] = true
+Compass.configuration.sass_options = { :never_update => true }
+
+puts "Compass install"
+puts Sass::Plugin.options[:never_update]
+puts Compass.configuration.sass_options
