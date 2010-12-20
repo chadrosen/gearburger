@@ -14,8 +14,7 @@ class ProductNotificationMailer < BaseMailer
     # User is optional so that we can send these to users not actually in the system... for testing
             
     upe = UserProductEmail.create!(:user => user, :sent_at => Time.now)
-        
-
+    
     # Generate some grouped data for HTML emails
     @category_rows = category_rows
     @today = Time.zone.today
