@@ -18,9 +18,6 @@ class ProductNotificationMailer < BaseMailer
 
     # Generate some grouped data for HTML emails
     @category_rows = category_rows
-    product_count = 1                                                             
-    deals = product_count == 1 ? "Deal" : "Deals"
-
     @today = Time.zone.today
     @upe = upe
     @user = user

@@ -59,7 +59,7 @@ ex: heroku console --appname gearburger-staging
 
 - Dump prod db (skip some tables)
 
-mysqldump -uroot -psc0reb0ard --skip-trigger --compact --ignore-table=gearburger_prod.alternatives --ignore-table=gearburger_prod.experiments --ignore-table=gearburger_prod.sales --ignore-table=gearburger_prod.captions --ignore-table=gearburger_prod.contests --ignore-table=gearburger_prod.product_generation_summaries --ignore-table=gearburger_prod.product_prices --ignore-table=gearburger_prod.schema_migrations --ignore-table=gearburger_prod.sessions --ignore-table=gearburger_prod.votes  --no-create-info gearburger_prod > gb.sql
+mysqldump -uroot -psc0reb0ard --ignore-table=gearburger_prod.alternatives --ignore-table=gearburger_prod.experiments --ignore-table=gearburger_prod.sales --ignore-table=gearburger_prod.captions --ignore-table=gearburger_prod.contests --ignore-table=gearburger_prod.product_generation_summaries --ignore-table=gearburger_prod.product_prices --ignore-table=gearburger_prod.schema_migrations --ignore-table=gearburger_prod.sessions --ignore-table=gearburger_prod.votes --ignore-table=gearburger_prod.products_users gearburger_prod > gb.sql
 
 - Tar.gz
 
