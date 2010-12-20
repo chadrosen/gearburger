@@ -24,15 +24,10 @@ class ProductsController < ApplicationController
       
     # Upe is always required
     return redirect_to(root_url) unless params[:upe]
-
-    # One of these two sets of parameters are required paramaters
-    if !(params[:url] and params[:source]) and !params[:p]
-      return redirect_to(root_url)
-    end
     
     #begin
       # The UPE must be valid
-      upe = UserProductEmail.find(params[:upe]).include(:product)
+      upe = UserProductEmail.find(params[:upe])
       upe.update_attributes!(:clicked => true, :clicked_at => Time.now)           
 
       # Normal redirection case. Just redirect to a url
