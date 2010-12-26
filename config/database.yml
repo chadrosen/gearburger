@@ -32,7 +32,7 @@ staging:
 # gearburger.com
 production:
   adapter: mysql
-  database: gearburger_dev
+  database: gearburger_prod
   user: gearburger
   pool: 5
   timeout: 5000

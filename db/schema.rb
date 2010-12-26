@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101220044452) do
+ActiveRecord::Schema.define(:version => 20101226224129) do
 
   create_table "brands", :force => true do |t|
     t.string   "name",       :default => "",    :null => false
@@ -259,7 +259,7 @@ ActiveRecord::Schema.define(:version => 20101220044452) do
     t.datetime "deleted_at"
     t.boolean  "send_newsletter",                                                         :default => true
     t.string   "time_zone",                                                               :default => "Pacific Time (US & Canada)"
-    t.text     "deactivation_reason",                                                                                               :null => false
+    t.text     "deactivation_reason"
     t.integer  "referral_id"
     t.string   "ip_address"
     t.string   "user_agent"
