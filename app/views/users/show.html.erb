@@ -62,7 +62,10 @@
 				<%= link_to "Brands", item_edit_url("brands") %>
 			</div>
 			<div class="data">
-				<span class="items"><%= @brands %> brands monitored</span>
+				<span class="items">
+					<%= @total_brands == @user_brands ? "all #{@total_brands}" : "#{@total_brands}" %>
+					 brands monitored
+				</span>
 			</div>
 		</div>
 	</div>

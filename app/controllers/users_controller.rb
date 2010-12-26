@@ -199,8 +199,8 @@ class UsersController < ApplicationController
     @departments = current_user.departments(:order => "name ASC")
 
     # The user has all brands if they have zero selected
-    brand_length = current_user.brands.length
-    @brands = brand_length == 0 ? Brand.count : brand_length
+    @user_brands = current_user.brands.length
+    @total_brands = Brand.count(:conditions => { :active => true} )
 
     @alerts = []
     
@@ -233,8 +233,7 @@ class UsersController < ApplicationController
     redirect_to(lost_password_url)
   end
         
-  def brands    
-    
+  def brands
     @cats = Category.find_all_by_active(true, :order => "name ASC")
     
     @letters = [''].concat(('a'..'z').to_a)
@@ -244,13 +243,14 @@ class UsersController < ApplicationController
   end
   
   def brands_submit
-    ids = params[:brands] ? params[:brands].keys.collect { |c| c } : []
-    current_user.brands = []
+
+    # Add new data. Note: all brands means none    
+    BrandsUser.delete_all(:user_id => current_user.id)
+
+    if params[:brands] && params[:brands].length != Brand.count(:conditions => {:active => true})
+      params[:brands].keys.each { |id| BrandsUser.create!(:user_id => current_user.id, :brand_id => id) }
+    end
     
-    # Add new data
-    current_user.brands = Brand.find(ids)
-    current_user.save!
-            
     redirect_to(user_url(current_user))
   end
   
