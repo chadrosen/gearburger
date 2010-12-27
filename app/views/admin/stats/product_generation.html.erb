@@ -23,7 +23,7 @@
 			</tr>
 			<% for r in @results %>
 			<tr>
-				<td><%= r.feed.name %></td>
+				<td><%= r.feed ? r.feed.name : "no feed name" %></td>
 				<td class="center"><%= r.new_products %></td>
 				<td class="center"><%= r.product_updates %></td>
 				<td class="center"><%= r.price_changes %></td>

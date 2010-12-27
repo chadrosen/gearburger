@@ -115,7 +115,8 @@ class Brand < ActiveRecord::Base
       br.id = bu.brand_id
       AND br.active = TRUE
     GROUP BY
-      bu.brand_id 
+      bu.brand_id,
+      br.id 
     ORDER BY
       c DESC
     LIMIT 

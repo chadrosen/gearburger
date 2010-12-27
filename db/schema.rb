@@ -10,10 +10,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101227012358) do
+ActiveRecord::Schema.define(:version => 20101226224129) do
 
   create_table "brands", :force => true do |t|
-    t.string   "name",       :default => "",    :null => false
+    t.string   "name",                          :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "active",     :default => true,  :null => false
@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(:version => 20101227012358) do
   add_index "brands", ["popular"], :name => "index_brands_on_popular"
 
   create_table "brands_users", :force => true do |t|
-    t.integer  "brand_id",   :default => 0, :null => false
-    t.integer  "user_id",    :default => 0, :null => false
+    t.integer  "brand_id",   :null => false
+    t.integer  "user_id",    :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -45,16 +45,16 @@ ActiveRecord::Schema.define(:version => 20101227012358) do
   add_index "campaigns", ["public_id"], :name => "index_campaigns_on_public_id", :unique => true
 
   create_table "categories", :force => true do |t|
-    t.string   "name",       :default => "",   :null => false
+    t.string   "name",                         :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "active",     :default => true, :null => false
-    t.string   "value",      :default => "",   :null => false
+    t.string   "value",                        :null => false
   end
 
   create_table "categories_users", :force => true do |t|
-    t.integer  "user_id",     :default => 0, :null => false
-    t.integer  "category_id", :default => 0, :null => false
+    t.integer  "user_id",     :null => false
+    t.integer  "category_id", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -62,11 +62,11 @@ ActiveRecord::Schema.define(:version => 20101227012358) do
   add_index "categories_users", ["user_id", "category_id"], :name => "index_categories_users_on_user_id_and_category_id"
 
   create_table "clicks", :force => true do |t|
-    t.string   "click_type",            :limit => 0,                :null => false
+    t.string   "click_type",                           :null => false
     t.integer  "user_id"
-    t.datetime "created_at",                                        :null => false
+    t.datetime "created_at",                           :null => false
     t.text     "source"
-    t.integer  "version",                            :default => 0, :null => false
+    t.integer  "version",               :default => 0, :null => false
     t.integer  "user_product_email_id"
     t.integer  "products_user_id"
     t.integer  "product_id"
@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(:version => 20101227012358) do
   end
 
   create_table "departments", :force => true do |t|
-    t.string   "name",       :default => "",   :null => false
+    t.string   "name",                         :null => false
     t.boolean  "active",     :default => true, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -96,8 +96,8 @@ ActiveRecord::Schema.define(:version => 20101227012358) do
   end
 
   create_table "departments_users", :force => true do |t|
-    t.integer  "user_id",       :default => 0, :null => false
-    t.integer  "department_id", :default => 0, :null => false
+    t.integer  "user_id",       :null => false
+    t.integer  "department_id", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -105,15 +105,15 @@ ActiveRecord::Schema.define(:version => 20101227012358) do
   add_index "departments_users", ["user_id", "department_id"], :name => "index_departments_users_on_user_id_and_department_id"
 
   create_table "email_day_preferences", :force => true do |t|
-    t.integer "user_id",                  :null => false
-    t.string  "day_of_week", :limit => 0
+    t.integer "user_id",     :null => false
+    t.string  "day_of_week", :null => false
   end
 
   add_index "email_day_preferences", ["day_of_week"], :name => "index_email_day_preferences_on_day_of_week"
   add_index "email_day_preferences", ["user_id", "day_of_week"], :name => "index_email_day_preferences_on_user_id_and_day_of_week"
 
   create_table "feed_categories", :force => true do |t|
-    t.string   "feed_category",      :default => "",   :null => false
+    t.string   "feed_category",                        :null => false
     t.integer  "feed_id",                              :null => false
     t.integer  "category_id"
     t.datetime "created_at"
@@ -128,7 +128,7 @@ ActiveRecord::Schema.define(:version => 20101227012358) do
   add_index "feed_categories", ["feed_id", "feed_category", "feed_subcategory", "feed_product_group"], :name => "feed_category_index", :unique => true
 
   create_table "feeds", :force => true do |t|
-    t.string   "name",       :default => "",   :null => false
+    t.string   "name",                         :null => false
     t.boolean  "active",     :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -164,9 +164,9 @@ ActiveRecord::Schema.define(:version => 20101227012358) do
     t.decimal  "retail_price",        :precision => 10, :scale => 2, :default => 0.0,  :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "sku",                                                :default => "",   :null => false
+    t.string   "sku",                                                                  :null => false
     t.integer  "department_id"
-    t.integer  "brand_id",                                           :default => 0,    :null => false
+    t.integer  "brand_id",                                                             :null => false
     t.string   "buy_url"
     t.decimal  "sale_price",          :precision => 10, :scale => 2, :default => 0.0,  :null => false
     t.decimal  "previous_sale_price", :precision => 10, :scale => 2, :default => 0.0
@@ -215,14 +215,14 @@ ActiveRecord::Schema.define(:version => 20101227012358) do
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
   create_table "user_invites", :force => true do |t|
-    t.integer  "user_id",                                           :null => false
-    t.string   "email_address",                                     :null => false
+    t.integer  "user_id",                              :null => false
+    t.string   "email_address",                        :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "state",         :limit => 0, :default => "pending"
+    t.string   "state",         :default => "pending"
     t.datetime "sent_at"
     t.string   "error_msg"
-    t.integer  "attempts",                   :default => 0,         :null => false
+    t.integer  "attempts",      :default => 0,         :null => false
   end
 
   add_index "user_invites", ["email_address"], :name => "index_user_invites_on_email_address"
@@ -252,7 +252,7 @@ ActiveRecord::Schema.define(:version => 20101227012358) do
     t.datetime "remember_token_expires_at"
     t.string   "activation_code",           :limit => 40
     t.datetime "activated_at"
-    t.string   "state",                     :limit => 0,                                  :default => "pending"
+    t.string   "state",                                                                   :default => "pending"
     t.datetime "deleted_at"
     t.boolean  "send_newsletter",                                                         :default => true
     t.string   "time_zone",                                                               :default => "Pacific Time (US & Canada)"
