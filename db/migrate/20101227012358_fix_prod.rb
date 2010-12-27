@@ -1,7 +1,6 @@
 class FixProd < ActiveRecord::Migration
   def self.up
     
-    drop_table(:product_prices)
     drop_table(:alternatives)
     drop_table(:experiments)
     remove_column(:products, :large_image_url)
