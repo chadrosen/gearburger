@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101226224129) do
+ActiveRecord::Schema.define(:version => 20101227012358) do
 
   create_table "brands", :force => true do |t|
     t.string   "name",       :default => "",    :null => false
@@ -167,14 +167,12 @@ ActiveRecord::Schema.define(:version => 20101226224129) do
     t.string   "sku",                                                :default => "",   :null => false
     t.integer  "department_id"
     t.integer  "brand_id",                                           :default => 0,    :null => false
-    t.string   "large_image_url"
     t.string   "buy_url"
     t.decimal  "sale_price",          :precision => 10, :scale => 2, :default => 0.0,  :null => false
     t.decimal  "previous_sale_price", :precision => 10, :scale => 2, :default => 0.0
     t.datetime "price_changed_at"
     t.integer  "feed_id",                                                              :null => false
     t.integer  "feed_category_id",                                                     :null => false
-    t.string   "manufacturer_id"
     t.boolean  "valid_sale_price",                                   :default => true, :null => false
     t.boolean  "valid_small_image",                                  :default => true, :null => false
   end
@@ -231,16 +229,15 @@ ActiveRecord::Schema.define(:version => 20101226224129) do
   add_index "user_invites", ["user_id"], :name => "index_user_invites_on_user_id"
 
   create_table "user_product_emails", :force => true do |t|
-    t.integer  "user_id",                                 :null => false
-    t.boolean  "sent",                 :default => false, :null => false
+    t.integer  "user_id",                       :null => false
+    t.boolean  "sent",       :default => false, :null => false
     t.datetime "sent_at"
-    t.boolean  "clicked",              :default => false, :null => false
+    t.boolean  "clicked",    :default => false, :null => false
     t.datetime "clicked_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "viewed",               :default => false, :null => false
+    t.boolean  "viewed",     :default => false, :null => false
     t.datetime "viewed_at"
-    t.integer  "products_users_count", :default => 0,     :null => false
   end
 
   add_index "user_product_emails", ["user_id"], :name => "index_user_product_emails_on_user_id"
