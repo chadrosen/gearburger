@@ -19,7 +19,7 @@ namespace :db do
   task :migrate_edp => :environment do
     EmailDayPreference.all.each do |edp|
       
-      edp.day_of_week = day_of_week.capitalize
+      edp.day_of_week = edp.day_of_week.capitalize
       edp.save!
       
     end
