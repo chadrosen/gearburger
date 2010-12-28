@@ -16,4 +16,13 @@ namespace :db do
    ActiveRecord::SessionStore::Session.delete_all(["updated_at < ?", hours_ago.hours.ago.utc])
   end
 
+  task :migrate_edp do
+    EmailDayPreference.all.each do |edp|
+      
+      edp.day_of_week = day_of_week.capitalize
+      edp.save!
+      
+    end
+  end
+
 end

@@ -2,6 +2,6 @@
 <% ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"].each do |d| %>
 <%= "#{d}_#{u}:" %>
     <%= "user: #{u}" %>
-    <%= "day_of_week: #{d}" %>
+    <%= "day_of_week: #{d.capitalize}" %>
 <% end %>
 <% end %>

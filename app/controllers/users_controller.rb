@@ -330,7 +330,12 @@ class UsersController < ApplicationController
         end
                 
         prefs = [] 
-        EmailDayPreference::DaysOfWeek.each { |d| prefs << EmailDayPreference.new(:day_of_week => d) if params[d] }
+        EmailDayPreference::DaysOfWeek.each do |d| 
+          if params[d]
+            prefs << EmailDayPreference.new(:day_of_week => d.capitalize)
+          end
+        end
+          
         if prefs.length == 0
           flash[:error] = "Please select at least one day to receive emails"
           return redirect_to(account_preferences_url)
