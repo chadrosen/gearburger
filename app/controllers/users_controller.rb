@@ -8,7 +8,8 @@ class UsersController < ApplicationController
   before_filter :protect_login, :only => [:show, :toggle_newsletter, :brands,
     :brands_submit, :categories, :categories_submit, :departments, :departments_submit,
     :resend_activation_email, :deactivate_account, :reactivate_account, :take_a_breather, 
-    :signup_complete, :sale_spot, :account_preferences, :account_preferences_submit, :change_password]
+    :signup_complete, :sale_spot, :account_preferences, :account_preferences_submit, :change_password,
+    :gear_bin]
             
   # Pre-populate the signup pages
   before_filter :get_departments, :only => [:signup, :departments, :create]
