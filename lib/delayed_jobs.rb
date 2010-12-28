@@ -1,14 +1,31 @@
 require 'product_feed_matcher'
 require 'product_generator'
 require 'sales_processor'
+require 'product_validity'
 require 'sendgrid'
 
 module DelayedJobs
   
+  class ValidProductJob
+    # Uses delayed job plugin to initialize a sales processor and download the report
+  
+    attr_accessor :product_id, :options
+  
+    def initialize(product_id, options = {})
+      @product_id = product_id
+      @options = options
+    end
+  
+    def perform
+      vp = ProductValidity::VerifyProduct.new
+      p = Product.find(@product_id)      
+      vp.validate_product!(p)
+    end    
+   end
+  
   class ProductEmailJob
     # Uses delayed job plugin to initialize a product feed matcher, find matches, and send email
     attr_accessor :options
-
 
     def initialize(options = {})
       @options = options

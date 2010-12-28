@@ -1,14 +1,5 @@
 module ProductValidity
-  
-  class ValidProductJob < Struct.new(:product)
-    # Uses delayed job plugin to initialize a sales processor and download the report
-  
-    def perform
-      vp = VerifyProduct.new      
-      vp.validate_product!(product)
-    end    
-   end
-   
+     
   class InvalidProductException < Exception
     def initialize(message)
       super(message)

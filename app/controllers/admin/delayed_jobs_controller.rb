@@ -14,9 +14,7 @@ module Admin
     
     def manually_send_emails
       # Manaully send the product emails
-      Product.get_changed_products.each do |p|
-        Delayed::Job.enqueue DelayedJobs::ValidProductJob(p)
-      end
+      Delayed::Job.enqueue DelayedJobs::ProductEmailJob
       redirect_to :back
     end
     
