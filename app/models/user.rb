@@ -357,8 +357,8 @@ class User < ActiveRecord::Base
     d = options[:date] ? Time.parse(options[:date]) : Time.zone.today
     dow = self.get_day_of_week(d)
     
-    User.find(:all, :joins => [:email_day_preferences], 
-      :conditions => {"users.state" => "active", "email_day_preferences.day_of_week" => dow})        
+    q = User.where(["users.state = 'active' AND email_day_preferences.day_of_week = ?", dow.downcase]) 
+    return q.joins(:email_day_preferences).all
   end
   
   def self.get_day_of_week(date)
