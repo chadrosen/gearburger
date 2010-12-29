@@ -1,6 +1,3 @@
-# Add facebooker tasks here..
-#require 'tasks/facebooker'
-
 namespace :db do
   desc "drop, create, migrate, and load fixtures"
   task :reset do
