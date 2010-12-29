@@ -20,10 +20,16 @@ task :cron => :environment do
     
     # Check the validity of all products
     Product.get_changed_products.each do |p|
-      Delayed::Job.enqueue DelayedJobs::ValidProductJob(p)
+      Delayed::Job.enqueue DelayedJobs::ValidProductJob.new(p.id)
     end
-     
- elsif Time.now.hour == 22
+    
+  elsif Time.now.hour == 4
+    Rails.logger.info "Run 4 am crons"
+    
+    # Send product emails
+    Delayed::Job.enqueue DelayedJobs::ProductEmailJob.new
+         
+  elsif Time.now.hour == 22
    # Misc system functions that aren't specifically time of day dependent
    
    Delayed::Job.enqueue DelayedJobs::ClearEmailJob.new
