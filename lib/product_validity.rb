@@ -77,7 +77,7 @@ module ProductValidity
       begin
         res = fetch(buy_url)
         raise InvalidProductException, "sale price status code: #{res.code}" unless res.code == "200"
-        raise InvalidProductException, "#{res.body}, #{sale_price}"
+        @log.debug "#{res.body}, #{sale_price}"
       rescue
         raise InvalidProductException, "invalid response code fetching sale price"
       end
