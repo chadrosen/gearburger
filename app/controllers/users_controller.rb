@@ -332,7 +332,7 @@ class UsersController < ApplicationController
         prefs = [] 
         EmailDayPreference::DaysOfWeek.each do |d| 
           if params[d]
-            prefs << EmailDayPreference.new(:day_of_week => d.capitalize)
+            prefs << EmailDayPreference.new(:day_of_week => d.downcase)
           end
         end
           
