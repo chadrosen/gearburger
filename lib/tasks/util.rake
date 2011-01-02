@@ -16,7 +16,7 @@ namespace :db do
   desc ""
   task :fix_edp_names => :environment do
     EmailDayPreference.all do |edp|
-      edp.downcase!
+      edp.day_of_week.downcase!
       edp.save!
     end
   end
