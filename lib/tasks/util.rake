@@ -12,4 +12,12 @@ namespace :db do
    hours_ago = ENV['hours_ago'] ? ENV['hours_ago'].to_i : 5   
    ActiveRecord::SessionStore::Session.delete_all(["updated_at < ?", hours_ago.hours.ago.utc])
   end
+  
+  desc ""
+  task :fix_edp_names => :environment do
+    EmailDayPreference.all do |edp|
+      edp.downcase!
+      edp.save!
+    end
+  end
 end
