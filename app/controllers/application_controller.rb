@@ -10,13 +10,7 @@ class ApplicationController < ActionController::Base
     
   # Let's set the user's timezone if they're logged in..
   before_filter :set_time_zone, :set_layout_data
-    
-  # Handle routing errors by throwing a 404 and logging something small instead of the entire stack
-  rescue_from(ActionController::RoutingError) {
-    logger.fatal "Invalid url requested: #{request.fullpath}"
-    render :file => "#{Rails.root.to_s}/public/404.html", :layout => false, :status => 404
-  }
-      
+          
   # Be sure to include AuthenticationSystem in Application Controller instead
   include AuthenticatedSystem
 

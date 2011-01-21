@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     :brands_submit, :categories, :categories_submit, :departments, :departments_submit,
     :resend_activation_email, :deactivate_account, :reactivate_account, :take_a_breather, 
     :signup_complete, :sale_spot, :account_preferences, :account_preferences_submit, :change_password,
-    :gear_bin]
+    :gear_bin, :sale_spot, :email_preferences]
             
   # Pre-populate the signup pages
   before_filter :get_departments, :only => [:signup, :departments, :create]
@@ -311,6 +311,10 @@ class UsersController < ApplicationController
     @ud = current_user.departments.collect { |d| d.id }
   end
   
+  def email_preferences
+    redirect_to account_preferences_url
+  end
+  
   def account_preferences
     @user = current_user 
   end
@@ -384,6 +388,11 @@ class UsersController < ApplicationController
     flash[:notice] = "Your information has been succesfully changed"
     redirect_to(account_preferences_url)
   end
+               
+  def sale_spot
+    # Deprecated
+    redirect_to gear_bin_url
+  end
                 
   def gearguide
     friends = Friend.find_all_by_active(true, :order => "created_at DESC")
@@ -401,6 +410,11 @@ class UsersController < ApplicationController
     return redirect(root_url) unless User::BreakOptions.include?(params[:break_end])
     current_user.take_a_break!(Time.zone.now, params[:break_end]) 
     redirect_to(root_url)
+  end
+  
+  def errors
+    # Catch all for routing errors. http://techoctave.com/c7/posts/36-rails-3-0-rescue-from-routing-error-solution
+    render :file => "#{Rails.root.to_s}/public/404.html", :layout => false, :status => 404    
   end
         
 protected

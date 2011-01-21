@@ -1,11 +1,5 @@
 module ProductValidity
-     
-  class InvalidProductException < Exception
-    def initialize(message)
-      super(message)
-    end
-  end
-  
+       
   class VerifyProduct
     
     attr_accessor :stats
@@ -18,16 +12,16 @@ module ProductValidity
             
       # Check a product's image and sale price      
       begin
-        valid_image?(product.small_image_url)
-        vi = true
+        result = valid_image?(product.small_image_url)
+        vi = result[:success] == true ? true : false
       rescue
         @log.debug("image fail: #{product.small_image_url}")
         vi = false
       end
       
       begin
-        valid_sale_price?(product.buy_url, product.sale_price)
-        vsp = true
+        result = valid_sale_price?(product.buy_url, product.sale_price)
+        vsp = result[:success] == true ? true : false
       rescue
         @log.debug("sale fail: #{product.buy_url} #{product.sale_price}")
         vsp = false
@@ -39,49 +33,60 @@ module ProductValidity
     
     def valid_image?(small_image_url)
       # Validate the image url, pull the result from the web and validate it
-      return false unless validate_image(small_image_url)
+      return { :success => false, :message => "Error validating image" } unless validate_image(small_image_url)
       
       begin
-        res = fetch(small_image_url)
-        return res.code == "200"
+        res = fetch(small_image_url)        
+        return { :success => false, :message => "Invalid result code: #{res.code}" } unless res.code == "200"
       rescue
-        raise InvalidProductException, "invalid response code fetching image"
+        return { :success => false, :message => "invalid response code fetching image" }
       end
-      
+
+      return { :success => true }
     end
         
     def validate_image(small_image_url)
       
       # Invalid url is always invalid
-      raise InvalidProductException, "Empty small image url" unless small_image_url
-
-      raise InvalidProductException, "Invalid small image url" if URI.extract(small_image_url).empty?
+      unless small_image_url
+        return { :success => false, :message => "Empty small image url" } 
+      end
+        
+      if URI.extract(small_image_url).empty?
+        return { :success => false, :message => "Invalid small image url" }
+      end
       
       # Validate the url must end in image format 
       # Also, found that some urls have the word image and are valid
       if (small_image_url =~ /(\.png|\.jpg|\.gif|\.jpeg)$|(.*image.*)|(.*img.*)/i).nil?
-        raise InvalidProductException, "Invalid image url suffix"
+        return { :success => false, :message => "Invalid image url suffix" }
       end
       
-      return true
+      return { :success => true }
     end
         
     def valid_sale_price?(buy_url, sale_price)
       # Get the html from the web and validate it
 
       # Invalid buy url is always invalid
-      raise InvalidProductException, "Empty buy url" unless buy_url
+      unless buy_url
+        return { :success => false, :message => "Empty buy url" }
+      end
       
-      raise InvalidProductException, "Invalid buy url" if URI.extract(buy_url).empty?
+      if URI.extract(buy_url).empty?
+        return { :success => false, :message => "Invalid buy url" }
+      end
 
       begin
         res = fetch(buy_url)
-        raise InvalidProductException, "sale price status code: #{res.code}" unless res.code == "200"
-        @log.debug "#{res.body}, #{sale_price}"
+        unless res.code == "200"
+          return { :success => false, :message => "sale price status code: #{res.code}" }
+        end
       rescue
-        raise InvalidProductException, "invalid response code fetching sale price"
+        return { :success => false, :message => "invalid response code fetching sale price" }
       end
 
+      return { :success => true }
     end
     
     def validate_sale_price(html, sale_price)
@@ -95,9 +100,11 @@ module ProductValidity
       # If it's not there then the product is invalid
       result = ( html =~ /(\D#{regexp}\D|^#{regexp}\D|\D#{regexp}$)/ ) 
       
-      raise InvalidProductException, "Could not find sale regex in html" if result.nil?
-            
-      return true
+      if result.nil?
+        return { :success => false, :message => "Could not find sale regex in html" }
+      else
+        return { :success => true }
+      end
     end
     
     def fetch(uri_str, limit = 10)

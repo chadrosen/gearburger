@@ -37,6 +37,9 @@ Gearburger::Application.routes.draw do
       match :deactivate_account
       match :account_preferences 
       match :take_a_breather      
+
+      match :sale_spot # Deprecated
+      match :email_preferences # Deprecated
     end
         
     scope :via => "post" do 
@@ -67,7 +70,6 @@ Gearburger::Application.routes.draw do
   end
   
   # Map products
-  resources :products, :only => [:show]  
   match "/ppep/:user_product_email_id", :as => "product_price_email_pixel", :to => "products#product_price_email_pixel"
   match '/pe', :as => "product_email_redirector",  :to => "products#product_email_redirector"
   match '/pr/:product_id/:source', :as => "product_redirector", :to => "products#product_redirector", :source => nil 
@@ -154,5 +156,7 @@ Gearburger::Application.routes.draw do
       match :click_stats
     end    
   end
-      
+  
+  # Catch all for routing errors. http://techoctave.com/c7/posts/36-rails-3-0-rescue-from-routing-error-solution
+  match '*a', :to => 'users#errors'
 end
