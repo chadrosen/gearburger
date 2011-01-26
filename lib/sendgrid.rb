@@ -60,9 +60,15 @@ module Sendgrid
         Rails.logger.info "#{messages.length} #{action} messages found"
 
         messages.each do |message|
-          
-          # Grab the invalid email
-          email = message["email"]
+
+          email = nil
+          begin
+            # Grab the invalid email
+            email = message["email"]            
+          rescue TypeError => te
+            Rails.logger.error "Invalid message object. Expected hash got array. #{message}"
+            next
+          end          
           
           # Find result in db
           u = User.find_by_email(email)
