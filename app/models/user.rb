@@ -332,8 +332,8 @@ class User < ActiveRecord::Base
     # Add some extra data objects to the result
     q.includes([:category, :brand])
     
-    # Get the results
-    result = q.all
+    # Get the results for the null departments case
+    result = q.where("department_id IS NULL").all
     
     # Do the query again but this time filter adding departments
     result2 = q.where(:department_id => user.departments).all

@@ -4,7 +4,7 @@ require 'product_generator'
 
 class ProductFeedMatcherTest < ActiveSupport::TestCase
 
-  fixtures :users
+  fixtures :users, :departments, :brands, :categories, :feed_categories
 
   def setup
     @pg = AlertGenerator::ProductGenerator.new
@@ -133,6 +133,20 @@ class ProductFeedMatcherTest < ActiveSupport::TestCase
       
     matches = @u.matching_products
     assert_equal 1, matches.length
+  end
+  
+  def test_non_matching_department_case
+
+    # Create a product that I know the user has
+    p = @pg.create_product(@fc.feed_id, "SkuPoo", "Foo Bar - Kids", @b.name, @fc.feed_category, 
+      @fc.feed_subcategory, @fc.feed_product_group, 100.0, :sale_price => 90.0, 
+      :created_at => @t)
+      
+    assert_equal departments(:kids), p.department
+      
+    matches = @u.matching_products
+    assert_equal 0, matches.length
+    
   end
   
   def test_make_sure_email_summary_generated
