@@ -172,6 +172,79 @@ class ProductFeedMatcherTest < ActiveSupport::TestCase
     assert_equal 2, matches.length    
     assert_equal [p1, p2], matches
   end
+  
+  def test_kids_only_has_kids_no_nil
+    # Create 2 products that I know the user has
+    p1 = @pg.create_product(@fc.feed_id, "SkuPoo1", "PIGS!!", @b.name, @fc.feed_category, 
+      @fc.feed_subcategory, @fc.feed_product_group, 100.0, :sale_price => 90.0, 
+      :created_at => @t)    
+
+    p2 = @pg.create_product(@fc.feed_id, "SkuPoo2", "Kids pants", @b.name, @fc.feed_category, 
+      @fc.feed_subcategory, @fc.feed_product_group, 100.0, :sale_price => 90.0, 
+      :created_at => @t)
+      
+    p3 = @pg.create_product(@fc.feed_id, "SkuPoo3", "mens pants", @b.name, @fc.feed_category, 
+      @fc.feed_subcategory, @fc.feed_product_group, 100.0, :sale_price => 90.0, 
+      :created_at => @t)    
+
+    p4 = @pg.create_product(@fc.feed_id, "SkuPoo4", "womens pants", @b.name, @fc.feed_category, 
+      @fc.feed_subcategory, @fc.feed_product_group, 100.0, :sale_price => 90.0, 
+      :created_at => @t)    
+      
+    # Rob only has kids
+    matches = users(:rob).matching_products
+    assert_equal 1, matches.length
+    assert_equal Department::DEPT_KIDS, matches[0].department.value
+  end
+  
+  def test_user_with_no_departments
+    
+    # Create 2 products that I know the user has
+    p1 = @pg.create_product(@fc.feed_id, "SkuPoo1", "PIGS!!", @b.name, @fc.feed_category, 
+      @fc.feed_subcategory, @fc.feed_product_group, 100.0, :sale_price => 90.0, 
+      :created_at => @t)    
+
+    p2 = @pg.create_product(@fc.feed_id, "SkuPoo2", "Kids pants", @b.name, @fc.feed_category, 
+      @fc.feed_subcategory, @fc.feed_product_group, 100.0, :sale_price => 90.0, 
+      :created_at => @t)
+      
+    p3 = @pg.create_product(@fc.feed_id, "SkuPoo3", "mens pants", @b.name, @fc.feed_category, 
+      @fc.feed_subcategory, @fc.feed_product_group, 100.0, :sale_price => 90.0, 
+      :created_at => @t)    
+
+    p4 = @pg.create_product(@fc.feed_id, "SkuPoo4", "womens pants", @b.name, @fc.feed_category, 
+      @fc.feed_subcategory, @fc.feed_product_group, 100.0, :sale_price => 90.0, 
+      :created_at => @t)
+    
+    matches = users(:vince).matching_products
+    assert_equal 1, matches.length
+    assert_nil matches[0].department_id
+  end
+  
+  def test_user_mixed_departments
+    
+    # Create 2 products that I know the user has
+    p1 = @pg.create_product(@fc.feed_id, "SkuPoo1", "PIGS!!", @b.name, @fc.feed_category, 
+      @fc.feed_subcategory, @fc.feed_product_group, 100.0, :sale_price => 90.0, 
+      :created_at => @t)    
+
+    p2 = @pg.create_product(@fc.feed_id, "SkuPoo2", "Kids pants", @b.name, @fc.feed_category, 
+      @fc.feed_subcategory, @fc.feed_product_group, 100.0, :sale_price => 90.0, 
+      :created_at => @t)
+      
+    p3 = @pg.create_product(@fc.feed_id, "SkuPoo3", "mens pants", @b.name, @fc.feed_category, 
+      @fc.feed_subcategory, @fc.feed_product_group, 100.0, :sale_price => 90.0, 
+      :created_at => @t)    
+
+    p4 = @pg.create_product(@fc.feed_id, "SkuPoo4", "womens pants", @b.name, @fc.feed_category, 
+      @fc.feed_subcategory, @fc.feed_product_group, 100.0, :sale_price => 90.0, 
+      :created_at => @t)
+      
+    matches = users(:chad).matching_products
+    assert_equal 3, matches.length
+    # Make sure department kids is not in the list
+    matches.each { |p| assert p.department.value != Department::DEPT_KIDS if p.department }
+  end
     
   
   def test_make_sure_email_summary_generated

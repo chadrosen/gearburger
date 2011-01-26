@@ -331,25 +331,43 @@ class User < ActiveRecord::Base
 
     # Add some extra data objects to the result
     q = q.includes([:category, :brand])
-        
-    # Geqt the results for the null departments case
-    null_departments = q.where("department_id IS NULL")
-        
-    # Do the query again but this time filter adding departments
-    user_departments = q.where(:department_id => user.departments)
-            
-    # Return union of both arrays
-    r = null_departments.all | user_departments.all
+  
+    # There is now a set of rules we use when applying departments to the product
+    # matching rules on a user
+    results = []
     
+    if user.departments.empty?
+      # If the user didn't supply any departments use the empty department case
+      # IE department_id IS NULL
+      results = q.where("department_id IS NULL").all
+      
+    elsif user.departments.length == 1 && user.departments[0].value == Department::DEPT_KIDS
+      # In the case where the user only has kids ONLY show them kids.
+      # Do not show them department_id IS NULL
+      results = q.where(:department_id => user.departments).all
+    else
+      # There is some combination of departments [mens, womens] or [mens, kids] or [womens, kids]
+      # Join the results from this query with null results
+      
+      # Get the results for the null departments case
+      null_departments = q.where("department_id IS NULL")
+
+      # Do the query again but this time filter adding departments
+      user_departments = q.where(:department_id => user.departments)
+
+      # Return union of both arrays
+      results = null_departments.all | user_departments.all      
+    end
+        
     # ?
     # TODO: Figure out how to order the final merged result
     # :order => "(retail_price - sale_price) / retail_price DESC")
     #result.sort_by { |p| (p.retail_price - p.sale_price) / retail_price }
     
     # If there's a limit, limit the result set
-    return limit ? r[0...limit] : r
+    return limit ? results[0...limit] : results
   end
-  
+          
   def self.get_eligible_users(options = {})
     # Get all of the active users that want the email..
     

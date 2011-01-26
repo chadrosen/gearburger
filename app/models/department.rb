@@ -8,6 +8,12 @@ class Department < ActiveRecord::Base
   validates_presence_of :name, :value
   validates_inclusion_of :active, :in => [true, false]
   validates_uniqueness_of :name, :value
+  
+  # A set of constants representing the possible departments
+  DEPT_NULL = "null"
+  DEPT_KIDS = "kid"
+  DEPT_MENS = "men"
+  DEPT_WOMENS = "women"
 
   def self.get_value(product_name, feed_category, feed_subcategory, feed_product_group)
     text = "#{product_name} #{feed_category} #{feed_subcategory} #{feed_product_group}"
