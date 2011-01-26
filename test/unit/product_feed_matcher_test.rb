@@ -137,7 +137,7 @@ class ProductFeedMatcherTest < ActiveSupport::TestCase
   
   def test_non_matching_department_case
 
-    # Create a product that I know the user has
+    # Create a product that I know the user doesn't have
     p = @pg.create_product(@fc.feed_id, "SkuPoo", "Foo Bar - Kids", @b.name, @fc.feed_category, 
       @fc.feed_subcategory, @fc.feed_product_group, 100.0, :sale_price => 90.0, 
       :created_at => @t)
@@ -148,6 +148,31 @@ class ProductFeedMatcherTest < ActiveSupport::TestCase
     assert_equal 0, matches.length
     
   end
+  
+  def test_nil_department_case_matches
+    
+    # Create 2 products that I know the user has
+    p1 = @pg.create_product(@fc.feed_id, "SkuPoo1", "PIGS!!", @b.name, @fc.feed_category, 
+      @fc.feed_subcategory, @fc.feed_product_group, 100.0, :sale_price => 90.0, 
+      :created_at => @t)    
+
+    p2 = @pg.create_product(@fc.feed_id, "SkuPoo2", "MONKEYS!!", @b.name, @fc.feed_category, 
+      @fc.feed_subcategory, @fc.feed_product_group, 100.0, :sale_price => 90.0, 
+      :created_at => @t)
+      
+    # Create a product that I know the user doesn't have
+    p3 = @pg.create_product(@fc.feed_id, "SkuPoo3", "Foo Bar - Kids", @b.name, @fc.feed_category, 
+      @fc.feed_subcategory, @fc.feed_product_group, 100.0, :sale_price => 90.0, 
+      :created_at => @t)
+      
+    assert_nil p1.department
+    assert_nil p2.department
+          
+    matches = @u.matching_products
+    assert_equal 2, matches.length    
+    assert_equal [p1, p2], matches
+  end
+    
   
   def test_make_sure_email_summary_generated
 

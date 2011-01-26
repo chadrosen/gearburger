@@ -330,16 +330,16 @@ class User < ActiveRecord::Base
     q = q.where("previous_sale_price = 0.0 OR sale_price < previous_sale_price")
 
     # Add some extra data objects to the result
-    q.includes([:category, :brand])
-    
-    # Get the results for the null departments case
-    result = q.where("department_id IS NULL").all
-    
+    q = q.includes([:category, :brand])
+        
+    # Geqt the results for the null departments case
+    null_departments = q.where("department_id IS NULL")
+        
     # Do the query again but this time filter adding departments
-    result2 = q.where(:department_id => user.departments).all
-    
+    user_departments = q.where(:department_id => user.departments)
+            
     # Return union of both arrays
-    r = result | result2
+    r = null_departments.all | user_departments.all
     
     # ?
     # TODO: Figure out how to order the final merged result
