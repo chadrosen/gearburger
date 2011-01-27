@@ -93,7 +93,7 @@ module AlertGenerator
       
       # Negative sales are adjustments not sales..
       # TODO: Do I want to key off the transaction_id instead of using negative?
-      sale.sale_type = :adjustment if sale.transaction_amount < 0
+      sale.sale_type = Sale::TYPE_ADJUSTMENT if sale.transaction_amount < 0
               
       # Sales for avantlink are recorded in mountain time..
       Time.zone = "Mountain Time (US & Canada)"

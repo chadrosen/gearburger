@@ -74,8 +74,10 @@ module Admin
       
       # Get our totals (not avantlink) so we can make sure things are lining up
       @clicks = Click.count(:conditions => ["created_at BETWEEN ? AND ?", @start_date.getutc, @end_date.getutc])
-      @sales = Sale.count(:conditions => ["sale_type = ? AND transaction_time BETWEEN ? AND ?", :sale, @start_date.getutc, @end_date.getutc])
-      @returns = Sale.count(:conditions => ["sale_type = ? AND transaction_time BETWEEN ? AND ?", :adjustment, @start_date.getutc, @end_date.getutc])
+      @sales = Sale.count(:conditions => ["sale_type = ? AND transaction_time BETWEEN ? AND ?", 
+        Sale::TYPE_SALE, @start_date.getutc, @end_date.getutc])
+      @returns = Sale.count(:conditions => ["sale_type = ? AND transaction_time BETWEEN ? AND ?", 
+        Sale::TYPE_ADJUSTMENT, @start_date.getutc, @end_date.getutc])
       @revenue = Sale.sum(:total_commission, :conditions => ["transaction_time BETWEEN ? AND ?", @start_date.getutc, @end_date.getutc])
       
       @users = User.where(:created_at => (@start_date.getutc...@end_date.getutc) ).order("updated_at DESC").all      
@@ -332,8 +334,8 @@ module Admin
       c = UserProductEmail.count(:group => g[:upe], :include => [:user], :conditions => {:clicked => true, :sent_at => time_range })
 
       # tx time queries
-      s = Sale.count(:group => g[:tx], :include => [:user], :conditions => {:sale_type => :sale, :transaction_time => time_range })
-      ret = Sale.count(:group => g[:tx], :include => [:user], :conditions => {:sale_type => :adjustment, :transaction_time => time_range })
+      s = Sale.count(:group => g[:tx], :include => [:user], :conditions => {:sale_type => Sale::TYPE_SALE, :transaction_time => time_range })
+      ret = Sale.count(:group => g[:tx], :include => [:user], :conditions => {:sale_type => Sale::TYPE_ADJUSTMENT, :transaction_time => time_range })
       rev = Sale.sum(:total_commission, :group => g[:tx], :include => [:user], :conditions => {:transaction_time => time_range })
 
       # Put the data in hashes so we can look it up by group
