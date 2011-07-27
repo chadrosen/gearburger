@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Gear Burger tracks the products
+      you want from the brands you like and sends you an e-mail when they go on sale."/>
+    <meta name="keywords" content="gear, Gear Burger, GearBurger, snowboard, ski, mountain climbing"/>
+    <title>Gear Burger</title>
+
+    <%= javascript_include_tag "mootools-core-1.3-full-compat" %>
+    <%= javascript_include_tag "mootools-more" %>
+    <%= javascript_include_tag "overlay" %>
+    <%= javascript_include_tag "modal" %>
+    <%= javascript_include_tag "rails" %>
+    <%= javascript_include_tag "global" %>
+    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "user" %>
+
+    <%= stylesheet_link_tag "application" %>
+    <%= stylesheet_link_tag 'buttons.css', :media => 'screen, projection' %>
+
+    <%= yield(:head) %>
+
+    <script type="text/javascript" charset="utf-8">
+      <% if @current_user %>
+        var logged_in = true;
+      <% else %>
+        var logged_in = false;
+      <% end %>
+    </script>
+
+    <link rel="icon" type="image/gif" href="/images/favicon.ico" />
+
+    <% if Rails.env.to_s == "production" %>
+    <%# Below is a meta tag for google webmaster tools %>
+    <meta name="verify-v1" content="A9F4pfAOr8kT49hLj6MPFSpL/72el9mUPcQ5PExAkAY=" />
+    <meta name="verify-v1" content="WRx36qPy368jWSIfCT71IjSWzMpFK4KnuRimXk7HsuY=" />
+    <% end %>
+  </head>
+
+  <body id="<%= controller.controller_name %>_<%= controller.action_name %>">
+
+    <div id="root">
+      <div id="header">
+        <div id="header_content">
+          <div id="logo">
+            <% if @current_user %>
+              <%= link_to image_tag('gearburger_horz_white.png', :class => 'logo_image'),
+                user_url(@current_user), {:class => 'logo_image'} %>
+            <% else %>
+              <%= link_to image_tag('gearburger_horz_white.png', :class => 'logo_image'),
+                root_url, {:class => 'logo_image'} %>
+            <% end %>
+          </div>
+          <div id="right_nav">
+            <div class="nav_section nav_button">
+              <% if @current_user %>
+                <%= link_to "Sign out", logout_url, :id => "logout_button" %>
+              <% else %>
+                <%= link_to "Login", login_url, :id => "login_button" %>
+              <% end %>
+            </div>
+            <% if @current_user and @current_user.fb_user_id %>
+            <div class="nav_section">
+              <%= image_tag("http://graph.facebook.com/#{@current_user.fb_user_id}/picture",
+                :id => "fb_profile_pic", :alt => "Your picture") %>
+            </div>
+            <% end %>
+            <% if @current_user and !@current_user.fb_user_id %>
+            <div class="nav_section nav_button">
+              <fb:login-button onlogin="after_fb_login('/fb_login');"
+                background="dark" perms="email">
+                <fb:intl>Connect</fb:intl>
+              </fb:login-button>
+            </div>
+            <% end %>
+            <div class="nav_section nav_button">
+              <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Ffacebook.com%2FGearBurger&amp;layout=button_count&amp;show_faces=false&amp;action=like&amp;font=arial&amp;colorscheme=dark"
+              scrolling="no" frameborder="0" id="fb_like" allowTransparency="true"></iframe>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+      <div id="tabs"></div>
+      <div id="content"><%= yield %></div>
+      <div id="root_footer"></div>
+    </div>
+
+    <div id="footer">
+      <ul id="menu">
+        <li class="nav_border">
+          <div class="title">Gear Burger</div>
+          <div class="social_network_container">
+            <img src="/images/twitter.png" alt="Follow us on Twitter"/>
+             <%= link_to "Follow us on Twitter", "http://twitter.com/gearburger" %>
+          </div>
+          <div class="social_network_container">
+            <img src="/images/facebook.png" alt="Become a fan on Facebook"/>
+             <%= link_to "Become a fan on Facebook", "http://www.facebook.com/pages/Gear-Burger/127166921453" %>
+          </div>
+        </li>
+        <li class="nav_border">
+          <div class="title">You</div>
+          <table>
+            <tr>
+              <td>
+              <% if @current_user %>
+                <%= link_to "My Account", user_url(@current_user) %>
+              <% else %>
+                <%= link_to "My Account", root_url %>
+              <% end %>
+              </td>
+              <td><%= link_to "My Categories", item_edit_url("categories") %></td>
+            </tr>
+            <tr>
+              <td><%= link_to "My Brands", item_edit_url("brands") %></td>
+              <td><%= link_to "My Departments", item_edit_url("departments") %></td>
+            </tr>
+            <tr>
+              <td><%= link_to "Account Preferences", account_preferences_url %></td>
+              <td>
+                <% if @current_user %>
+                &nbsp;
+                <% else %>
+                <%= link_to "Lost Password", lost_password_url %>
+                <% end %>
+              </td>
+            </tr>
+
+          </table>
+        </li>
+        <li class="nav_item">
+          <div class="title">Us</div>
+          <table>
+            <tr>
+              <td><%= link_to "FAQ", faq_url %></td>
+              <td><%= link_to "Blog", "http://menu.gearburger.com" %></td>
+            </tr>
+            <tr>
+              <td><%= link_to "About", about_url %></td>
+              <td><%= mail_to "info@gearburger.com", "Contact", :encode => "javascript" %></td>
+            </tr>
+            <tr>
+              <td><%= link_to "Privacy", privacy_url %></td>
+              <td><%= link_to "Gear Guide", gearguide_url %></td>
+            </tr>
+          </table>
+        </li>
+      </ul>
+    </div>
+
+    <%# Ignore google analytics except for production %>
+    <% if Rails.env.to_s == "production" %>
+    <!-- Google Code for Gear Burger Remarketing List -->
+    <script type="text/javascript">
+     /* <![CDATA[ */
+     var google_conversion_id = 1066903625;
+     var google_conversion_language = "en";
+     var google_conversion_format = "3";
+     var google_conversion_color = "666666";
+     var google_conversion_label = "jnfbCK-O6QEQydDe_AM";
+     var google_conversion_value = 0;
+     /* ]]> */
+     </script>
+     <script type="text/javascript"
+     src="http://www.googleadservices.com/pagead/conversion.js">
+     </script>
+     <noscript>
+     <div style="display:inline;">
+     <img height="1" width="1" style="border-style:none;" alt=""
+     src="http://www.googleadservices.com/pagead/conversion/1066903625/?label
+     =jnfbCK-O6QEQydDe_AM&amp;guid=ON&amp;script=0"/>
+     </div>
+     </noscript>
+
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+
+    <script type="text/javascript">
+      try {
+        var pageTracker = _gat._getTracker("UA-9179162-1"); pageTracker._trackPageview();
+      } catch(err) {}
+    </script>
+    <% end %>
+
+    <%= yield(:body_scripts) %>
+
+    <div id="login_modal_form" class="hidden">
+      <div class="left">
+        <%= form_tag login_url do -%>
+          <div>
+            <%= label_tag 'email' %>
+            <%= text_field_tag "email", @email, {:class => "email", :maxLength => 100} %>
+          </div>
+          <div>
+            <%= label_tag 'Password' %>
+            <%= password_field_tag 'password', nil, {:class => "password", :maxLength => 40} %>
+          </div>
+          <div id="rm_container">
+            <%= check_box_tag 'remember_me', '1', @remember_me %> Remember me
+          </div>
+          <%= hidden_field_tag "u", @next_url %>
+          <%= submit_tag "Login", {:class => "submit"} %>
+          <fb:login-button onlogin="after_fb_login('/fb_login');" background="dark" perms="email">
+            <fb:intl>Connect</fb:intl>
+          </fb:login-button>
+        <% end -%>
+      </div>
+      <div class="left" id="get_started">
+        <h3>Create a new Gear Burger account</h3>
+        <p>Heck yes I want great gear!</p>
+        <input type="button" class="submit" value="Get Started!" id="create_account_link"/>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div id="fb-root"></div>
+    <script src="http://connect.facebook.net/en_US/all.js"></script>
+    <script>
+        FB.init({appId: <%= OPTIONS[:facebook_app_id] %>, status: true, cookie: true, xfbml: true});
+    </script>
+  </body>
+</html>
